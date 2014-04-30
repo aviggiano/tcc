@@ -1,15 +1,3 @@
-history_filename <- "history.csv"
-items_filename <- "items.csv"
-customer_filename <- "customer.csv"
-brand_filename <- "brand.csv"
-color_filename <- "color.csv"
-
-history <- read.csv(history_filename, as.is=TRUE)
-items <- read.csv(items_filename, as.is=TRUE)
-customers <- read.csv(customer_filename, as.is=TRUE)
-brand <- read.csv(brand_filename, as.is=TRUE)
-color <- read.csv(color_filename, as.is=TRUE)
-
 size <- function(x.df) {
     length(x.df[,1])
 }
