@@ -1,0 +1,741 @@
+brand_id,brand
+1,Alpen Pass
+2,AND1
+3,Arena
+4,Asics
+5,Azteq
+6,Babolat
+7,Barbedo
+8,Black Diamond
+9,Bull Terrier
+10,Bullys
+11,Caloi
+12,Columbia
+13,Conquista
+14,Curtlo
+15,DC Shoes
+16,Deuter
+17,Dropboards
+18,Element
+19,Everlast
+20,FCS
+21,Globe
+22,Head
+23,Hurley
+24,Intac
+25,Lorpen
+26,Lotto
+27,Mercur
+28,Mizuno
+29,New Balance
+30,Nixon
+31,Ogio
+32,Olympikus
+33,Penalty
+34,Petzl
+35,Polar
+36,Pro Lite
+37,Quiksilver
+38,Reebok
+39,Reef
+40,Rip Curl
+41,Salomon
+42,Saucony
+43,Sea to Summit
+44,Sister Outdoors
+45,Solo
+46,Speedo
+47,Suunto
+48,The North Face
+49,Timberland
+50,Topper
+51,Trilhas & Rumos
+52,UFC
+53,Umbro
+54,Urgh
+55,Wilson
+56,Nike
+57,Tendon
+58,Shimano
+59,Prowell
+60,Cateye
+61,Epic Line
+62,Billabong
+63,Coghlan's
+64,Puma
+65,Adidas
+66,Mikasa
+67,Etnies
+68,Polar Bottle
+69,MCD
+70,New Era
+71,Santa Cruz
+72,Ricta
+73,Bullet
+74,Independent
+75,Drop Dead
+76,Creature
+77,Child
+78,Change
+79,Nautika
+80,Coleman
+81,Crail
+82,Moog
+83,Agacê
+84,Type-S
+85,5Boro
+86,Jessup
+87,Hardply
+88,Electron
+89,Topeak
+90,Scott
+91,GoldCoast
+92,Sims
+93,Gordon & Smith
+94,Tracker USA
+95,Seismic
+96,Moska
+97,Track Bikes
+98,Creatures of Leisure
+99,Thule
+100,Xtrax Sports
+101,Victorinox
+102,Kalf
+103,Roxy
+104,Jetbag
+105,...Lost
+106,KTM
+107,Maglite
+108,Tasco
+109,Celestron
+110,Bushnell
+111,Surf Prescriptions
+112,BXEL
+113,Sharp Eye
+114,Stand up
+115,Mormaii
+116,Exustar
+117,Sigma
+118,Lazer
+119,Lake
+120,Six Gear
+121,Tracker
+122,Rusty
+123,Hang Loose
+124,Volcom
+125,Kampa
+126,Hi-Tec
+127,C1rca
+128,Kenner
+129,Kalapalo
+130,Hang Ten
+131,Fox
+132,ASW
+133,GoPro
+134,Gorilla Grip
+135,X-Trak
+136,Miss Sirena
+137,Alpinestars
+138,Redley
+139,Vans
+140,Tranz-X
+141,Converse
+142,Bio Bike
+143,Mac Boot
+144,Nirve
+145,Vento by Nômade
+146,Milipol
+147,Pretorian
+148,Torian
+149,Camp
+150,Edelweiss
+151,Henri Trampolim
+152,KanuLock
+153,HandiRack
+154,Waterman
+155,KoleGear
+156,Fivefingers
+157,Exposis
+158,Braddock
+159,Leatt
+160,Acerbis
+161,Wirtz
+162,Smith
+163,Zero
+164,Mob
+165,Hideout 
+166,Mor
+167,Hyper
+168,Dakine
+169,ACTE Sports
+170,Kpaloa
+171,Keiko
+172,Kenkorp
+173,Bad Boy
+174,Red Nose Fight
+175,High Sierra
+176,Koral
+177,Kona
+178,MKS
+179,Shift
+180,IMS
+181,O'neal
+182,Polisport
+183,Pro Taper
+184,4climb
+185,Stocovich
+186,One
+187,Hart and Huntington
+188,Six Six One
+189,Rudel
+190,Fly Racing
+191,Thor
+192,Unit
+193,Dragon
+194,EVS
+195,THH
+196,Tapout
+197,WG
+198,Go Easy
+199,Guepardo
+200,Oakley
+201,Evoke
+202,Fish
+203,Palisades
+204,Skullcandy
+205,Penny
+206,H2O Audio
+207,Hydro
+208,Fila Skates
+209,Memo
+210,Asterisk
+211,PRO Circuit
+212,Evolubike
+213,Bones
+214,Intex
+215,Koston
+216,Highland
+217,Red Bull Racing - F1
+218,Red Bull Racing - Stock Car
+219,Red Bull X-Fighters
+220,Red Bull Media House
+221,Integralmédica - Body Size
+222,Integralmédica - VO2
+223,Integralmédica - Darkness
+224,Nutricé
+225,Universal Nutrition
+226,Nutrilatina - Linolen
+227,Nutrilatina - Age
+228,Red Bull Brasil - Futebol
+229,Red Bull Scuderia Toro Rosso
+230,Durban
+231,Dahon
+232,Cobra D'agua
+233,Integralmédica
+234,Snake
+235,Syntrax
+236,AST Sports
+237,Revolution
+238,NeoNutri
+239,Probiótica
+240,Bike Easy
+241,Verden
+242,Barzi Motors
+243,Labrada Nutrition
+244,Pacific Health
+245,Planet For Fitness
+246,Stacker 2
+247,GAT
+248,Arnold Nutrition
+249,New Advance
+250,Krux
+251,Ultra Safe
+252,HB
+253,Herchcovitch; MCD
+254,Yerbah
+255,Hidro 2
+256,Eko
+257,Performance Nutrition
+258,Starter
+259,Dream Fitness
+260,Wenger
+261,Oxbike
+262,Optimum Nutrition
+263,Dymatize Nutrition
+264,Prolab
+265,Nutrex
+266,ABB Performance
+267,Stem Pharmaceutical
+268,Kinetron
+269,US Boards
+270,Atlhetica Evolution
+271,Atlhetica
+272,VitaminLife
+273,T-Force
+274,ZFlex
+275,Wood Light
+276,MusclePharm
+277,Champion Nutrition
+278,BSN
+279,Eclectic
+280,Superga
+281,Totem
+282,Midway
+283,O'neill
+284,Inner Armour
+285,SDC Nutrition
+286,Harbinger
+287,KT Tape
+288,Blender Bottler
+289,Dainese
+290,SKL
+291,Solaris
+292,Allmax Nutrition
+293,Nature's Best
+294,Next Proteins
+295,BNRG - Bio Nutritional
+296,Supreme Protein
+297,CytoSport
+298,Adaptogen Science
+299,Body Action
+300,Basthianna
+301,Airwalk
+302,Niggli Pads
+303,K-swiss
+304,Polimet
+305,Kikos
+306,Clans
+307,Supflex
+308,Fila
+309,Shop 126
+310,Nutrilatina - Clinical
+311,HD
+312,Blue Man
+313,Juice
+314,Vex By Dafra
+315,Gibbon Slacklines
+316,Sunny Wheel
+317,Speedo Nutrition
+318,ProN2
+319,Basic Nutrition
+320,Probiótica - Professional
+321,Ferrari
+322,B&W
+323,Kanui
+324,First Bike
+325,G-Unit
+326,Gaspari Nutrition
+327,Axis Labs
+328,VPX Sports
+329,New Whey Nutrition
+330,NeoCell
+331,Naturally More
+332,Red Bull Limited Edition
+333,Tour de France
+334,Sunplim
+335,Jumplim
+336,Mormaii Saúde - Solar Sport
+337,Mormaii Saúde - Vulcanus
+338,Mormaii Saúde - Botanikè
+339,Singing Rock
+340,Sticky Bumps
+341,Shapers Fins
+342,Elleven
+343,Protek
+344,Sing Wa
+345,Pró Roll
+346,Carb Boom!
+347,Linus Bike
+348,Weslo
+349,Image
+350,Proform
+351,Nordictrack
+352,Weider
+353,Addict
+354,RVCA
+355,EVA
+356,Reserva
+357,Seasub
+358,Twin Air
+359,Onitsuka Tiger
+360,Newton Ball
+361,Go Run
+362,Mipow
+363,Rubbermaid
+364,Bull Motors
+365,ABA Boards
+366,Birdhouse
+367,Abec 11
+368,Vibe Plate
+369,Bobike
+370,Olli
+371,Relaxmedic
+372,Serfas
+373,Mormaii Saúde
+374,Liga Trucks
+375,Echolife
+376,Perky
+377,Sexy Machine
+378,Wet Dreams
+379,Pro Tec
+380,Wöllner
+381,Go Outside
+382,Oregon
+383,Vibe
+384,Garmin
+385,Colli
+386,Oh Boy
+387,LAS
+388,Connex
+389,We Wood
+390,Renault
+391,Mlife
+392,Body Nutry
+393,Silver Trucks
+394,Phanton Hardware
+395,FKD Bearings
+396,Traffic Skateboards
+397,Flip Skateboards
+398,Nitech Nutrition
+399,Max Titanium
+400,Safelight
+401,Electric
+402,Road Rider
+403,OJ
+404,Prince
+405,Renthal
+406,Tutto Moto
+407,Kraft
+408,Bell
+409,Live Skateboards
+410,Arai
+411,Metallum
+412,Filtrate
+413,Houston Bikes
+414,Maxinutri
+415,Bollé
+416,Bleckmann
+417,Twinlab
+418,Darkstar
+419,Speed Demons
+420,Blind
+421,Almost
+422,Cliché
+423,Enjoi
+424,Superior
+425,Tensor
+426,Race Tech
+427,Shoei
+428,Perfect Labs
+429,Skechers
+430,LS2
+431,No Risk
+432,AGV
+433,Xtenex
+434,Nutrilatina
+435,X-Pharma
+436,Fast Nutrition
+437,Barlean's
+438,Sundown
+439,Wagon
+440,Synthesize
+441,Bodybuilders
+442,Dynamic Lab
+443,BPI Sports
+444,Designer
+445,American Line Supplements
+446,Jansport
+447,Woom
+448,Hammer Nutrition
+449,EAS
+450,Herbarium
+451,Ride Skateboard
+452,Shark Helmets
+453,Zeus Helmets
+454,Takinutri
+455,MHP
+456,Black Sheep
+457,Mentex
+458,Fun Light
+459,Muscle Tech
+460,LifeCaps
+461,Oh Yeah Nutrition
+462,Rainha
+463,Lupo
+464,Two Brothers
+465,Katigua
+466,Smart Life
+467,RMX
+468,Shimano PRO
+469,Star
+470,Stamp
+471,Gatorade
+472,Eleven
+473,Juice It
+474,SS-Superior Suplements
+475,OH2 Nutrition
+476,Nutraway
+477,Nutrition Solutions
+478,Power Supplements
+479,Salto's
+480,Intlab
+481,Orient Mix
+482,HJC
+483,Nasa
+484,Dragon Rider
+485,Furious
+486,Kiussi
+487,BikeGlow
+488,Pró Premium Line
+489,Cimed
+490,Kronik
+491,Boulevard
+492,Wigwam
+493,Texx
+494,TSG
+495,Spank
+496,Earthship
+497,Budô
+498,ARX
+499,V8 Skateboards
+500,Venture Trucks
+501,LA Sportiva
+502,Aqua Sphere
+503,Oceano Fitness
+504,Kin Bike
+505,Oceano Bike
+506,Yeva
+507,Houston Fitness
+508,Chariot
+509,Öus
+510,Mulher Elástica
+511,Notiluca
+512,Arnette
+513,Aragäna
+514,Two Dogs
+515,Salsa Sports
+516,Alto Giro
+517,Armadillo
+518,Body For Sure
+519,California Sport
+520,CAPI
+521,CCM
+522,Kiminis
+523,Plié
+524,Vestem
+525,Hydrapak
+526,Kenda
+527,Karakal
+528,Yonex
+529,Spira
+530,Muvin Fitness
+531,X-Terra
+532,ProKennex
+533,TopSpin
+534,Dunlop
+535,Volkl
+536,Banana Boat
+537,Energizer
+538,Gamma
+539,Gioco
+540,Luxilon
+541,Signum Pro
+542,Sonic
+543,Toalson
+544,Tourna
+545,Pró Spin
+546,Slazenger
+547,LCM
+548,Spin
+549,Kangoo Jumps
+550,Unique Tourna
+551,BallPort
+552, Nick Bollettieri
+553,TenisBrasil
+554,KBA
+555,Vollo
+556,Drop Shot
+557,SKLZ
+558,Beach Bike
+559,Jeep
+560,Zebra
+561,Hocks
+562,E-Club
+563,Powerslide
+564,Undercover
+565,Rollerblade
+566,Kizer
+567,Xsjado
+568,USD
+569,Movimento Brasil
+570,Punch sports
+571,Dragão
+572,USP Labs
+573,Pro Tork
+574,Nike SB
+575,Nitech Sports
+576,Eveready
+577,X-Fusion
+578,Powell Peralta
+579,Mini Logo
+580,Monsterball
+581,Chá Mais
+582,West Coast
+583,Gu Sports
+584,Equaliv
+585,New Skate
+586,Johnson
+587,DLK
+588,Metalmix
+589,Muvin Natação
+590,Muvin Fight
+591,Zéfal
+592,JS
+593,Komunity
+594,Ocean Earth
+595,Lez a Lez
+596,Keds
+597,Givi
+598,Simon Anderson
+599,4Fun Skateboards
+600,Token
+601,Harley Davidson
+602,Red Nose Fitness
+603,Ahead Sports
+604,Emery
+605,SRS Surboards
+606,Mrs Candy
+607,Mega Ramp
+608,Sandro Dias
+609,Tail Devil
+610,Next
+611,CDR
+612,Snapy
+613,Tropical Brasil
+614,Al Merrick
+615,Ha Ha Ha
+616,Ozel
+617,WaveGrip
+618,Airoh
+619,Ixon
+620,Evos
+621,Fischer
+622,Fast Skates
+623,Funkier
+624,Uvex
+625,Nathor
+626,Cressi
+627,Loucos e Santos
+628,Etonic
+629,Mares
+630,Chantal
+631,Thorlos
+632,Mayna
+633,Miriam
+634,Nice One
+635,Levi’s Skateboarding
+636,Unique
+637,Butterfly
+638,Stiga
+639,Nassau
+640,Fast Ball
+641,Power
+642,Penn
+643,Srixon
+644,Porta Medalhas
+645,McNett
+646,Zip Tech
+647,Master
+648,LP
+649,Wrist
+650,Max Wax
+651,Princeton Tec
+652,BagBoy
+653,Revista Tênis
+654,Meyer Tênis
+655,Pucket
+656,Converse Skateboard
+657,O'neal Fitness
+658,Refactor
+659,E-Totem
+660,Eurox
+661,6AM
+662,Gaerne
+663,Leatherman
+664,Sog
+665,Gerber
+666,Led Lenser
+667,Full Fighter
+668,Rubber Sticky
+669,JC
+670,Punchtown
+671,Clinch Gear
+672,Caju Brasil
+673,Infighting
+674,Pretorian Fitness
+675,X-1 Audio
+676,Timex
+677,Converse Premium
+678,Adidas Originals
+679,Scorpion
+680,Sunthrice
+681,Hagil Wheels
+682,Power Light
+683,LUC
+684,Black Flea
+685,Diesel
+686,Fossil
+687,Michael Kors
+688,Guess
+689,Mondaine
+690,Seculus
+691,Throwdown
+692,Northpak
+693,Venum
+694,Alpinestars Cycling
+695,Cep
+696,Camelbak
+697,Sevylor
+698,Abu Garcia
+699,Berkley
+700,DX-3
+701,Troy Lee
+702,Pocket Pistols
+703,Shakespeare
+704,Backyardigans
+705,MoveGreen
+706,Eastpak
+707,Mar Cristal
+708,Bridgestone
+709,Tito Bikes
+710,Real Skateboards
+711,Chocolate Skateboards
+712,Girl Skateboards
+713,Spitfire
+714,Pró Bike
+715,Kirra
+716,BR Parts
+717,Guga Kuerten
+718,Fox Ciclismo
+719,Excel
+720,Lay Back
+721,Compressport
+722,G-Shock
+723,Kolami
+724,KHS
+725,River
+726,Cisco
+727,Flying
+728,WRX
+729,Fuji
+730,Saúde Já
+731,Atlas Brace
+732,Sunstar
+733,DR.D
+734,Speedo Fitness
+735,Limar
+736,Cepall
+737,Water Rower
+738,Mary Jane
+739,Cardo
+740,Monark
