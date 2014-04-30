@@ -14,3 +14,7 @@ color <- read.csv(color_filename, as.is=TRUE)
 
 colnames(h2) <- colnames(h1)
 history <- rbind(h1,h2)
+rm(h1)
+rm(h2)
+
+source('functions.R')
