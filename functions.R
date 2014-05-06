@@ -35,3 +35,29 @@ change_sth <- function(){
         i <- i+1
     }
 }
+
+delta <- function(x, y){
+    as.numeric(x == y)
+}
+
+sim_delta <- function(xs, ys){
+    ans <- 0
+    for(i in 1:length(xs)){
+        ans = ans + delta(xs[i], ys[i])
+    }
+    ans / length(xs)
+}
+
+sim_delta_bag_of_words <- function(xs, ys){
+    if (length(xs) == 0 || length(ys) == 0)
+        0
+    else {
+        m <- sapply(x, function(i){
+            sapply(y, function(j){
+                delta(i,j)
+            })
+        })
+        # do not count duplicates
+        sum(m[row(m)!=col(m)]) / max(length(xs), length(ys))
+    }
+}
