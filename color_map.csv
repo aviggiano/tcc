@@ -1,0 +1,139 @@
+color_name,hexa,r,g,b
+1,branco,#fff,255,255,255
+2,branco fumaça,#f5f5f5,245,245,245
+3,cinza médio,#dcdcdc,220,220,220
+4,cinza claro,#d3d3d3,211,211,211
+5,prata,#c0c0c0,192,192,192
+6,cinza escuro,#a9a9a9,169,169,169
+7,cinza,#808080,128,128,128
+8,cinza fosco,#696969,105,105,105
+9,cinza ardósia claro,#789,119,136,153
+10,cinza ardósia,#708090,112,128,144
+11,cinza ardósia escuro,#2f4f4f,47,79,79
+12,branco floral,#fffaf0,255,250,240
+13,oldlace,#fdf5e6,253,245,230
+14,marfim,#fffff0,255,255,240
+15,linho,#faf0e6,250,240,230
+16,milho claro,#fff8dc,255,248,220
+17,mamão batido,#ffefd5,255,239,213
+18,blanchedalmond,#ffebcd,255,235,205
+19,creme,#ffe4c4,255,228,196
+20,antiquewhite,#faebd7,250,235,215
+21,pêssego,#ffdab9,255,218,185
+22,branco navajo,#ffdead,255,222,173
+23,mocassim,#ffe4b5,255,228,181
+24,bege,#f5f5dc,245,245,220
+25,amarelo claro,#ffffe0,255,255,224
+26,lightgoldenrodyellow,#fafad2,250,250,210
+27,lemonchiffon,#fffacd,255,250,205
+28,caqui,#f0e68c,240,230,140
+29,dourado pálido,#eee8aa,238,232,170
+30,caqui escuro,#bdb76b,189,183,107
+31,amarelo,#ff0,255,255,0
+32,ouro,#ffd700,255,215,0
+33,dourado,#daa520,218,165,32
+34,dourado escuro,#b8860b,184,134,11
+35,oliva,#808000,128,128,0
+36,greenyellow,#adff2f,173,255,47
+37,yellowgreen,#9acd32,154,205,50
+38,olivedrab,#6b8e23,107,142,35
+39,darkolivegreen,#556b2f,85,107,47
+40,chartreuse,#7fff00,127,255,0
+41,verde grama,#7cfc00,124,252,0
+42,verde limão,#0f0,0,255,0
+43,lima,#32cd32,50,205,50
+44,verde floresta,#228b22,34,139,34
+45,greengreen,#008000,0,128,0
+46,verde escuro,#006400,0,100,0
+47,verde mar,#2e8b57,46,139,87
+48,mediumseagreen,#3cb371,60,179,113
+49,darkseagreen,#8fbc8f,143,188,143
+50,mintcream,#f5fffa,245,255,250
+51,honeydew,#f0fff0,240,255,240
+52,verde pálido,#98fb98,152,251,152
+53,verde claro,#90ee90,144,238,144
+54,verde primavera,#00ff7f,0,255,127
+55,verde primavera médio,#00fa9a,0,250,154
+56,água-marinha,#7fffd4,127,255,212
+57,mediumaquamarine,#66cdaa,102,205,170
+58,verde-azulado,#008080,0,128,128
+59,ciano escuro,#008b8b,0,139,139
+60,cadetblue,#5f9ea0,95,158,160
+61,lightseagreen,#20b2aa,32,178,170
+62,paleturquoise,#afeeee,175,238,238
+63,turquesa,#80e0d0,64,224,208
+64,turquesa médio,#47d1cc,71,209,204
+65,turquesa escuro,#00ced1,0,206,209
+66,ciano,#0ff,0,255,255
+67,ciano claro,#e0ffff,224,255,255
+68,azul celeste,#f0ffff,240,255,255
+69,azul pólvora,#b0e0e6,176,224,230
+70,azul claro,#add8e6,173,216,230
+71,azul céu,#87ceeb,135,206,235
+72,lightskyblue,#87cefa,135,206,250
+73,deepskyblue,#00bfff,0,191,255
+74,ghostwhite,#f8f8ff,248,248,255
+75,azul alice,#f0f8ff,240,248,255
+76,cornflowerblue,#6495ed,100,149,237
+77,azul royal,#4069e1,64,105,225
+78,lightsteelblue,#b0c4de,176,196,222
+79,azul aço,#4682b4,70,130,180
+80,azul furtivo,#1e90ff,30,144,255
+81,azul,#00f,0,0,255
+82,azul médio,#0000cd,0,0,205
+83,azul escuro,#00008b,0,0,139
+84,naval,#000080,0,0,128
+85,azul meia-noite,#191970,25,25,112
+86,índigo,#4b0082,75,0,130
+87,púrpura,#800080,128,0,128
+88,magenta escuro,#8b008b,139,0,139
+89,lavanda,#e6e6fa,230,230,250
+90,mediumslateblue,#7b68ee,123,104,238
+91,slateblue,#6a5acd,106,90,205
+92,darkslateblue,#483d8b,72,61,139
+93,púrpura médio,#9370db,147,112,219
+94,blueviolet,#802be2,128,43,226
+95,violeta escuro,#9400d3,148,0,211
+96,orquídea escuro,#9932cc,153,50,204
+97,orquídea médio,#ba55d3,186,85,211
+98,orquídea,#da70d6,218,112,214
+99,violeta,#ee82ee,238,130,238
+100,ameixa,#dda0dd,221,160,221
+101,thistle,#d8bfd8,216,191,216
+102,neve,#fffafa,255,250,250
+103,lavenderblush,#fff0f5,255,240,245
+104,concha,#fff5ee,255,245,238
+105,mistyrose,#ffe4e1,255,228,225
+106,rosa,#ffc0cb,255,192,203
+107,rosa claro,#ffb6c1,255,182,193
+108,palevioletred,#db7093,219,112,147
+109,mediumvioletred,#c71585,199,21,133
+110,hotpink,#ff69b4,255,105,180
+111,deeppink,#ff1493,255,20,147
+112,magenta,#f0f,255,0,255
+113,salmão,#fa8072,250,128,114
+114,coral claro,#f08080,240,128,128
+115,vermelho indiano,#cd5c5c,205,92,92
+116,rosybrown,#bc8f8f,188,143,143
+117,castanho claro,#d2b48c,210,180,140
+118,trigo,#f5deb3,245,222,179
+119,madeira,#deb887,222,184,135
+120,marrom amarelado,#f4a460,244,164,96
+121,pele,#cd853f,205,133,63
+122,laranja,#ffa500,255,165,0
+123,laranja escuro,#ff8c00,255,140,0
+124,chocolate,#d2691e,210,105,30
+125,siena,#a0522d,160,82,45
+126,saddlebrown,#8b4513,139,69,19
+127,salmão escuro,#e9967a,233,150,122
+128,salmão claro,#ffa07a,255,160,122
+129,coral,#ff7f50,255,127,80
+130,tomate,#ff6346,255,99,71
+131,jambo,#f40,255,68,0
+132,vermelho,#f00,255,0,0
+133,carmesim,#dc143c,220,20,60
+134,tijolo,#b22222,178,34,34
+135,marrom claro,#a52a2a,165,42,42
+136,vermelho escuro,#8b0000,139,0,0
+137,bordô,#800000,128,0,0
+138,preto,#000,0,0,0
