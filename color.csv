@@ -1,241 +1,241 @@
 color_id,color
-1,Preto
-2,Laranja
-3,Azul
-4,Verde
-5,Bronze
-6,Cinza
-7,Vermelho
-8,Prata
-9,Dourado
-10,Roxo
-11,Incolor
-12,NULL
-13,Amarelo
-14,Branco
-15,Rosa
-16,Verde Claro
-17,Rosa Brilhante
-18,Azul Claro
-19,Azul Marinho
-20,Fumê
-21,Verde-azulado
-22,Azul Escuro
-23,Dourado Escuro
-24,Cinza Escuro
-25,Violeta
-26,Cristal
-27,Vermelho Indiano
-28,Grafite
-29,Colorido
-30,Cinza Claro
-31,Chumbo
-32,Marrom
-33,Vermelho Escuro
-34,Azul Celeste
-35,Lilás
-36,Verde Mar Médio
-37,Bege
-38,Verde Militar
-39,Azul Real
-40,Cinza Médio
-41,Cereja
-42,Azul Céu Profundo
-43,Bordô
-44,Azul Índigo
-45,Verde Fluorescente
-46,Turquesa
-47,Salmão
-48,Salmão Escuro
-49,Marrom Rosado
-50,Rosa Forte
-51,Coral
-52,Vinho
-53,Magenta escuro
-54,Cinza Platina
-55,Magenta
-56,Cinza Mescla
-57,Laranja escuro
-58,Rosa Choque
-59,Verde Escuro
-60,Fúcia
-61,Amarelo Ouro
-62,Púrpura
-63,Limão
-64,Neon
-65,Rosa Profundo
-66,Amarelo Esverdeado
-67,Rosa Neon
-68,Aço
-69,Chocolate
-70,Amarelo Neon
-71,Ameixa
-72,Amora
-73,Verde Lima
-74,Creme
-75,Platina
-76,Azul Naval
-77,Amarelo Claro
-78,Champagne
-79,Café
-80,Marrom Claro
-81,Oliva
-82,Marrom Sela
-83,Fuligem
-84,Carmim
-85,Castanho Claro
-86,Madeira
-87,Rútilo
-88,Caramelo
-89,Camelo
-90,Rosa Claro
-91,Terracota
-92,Azul Areado
-93,Verde Amarelado
-94,Cru
-95,Verde Espectro
-96,Verde Floresta
-97,Caqui
-98,Camuflado
-99,Cinza Fosco
-100,Borgonha
-101,Abóbora
-102,Gelo
-103,Carmim Carnáceo
-104,Verde Mar
-105,Verde Grama
-106,Azul Ardósia
-107,Ferrugem
-108,Azul Cobalto
-109,Azul Aço
-110,Branco Antigo
-111,Azul Petróleo
-112,Multicor
-113,Ciano claro
-114,Marfim
-115,Verde Mar claro
-116,Azul Ardósia Escuro
-117,Salmão Claro
-118,Azul Meia-Noite
-119,Verde Mar escuro
-120,Oliva Parda
+1,preto
+2,laranja
+3,azul
+4,verde
+5,bronze
+6,cinza
+7,vermelho
+8,prata
+9,dourado
+10,roxo
+11,incolor
+12,null
+13,amarelo
+14,branco
+15,rosa
+16,verde claro
+17,rosa brilhante
+18,azul claro
+19,azul marinho
+20,fumê
+21,verde-azulado
+22,azul escuro
+23,dourado escuro
+24,cinza escuro
+25,violeta
+26,cristal
+27,vermelho indiano
+28,grafite
+29,colorido
+30,cinza claro
+31,chumbo
+32,marrom
+33,vermelho escuro
+34,azul celeste
+35,lilás
+36,verde mar médio
+37,bege
+38,verde militar
+39,azul real
+40,cinza médio
+41,cereja
+42,azul céu profundo
+43,bordô
+44,azul Índigo
+45,verde fluorescente
+46,turquesa
+47,salmão
+48,salmão escuro
+49,marrom rosado
+50,rosa forte
+51,coral
+52,vinho
+53,magenta escuro
+54,cinza platina
+55,magenta
+56,cinza mescla
+57,laranja escuro
+58,rosa choque
+59,verde escuro
+60,fúcia
+61,amarelo ouro
+62,púrpura
+63,limão
+64,neon
+65,rosa profundo
+66,amarelo esverdeado
+67,rosa neon
+68,aço
+69,chocolate
+70,amarelo neon
+71,ameixa
+72,amora
+73,verde lima
+74,creme
+75,platina
+76,azul naval
+77,amarelo claro
+78,champagne
+79,café
+80,marrom claro
+81,oliva
+82,marrom sela
+83,fuligem
+84,carmim
+85,castanho claro
+86,madeira
+87,rútilo
+88,caramelo
+89,camelo
+90,rosa claro
+91,terracota
+92,azul areado
+93,verde amarelado
+94,cru
+95,verde espectro
+96,verde floresta
+97,caqui
+98,camuflado
+99,cinza fosco
+100,borgonha
+101,abóbora
+102,gelo
+103,carmim carnáceo
+104,verde mar
+105,verde grama
+106,azul ardósia
+107,ferrugem
+108,azul cobalto
+109,azul aço
+110,branco antigo
+111,azul petróleo
+112,multicor
+113,ciano claro
+114,marfim
+115,verde mar claro
+116,azul ardósia escuro
+117,salmão claro
+118,azul meia-noite
+119,verde mar escuro
+120,oliva parda
 121,Índigo
-122,Branco Fantasma
-123,Esmeralda
-124,Oliva Escura
-125,Verde Pálido
-126,Rasta
-127,Orquídea
-128,Azul Médio
-129,Vermelho Mescla
-130,Areia
-131,Goiaba
-132,Rosa Embaçado
-133,Off White
-134,Royal
-135,Ciano escuro
-136,Azul Céu
-137,Azul Mescla
-138,Neve
-139,Branco Fumaça
-140,Jeans
-141,Cinza Ardósia
-142,Verde Mescla
-143,Azul Alfazema
-144,Vermelho Violeta Pálido
-145,Amarelo Queimado
-146,Cinza Ardósia escuro
-147,Azul Flor de Milho
-148,Coral Claro
-149,Caqui escuro
-150,Lima
+122,branco fantasma
+123,esmeralda
+124,oliva escura
+125,verde pálido
+126,rasta
+127,orquídea
+128,azul médio
+129,vermelho mescla
+130,areia
+131,goiaba
+132,rosa embaçado
+133,off white
+134,royal
+135,ciano escuro
+136,azul céu
+137,azul mescla
+138,neve
+139,branco fumaça
+140,jeans
+141,cinza ardósia
+142,verde mescla
+143,azul alfazema
+144,vermelho violeta pálido
+145,amarelo queimado
+146,cinza ardósia escuro
+147,azul flor de milho
+148,coral claro
+149,caqui escuro
+150,lima
 151,Água-marinha
-152,Uva
-153,Avelã
-154,Azul Furtivo
-155,Alizarina
-156,Ocre
-157,Pink
-158,Azul Ardósia Médio
-159,Kiwi
-160,Lavanda
-161,Tomate
-162,Azul Violeta
-163,Mostarda
-164,Verde Neon
-165,Ouro
-166,Jade
-167,Carmesim
-168,Milho Claro
-169,Laranja Gerbera
+152,uva
+153,avelã
+154,azul furtivo
+155,alizarina
+156,ocre
+157,pink
+158,azul ardósia médio
+159,kiwi
+160,lavanda
+161,tomate
+162,azul violeta
+163,mostarda
+164,verde neon
+165,ouro
+166,jade
+167,carmesim
+168,milho claro
+169,laranja gerbera
 170,Água
-171,Jabuticaba
-172,Púrpura média
-173,Turquesa Escura
-174,Cardo
-175,Verde Paris
-176,Payote
-177,Bone
-178,Cinza Ardósia claro
-179,Azul Alice
-180,Couro
-181,Marrom Amarelado
-182,Malva
-183,Pele
+171,jabuticaba
+172,púrpura média
+173,turquesa escura
+174,cardo
+175,verde paris
+176,payote
+177,bone
+178,cinza ardósia claro
+179,azul alice
+180,couro
+181,marrom amarelado
+182,malva
+183,pele
 184,Ônix
-185,Argila
-186,Castanho
-187,Cenoura
-188,Branco Navajo
-189,Listras
-190,Papoula
-191,Pêssego
-192,Framboesa
-193,Azul Beleste Brilhante
-194,Floral
-195,Onça
-196,Lavanda avermelhada
-197,Naval
-198,Canela
-199,Vermelho Violeta Médio
-200,Anil
-201,Beringela
-202,Vermelho Violeta
-203,Azul Ardósia Claro
-204,Damasco
-205,Azul Céu Claro
+185,argila
+186,castanho
+187,cenoura
+188,branco navajo
+189,listras
+190,papoula
+191,pêssego
+192,framboesa
+193,azul beleste brilhante
+194,floral
+195,onça
+196,lavanda avermelhada
+197,naval
+198,canela
+199,vermelho violeta médio
+200,anil
+201,beringela
+202,vermelho violeta
+203,azul ardósia claro
+204,damasco
+205,azul céu claro
 206,Âmbar
-207,Amêndoa
-208,Creme de Marisco
-209,Verde Primavera
-210,Violeta Escuro
-211,Girassol
-212,Água-marinha Média
-213,Rosa Mescla
-214,Azul Força Aérea
-215,Azul Camarada
-216,Dourado Pálido
-217,Amarelo Mescla
-218,Aspargo
-219,Cobre
-220,Nude
-221,Triássico
-222,Azul Aço Claro
-223,Azul Manteiga
-224,Anis
-225,Rouxinol
-226,Concha
-227,Orquídea escura
-228,Azul Cadete
-229,Mamão batido
-230,Estampado
-231,Duna
-232,Capuccino
-233,Zebra
-234,Melancia
-235,Animal Print
-236,Imbuia
-237,Muiracatiara
-238,Geométrico
-239,Poás
-240,Tribal
+207,amêndoa
+208,creme de marisco
+209,verde primavera
+210,violeta escuro
+211,girassol
+212,Água-marinha média
+213,rosa mescla
+214,azul força aérea
+215,azul camarada
+216,dourado pálido
+217,amarelo mescla
+218,aspargo
+219,cobre
+220,nude
+221,triássico
+222,azul aço claro
+223,azul manteiga
+224,anis
+225,rouxinol
+226,concha
+227,orquídea escura
+228,azul cadete
+229,mamão batido
+230,estampado
+231,duna
+232,capuccino
+233,zebra
+234,melancia
+235,animal print
+236,imbuia
+237,muiracatiara
+238,geométrico
+239,poás
+240,tribal
