@@ -40,6 +40,10 @@ delta <- function(x, y){
     as.numeric(x == y)
 }
 
+dk <- function(x,y){
+    delta(x,y)
+}
+
 sim_delta <- function(xs, ys){
     ans <- 0
     for(i in 1:length(xs)){
@@ -88,4 +92,6 @@ max_dist_color <- dist(black,white)
 
 dc <- function(color1, color2){
     dist(color1, color2) / max_dist_color
-}
+}    
+
+max_dist_price <- dist(min
