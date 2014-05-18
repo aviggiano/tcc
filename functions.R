@@ -6,6 +6,10 @@ where <- function(attr, val) {
     item[which(item[attr] == val),]
 }
 
+wheren <- function(attr,val) {
+    item[which(item[attr] != val),]
+}
+
 count.na <- function(xs) {
     length(which(is.na(xs) == TRUE))
 }
@@ -94,4 +98,8 @@ dc <- function(color1, color2){
     dist(color1, color2) / max_dist_color
 }    
 
-max_dist_price <- dist(min
+max_dist_price <- dist(min(wheren('sale_price',0)$sale_price), max(item$sale_price))
+
+dist_price <- function(x, y){
+    dist(x$sale_price, y$sale_price) / max_dist_price
+}
