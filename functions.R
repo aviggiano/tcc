@@ -3,7 +3,7 @@ size <- function(x.df) {
 }
 
 where <- function(attr, val) {
-    items[which(items[attr] == val),]
+    item[which(item[attr] == val),]
 }
 
 count.na <- function(xs) {
@@ -24,10 +24,10 @@ color_id <- function(c) {
 
 change_sth <- function(){
     i <- 1
-    n = length(items$color)
+    n = length(item$color)
     t0 <- Sys.time()
     while(i <= n) {
-        items$color[i] <- color_id(items$color[i])
+        item$color[i] <- color_id(item$color[i])
         if (i %% 1000 == 0) {
             print(i)
             print(Sys.time()-t0)
