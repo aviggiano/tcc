@@ -179,3 +179,11 @@ sim_all <- function(index1, index2){
     }
     sim_matrix[[small]][big]
 }
+
+top_N <- function(i, N=10, n=size(item)) {
+    x <- sapply(1:n, function(y) sim(item[i,],item[y,]))
+    id <- tail(which(x >= quantile(x, prob=1-N/n)), N)
+    sim <- tail(x[x >= quantile(x, prob=1-N/n)], N)
+    data.frame(ids, sims)
+}
+    
