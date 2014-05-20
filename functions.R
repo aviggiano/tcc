@@ -168,6 +168,7 @@ get_sim_matrix <- function() {
 }
 sim_matrix <- get_sim_matrix()
 
+# nao esta funfando!!! fazer sim_all(17,17) e sim 17 17
 sim_all <- function(index1, index2){
     if (index1 > index2){
         big <- index1
