@@ -161,3 +161,21 @@ sim <- function(i, j){
              sim_sale_price)
     sum(sim) / length(sim)       
 }
+
+get_sim_matrix <- function() {
+    n <- 100#size(item)
+    sapply(1:n, function(x) sapply(x:n, function(y) sim(item[x,],item[y,])))
+}
+sim_matrix <- get_sim_matrix()
+
+sim_all <- function(index1, index2){
+    if (index1 > index2){
+        big <- index1
+        small <- index2
+    }
+    else {
+        big <- index2
+        small <- index1
+    }
+    sim_matrix[[small]][big]
+}
