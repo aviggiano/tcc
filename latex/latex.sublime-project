@@ -1,0 +1,27 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"file_exclude_patterns": [
+				"*.aux",
+				"*.pdf",
+				"*.log",
+				"*.sublime-workspace",
+				"*.md",
+				"*.fdb_latexmk",
+				"*.out",
+				"*.gz",
+				"*.bb*",
+				"*.blg",
+				"*.i*",
+				"*.run*",
+				"*.toc",
+				"*-blx.bib",
+				"*.jpg",
+				"*.brf",
+				"*.lo*"
+			]
+		}
+	]
+}

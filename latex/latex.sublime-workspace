@@ -1,0 +1,486 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "requisitos.tex",
+			"settings":
+			{
+				"buffer_size": 2577,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "estado-da-arte.tex",
+			"settings":
+			{
+				"buffer_size": 9032,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "metodologia.tex",
+			"settings":
+			{
+				"buffer_size": 5142,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "cronograma.tex",
+			"settings":
+			{
+				"buffer_size": 2262,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resultados.tex",
+			"settings":
+			{
+				"buffer_size": 4527,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "objetivos.tex",
+			"settings":
+			{
+				"buffer_size": 1973,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "introducao.tex",
+			"settings":
+			{
+				"buffer_size": 2927,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bibliografia.bib",
+			"settings":
+			{
+				"buffer_size": 7835,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 201.0,
+		"selected_items":
+		[
+			[
+				"Latex",
+				"LaTeXTools: Reconfigure and migrate settings"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/media/Data/Dropbox/TCC/latex/index.tex",
+		"/media/Data/Dropbox/TCC/latex/latex.sublime-project",
+		"/media/Data/Dropbox/TCC/latex/title.tex",
+		"/media/Data/Dropbox/TCC/latex/bibliografia.bib",
+		"/media/Data/Dropbox/TCC/latex/introducao.tex",
+		"/media/Data/Dropbox/TCC/latex/old/resumo inicial/revisao.tex",
+		"/media/Data/Dropbox/TCC/latex/old/resumo inicial/index.tex",
+		"/media/Data/Dropbox/TCC/latex/objetivos.tex",
+		"/media/Data/Dropbox/TCC/latex/metodologia.tex",
+		"/media/Data/Dropbox/TCC/latex/cronograma.tex",
+		"/media/Data/Dropbox/TCC/latex/resultados.tex",
+		"/media/Data/Dropbox/TCC/latex/requisitos.tex",
+		"/media/Data/Dropbox/TCC/latex/abntex2-modelo-references.bib",
+		"/media/Data/Dropbox/TCC/latex/abntex2-modelo-trabalho-academico.tex",
+		"/usr/local/texlive/2013/texmf-dist/tex/latex/biblatex/biblatex1.sty",
+		"/media/Data/Dropbox/TCC/latex/revisao.tex",
+		"/media/Data/Dropbox/TCC/latex/img/logo_poli.jpg",
+		"/media/Data/Dropbox/TCC/latex/biblio.bib",
+		"/home/ag/git/_tcc/bibliografia.tex",
+		"/home/ag/git/_tcc/cv.sublime-project",
+		"/home/ag/git/_tcc/title.tex",
+		"/home/ag/git/cv/cv.sublime-project",
+		"/home/ag/git/cv/index.tex",
+		"/home/ag/git/_tcc/index.tex"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"semenlhantes",
+			"técnica",
+			"a fim",
+			"handbook",
+			"content-base",
+			"handbook",
+			"lops",
+			"sarwar2001item",
+			"recommendation algo",
+			"bibl",
+			"\\\\lipsum.*",
+			"lipsum",
+			"quadr",
+			"contagem",
+			"items",
+			"wei",
+			"estado da",
+			"entretanto",
+			"state",
+			"e ainda",
+			"Hybr",
+			"Hybrid",
+			"Sutheera",
+			"ítem",
+			"Collec",
+			"collec",
+			"collect",
+			"Adomavicius",
+			"item",
+			"applicat",
+			"e-comm",
+			"handbook"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"semelhantes",
+			"",
+			"itens",
+			"item"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "requisitos.tex",
+					"settings":
+					{
+						"buffer_size": 2577,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2422,
+								2422
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "estado-da-arte.tex",
+					"settings":
+					{
+						"buffer_size": 9032,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8078,
+								8078
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1701.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "metodologia.tex",
+					"settings":
+					{
+						"buffer_size": 5142,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4887,
+								4887
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1464.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "cronograma.tex",
+					"settings":
+					{
+						"buffer_size": 2262,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1332,
+								1332
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 330.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "resultados.tex",
+					"settings":
+					{
+						"buffer_size": 4527,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2292,
+								2292
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 403.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "objetivos.tex",
+					"settings":
+					{
+						"buffer_size": 1973,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								869,
+								869
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "introducao.tex",
+					"settings":
+					{
+						"buffer_size": 2927,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2766,
+								2766
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "bibliografia.bib",
+					"settings":
+					{
+						"buffer_size": 7835,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5651,
+								5651
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2146.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 201.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 184.0,
+	"status_bar_visible": true
+}

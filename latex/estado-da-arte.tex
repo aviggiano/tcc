@@ -1,0 +1,65 @@
+%!TEX root = index.tex
+\chapter[Estado da arte]{Estado da Arte}
+\label{chap:estado_da_arte}
+
+\section{Estado da arte dos problemas} % (fold)
+\label{sec:estado_da_arte_dos_problemas}
+
+O problema de recomendação pode ser formulado como se segue \cite{adomavicius2005toward}: 
+
+Seja $C$ o conjunto de todos os usuários e seja $S$ o conjunto de todos os itens que podem ser recomendadas, tais como livros, filmes ou restaurantes. Seja $u$ uma função de utilidade, que mede a utilidade do produto $s$ ao usuário $c$, ou seja, $u: C \times S \rightarrow R$, onde $R$ é um  conjunto totalmente ordenado (por exemplo, números inteiros não-negativos ou números reais dentro de um determinado intervalo). Em seguida, para cada usuário $c \in C$, queremos escolher o item $ s^\prime \in S $ que maximize a utilidade daquele usuário. Mais formalmente:
+
+\begin{equation} 
+\forall c \in C, ~ s^\prime_c = \argmax_{s \in S}{u(c,s)}
+\end{equation}
+
+Para lidar com esse problema, existem três grandes grupos de estratégias de sugestão de itens:
+
+\begin{itemize}
+\item Recomendações baseadas em conteúdo: o usuário recebe recomendações com base nas descrições dos perfis dos itens e do usuário; 
+\item Recomendações colaborativas
+\begin{itemize}
+\item Baseada em usuários: o usuário recebe recomendações de itens que pessoas com gostos e preferências semelhantes gostaram no passado;
+\item Baseada em itens: o usuário recebe recomendações de itens semelhantes aos que ele gostou no passado;
+\end{itemize}
+\item Recomendações híbridas: esses métodos combinam métodos colaborativos e métodos baseados em conteúdo.  
+\end{itemize}
+
+As estratégias de recomendação baseadas em conteúdo exploram os dados dos itens para calcular a sua relevância conforme o perfil do usuário. Suas técnicas de recomendação podem ser classificadas em dois grupos, aquelas baseadas em heurísticas ou memória -- essencialmente fazem a previsão com base em toda a coleção de itens anteriormente classificados pelos usuários -- e aquelas baseadas em modelos -- utilizam o conjunto de avaliações com o objetivo de descrever um modelo, como em uma regressão linear ou em uma rede Bayesiana. 
+
+Em sistemas baseados em conteúdo, os itens a serem recomendados podem possuir diversos atributos e formas de classificação. Em documentos como e-mails, websites ou reviews de usuários, os itens são textos sem estrutura definida e a abordagem mais comum é a de recuperação de informação -- o usuário procura por uma lista de termos desejados e o sistema retorna os textos que contém aqueles termos com maior relevância, tal como é feito em um motor de busca \cite{schafer2001commerce}. Nesses casos, calcula-se a similaridade entre documentos a partir de formulações que levam em conta as palavras ou termos escritos, como a TF-IDF ou o classificador Bayesiano \cite{lops2011content-chap3}. 
+
+Na abordagem de sistemas baseados em conteúdo, a recomendação pode ser vista como um problema de aprendizado que explora os conhecimentos sobre o usuário. Muitas vezes é recomendado que o aprendizado seja feito com base no perfil do usuário conforme o uso continuo, ao invés de forçá-lo a responder diversas perguntas demográficas \cite{wei2007survey}. Também chamado de aprendizado de máquina, o objetivo é aprender a categorizar novas informações baseadas em informações previamente adquiridas e rotuladas como interessantes ou não pelo usuário. Com estas informações em mão, é possível gerar modelos preditivos que evoluem conforme aparecem novas informações.
+
+As recomendações colaborativas baseadas em usuários, por sua vez, tentam prever a utilidade dos itens para cada usuário baseado em itens previamente avaliados por outros usuários. Mais formalmente, a utilidade $u(c,s)$ de um item $s$ para um usuário $c$ é estimada com base nas utilidades $u(c_j,s)$ propostas por usuários $c_j \in C$ que são ``similares'' ao usuário $c$. Por exemplo, em um sistema de recomendação de filmes, a fim de recomendar um título para um usuário $c$, o sistema tenta identificar ``avaliadores'' com gostos similares ao do usuário $c$, e então indica-se os filmes que os usuários $c_j$ recomendariam. De maneira análoga, as recomendações colaborativas baseadas em itens, tentam prever a utilidade $u(c,s)$ com base nas utilidades $u(c,s_j)$, dado itens $s_j \in S$ que são ``similares'' aos itens $s$ \cite{linden2003amazon}.
+
+Por fim, as recomendações híbridas combinam aspectos tanto da filtragem colaborativa (baseada em usuários ou em itens) quanto da filtragem baseada em conteúdo, com o objetivo de atingir uma melhor recomendação ou de superar problemas recorrentes nas técnicas individuais, como a dispersão de dados ou o \textit{cold start} \cite{burke2007hybrid}. 
+
+\section{Estado da arte das soluções} % (fold)
+\label{sec:estado_da_arte_das_solu_es}
+
+% section estado_da_arte_das_solu_es (end)
+Do ponto de vista do estado da arte das soluções, as variáveis de interesse estão ligadas do número de usuários no sistema, ao número de itens, ao nível de dispersão, à medida de qualidade da recomendação e ao custo computacional \cite{lee2012comparative}. 
+
+No que se refere à dependência do número de usuários, a filtragem colaborativa a base de usuários é extremamente efetiva para um baixo número de usuários, mas tem uma dependência quase constante em relação a essa quantidade. A filtragem colaborativa a base de itens é consideravelmente pior para um baixo número de usuários, mas supera todos os outros métodos baseados em memória para quantidades maiores.
+
+A dependência do número de itens é, de certa forma, oposta à de usuários: a filtragem colaborativa a base de itens é extremamente efetiva para poucos itens, mas tem uma  
+dependência quase constante no número de itens. A filtragem colaborativa baseada em usuários tem performance consideravelmente pior de início, mas supera todos os outros métodos baseados em memória para maiores quantidades de usuários.
+
+Com relação ao nível de dispersão dos dados, a filtragem baseada em usuários e a baseada em itens mostram uma dependência semelhante. Na medida de qualidade de recomendação (menor erro quadrático médio), todos os métodos de recomendação variam não-linearmente com o número de usuários, itens e nível de dispersão, e de modo geral há um \textit{trade-off} entre a acurácia e o tempo de processamento da sugestão de produtos. 
+% section estado_da_arte_dos_problemas_e_das_solu_es (end)
+
+\section{Desafios científicos e tecnológicos} % (fold)
+\label{sec:desafios_cient_ficos_e_tecnol_gicos}
+
+Um dos maiores desafios tecnológicos dos sistemas de recomendação é, atualmente, o da escalabilidade \cite{wei2007survey}. O sistema de recomendação deverá ser flexível no sentido de poder operar igualmente bem tanto em conjuntos pequenas quanto em grandes bases de dados, que podem chegar até centenas de milhões de clientes \cite{amazoncustomers} e de produtos \cite{amazonproducts}. Isso significa que as recomendações devem ser suficientemente rápidas para poderem operar em tempo real e ainda assim proverem sugestões valiosas aos usuários.
+
+Um sistema de recomendação inteligente também deve prever quando enviar uma determinada recomendação, e não agir apenas mediante requisição do cliente \cite{lops2011content}. É interessante, por exemplo, enviar recomendações de produtos com descontos a usuários que estão há algum tempo inativos no site, para que eles retornem a comprar. Da mesma forma, um sistema inteligente poderia sugerir produtos do lar a um usuário detectado como recém-casado.
+
+Outro desafio científico ainda em estágio inicial de pesquisa é referente à diversidade das recomendações realizadas, também chamado de excesso de especialização \cite{adomavicius2005toward}. Ao mesmo tempo que o sistema deve apresentar itens similares ao que o usuário está procurando, ele também deve sugerir itens que o usuário desconheça ou que nem saiba que poderiam interessá-lo. 
+
+Por fim, um desafio científico que este trabalho enfrentará é a execução de um sistema híbrido do ponto de vista de efemeridade e persistência, ao construir um modelo de recomendação que integre as preferências de curto e longo termo dos usuários \cite{schafer1999recommender}. A análise dos dados de compras anteriores, bem como de dados demográficos, deverá portanto ser incorporada à análise de característica dos produtos, a fim de enriquecer a acurácia do sistema \cite{wei2007survey}.
+
+Esse tópico de pesquisa inclui ainda diversos desafios científicos e tecnológicos que não foram aqui detalhados, tais como a preservação da privacidade dos usuários, a criação de modelos de recomendação inter-domínios, o desenvolvimento de sistemas descentralizados operando em redes computacionais distribuídas, a otimização de sistemas para sequências de recomendações, a otimização de sistemas para dispositivos móveis e outros. Entretanto, esses desafios são menos relevantes porque não se aplicam diretamente aos objetivos do nosso projeto, que serão especificados no Capítulo \ref{chap:objetivos}.
+
+% section desafios_cient_ficos_e_tecnol_gicos (end)

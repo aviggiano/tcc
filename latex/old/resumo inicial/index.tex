@@ -1,0 +1,54 @@
+\documentclass[12pt]{article}
+
+
+
+
+
+\usepackage[brazilian]{babel}
+\usepackage{float}
+\usepackage[utf8]{inputenc}  
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}  
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+\usepackage{courier}
+\usepackage{geometry}
+\newcommand {\cod} [1] { \texttt {#1}} 
+\newcommand {\p} [1] { \paragraph {#1}}
+\usepackage{hyperref}
+\usepackage{listings}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\usepackage{pdfpages}
+\usepackage[backend=bibtex,urldate=comp,dateabbrev=false,sorting=none]{biblatex}
+\bibliography{bibliografia.bib}
+
+\title{Relatório de Revisão Bibliográfica}
+\author{}
+%\date{}
+\makeindex
+\geometry{paperwidth=210mm,paperheight=297mm,
+  top=30mm,bottom=30mm,
+  left=30mm,right=30mm}
+
+\begin{document}
+
+\input{title.tex}
+\pagebreak
+
+\tableofcontents
+\pagebreak
+
+\input{revisao.tex}
+
+\pagebreak
+\input{bibliografia.tex}
+
+\end{document}

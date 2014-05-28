@@ -1,0 +1,77 @@
+%!TEX root = index.tex
+\chapter[Metodologia]{Metodologia}
+\label{chap:metodologia}
+
+O presente Trabalho de Conclusão de Curso se fundamenta na metodologia de um projeto de engenharia. Por se tratar de um projeto de Engenharia de Software, alguns desses passos são adaptados a fim de levar em conta o desenvolvimento do código computacional. Como o projeto de um software é um processo cíclico com etapas de especificação, desenvolvimento, validação e manutenção, a criação do produto ocorre de maneira incremental, diferentemente de certos projetos de outras áreas da engenharia \cite{iterative-development}. 
+
+A metodologia de trabalho proposta pode ser, então, consolidada da seguinte maneira: 
+
+\section{Definição da Necessidade} % (fold)
+\label{sec:defini_o_da_necessidade}
+
+% section defini_o_da_necessidade (end)
+
+Com o crescente número de lojas de comércio online, tornou-se necessário a criação de sistemas que pudessem entender e prever o comportamento de consumidores, a fim de oferecer produtos específicos para cada um deles e aumentar o número de vendas e a satisfação do cliente. Observa-se atualmente que o número de sistemas de recomendação gratuitos, de fácil integração e de código aberto (\textit{open source}) são limitados e não correspondem às necessidades do mercado ou da academia. Existe, pois, a necessidade da criação de um sistema que possa ser utilizado por e-commerces que desejem estabelecer seu próprio sistema de recomendação ou mesmo por indivíduos interessados na temática da recomendação de itens.
+
+\section{Definição dos Parâmetros de Sucesso} % (fold)
+\label{sec:defini_o_dos_par_metros_de_sucesso}
+
+% section defini_o_dos_par_metros_de_sucesso (end)
+
+O sucesso do projeto poderá ser medido em duas frentes, a primeira sendo a verificação entre as sugestões do sistema e as compras feitas pelos consumidores e a segunda é a escalabilidade do sistema de recomendação. Visto que a tendência é o aumento da base de consumidores e de itens, há um aumento no custo computacional para gerar recomendações, e o sistema deve responder sem grande demora ou perda de qualidade.
+
+\section{Síntese de Soluções} % (fold)
+\label{sec:s_ntese_de_solu_es}
+
+% section s_ntese_de_solu_es (end)
+
+Nesta fase do projeto serão propostas possíveis soluções para o problema proposto. Aqui o problema principal deverá ser dividido em partes menores, que idealmente são mutuamente exclusivas e coletivamente exaustivas (cobrem todos os pontos uma só vez), que serão individualmente resolvidas. Por exemplo, o método de se fazer o cálculo de medidas de similaridade entre dois itens influencia na taxa de sucesso da recomendação, e o método de se expandir este cálculo para os outros itens influencia na escalabilidade do sistema.
+
+\section{Processo de escolha} % (fold)
+\label{sec:processo_de_escolha}
+
+% section processo_de_escolha (end)
+
+O processo de escolha da solução deverá levar em conta três pontos. O primeiro, eliminatório, é a viabilidade técnica da solução -- não será levado em conta soluções de execução inviável. Os outros dois, classificatórios, levam em conta a os parâmetros de sucesso do projeto, devendo assim maximizar a escalabilidade e a taxa de recomendações bem sucedidas.
+
+\section{Detalhamento da Solução} % (fold)
+\label{sec:detalhamento_da_solu_o}
+
+% section detalhamento_da_solu_o (end)
+
+No detalhamento da solução, serão levantados os pontos que serão comparados entre os itens e a estrutura dos algoritmos que gerarão as recomendações.
+
+\section{Projeto Básico} % (fold)
+\label{sec:projeto_b_sico}
+
+% section projeto_b_sico (end)
+
+Aqui serão codificados os métodos escolhidos para o cálculo da recomendação para uma item qualquer e o método de aplicação deste cálculo para todos os outros casos. Etapa de projeto é incremental e ocorre em ciclos, acompanhada ela própria de testes unitários e testes de integração.   
+
+\section{Modelamento e Simulação} % (fold)
+\label{sec:modelamento_e_simula_o}
+
+% section modelamento_e_simula_o (end)
+
+Para o modelamento e simulação utilizaremos partes dos bancos de dados que temos disponíveis e serão feitas simulações até que tenhamos resultados satisfatórios.
+
+\section{Projeto Executivo} % (fold)
+\label{sec:projeto_executivo}
+
+% section projeto_executivo (end)
+
+O Projeto Executivo conterá os métodos escolhidos e a forma de implementá-los em um e-commerce, a fim que seja possível aplicá-lo independentemente da área de atuação desta empresa.
+
+\section{Protótipos/Testes} % (fold)
+\label{sec:prot_tipos_testes}
+
+% section prot_tipos_testes (end)
+
+A realização de testes será feita com os bancos de dados de centenas de milhares de itens ou de avaliações. Visto que será feita uma validação cruzada, será necessário descartar os dados e reformular a solução caso as recomendações não atinjam os requisitos funcionais. Isso evita que o projeto seja moldado para operar somente com aquele banco de dados específico.
+
+\section{Produto} % (fold)
+\label{sec:produto}
+
+% section produto (end)
+
+Assim que a fase de testes for concluída com êxito, o Projeto Executivo se torna o Produto, já que este é um projeto voltado à programação e aplicação em novos negócios.

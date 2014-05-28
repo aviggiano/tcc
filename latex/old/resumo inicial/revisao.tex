@@ -1,0 +1,91 @@
+%!TEX root = index.tex
+\section{Objetivo do trabalho} % (fold)
+\label{sec:objetivo_do_trabalho}
+
+O objetivo do presente Trabalho de Conclusão de Curso é o desenvolvimento de um Sistema de Recomendação de produtos para lojas de comércio online, com foco na sugestão feita através de marketing via e-mail.
+% section objetivo_do_trabalho (end)
+
+\section{Desafios científico-tecnológicos \\ Metodologia} % (fold)
+\label{sec:desafios_cient_fico_tecnol_gicos_metodologia}
+
+Um dos maiores desafios tecnológicos dos sistemas de recomendação é, atualmente, o da escalabilidade \cite{wei2007survey}. O sistema de recomendação deverá ser flexível no sentido de poder operar igualmente bem tanto em conjuntos pequenas quanto em grandes bases de dados, que podem chegar até centenas de milhões de clientes \cite{amazoncustomers} e de produtos \cite{amazonproducts}. Isso significa que as recomendações devem ser suficientemente rápidas para poderem operar em tempo real e ainda assim proverem sugestões valiosas aos usuários.
+
+O sistema de recomendação também deve prever quando enviar uma determinada recomendação, e não agir apenas mediante requisição do cliente \cite{lops2011content}. É interessante, por exemplo, enviar recomendações de produtos com descontos a usuários que estão há algum tempo inativos no site, para que eles retornem a comprar. Da mesma forma, um sistema inteligente poderia sugerir produtos infantis a um usuário detectado como recém-casado.
+
+Outro desafio científico ainda em estágio inicial de pesquisa é referente à diversidade das recomendações realizadas, também chamado de excesso de especialização \cite{adomavicius2005toward}. Ao mesmo tempo que o sistema deve apresentar itens similares ao que o usuário está procurando, ele também deve sugerir itens que o usuário desconheça ou que nem saiba que poderiam interessá-lo. 
+
+Por fim, um desafio científico que este trabalho enfrentará é a execução de um sistema híbrido do ponto de vista de efemeridade e persistência, ao construir um modelo de recomendação que integre entre as preferências de curto e longo termo dos usuários \cite{schafer1999recommender}. A análise dos dados de compras anteriores, bem como de dados demográficos, deverá portanto ser incorporada à análise de característica dos produtos, a fim de enriquecer a acurácia do sistema \cite{wei2007survey}.
+
+Esse tópico de pesquisa inclui ainda diversos desafios científicos e tecnológicos que não foram aqui detalhados, tais como a preservação da privacidade dos usuários, a criação de modelos de recomendação inter-domínios, o desenvolvimento de sistemas descentralizados operando em redes computacionais distribuídas, a otimização de sistemas para sequências de recomendações, a otimização de sistemas para dispositivos móveis e outros. Entretanto, esses desafios são menos relevantes ao nosso projeto porque não se aplicam diretamente à recomendação de produtos de e-commerces via e-mail, ou porque não se encaixam no formato dos dados que serão utilizados para análise. 
+% section desafios_cient_fico_tecnol_gicos_metodologia (end)
+
+\section{Palavras-chave (Português-Inglês)} % (fold)
+\label{sec:palavras_chave_portugu_s_ingl_s_}
+
+As palavras chave principais desse Trabalho de Conclusão de Curso são:
+
+\begin{enumerate}
+\item Sistema de recomendação (recommender system)
+\item e-commerce (\textit{idem})
+\item Recomendação baseada em conteúdo (content-based recommendation)
+\item Filtragem colaborativa (collaborative filtering)
+\item Recomendação híbrida (hybrid recommendation)
+\end{enumerate}
+
+% section palavras_chave_portugu_s_ingl_s_ (end)
+
+\section{Procedimento de busca} % (fold)
+\label{sec:procedimento_de_busca}
+
+A busca por artigos científicos começou com a recomendação de livros didáticos pelo professor orientador (\cite{collectiveintelligence} e \cite{lops2011content}). O primeiro livro-texto aborda a temática com noções introdutórias, apresentando os conceitos básicos e algoritmos de filtragem colaborativa baseada em usuários e baseada em ítens, assim como algumas medidas de similaridade. O segundo livro didático, por sua vez, explora o tema de maneira bem mais detalhada, tratando de temas avançados, como algorítmos de aprendizado continuado e de sistemas robustos contra ataques (por exemplo, quando uma grande quantidade de perfis falsos são inseridos na plataforma). A partir da leitura dos capítulos introdutórios de ambas as fontes, observamos as palavras-chave ligadas à temática de Sistemas de Recomendação e iniciamos a pesquisa por artigos especializados.
+
+No website Google Scholar buscamos as palavras-chave indicadas na Seção \ref{sec:palavras_chave_portugu_s_ingl_s_} e priorizamos os artigos mais citados, e principalmente os documentos de \textit{surveys} e \textit{reviews}.
+
+Na base de dados IEEE Explorer também procuramos pelas palavras chave e selecionamos os artigos mais citados, mas filtramos por data a fim de obter apenas resultados recentes (artigos publicados após 2010).
+
+Uma vez obtidos os documentos, avaliamos se o conteúdo de cada um deles era relevante ao escopo do trabalho. Como não dispomos de uma grande de dados demográficos dos clientes, descartamos artigos que se baseavam inteiramente em filtragem colaborativa baseada em usuários ou que requeriam dados de nevegação, tais como \cite{adibi2013collaborative}. Em vez disso, priorizamos artigos que exploram técnicas de recomendação item-a-item ou mesmo técnicas híbridas, como \cite{linden2003amazon}, \cite{sarwar2001item} e \cite{puntheeranurak2011item}. O primeiro dos textos, escrito por desenvolvedores e pesquisadores da Amazon, defende que a filtragem colaborativa baseada em itens é superior que a baseada em usuários em termos de escalabilidade e qualidade de recomendação, e serviu de norte para a nossa pesquisa de referências. O segundo artigo confirma essa argumentação e dá subsídios teóricos para a construção de algorítmos de filtragem e de medidas de similaridade. O terceiro, por sua vez, utiliza dados dos atributos dos itens e também das avaliações dos usuários para construir um modelo mais acurado, sustentando uma melhor recomendação.
+% section procedimento_de_busca (end)
+
+\section{Estado da arte do problema. \\ Estado da arte das soluções} % (fold)
+\label{sec:estado_da_arte_do_problema_estado_da_arte_das_solu_es}
+
+Do ponto de vista do estado da arte do problema, pode-se formulá-lo como se segue \cite{adomavicius2005toward}: 
+
+Seja $C$ o conjunto de todos os usuários e seja $S$ o conjunto de todos os itens que podem ser recomendadas, tais como livros, filmes ou restaurantes. Seja $u$ uma função de utilidade, que mede a utilidade do produto $s$ ao usuário $c$, ou seja, $u: C \times S \rightarrow R$, onde $R$ é um  conjunto totalmente ordenado (por exemplo, números inteiros não-negativos ou números reais dentro de um determinado intervalo). Em seguida, para cada usuário $c \in C$, queremos escolher o item $ s^\prime \in S $ que maximize a utilidade do usuário. Mais formalmente:
+
+$$
+\forall c \in C, ~ s^\prime_c = \argmax_{s \in S}{u(c,s)}
+$$ 
+
+Nesse problema, destacam-se três grupos de estratégias de sugestão de itens: 
+\begin{itemize}
+\item Recomendações baseadas em conteúdo: o usuário recebe recomendações de itens semelhantes aos preferidos no passado; 
+\item Recomendações colaborativas: o usuário recebe recomendações de itens que que pessoas com gostos e preferências semenlhantes gostaram no passado;
+\item Recomendações híbridas: esses métodos combinam métodos colaborativos e métodos baseados em conteúdo.  
+\end{itemize}
+
+As técnicas de recomendação, por sua vez, dividem-se em dois grupos:
+
+\begin{itemize}
+\item Técnicas baseadas em heurísticas ou memória: essencialmente fazem a previsão das classificações com base em toda a coleção de itens anteriormente classificados pelos usuários -- com técnicas tais como do vizinho mais próximo;
+\item Técnicas baseadas em modelos: utilizam o conjunto de avaliações com o objetivo de descrever um modelo -- tais como redes Bayesianas --, que é então usado para fazer a previsão das classificações.
+\end{itemize}
+
+As técnicas de recomendação baseadas em conteúdo exploram os dados dos itens para calcular a sua relevância conforme o perfil do usuário. As pesquisas nesta área são realizadas em diversas frentes como a de Recuperação de Informação e Inteligência Artificial.
+
+Os sistemas baseados em Recuperação de Informação partem do princípio que os usuários interessados em recomendações estão engajados em um processo de busca de informação. Nesses sistemas, o usuário fornece uma lista de palavras-chave para uma busca específica. Em sistemas baseados em filtragem de conteúdo, porém, a informação base para as recomendações é o perfil do usuário. Os itens a serem recomendados podem possuir diversos atributos e formas de classificação, cada um podendo ser descrito por uma pequena quantidade de atributos com valores conhecidos. Entretanto, documentos como emails, websites ou reviews de usuários são compostos por textos sem estrutura definida e a abordagem por Recuperação de Informação é mais recomendada \cite{schafer2001commerce}.
+
+Na abordagem por Inteligência Artificial, a recomendação pode ser vista como um problema de aprendizado que explora os conhecimentos sobre o usuário. Na sua forma mais simples, os perfis de usuários estão especificados por palavras-chave que refletem os interesses de longo prazo dos usuários. Muitas vezes é recomendado que o aprendizado seja feito com base no perfil do usuário conforme o uso continuo, ao invés de forçá-lo a responder diversas perguntas demográficas \cite{wei2007survey}. 
+
+Isso geralmente envolve problemas de aprendizado da máquina, onde o objetivo é aprender a categorizar novas informações baseadas em informações previamente adquiridas e rotuladas como interessantes ou não pelo usuário. Com estas informações em mão, metodos de aprendizado de máquina são capazes de gerar modelos preditivos que, com nova informação, recomendarão um item que tem mais chances de ser do interesse do consumidor.
+
+Do ponto de vista do estado da arte das soluções, as variáveis de interesse estão ligadas do número de usuários no sistema, ao número de itens, ao nível de dispersão, à medida de qualidade da recomendação e ao custo computacional \cite{lee2012comparative}. 
+
+No que se refere à dependência do número de usuários, a filtragem colaborativa a base de usuários é extremamente efetiva para um baixo número de usuários, mas tem uma dependência quase constante em relação a essa quantidade. A filtragem colaborativa a base de itens é consideravelmente pior para um baixo número de usuários, mas supera todos os outros métodos baseados em memória para quantidades maiores.
+
+A dependência do número de ítens é, de certa forma, oposta à de usuários: a filtragem colaborativa a base de itens é extremamente efetiva para poucos itens, mas tem uma  
+dependência quase constante no número de itens. A filtragem colaborativa baseada em usuários tem performance consideravelmente pior de início, mas supera todos os outros métodos baseados em memória para maiores quantidades de usuários.
+
+Com relação ao nível de dispersão dos dados, a filtragem baseada em usuários e a baseada em itens mostram uma dependência semelhante. Na medida de qualidade de recomendação (menor erro quadrático médio), todos os métodos de recomendação variam não-linearmente com o número de usuários, itens e nível de dispersão, e de modo geral há um trade-off entre a acurácia e o tempo de processamento da sugestão de produtos. Outros métodos de recomendação são também explorados no artigo \cite{lee2012comparative}, mas em virtude de serem menos tradicionais, não foram incluídos na presente análise.
+
+% section estado_da_arte_do_problema_estado_da_arte_das_solu_es (end)
