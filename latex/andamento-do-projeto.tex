@@ -1,0 +1,79 @@
+%!TEX root = index.tex
+\chapter[Andamento do Projeto]{Andamento do Projeto}
+\label{chap:andamento_do_projeto}
+
+%Tal relatório deverá conter 
+%	descrição minuciosa 
+%		do andamento do projeto
+%		das etapas cumpridas, 
+%		do planejamento do trabalho no segundo semestre, 
+%		dos resultados alcançados  , 
+%		das modificações em relação à proposta inicial, 
+%	bem como uma avaliação precisa e detalhada 
+%		dos resultados alcançados neste semestre , 
+%		dos objetivos do próximo semestre 
+%		da viabilidade de alcance do resultado programado  no fim do segundo semestre. 
+
+De início pensamos fazer um sistema de recomendação baseado em filtragem colaborativa baseada em itens, principalmente motivados pela leitura inicial de \cite{linden2003amazon}, que mostrava as vantagens desse método comparado à filtragem colaborativa baseada em usuários. 
+
+Todavia, percebemos grande parte dos e-commerces estruturam seus bancos de dados em torno da descrição dos itens vendidos e das informações dos clientes. Pouco detalhe é dado à interação entre esses dois grupos, com exceção da tabela de compras, que se limita a informações como data e método de pagamento. Dessa forma concluímos que os métodos de filtragem colaborativa, fundamentados na avaliação dos itens por parte dos usuários, teriam pior desempenho que métodos baseados em conteúdo.
+
+Métodos de recomendação baseados em conteúdo podem explorar a classificação dos produtos no banco de dados a fim de determinar as sugestões. Os atributos podem ser diversos, dependendo do ramo de negócios do e-commerce, tais como marca, esporte, categoria, sexo, idade, cor, preço, etc.
+
+...
+
+Para o segundo semestre deste ano, desenvolveremos um sistema de recomendação a partir de diferentes algoritmos e faremos uma análise de desempenho  para cada um deles. Utilizaremos algoritmos inspirados em \cite{debnath2008feature} e \cite{symeonidis2007feature}. O primeiro artigo determina a similaridade de dois itens a partir de medidas de distância para cada um dos atributos dos itens, ponderadas por pesos determinados na regressão linear de uma equação descrita pelo interesse dos usuários em cada \textit{feature}, extraída de uma rede social. O segundo texto parte do princípio que os usuários estão interessados nos atributos dos itens, traçando correlações entre esses dois elementos até chegar nos pesos que servirão de base para a matriz de similaridade de usuários, utilizada na recomendação pelo método da vizinhança (\textit{nearest neighbors}).
+
+...
+
+A aquisição de dados será feita a partir de um banco de dados genérico, que deverá alimentar o sistema por meio de arquivos de texto com valores separados por vírgulas (\texttt{.csv}). A fim de facilitar o pré-processamento dos dados, exigem-se três arquivos, cada um com uma tabela de itens, clientes e histórico de compras. Caso existam outras tabelas no banco de dados, o sistema deverá ser alterado para levar em conta o processamento dos arquivos suplementares.
+
+...
+
+Os resultados das recomendações serão entregues, da mesma forma, por meio de um arquivo \texttt{.csv} contendo o identificador de cada usuário com as \textit{top-N} recomendações de produtos, assim como o valor numérico associado à recomendação. Esse resultado é o mais importante do ponto de vista do e-commerce, que o utilizará como estratégia de marketing na sugestão de produtos.
+
+...
+
+Uma das maiores dificuldades do sistema de recomendação é a escala, isto é, o fato de os sistemas lidarem com quantidades de itens e clientes da ordem de centenas de milhares, exigindo algoritmos eficientes e inviabilizando implementações computacionalmente complexas. Outra grande dificuldade é a esparsidade dos dados, ou seja, o fato de a maioria dos clientes nunca ter interagido com mais de algumas unidades de itens, fazendo com que a matriz de relação usuário-item seja tenha uma quantidade muito pequena de valores preenchidos, da ordem de 1 \% \cite{fennell2009collaborative}.
+
+...
+
+A análise de desempenho
+
+...
+
+Problemas que o recsys enfrentará: cold start
+
+
+%Objetivos
+%desenvolvimento de um recsys
+%análise de desempenho
+%erro tipo I e tipo II (medida F -- ver referencias)
+%cross validation (MSE da recomendação e do efetivamente comprado)
+%influencia do tamanho do BD no recsys (exemplo: 100 mil compras ou 100 mil itens)
+%quantidade de attr utilizados no recsys
+%comparar cold start dos 3 metodos de rec
+%Recomendação
+%com base em features (ref 28)
+%ditando os pesos w_i = 1 (facil e tosco)
+%“aprender” os w_i de uma fonte externa (rede social)
+%“aprender” os w_i com a base → como?
+%outras??? como?
+%aprender os pesos com base em grafo de pessoas que foram pra A e B ⇒ destino A e destino B sao similares
+%como determinar os pesos de macro/micro categorias? ex: Vestuário { Camiseta {Basquete} , Sunga {Natacao} } 
+%otimizacao dos pesos → “chuta” e vai mudando
+%modelo do video do netflix!!! 
+%
+%
+%Problemas elementares:
+%Estruturar entrada / saida de dados
+%Correlação de 2 features em R (delta, distancia euclidiana, etc)
+%Similaridade entre dois itens quaisquer baseada em features (porque é mais facil)
+%Similaridade para toda a matriz de itens
+%Neighborhood e recomendar top N
+%Nesse ponto ja temos um recsys primario, bem generico e que vale para qualquer e-commerce (passagens de onibus, livros, filmes, etc)
+%Problemas mais dificeis
+%Pensar no problema da data e sazonalidade (inspirar-se de netflix)
+%Ref (25) diz que CF é melhor que CB e sugere melhorias. Estruturar e fazer um CF
+%Qual algoritmo indicará que SP-RJ é similar a SP-BH??? Similar em quanto, de 0 a 10? Adaptar algum CF
+%Sempre ter em mente o geral / especifico (ex: aplicado para a clickbus) do recsys, e escrever o relatório focando no “geral” e mostrando a aplicacao %“especifica”
