@@ -34,25 +34,75 @@ Os resultados das recomendações serão entregues, da mesma forma, por meio de 
 
 ...
 
-Uma das maiores dificuldades do sistema de recomendação é a escala, isto é, o fato de os sistemas lidarem com quantidades de itens e clientes da ordem de centenas de milhares, exigindo algoritmos eficientes e inviabilizando implementações computacionalmente complexas. Outra grande dificuldade é a esparsidade dos dados, ou seja, o fato de a maioria dos clientes nunca ter interagido com mais de algumas unidades de itens, fazendo com que a matriz de relação usuário-item seja tenha uma quantidade muito pequena de valores preenchidos, da ordem de 1 \% \cite{fennell2009collaborative}.
+Uma das maiores dificuldades do sistema de recomendação é a escala, isto é, o fato de os sistemas lidarem com quantidades de itens e clientes da ordem de centenas de milhares, exigindo algoritmos eficientes e inviabilizando implementações computacionalmente complexas. Outra grande dificuldade é a esparsidade dos dados, ou seja, o fato de a maioria dos clientes nunca ter interagido com mais de algumas unidades de itens, fazendo com que a matriz de relação usuário-item seja tenha uma quantidade muito pequena de valores preenchidos, da ordem de 1\% \cite{fennell2009collaborative}.
 
 ...
 
-A análise de desempenho
+De modo geral os sistemas de recomendação tem o objetivo de apresentar ao usuário itens pelos quais ele possa se interessar e, no caso de um e-commerce, que ele vá adquirir. O desempenho de um sistema de recomendação se mede, portanto, na qualidade com a qual ele executa essa tarefa. Essa qualidade pode ser medida de diferentes maneiras, tal como pela medida de distância entre os produtos recomendados ($\widetilde{\mathbf{x}}$) e aqueles que seriam efetivamente comprados ($\mathbf{x}$) pelo cliente em uma validação cruzada (\textit{cross validation}). Essa medida pode ser, por exemplo, a distância $L_1$ (erro médio absoluto, $\left|\widetilde{\mathbf{x}} - \mathbf{x}\right|$) ou a distância $L_2$ (erro quadrático médio,  $\sqrt{\left|\widetilde{\mathbf{x}} - \mathbf{x}\right|^2}$)
+
+Outras medidas de predição também serão utilizadas, como acurácia (\textit{accuracy}), especificidade (\textit{specificity}), precisão (\textit{precision}), abrangência (\textit{recall}) e a medida $F_1$ (\textit{F-score}). Elas estão sumarizadas na tabela \ref{tab:avaliacao-predicao}.
+
+%\begin{table}[H]
+%\begin{center}
+%    \caption{Matriz de confusão}
+%    \label{tab:avaliacao-predicao}
+%    \begin{tabular}{ | l | l | p{5cm} | p{5cm} | }
+%    \hline
+%    & & \multicolumn{2}{|c|}{Caso predito} \\ \hline 
+%    & & \textbf{Positivo} & \textbf{Negativo} \\ \hline
+%    \multirow{2}{*}{Caso real} 
+%        & Positivo & Verdadeiro Positivo &  $(VP)$ & Falso Negativo $(FN)$ \\ \hline
+%        & Negativo & Falso Positivo $(FP)$ & Verdadeiro Negativo $(VN)$ \\ \hline
+%    \end{tabular}
+%\end{center}
+%\end{table}
+
+
+%\begin{tabular}{cc|c|c|c|c|l}
+%\cline{3-4}
+%& & \multicolumn{2}{ c| }{Caso predito} \\ \cline{3-4}
+%& & 2 & 3  \\ \cline{1-4}
+%\multicolumn{1}{ |c| }{\multirow{2}{*}{Powers} } &
+%\multicolumn{1}{ |c| }{504} & 3 & 2 &      \\ \cline{2-4}
+%\multicolumn{1}{ |c  }{}                        &
+%\multicolumn{1}{ |c| }{540} & 2 & 3 &      \\ \cline{1-4}
+%\multicolumn{1}{ |c  }{\multirow{2}{*}{Powers} } &
+%\multicolumn{1}{ |c| }{gcd} & 2 & 2   \\ \cline{2-4}
+%\multicolumn{1}{ |c  }{}                        &
+%\multicolumn{1}{ |c| }{lcm} & 3 & 3   \\ \cline{1-4}
+%\end{tabular}
+
+
+\begin{table}[H]
+\begin{center}
+    \caption{Avaliação de sistemas de predição}
+    \label{tab:avaliacao-predicao}
+    \begin{tabular}{ | l | c | p{5cm} | }
+    \hline
+    \textbf{Medida} & \textbf{Fórmula} & \textbf{Significado} \\ \hline
+    Precisão &  $\frac{VP}{VP+FP}$ & Porcentagem de casos positivos corretamente preditos. \\ \hline                            
+    Abrangência & $\frac{VP}{VP+FN}$ & Porcentagem de casos positivos sobre aqueles que foram marcados como positivos. \\ \hline
+    Especificidade & $\frac{VN}{VN+FP}$ &  Porcentagem de casos negativos sobre aqueles que foram marcados como negativos. \\ \hline
+    Acurácia & $\frac{VP+VN}{VP+VN+FP+FN}$ & Porcentagem de predições corretas. \\ \hline
+    Medida $F_1$ &  $2 \cdot \frac{\mathrm{Precisão}~\cdot~\mathrm{Abrangência}}{\mathrm{Precisão}~+~\mathrm{Abrangência}}$ & Média harmônica entre precisão e abrangência. \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+Por fim, avaliaremos o desempenho do sistema mediante a mudança nas variáveis de importância do problema, como por exemplo na quantidade de atributos utilizados na recomendação e na capacidade de lidar com problemas como o \textit{cold start}. O tempo de execução também será avaliado em função do tamanho do banco de dados.
 
 ...
 
 Problemas que o recsys enfrentará: cold start
 
+...
+
+Algoritmos
+
+
 
 %Objetivos
 %desenvolvimento de um recsys
-%análise de desempenho
-%erro tipo I e tipo II (medida F -- ver referencias)
-%cross validation (MSE da recomendação e do efetivamente comprado)
-%influencia do tamanho do BD no recsys (exemplo: 100 mil compras ou 100 mil itens)
-%quantidade de attr utilizados no recsys
-%comparar cold start dos 3 metodos de rec
 %Recomendação
 %com base em features (ref 28)
 %ditando os pesos w_i = 1 (facil e tosco)

@@ -19,7 +19,7 @@
 			"file": "index.tex",
 			"settings":
 			{
-				"buffer_size": 6151,
+				"buffer_size": 6191,
 				"line_ending": "Unix"
 			}
 		},
@@ -27,24 +27,15 @@
 			"file": "bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 10297,
+				"buffer_size": 10392,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "email.txt",
-			"settings":
-			{
-				"buffer_size": 1109,
-				"line_ending": "Unix",
-				"name": "Caros  alunos:"
 			}
 		},
 		{
 			"file": "andamento-do-projeto.tex",
 			"settings":
 			{
-				"buffer_size": 570,
+				"buffer_size": 7560,
 				"line_ending": "Unix"
 			}
 		}
@@ -81,6 +72,7 @@
 	},
 	"file_history":
 	[
+		"/home/ag/git/tcc/latex/email.txt",
 		"/opt/sublime_text_2/sublime_text",
 		"/home/ag/.bash_custom",
 		"/home/ag/development/revmob/setup/.bash_profile",
@@ -136,6 +128,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"handbook",
+			"debnath2008feature",
 			"0033 0033",
 			"0033",
 			"0043",
@@ -250,7 +244,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -265,12 +259,8 @@
 						"selection":
 						[
 							[
-								67,
-								67
-							],
-							[
-								298,
-								298
+								328,
+								328
 							]
 						],
 						"settings":
@@ -289,15 +279,19 @@
 					"file": "index.tex",
 					"settings":
 					{
-						"buffer_size": 6151,
+						"buffer_size": 6191,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1242,
-								1242
+								5723,
+								5723
+							],
+							[
+								5922,
+								5922
 							]
 						],
 						"settings":
@@ -305,7 +299,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 3799.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -315,15 +309,15 @@
 					"file": "bibliografia.bib",
 					"settings":
 					{
-						"buffer_size": 10297,
+						"buffer_size": 10392,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								9195,
-								9195
+								6686,
+								6686
 							]
 						],
 						"settings":
@@ -333,61 +327,34 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5501.0,
+						"translation.y": 3532.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "email.txt",
-					"settings":
-					{
-						"buffer_size": 1109,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								587,
-								587
-							]
-						],
-						"settings":
-						{
-							"auto_name": "Caros  alunos:",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "andamento-do-projeto.tex",
 					"settings":
 					{
-						"buffer_size": 570,
+						"buffer_size": 7560,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								570,
-								570
+								4693,
+								4723
 							]
 						],
 						"settings":
 						{
+							"spell_check": true,
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1094.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -455,6 +422,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 217.0,
+	"side_bar_width": 179.0,
 	"status_bar_visible": true
 }
