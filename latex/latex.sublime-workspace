@@ -11,15 +11,7 @@
 			"file": "latex.sublime-project",
 			"settings":
 			{
-				"buffer_size": 325,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "latex.sublime-workspace",
-			"settings":
-			{
-				"buffer_size": 7975,
+				"buffer_size": 328,
 				"line_ending": "Unix"
 			}
 		},
@@ -28,6 +20,14 @@
 			"settings":
 			{
 				"buffer_size": 6151,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bibliografia.bib",
+			"settings":
+			{
+				"buffer_size": 10297,
 				"line_ending": "Unix"
 			}
 		}
@@ -64,6 +64,7 @@
 	},
 	"file_history":
 	[
+		"/home/ag/git/tcc/latex/latex.sublime-workspace",
 		"/home/ag/R/tcc/old/rgb.csv",
 		"/home/ag/R/tcc/old/color_name.csv",
 		"/home/ag/R/tcc/ibrand.csv",
@@ -226,15 +227,15 @@
 					"file": "latex.sublime-project",
 					"settings":
 					{
-						"buffer_size": 325,
+						"buffer_size": 328,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								21,
-								21
+								67,
+								67
 							]
 						],
 						"settings":
@@ -250,33 +251,6 @@
 				},
 				{
 					"buffer": 1,
-					"file": "latex.sublime-workspace",
-					"settings":
-					{
-						"buffer_size": 7975,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
 					"file": "index.tex",
 					"settings":
 					{
@@ -297,6 +271,34 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "bibliografia.bib",
+					"settings":
+					{
+						"buffer_size": 10297,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10036,
+								10036
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6051.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
