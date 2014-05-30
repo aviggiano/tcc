@@ -98,6 +98,46 @@ Problemas que o recsys enfrentará: cold start
 ...
 
 Algoritmos
+O primeiro algoritmo que utilizamos no sistema de recomendação, adaptado de  \cite{symeonidis2007feature}, se trata de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar o julgamento humano de similaridade entre itens. Após obtenção dos pesos e das medidas de distância entre atributos, realiza-se a filtragem baseada em conteúdo e posteriormente a filtragem colaborativa entre usuários, para aprimorar as recomendações iniciais.
+
+
+ %Hibrido:
+%CF user-user
+%problema de sparcity dos dados
+%CB (similaridade item-item)
+%similaridade a partir de medidas de distancia entre atributos de dois itens
+%medidas de similaridade aprendidas de redes sociais de usuarios (IMDB)
+%CB
+%cada item é representado por um vetor de features / atributos
+%Similaridade entre dois itens i e j dada pelas varias medidas de distancia entre duas features 
+%distancia euclidiana
+%similaridade do conseno
+%Essa similaridade é uma média ponderada entre cada medida de distancia para cada feature, de modo que o mais importante recebe mais peso
+%S(i, j) = w1 f (attr1 i, attr1 j) + w2 f (attr2 i, attr2 j) + ...
+%Esses pesos %w_n são, em geral, desconhecidos
+%f depende do tipo de atributo (boolean, string, numerico) e é normalizado em %[0, 1]
+%w_n serão determinados a partir de um grafo de similaridade do ponto de vista humano entre features (IMDB)
+%E(i, j) = numero de users interessados em i e j
+%regressão linear
+%E(i, j) = w0 + w1 f (attr1 i, attr1 j) + …
+%determinamos %w_n
+%Performance
+%recall measure
+%IMDB recommendation como benchmark
+%Further studies
+%sparse regression
+%isometric projection are being considered
+%ANALISE:
+%determina medida de distancia para cada feature
+%similaridade = medida de distancia ponderada por pesos de importancia
+%determina um grafo de onde pegar os pesos (regressao linear)
+%encontra similaridade entre dois itens
+%faz recomendação baseado na similaridade
+
+
+
+
+
 
 
 
