@@ -14,13 +14,18 @@
 %		dos objetivos do próximo semestre 
 %		da viabilidade de alcance do resultado programado  no fim do segundo semestre. 
 
-De início pensamos fazer um sistema de recomendação baseado em filtragem colaborativa baseada em itens, principalmente motivados pela leitura inicial de \cite{linden2003amazon}, que mostrava as vantagens desse método comparado à filtragem colaborativa baseada em usuários. 
+De início pensamos fazer um sistema de recomendação utilizando algoritmos de filtragem colaborativa baseada em itens, principalmente motivados pela leitura inicial de \cite{linden2003amazon}, que mostrava as vantagens desse método comparado à filtragem colaborativa baseada em usuários. 
 
 Todavia, percebemos grande parte dos e-commerces estruturam seus bancos de dados em torno da descrição dos itens vendidos e das informações dos clientes. Pouco detalhe é dado à interação entre esses dois grupos, com exceção da tabela de compras, que se limita a informações como data e método de pagamento. Dessa forma concluímos que os métodos de filtragem colaborativa, fundamentados na avaliação dos itens por parte dos usuários, teriam pior desempenho que métodos baseados em conteúdo.
 
 Métodos de recomendação baseados em conteúdo podem explorar a classificação dos produtos no banco de dados a fim de determinar as sugestões. Os atributos podem ser diversos, dependendo do ramo de negócios do e-commerce, tais como marca, esporte, categoria, sexo, idade, cor, preço, etc.
 
 ...
+
+Utilizaremos um banco de dados de e-commerce fornecido anonimamente. Para o segundo semestre, utilizaremos também outros bancos, como o TODO MovieLens, TODO ClickBus. Ele está estruturado da seguinte maneira: TODO 
+
+...
+
 
 Para o segundo semestre deste ano, desenvolveremos um sistema de recomendação a partir de diferentes algoritmos e faremos uma análise de desempenho  para cada um deles. Utilizaremos algoritmos inspirados em \cite{debnath2008feature} e \cite{symeonidis2007feature}. O primeiro artigo determina a similaridade de dois itens a partir de medidas de distância para cada um dos atributos dos itens, ponderadas por pesos determinados na regressão linear de uma equação descrita pelo interesse dos usuários em cada \textit{feature}, extraída de uma rede social. O segundo texto parte do princípio que os usuários estão interessados nos atributos dos itens, traçando correlações entre esses dois elementos até chegar nos pesos que servirão de base para a matriz de similaridade de usuários, utilizada na recomendação pelo método da vizinhança (\textit{nearest neighbors}).
 
@@ -98,6 +103,7 @@ Problemas que o recsys enfrentará: cold start
 ...
 
 Algoritmos
+
 O primeiro algoritmo que utilizamos no sistema de recomendação, adaptado de  \cite{symeonidis2007feature}, se trata de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar o julgamento humano de similaridade entre itens. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo e posteriormente a filtragem colaborativa entre usuários, para aprimorar as recomendações iniciais.
 
 Na filtragem baseada em conteúdo, cada item é representado por um vetor de atributos ou \textit{features}. A similaridade $s_{ij}$ entre dois itens $i$ e $j$ é dada pela média ponderada das distâncias entre das \textit{features} dos itens:
@@ -106,9 +112,26 @@ Na filtragem baseada em conteúdo, cada item é representado por um vetor de atr
     s_{ij} = \sum_{f}{w_{f} ~ d_{fij}}
 \end{equation}
 
-As distâncias entre os atributos são determinadas conforme o tipo de dado... Utiliza-se o delta de Kronecker $\delta_{mn}$...
+As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio. Para dados literais, como categoria, marca, cor, etc., uma medida direta é o delta de Kronecker $\delta_{mn}$ (similaridade $1$ se os valores são iguais e $0$ se são diferentes). É possível utilizar medidas mais refinadas, considerando por exemplo a correlação entre atributos (marcas de calçado entre si tem maior similaridade que duas marcas de categorias distintas), mas em uma primeira análise utilizaremos $\delta_{mn}$ para a maior parte das \textit{features}. O sumário das medidas de distância estão na Tabela \ref{tab:medidas-distancia}.
+
+\begin{table}[H]
+\begin{center}
+    \caption{Medidas de distância entre atributos}
+    \label{tab:medidas-distancia}
+    \begin{tabular}{ | l | c | p{5cm} | }
+    \hline
+    \textbf{Medida} & \textbf{Fórmula} & \textbf{Significado} \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
  
-Os pesos $w_f$ sssão o mais difícil 
+Os pesos $w_f$ são a priori desconhecidos. A referência \cite{symeonidis2007feature} os determina a partir de um conjunto de equações do tipo \ref{eq:regressao-linear}, onde $E_{ij}$ é o número de usuários que se interessam tanto por $i$ quanto por $j$. 
+
+\begin{equation}
+\label{eq:regressao-linear} 
+    E_{ij} = w_0 + \sum_{f}{w_{f} ~ d_{fij}}
+\end{equation} 
+
  %Hibrido:
 %CF user-user
 %problema de sparcity dos dados
