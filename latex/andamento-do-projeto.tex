@@ -98,15 +98,17 @@ Problemas que o recsys enfrentará: cold start
 ...
 
 Algoritmos
-O primeiro algoritmo que utilizamos no sistema de recomendação, adaptado de  \cite{symeonidis2007feature}, se trata de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar o julgamento humano de similaridade entre itens. Após obtenção dos pesos e das medidas de distância entre atributos, realiza-se a filtragem baseada em conteúdo e posteriormente a filtragem colaborativa entre usuários, para aprimorar as recomendações iniciais.
+O primeiro algoritmo que utilizamos no sistema de recomendação, adaptado de  \cite{symeonidis2007feature}, se trata de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar o julgamento humano de similaridade entre itens. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo e posteriormente a filtragem colaborativa entre usuários, para aprimorar as recomendações iniciais.
 
+Na filtragem baseada em conteúdo, cada item é representado por um vetor de atributos ou \textit{features}. A similaridade $s_{ij}$ entre dois itens $i$ e $j$ é dada pela média ponderada das distâncias entre das \textit{features} dos itens:
+
+\begin{equation} 
+    s_{ij} = \sum_{f}{w_f~\left|f_i-f_j\right|}
+\end{equation}
 
  %Hibrido:
 %CF user-user
 %problema de sparcity dos dados
-%CB (similaridade item-item)
-%similaridade a partir de medidas de distancia entre atributos de dois itens
-%medidas de similaridade aprendidas de redes sociais de usuarios (IMDB)
 %CB
 %cada item é representado por um vetor de features / atributos
 %Similaridade entre dois itens i e j dada pelas varias medidas de distancia entre duas features 
