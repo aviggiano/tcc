@@ -103,12 +103,12 @@ O primeiro algoritmo que utilizamos no sistema de recomendação, adaptado de  \
 Na filtragem baseada em conteúdo, cada item é representado por um vetor de atributos ou \textit{features}. A similaridade $s_{ij}$ entre dois itens $i$ e $j$ é dada pela média ponderada das distâncias entre das \textit{features} dos itens:
 
 \begin{equation} 
-    s_{ij} = \sum_{f}{w_f~\left|f_i-f_j\right|}
+    s_{ij} = \sum_{f}{w_{f} ~ d_{fij}}
 \end{equation}
 
-Em termos matriciais, tem-se que:
-
-
+As distâncias entre os atributos são determinadas conforme o tipo de dado... Utiliza-se o delta de Kronecker $\delta_{mn}$...
+ 
+Os pesos $w_f$ sssão o mais difícil 
  %Hibrido:
 %CF user-user
 %problema de sparcity dos dados
