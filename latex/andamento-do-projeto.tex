@@ -109,10 +109,19 @@ O primeiro algoritmo que utilizamos no sistema de recomendação, adaptado de  \
 Na filtragem baseada em conteúdo, cada item é representado por um vetor de atributos ou \textit{features}. A similaridade $s_{ij}$ entre dois itens $i$ e $j$ é dada pela média ponderada das distâncias entre das \textit{features} dos itens:
 
 \begin{equation} 
-    s_{ij} = \sum_{f}{w_{f} ~ d_{fij}}
+    s_{ij} = \sum_{f}{w_{f} ~ \left(1-d_{fij}\right)}
 \end{equation}
 
-As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio. Para dados literais, como categoria, marca, cor, etc., uma medida direta é o delta de Kronecker $\delta_{mn}$ (similaridade $1$ se os valores são iguais e $0$ se são diferentes). É possível utilizar medidas mais refinadas, considerando por exemplo a correlação entre atributos (marcas de calçado entre si tem maior similaridade que duas marcas de categorias distintas), mas em uma primeira análise utilizaremos $\delta_{mn}$ para a maior parte das \textit{features}. O sumário das medidas de distância estão na Tabela \ref{tab:medidas-distancia}.
+As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para dados literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. É possível considerar a correlação entre atributos (marcas de calçado entre si tem maior similaridade que duas marcas de categorias distintas), mas em uma primeira análise utilizaremos para a maior parte das \textit{features} a medida de distância $d_{fij}=1-\delta_{ij}$. Isso significa que se os atributos dos dois itens são idênticos, a distância é nula e logo a similaridade é máxima. O sumário das medidas de distância estão na Tabela \ref{tab:medidas-distancia}.
+
+\begin{equation}
+\label{eq:delta}
+\delta_{ij} = 
+\begin{cases}
+1, &\text{se }i=j \\
+0, &\text{se }i \neq j
+\end{cases} 
+\end{equation}
 
 \begin{table}[H]
 \begin{center}
@@ -125,12 +134,37 @@ As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dad
 \end{center}
 \end{table}
  
-Os pesos $w_f$ são a priori desconhecidos. A referência \cite{symeonidis2007feature} os determina a partir de um conjunto de equações do tipo \ref{eq:regressao-linear}, onde $E_{ij}$ é o número de usuários que se interessam tanto por $i$ quanto por $j$. 
+Os pesos $w_f$ são a priori desconhecidos. A referência \cite{symeonidis2007feature} os determina a partir de um conjunto de equações do tipo \ref{eq:regressao-linear}, onde $e_{ij}$ é o número de usuários que se interessam tanto por $i$ quanto por $j$. 
 
 \begin{equation}
 \label{eq:regressao-linear} 
-    E_{ij} = w_0 + \sum_{f}{w_{f} ~ d_{fij}}
+    e_{ij} = w_0 + \sum_{f}{w_{f} ~ d_{fij}}
 \end{equation} 
+
+A partir da matriz de avaliações $\mathbf{R}$, pode-se determinar $e_{ij}$, conforme a equação \ref{eq:determinacao-eij}, onde $r_{ui}$ é a avaliação do item $i$ feita pelo usuário $u$ e $\mathrm{b_0}$ é o operador booleano descrito por \ref{eq:b0}.
+
+\begin{equation}
+\label{eq:determinacao-eij} 
+    e_{ij} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)}
+\end{equation} 
+
+\begin{equation}
+\label{eq:b0}
+\mathrm{b}_y\left(x\right) = 
+\begin{cases}
+1, &\text{se }x>y \\
+0, &\text{se }x\leq y
+\end{cases} 
+\end{equation}
+
+Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de equações lineares \ref{eq:determinacao-wf}
+
+\begin{equation}
+\label{eq:determinacao-wf} 
+    w_0 + \sum_{f}{w_{f} ~ d_{fij}} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)},~\forall i \neq j 
+\end{equation} 
+
+
 
  %Hibrido:
 %CF user-user
