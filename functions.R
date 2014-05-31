@@ -162,11 +162,10 @@ sim <- function(i, j){
     sum(sim) / length(sim)       
 }
 
-get_sim_matrix <- function() {
-    n <- 100#size(item)
-    sapply(1:n, function(x) sapply(x:n, function(y) sim(item[x,],item[y,])))
+get_sim_matrix <- function(item.df=item, n=100) {
+    sapply(1:n, function(x) sapply(x:n, function(y) sim(item.df[x,],item.df[y,])))
 }
-sim_matrix <- get_sim_matrix()
+sim_matrix <- get_sim_matrix(n=10)
 
 # nao esta funfando!!! fazer sim_all(17,17) e sim 17 17
 sim_all <- function(index1, index2){
@@ -178,7 +177,7 @@ sim_all <- function(index1, index2){
         big <- index2
         small <- index1
     }
-    sim_matrix[[small]][big]
+    sim_matrix[[small]][big-small+1]
 }
 
 top_N <- function(i, N=10, n=size(item)) {
@@ -187,4 +186,7 @@ top_N <- function(i, N=10, n=size(item)) {
     sim <- tail(x[x >= quantile(x, prob=1-N/n)], N)
     data.frame(ids, sims)
 }
-    
+
+sample.item <- function(x.df=item,n=round(size(item)/100)){
+    return(x.df[sample(nrow(x.df),n),])
+}
