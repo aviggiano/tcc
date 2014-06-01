@@ -27,7 +27,7 @@ Utilizaremos um banco de dados de e-commerce fornecido anonimamente. Para o segu
 ...
 
 
-Para o segundo semestre deste ano, desenvolveremos um sistema de recomendação a partir de diferentes algoritmos e faremos uma análise de desempenho  para cada um deles. Utilizaremos algoritmos inspirados em \cite{debnath2008feature} e \cite{symeonidis2007feature}. O primeiro artigo determina a similaridade de dois itens a partir de medidas de distância para cada um dos atributos dos itens, ponderadas por pesos determinados na regressão linear de uma equação descrita pelo interesse dos usuários em cada \textit{feature}, extraída de uma rede social. O segundo texto parte do princípio que os usuários estão interessados nos atributos dos itens, traçando correlações entre esses dois elementos até chegar nos pesos que servirão de base para a matriz de similaridade de usuários, utilizada na recomendação pelo método da vizinhança (\textit{nearest neighbors}).
+Para o segundo semestre deste ano, desenvolveremos um sistema de recomendação a partir de diferentes algoritmos e faremos uma análise de desempenho  para cada um deles. Utilizaremos algoritmos inspirados em \cite{debnath2008feature} e \cite{symeonidis2007feature}. O primeiro artigo determina a similaridade de dois itens a partir de medidas de distância para cada um dos atributos dos itens, ponderadas por pesos determinados na regressão linear de uma equação descrita pelo interesse dos usuários em cada \textit{feature}. O segundo texto parte do princípio que os usuários estão interessados nos atributos dos itens, traçando correlações entre esses dois elementos até chegar nos pesos que servirão de base para a matriz de similaridade de usuários, utilizada na recomendação pelo método da vizinhança (\textit{nearest neighbors}).
 
 ...
 
@@ -113,11 +113,11 @@ Na filtragem baseada em conteúdo, cada item é representado por um vetor de atr
     s_{ij} = \sum_{f}{w_{f} ~ \left(1-d_{fij}\right)}
 \end{equation}
 
-As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para dados literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. É possível considerar a correlação entre atributos (marcas de calçado entre si tem maior similaridade que duas marcas de categorias distintas), mas em uma primeira análise utilizaremos para a maior parte das \textit{features} a medida de distância $d_{fij}=1-\delta_{ij}$. Isso significa que se os atributos dos dois itens são idênticos, a distância é nula e logo a similaridade é máxima. O sumário das medidas de distância estão na Tabela \ref{tab:medidas-distancia}.
+As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para dados literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. É possível considerar a correlação entre atributos (marcas de calçado entre si tem maior similaridade que duas marcas de categorias distintas), mas em uma primeira análise utilizaremos para a maior parte dos atributos $f$ a medida de distância $d_{fij}=1-\delta_{ij}^f$. Isso significa que se as \textit{features} de dois itens são idênticas, a distância é nula e logo a similaridade é máxima. O sumário das medidas de distância estão na Tabela \ref{tab:medidas-distancia}.
 
 \begin{equation}
 \label{eq:delta}
-\delta_{ij} = 
+\delta_{ij}^f = 
 \begin{cases}
 1, &\text{se }i=j \\
 0, &\text{se }i \neq j
@@ -167,33 +167,60 @@ Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de
 
 ...
 
-O segundo algoritmo, adaptado de \cite{debnath2008feature}, .... é um uma ponderação de atributos baseada em um modelo de usuários \textit{UM} a ser comparado com \textit{FW} .
-
+O segundo algoritmo, adaptado de \cite{debnath2008feature}, é um hibrido entre filtragem colaborativa e filtragem baseada em conteúdo. Os atributos dos itens são ponderados no cálculo de similaridade, com pesos extraídos de um modelo de perfil de usuários, denominado \textit{user profile} ou \textit{UP}. Esse perfil leva em consideração o interesse dos usuários por \textit{features}, indiretamente calculado a partir de seu interesse pelos itens. Se o usuário avaliou positivamente algum item $r_{ui}$, tal que $r_{ui}$ é superior a um valor mínimo $M$, considera-se que $u$ tem interesse $a_{if}$ nos atributos $f$ do item $i$. A matriz de correlação $t_{uf}$ entre usuários e \textit{features} é descrita por \ref{eq:puf}.
 
 \begin{equation}
 \label{eq:puf} 
-    p_{uf} = \sum_{i}{\mathrm{b}_M\left(r_{ui}~a_{if}\right)} 
+    t_{uf} = \sum_{i}{\mathrm{b}_M\left(r_{ui}~a_{if}\right)} 
+\end{equation} 
+
+Os pesos $w_{uf}$ que mostram a relevância de $f$ para $u$ são determinados a partir da estatística TF-IDF (\textit{term frequency--inverse document frequency}), presente em formulações de recuperação de informação e mineração de dados. Em nosso caso, TF ou \textit{feature frequency} é a similaridade intra-usuários $p_{uf}$ -- número de vezes em que a \textit{feature} $f$ aparece no perfil do usuário $u$ (equação \ref{eq:tf}). IDF ou \textit{inverse user frequency} é a dissimilaridade inter-usuários $q_{f}$ -- relacionada com o inverso da frequência $\hat{q}_{f}$ de um atributo $f$ dentro de todos os usuários (equações \ref{eq:uf} e \ref{eq:iuf}).
+
+\begin{equation}
+\label{eq:tf} 
+    p_{uf} = t_{uf}
 \end{equation} 
 
 
-construção do perfil do usuário
-se o usuário avaliou positivamente (maior que um threshold) algum item, pode-se construir suas features preferidas)
-R(u,i) matriz de ratings do user u no item i
-F(i, f) matriz booleana que indica se o item i tem a feature f
-P(u,f) matriz de correlacao entre o user u e a feature f 
-P = bool(R) x F, onde boolthres (r_ui) = (r_ui > threshold) ? 1 : 0
-W(u,f) matriz de pesos 
-W = FF (u,f) x IUF (f, f)
-FF(u,f) = P(u,f) feature frequency
-IUF(f, f) = Id x log ( |U| / UF(f) )
-|U| = total de users
-UF(f) = sum_u (bool(p_uf))
+\begin{equation}
+\label{eq:uf} 
+    \hat{q}_{f} = \sum_{u}{\mathrm{b}_0\left(t_{uf}\right)}
+\end{equation} 
+
+\begin{equation}
+\label{eq:iuf} 
+    q_{f} = \log \left( \frac{\left|~\mathcal{U}~\right|}{\hat{q}_{f}} \right)
+\end{equation} 
+
+Os pesos, descritos por \ref{eq:w-tfidf}, são utilizados para calcular a similaridade $s_{uv}$ entre dois usuários $u$ e $v$, conforme \ref{eq:suv}.
+
+\begin{equation}
+\label{eq:w-tfidf} 
+    w_{uf} = p_{uf}~q_{f}
+\end{equation} 
 
 
-\cite{symeonidis2007feature} e doravante denominado de \textit{feature weighting}, ponderação de atributos ou \textit{FW}, se trata de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar o julgamento humano de similaridade entre itens, e por isso se trata de uma filtragem colaborativa dos usuários. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo e posteriormente os itens com maior similaridade são recomendados.
+\begin{equation}
+\label{eq:suv}
+\begin{split}
+    s_{uv} &= \frac{\sum\limits_{f \in \mathcal{F}_{uv}}{w_{uf}~w_{vf}}}{\sqrt{\sum\limits_{f \in \mathcal{F}_{uv}}w_{uf}^2} \sqrt{\sum\limits_{f \in \mathcal{F}_{uv}}w_{vf}^2}} \\
+    \mathcal{F}_{uv} &= \mathcal{F}_u \cap \mathcal{F}_v \\
+    \mathcal{F}_u &= \left\{ f \in \mathcal{F}~|~t_{uf} > 0 \right\}
+\end{split}    
+\end{equation} 
+
+Dispondo-se de $\mathbf{S}$, selecionam-se os $k$ vizinhos mais próximos $v_k$ de $u$ com maior similaridade $s_{uv}$.  Posteriormente, determina-se o conjunto $I_{v_k} = \left\{ i ~|~ r_{v_ki} > 0\right\}$ de itens $i$ avaliados por $v_k$. Avalia-se a frequência total $\mathrm{fr}_f$ dos atributos $f$ para os itens de $I_{v_k}$, por \ref{eq:frf}. Por fim, a partir da equação \ref{eq:wi} calcula-se o peso $\omega_i$ de cada item e gera-se a lista dos \textit{top-N} itens a serem recomendados para o usuário $u$. 
 
 
+\begin{equation}
+\label{eq:frf} 
+\mathrm{fr}_f = \sum_{i \in I_{v_k}}{\mathrm{b}_0\left(a_{if}\right)}
+\end{equation} 
 
+\begin{equation}
+\label{eq:wi} 
+    \omega_{i} = \sum_{f}{a_{if}~\mathrm{fr}_f}
+\end{equation} 
 
 
 
