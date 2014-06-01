@@ -104,11 +104,12 @@ Problemas que o recsys enfrentará: cold start
 
 Algoritmos
 
-O primeiro algoritmo que utilizamos no sistema de recomendação, adaptado de  \cite{symeonidis2007feature}, se trata de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar o julgamento humano de similaridade entre itens. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo e posteriormente a filtragem colaborativa entre usuários, para aprimorar as recomendações iniciais.
+O primeiro algoritmo que utilizamos no sistema de recomendação, adaptado de  \cite{symeonidis2007feature} e doravante denominado de \textit{feature weighting}, ponderação de atributos ou \textit{FW}, se trata de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar o julgamento humano de similaridade entre itens, e por isso se trata de uma filtragem colaborativa dos usuários. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo e posteriormente os itens com maior similaridade são recomendados.
 
 Na filtragem baseada em conteúdo, cada item é representado por um vetor de atributos ou \textit{features}. A similaridade $s_{ij}$ entre dois itens $i$ e $j$ é dada pela média ponderada das distâncias entre das \textit{features} dos itens:
 
 \begin{equation} 
+\label{eq:similaridade}
     s_{ij} = \sum_{f}{w_{f} ~ \left(1-d_{fij}\right)}
 \end{equation}
 
@@ -157,14 +158,12 @@ A partir da matriz de avaliações $\mathbf{R}$, pode-se determinar $e_{ij}$, co
 \end{cases} 
 \end{equation}
 
-Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de equações lineares \ref{eq:determinacao-wf}
+Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de equações lineares \ref{eq:determinacao-wf}. Apenas os pesos positivos e com maior valor absoluto são utilizados na recomendação. Calcula-se a matriz de similaridade $\mathbf{S}$ pela equação \ref{eq:similaridade} e recomenda-se os itens mais similares àqueles já comprados.  
 
 \begin{equation}
 \label{eq:determinacao-wf} 
     w_0 + \sum_{f}{w_{f} ~ d_{fij}} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)},~\forall i \neq j 
 \end{equation} 
-
-
 
  %Hibrido:
 %CF user-user
