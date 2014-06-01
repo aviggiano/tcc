@@ -16,10 +16,10 @@ Seja $\mathcal{U}$ o conjunto de todos os usuários e seja $\mathcal{I}$ o conju
 
 O problema central da recomendação é que a função $\ell$ é em geral desconhecida, e portanto determinar $\hat{\imath}$ através da equação \ref{eq:utilidade} é inviável. Em algumas formulações, a utilidade é descrita pela avaliação $r_{ui}$ do item $i$ feita pelo usuário $u$. Neste caso, o sistema de recomendação busca determinar $\hat{r}_{ui}$ que melhor se aproxime de $r_{ui}$, e a qualidade da recomendação é normalmente descrita pela distância entre esses dois valores. 
 
-Para lidar com esse problema,  existem três grandes grupos de estratégias de sugestão de itens, conforme apresenta a referência \cite{balabanovic97fab} (TODO ler):
+Para lidar com esse problema,  existem três grandes grupos de estratégias de sugestão de itens, conforme apresenta a referência \cite{balabanovic97fab} (TODO refazer essa parte):
 
 \begin{itemize}
-\item Recomendações baseadas em conteúdo: o usuário recebe recomendações com base nas descrições dos perfis dos itens e do usuário; 
+\item Recomendações baseadas em conteúdo: o usuário recebe recomendações com base nas descrições dos atributos dos itens; 
 \item Recomendações colaborativas
 \begin{itemize}
 \item Baseada em usuários: o usuário recebe recomendações de itens que pessoas com gostos e preferências semelhantes gostaram no passado;
@@ -55,7 +55,7 @@ Com relação ao nível de dispersão dos dados, a filtragem baseada em usuário
 \section{Desafios científicos e tecnológicos} % (fold)
 \label{sec:desafios_cient_ficos_e_tecnol_gicos}
 
-Um dos maiores desafios tecnológicos dos sistemas de recomendação é, atualmente, o da escalabilidade \cite{wei2007survey}. O sistema de recomendação deverá ser flexível no sentido de poder operar igualmente bem tanto em conjuntos pequenas quanto em grandes bases de dados, que podem chegar até centenas de milhões de clientes \cite{amazoncustomers} e de produtos \cite{amazonproducts}. Isso significa que as recomendações devem ser suficientemente rápidas para poderem operar com uma periodicidade curta, tal que os usuários não percebam que a recomendação foi pré-calculada, e ainda assim provendo sugestões valiosas aos consumidores.
+Um dos maiores desafios tecnológicos dos sistemas de recomendação é, atualmente, o da escalabilidade \cite{wei2007survey}. O sistema de recomendação deverá ser flexível no sentido de poder operar igualmente bem tanto em conjuntos pequenas quanto em grandes bases de dados, que podem chegar até centenas de milhões de clientes \cite{amazoncustomers} e de produtos \cite{amazonproducts}. Isso significa que as recomendações devem ser suficientemente rápidas e ainda assim prover sugestões valiosas aos consumidores.
 
 Um sistema de recomendação inteligente também deve prever quando enviar uma determinada recomendação, e não agir apenas mediante requisição do cliente \cite{lops2011content}. É interessante, por exemplo, enviar recomendações de produtos com descontos a usuários que estão há algum tempo inativos no site, para que eles retornem a comprar. Da mesma forma, um sistema inteligente poderia sugerir produtos do lar a um usuário detectado como recém-casado.
 
