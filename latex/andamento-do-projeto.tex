@@ -165,35 +165,33 @@ Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de
     w_0 + \sum_{f}{w_{f} ~ d_{fij}} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)},~\forall i \neq j 
 \end{equation} 
 
- %Hibrido:
-%CF user-user
-%problema de sparcity dos dados
-%CB
-%cada item é representado por um vetor de features / atributos
-%Similaridade entre dois itens i e j dada pelas varias medidas de distancia entre duas features 
-%distancia euclidiana
-%similaridade do conseno
-%Essa similaridade é uma média ponderada entre cada medida de distancia para cada feature, de modo que o mais importante recebe mais peso
-%S(i, j) = w1 f (attr1 i, attr1 j) + w2 f (attr2 i, attr2 j) + ...
-%Esses pesos %w_n são, em geral, desconhecidos
-%f depende do tipo de atributo (boolean, string, numerico) e é normalizado em %[0, 1]
-%w_n serão determinados a partir de um grafo de similaridade do ponto de vista humano entre features (IMDB)
-%E(i, j) = numero de users interessados em i e j
-%regressão linear
-%E(i, j) = w0 + w1 f (attr1 i, attr1 j) + …
-%determinamos %w_n
-%Performance
-%recall measure
-%IMDB recommendation como benchmark
-%Further studies
-%sparse regression
-%isometric projection are being considered
-%ANALISE:
-%determina medida de distancia para cada feature
-%similaridade = medida de distancia ponderada por pesos de importancia
-%determina um grafo de onde pegar os pesos (regressao linear)
-%encontra similaridade entre dois itens
-%faz recomendação baseado na similaridade
+...
+
+O segundo algoritmo, adaptado de \cite{debnath2008feature}, .... é um uma ponderação de atributos baseada em um modelo de usuários \textit{UM} a ser comparado com \textit{FW} .
+
+
+\begin{equation}
+\label{eq:puf} 
+    p_{uf} = \sum_{i}{\mathrm{b}_M\left(r_{ui}~a_{if}\right)} 
+\end{equation} 
+
+
+construção do perfil do usuário
+se o usuário avaliou positivamente (maior que um threshold) algum item, pode-se construir suas features preferidas)
+R(u,i) matriz de ratings do user u no item i
+F(i, f) matriz booleana que indica se o item i tem a feature f
+P(u,f) matriz de correlacao entre o user u e a feature f 
+P = bool(R) x F, onde boolthres (r_ui) = (r_ui > threshold) ? 1 : 0
+W(u,f) matriz de pesos 
+W = FF (u,f) x IUF (f, f)
+FF(u,f) = P(u,f) feature frequency
+IUF(f, f) = Id x log ( |U| / UF(f) )
+|U| = total de users
+UF(f) = sum_u (bool(p_uf))
+
+
+\cite{symeonidis2007feature} e doravante denominado de \textit{feature weighting}, ponderação de atributos ou \textit{FW}, se trata de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar o julgamento humano de similaridade entre itens, e por isso se trata de uma filtragem colaborativa dos usuários. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo e posteriormente os itens com maior similaridade são recomendados.
+
 
 
 
