@@ -39,13 +39,13 @@ Os resultados das recomendações serão entregues, da mesma forma, por meio de 
 
 ...
 
-Uma das maiores dificuldades do sistema de recomendação é a escala, isto é, o fato de os sistemas lidarem com quantidades de itens e clientes da ordem de centenas de milhares, exigindo algoritmos eficientes e inviabilizando implementações computacionalmente complexas. Outra grande dificuldade é a esparsidade dos dados, ou seja, o fato de a maioria dos clientes nunca ter interagido com mais de algumas unidades de itens, fazendo com que a matriz de relação usuário-item seja tenha uma quantidade muito pequena de valores preenchidos, da ordem de 1\% \cite{fennell2009collaborative}.
+Uma das maiores dificuldades do sistema de recomendação é a escala, isto é, o fato de os sistemas lidarem com quantidades de itens e clientes da ordem de centenas de milhares, exigindo algoritmos eficientes e inviabilizando implementações computacionalmente complexas. Outra grande dificuldade é a esparsidade dos dados, ou seja, o fato de a maioria dos clientes nunca ter interagido com mais de algumas unidades de itens, fazendo com que a matriz de relação usuário-item tenha apenas uma quantidade muito pequena de valores preenchidos, da ordem de 1\% \cite{fennell2009collaborative}.
 
 ...
 
 De modo geral os sistemas de recomendação tem o objetivo de apresentar ao usuário itens pelos quais ele possa se interessar e, no caso de um e-commerce, que ele vá adquirir. O desempenho de um sistema de recomendação se mede, portanto, na qualidade com a qual ele executa essa tarefa. Essa qualidade pode ser medida de diferentes maneiras, tal como pela medida de distância entre os produtos recomendados ($\widetilde{\mathbf{x}}$) e aqueles que seriam efetivamente comprados ($\mathbf{x}$) pelo cliente em uma validação cruzada (\textit{cross validation}). Essa medida pode ser, por exemplo, a distância $L_1$ (erro médio absoluto, $\left|\widetilde{\mathbf{x}} - \mathbf{x}\right|$) ou a distância $L_2$ (erro quadrático médio,  $\sqrt{\left|\widetilde{\mathbf{x}} - \mathbf{x}\right|^2}$)
 
-Outras medidas de predição também serão utilizadas, como acurácia (\textit{accuracy}), especificidade (\textit{specificity}), precisão (\textit{precision}), abrangência (\textit{recall}) e a medida $F_1$ (\textit{F-score}). Elas estão sumarizadas na tabela \ref{tab:avaliacao-predicao}.
+Outras medidas de predição também serão utilizadas, tais como acurácia (\textit{accuracy}), especificidade (\textit{specificity}), precisão (\textit{precision}), abrangência (\textit{recall}) e a medida $F_1$ (\textit{$F_1$-score}). Elas estão sumarizadas na Tabela \ref{tab:avaliacao-predicao}.
 
 %\begin{table}[H]
 %\begin{center}
@@ -106,14 +106,14 @@ Algoritmos
 
 O primeiro algoritmo que utilizamos no sistema de recomendação, adaptado de  \cite{symeonidis2007feature} e doravante denominado de \textit{feature weighting}, ponderação de atributos ou \textit{FW}, se trata de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar o julgamento humano de similaridade entre itens, e por isso se trata de uma filtragem colaborativa dos usuários. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo e posteriormente os itens com maior similaridade são recomendados.
 
-Na filtragem baseada em conteúdo, cada item é representado por um vetor de atributos ou \textit{features}. A similaridade $s_{ij}$ entre dois itens $i$ e $j$ é dada pela média ponderada das distâncias entre das \textit{features} dos itens:
+Na filtragem baseada em conteúdo, ``cada item é representado por um vetor de atributos ou \textit{features}''. A similaridade $s_{ij}$ entre dois itens $i$ e $j$ é dada pela média ponderada das distâncias entre das \textit{features} dos itens:
 
 \begin{equation} 
 \label{eq:similaridade}
     s_{ij} = \sum_{f}{w_{f} ~ \left(1-d_{fij}\right)}
 \end{equation}
 
-As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para dados literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. É possível considerar a correlação entre atributos (marcas de calçado entre si tem maior similaridade que duas marcas de categorias distintas), mas em uma primeira análise utilizaremos para a maior parte dos atributos $f$ a medida de distância $d_{fij}=1-\delta_{ij}^f$. Isso significa que se as \textit{features} de dois itens são idênticas, a distância é nula e logo a similaridade é máxima. O sumário das medidas de distância estão na Tabela \ref{tab:medidas-distancia}.
+As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para atributos literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. É possível considerar a correlação entre atributos $f, g$ (a similaridade de duas marcas de calçado é maior que a de duas marcas de produtos de categorias distintas, mesmo que as marcas sejam diferentes), mas em uma primeira análise utilizaremos para a maior parte dos atributos a medida de distância $d_{fij}=1-\delta_{ij}^f$. Isso significa que se as \textit{features} de dois itens são idênticas, a distância é nula e logo a similaridade é máxima. O sumário das medidas de distância estão na Tabela \ref{tab:medidas-distancia}.
 
 \begin{equation}
 \label{eq:delta}
@@ -158,7 +158,7 @@ A partir da matriz de avaliações $\mathbf{R}$, pode-se determinar $e_{ij}$, co
 \end{cases} 
 \end{equation}
 
-Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de equações lineares \ref{eq:determinacao-wf}. Apenas os pesos positivos e com maior valor absoluto são utilizados na recomendação. Calcula-se a matriz de similaridade $\mathbf{S}$ pela equação \ref{eq:similaridade} e recomenda-se os itens mais similares àqueles já comprados.  
+Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de equações lineares \ref{eq:determinacao-wf}. Apenas os pesos positivos e com valor absoluto expressivo (maior que um piso arbitrariamente escolhido a posteriori) são utilizados na recomendação. Calcula-se a matriz de similaridade $\mathbf{S}$ pela equação \ref{eq:similaridade} e recomenda-se os itens mais similares àqueles já comprados.  
 
 \begin{equation}
 \label{eq:determinacao-wf} 
@@ -167,7 +167,7 @@ Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de
 
 ...
 
-O segundo algoritmo, adaptado de \cite{debnath2008feature}, é um hibrido entre filtragem colaborativa e filtragem baseada em conteúdo. Os atributos dos itens são ponderados no cálculo de similaridade, com pesos extraídos de um modelo de perfil de usuários, denominado \textit{user profile} ou \textit{UP}. Esse perfil leva em consideração o interesse dos usuários por \textit{features}, indiretamente calculado a partir de seu interesse pelos itens. Se o usuário avaliou positivamente algum item $r_{ui}$, tal que $r_{ui}$ é superior a um valor mínimo $M$, considera-se que $u$ tem interesse $a_{if}$ nos atributos $f$ do item $i$. A matriz de correlação $t_{uf}$ entre usuários e \textit{features} é descrita por \ref{eq:puf}.
+O segundo algoritmo, adaptado de \cite{debnath2008feature}, é um hibrido entre filtragem colaborativa e filtragem baseada em conteúdo. Os atributos dos itens são ponderados no cálculo de similaridade, com pesos extraídos de um modelo de perfil de usuários, denominado \textit{user profile} ou \textit{UP}. Esse perfil leva em consideração o interesse dos usuários por \textit{features}, indiretamente calculado a partir de seu interesse pelos itens. Se o usuário avaliou positivamente algum item $r_{ui}$, tal que $r_{ui}$ é superior a um valor mínimo $M$, considera-se que $u$ tem interesse $a_{if}$ nos atributos $f$ do item $i$. A correlação $t_{uf}$ entre usuários e \textit{features} é descrita por \ref{eq:puf}.
 
 \begin{equation}
 \label{eq:puf} 
@@ -203,13 +203,14 @@ Os pesos, descritos por \ref{eq:w-tfidf}, são utilizados para calcular a simila
 \begin{equation}
 \label{eq:suv}
 \begin{split}
-    s_{uv} &= \frac{\sum\limits_{f \in \mathcal{F}_{uv}}{w_{uf}~w_{vf}}}{\sqrt{\sum\limits_{f \in \mathcal{F}_{uv}}w_{uf}^2} \sqrt{\sum\limits_{f \in \mathcal{F}_{uv}}w_{vf}^2}} \\
+    s_{uv} &= \frac{\sum\limits_{f \in \mathcal{F}_{uv}}{w_{uf}~w_{vf}}}{\sqrt{\sum\limits_{f \in \mathcal{F}_{uv}
+    }w_{uf}^2} \sqrt{\sum\limits_{f \in \mathcal{F}_{uv}}w_{vf}^2}} \\
     \mathcal{F}_{uv} &= \mathcal{F}_u \cap \mathcal{F}_v \\
     \mathcal{F}_u &= \left\{ f \in \mathcal{F}~|~t_{uf} > 0 \right\}
 \end{split}    
 \end{equation} 
 
-Dispondo-se de $\mathbf{S}$, selecionam-se os $k$ vizinhos mais próximos $v_k$ de $u$ com maior similaridade $s_{uv}$.  Posteriormente, determina-se o conjunto $I_{v_k} = \left\{ i ~|~ r_{v_ki} > 0\right\}$ de itens $i$ avaliados por $v_k$. Avalia-se a frequência total $\mathrm{fr}_f$ dos atributos $f$ para os itens de $I_{v_k}$, por \ref{eq:frf}. Por fim, a partir da equação \ref{eq:wi} calcula-se o peso $\omega_i$ de cada item e gera-se a lista dos \textit{top-N} itens a serem recomendados para o usuário $u$. 
+Dispondo-se de $\mathbf{S}$, selecionam-se os $k$ vizinhos mais próximos $v_k$ de $u$ com maior similaridade $s_{uv}$.  Posteriormente, determina-se o conjunto $I_{v_k} = \left\{ i ~|~ r_{v_ki} > 0\right\}$ de itens $i$ avaliados por $v_k$. Em \ref{eq:frf} avalia-se a frequência total $\mathrm{fr}_f$ dos atributos $f$ para os itens de $I_{v_k}$. Por fim, a partir da equação \ref{eq:wi} calcula-se o peso $\omega_i$ de cada item e gera-se a lista dos \textit{top-N} itens a serem recomendados para o usuário $u$. 
 
 
 \begin{equation}
@@ -222,9 +223,39 @@ Dispondo-se de $\mathbf{S}$, selecionam-se os $k$ vizinhos mais próximos $v_k$ 
     \omega_{i} = \sum_{f}{a_{if}~\mathrm{fr}_f}
 \end{equation} 
 
+...
 
+A simbologia utilizada neste presente trabalho de conclusão de curso é adaptada de \cite{symeonidis2007feature}, e está descrita na Tabela \ref{tab:simbologia}. As terminologias \textit{cliente} e \textit{usuário} serão intercambiáveis e sem distinção semântica, mesmo que na prática essas duas entidades possam ser diferentes. Da mesma forma, \textit{item} e \textit{produto} terão o mesmo significado neste texto. 
 
+A fim de tornar a formulação mais genérica, também não faremos distinção entre \textit{avaliação positiva} de um item e \textit{compra} de um item. Avaliação positiva é toda avaliação $r_{ui}$ tal que $r_{ui} > M$, e avaliação negativa tal que $r_{ui} \leq M$, sendo $M$ um valor mínimo escolhido a priori indicador de que o usuário $u$ ``gostou'' do item $i$. No caso de um banco de dados sem avaliações dos produtos, será levada em conta a compra dos itens e será admitido \textit{rating} unitário. Desta forma os bancos de dados que contenham informações do tipo ``usuário $u$ avaliou o item $i$ em $r_{ui} = 3.54 > 3.00$'' e aqueles que contenham ``usuário $u$ comprou o item $i$, e logo $r_{ui} = 1$'' são tratados equivalentemente.
 
+\begin{table}[H]
+\begin{center}
+    \caption{Simbologia}
+    \label{tab:simbologia}
+    \begin{tabular}{ | l | l | }
+    \hline
+    \textbf{Símbolo} & \textbf{Definição} \\ \hline
+    $k$ & Número de vizinhos mais próximos \\ \hline
+    $N$ & Tamanho da lista de recomendação \\ \hline
+    $\mathcal{U}$ & Conjunto de todos os usuários \\ \hline
+    $\mathcal{F}$ & Conjunto  de todos os atributos \\ \hline
+    $\mathcal{I}$ & Conjunto de todos os itens \\ \hline
+    $u, v$ & Usuários \\ \hline
+    $i, j$ & Itens \\ \hline
+    $f, g$ & Atributos \\ \hline
+    $\mathbf{X}_{M \times N},~\mathbf{X}$ & Matriz de elementos $x_{mn}$ \\ \hline
+    $\mathbf{x}_{N},~\mathbf{x}$ & Vetor de elementos $x_{n}$ \\ \hline
+    $|\mathcal{X}|$ & Número de elementos do conjunto $\mathcal{X}$ \\ \hline
+    $\mathbf{R}, r_{ui}$ & Avaliação do item $i$ pelo usuário $u$\\ \hline
+    $\mathbf{A}, a_{if}$ & Descrição numérica do atributo $f$ presente no item $i$ \\ \hline
+    $\mathbf{T}, t_{uf}$ & Correlação entre usuário $u$ e atributo $f$ \\ \hline
+    $\mathbf{w}, w_{f}$ & Peso do atributo $f$ \\ \hline
+    $\mathbf{W}, w_{uf}$ & Correlação ponderada entre usuário $u$ e atributo $f$ \\ \hline
+    $\mathbf{S}, s_{ij}$ & Similaridade entre itens $i$ e $j$ \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
 
 
 %Objetivos
