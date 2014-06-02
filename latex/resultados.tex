@@ -4,24 +4,46 @@
 
 Até o presente momento, os resultados deste Trabalho de Conclusão de Curso concentram-se na definição de necessidades, de parâmetros de sucesso e de síntese de possíveis soluções. 
 
-Visto que a primeira etapa de um sistema de recomendação é a coleta e manipulação de dados, definimos que o sistema partirá de um banco de dados relacional MySQL. Essa escolha decorre do fato de este ser o sistema de gestão de banco de dados \textit{open source} mais utilizado no mundo. O \textit{input} virá sob a forma de três tabelas genéricas de informações de clientes, $C$, itens, $S$, e histórico de compras, $H$. Os dados de cliente $c$ e item $s$ devem vir, cada um deles, sob a forma de um identificador e eventuais dados complementares. Os dados de histórico $h$, sob a forma de um identificador e da relação de identificadores cliente-item daquela compra, assim como de eventuais dados complementares. 
+Visto que a primeira etapa de um sistema de recomendação é a coleta e manipulação de dados, definimos que a aquisição de dados será feita a partir de um banco de dados genérico, que deverá alimentar o sistema por meio de arquivos de texto com valores separados por vírgulas (\texttt{.csv}). A fim de facilitar o pré-processamento dos dados, exigem-se três arquivos, cada um com uma tabela de itens e seus atributos $\mathbf{A}$, clientes e suas características $\mathbf{B}$ e histórico de compras ou avaliações $\mathbf{R}$. Caso existam outras tabelas no banco de dados, o sistema deverá ser alterado para levar em conta o processamento dos arquivos suplementares.
 
 \begin{equation} 
 \begin{split} 
-\mathbf{c} \in \mathbf{C}, \mathbf{c} &= 
+\mathbf{A} &= 
 \begin{bmatrix} 
- \textrm{id}_c &  \textrm{atributo}_1 &  \textrm{atributo}_2 & \dots &  \textrm{atributo}_n 
-\end{bmatrix}^T \\
-\mathbf{s} \in \mathbf{S}, \mathbf{s} &= 
+ a_{i_1 f_1} &  a_{i_1 f_2} &  a_{i_1 f_3}  & \dots   \\
+ a_{i_2 f_1} &  a_{i_2 f_2} &  a_{i_2 f_3}  & \dots   \\
+ a_{i_3 f_1} &  a_{i_3 f_2} &  a_{i_3 f_3}  & \dots  \\ 
+ \vdots &  \vdots &  \vdots  & \ddots   \\
+ \end{bmatrix} \\
+\mathbf{B} &= 
 \begin{bmatrix} 
- \textrm{id}_s &  \textrm{atributo}_1 &  \textrm{atributo}_2 & \dots &  \textrm{atributo}_m 
-\end{bmatrix}^T \\
-\mathbf{h} \in \mathbf{H}, \mathbf{h} &= 
+ b_{u_1 c_1} &  b_{u_1 c_2} &  b_{u_1 c_3}  & \dots   \\
+ b_{u_2 c_1} &  b_{u_2 c_2} &  b_{u_2 c_3}  & \dots   \\
+ b_{u_3 c_1} &  b_{u_3 c_2} &  b_{u_3 c_3}  & \dots  \\ 
+ \vdots &  \vdots &  \vdots  & \ddots   \\
+ \end{bmatrix}\\
+  \mathbf{R} &= 
 \begin{bmatrix} 
- \textrm{id}_h &  \textrm{id}_c &  \textrm{id}_s &  \textrm{atributo}_1 &  \textrm{atributo}_2 & \dots &  \textrm{atributo}_p 
-\end{bmatrix}^T
+  r_{u_1 i_1} &  r_{u_1 i_2} &  r_{u_1 i_3}  & \dots   \\
+ r_{u_2 i_1} &  r_{u_2 i_2} &  r_{u_2 i_3}  & \dots   \\
+ r_{u_3 i_1} &  r_{u_3 i_2} &  r_{u_3 i_3}  & \dots  \\ 
+ \vdots &  \vdots &  \vdots  & \ddots   \\
+\end{bmatrix}
 \end{split} 
 \end{equation}
+
+Em alguns bancos de dados, a tabela de histórico também contém outras informações adicionais $\theta$, tais como o método de pagamento, a data da compra, data de entrega, etc., e é denominada $\mathbf{H}$.
+
+\begin{equation} 
+\mathbf{H} =
+\begin{bmatrix} 
+ r_{u_1 i_1} &  \theta_{h_1 1} &  \theta_{h_1 2} & \dots   \\
+ r_{u_1 i_2} &  \theta_{h_2 1} &  \theta_{h_2 2} & \dots   \\
+ r_{u_1 i_3} &  \theta_{h_3 1} &  \theta_{h_3 2} & \dots   \\
+ \vdots &  \vdots &  \vdots  & \ddots   \\
+ \end{bmatrix} \\
+\end{equation}
+
 
 Uma vez determinada a forma de entrada de dados, definiu-se a escolha do conjunto de dados a serem utilizados. O primeiro conjunto de dados abertos é proveniente do website de recomendações de filmes MovieLens (\url{http://movielens.umn.edu}). Nessa base de dados, o catálogo de filme faz o papel de catálogo de produtos pelos quais os usuários possam se interessar, e o histórico de compras se refere à avaliação dos filmes feita por cada usuário. Outros conjuntos de dados também serão  explorados pela dupla, tais como os dados de classificação de músicas do serviço Yahoo! Music (\url{http://webscope.sandbox.yahoo.com}) ou de dados anônimos de e-commerces.
 

@@ -31,7 +31,6 @@ Para o segundo semestre deste ano, desenvolveremos um sistema de recomendação 
 
 ...
 
-A aquisição de dados será feita a partir de um banco de dados genérico, que deverá alimentar o sistema por meio de arquivos de texto com valores separados por vírgulas (\texttt{.csv}). A fim de facilitar o pré-processamento dos dados, exigem-se três arquivos, cada um com uma tabela de itens, clientes e histórico de compras. Caso existam outras tabelas no banco de dados, o sistema deverá ser alterado para levar em conta o processamento dos arquivos suplementares.
 
 ...
 
@@ -113,7 +112,7 @@ Na filtragem baseada em conteúdo, ``cada item é representado por um vetor de a
     s_{ij} = \sum_{f}{w_{f} ~ \left(1-d_{fij}\right)}
 \end{equation}
 
-As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para atributos literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. É possível considerar a correlação entre atributos $f, g$ (a similaridade de duas marcas de calçado é maior que a de duas marcas de produtos de categorias distintas, mesmo que as marcas sejam diferentes), mas em uma primeira análise utilizaremos para a maior parte dos atributos a medida de distância $d_{fij}=1-\delta_{ij}^f$. Isso significa que se as \textit{features} de dois itens são idênticas, a distância é nula e logo a similaridade é máxima. O sumário das medidas de distância estão na Tabela \ref{tab:medidas-distancia}.
+As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para atributos literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. É possível considerar a correlação entre atributos (a similaridade de duas marcas de calçado é maior que a de duas marcas de produtos de categorias distintas, mesmo que as marcas sejam diferentes), mas em uma primeira análise utilizaremos para a maior parte dos atributos $f$ a medida de distância $d_{fij}=1-\delta_{ij}^f$. Isso significa que se as \textit{features} de dois itens são idênticas, a distância é nula e logo a similaridade é máxima. O sumário das medidas de distância estão na Tabela \ref{tab:medidas-distancia}.
 
 \begin{equation}
 \label{eq:delta}
@@ -243,12 +242,14 @@ A fim de tornar a formulação mais genérica, também não faremos distinção 
     $\mathcal{I}$ & Conjunto de todos os itens \\ \hline
     $u, v$ & Usuários \\ \hline
     $i, j$ & Itens \\ \hline
-    $f, g$ & Atributos \\ \hline
+    $f$ & Atributos dos itens \\ \hline
+    $c $ & Características dos usuários \\ \hline
     $\mathbf{X}_{M \times N},~\mathbf{X}$ & Matriz de elementos $x_{mn}$ \\ \hline
     $\mathbf{x}_{N},~\mathbf{x}$ & Vetor de elementos $x_{n}$ \\ \hline
     $|\mathcal{X}|$ & Número de elementos do conjunto $\mathcal{X}$ \\ \hline
     $\mathbf{R}, r_{ui}$ & Avaliação do item $i$ pelo usuário $u$\\ \hline
-    $\mathbf{A}, a_{if}$ & Descrição numérica do atributo $f$ presente no item $i$ \\ \hline
+    $\mathbf{A}, a_{if}$ & Quantificação do atributo $f$ presente no item $i$ \\ \hline
+    $\mathbf{B}, b_{uc}$ & Quantificação das características $c$ de cada usuário $u$ \\ \hline    
     $\mathbf{T}, t_{uf}$ & Correlação entre usuário $u$ e atributo $f$ \\ \hline
     $\mathbf{w}, w_{f}$ & Peso do atributo $f$ \\ \hline
     $\mathbf{W}, w_{uf}$ & Correlação ponderada entre usuário $u$ e atributo $f$ \\ \hline
