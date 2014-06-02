@@ -14,20 +14,11 @@
 %		dos objetivos do próximo semestre 
 %		da viabilidade de alcance do resultado programado  no fim do segundo semestre. 
 
-De início pensamos fazer um sistema de recomendação utilizando algoritmos de filtragem colaborativa baseada em itens, principalmente motivados pela leitura inicial de \cite{linden2003amazon}, que mostrava as vantagens desse método comparado à filtragem colaborativa baseada em usuários. 
+Ao longo do semestre, o escopo do presente trabalho de conclusão de curso se alterou no que tange as possíveis soluções. De início, pensamos fazer um sistema de recomendação utilizando algoritmos de filtragem colaborativa baseada em itens, principalmente motivados pela leitura inicial de \cite{linden2003amazon}, que mostra as vantagens desse método comparado à filtragem colaborativa baseada em usuários. 
 
-Todavia, percebemos grande parte dos e-commerces estruturam seus bancos de dados em torno da descrição dos itens vendidos e das informações dos clientes. Pouco detalhe é dado à interação entre esses dois grupos, com exceção da tabela de compras, que se limita a informações como data e método de pagamento. Dessa forma concluímos que os métodos de filtragem colaborativa, fundamentados na avaliação dos itens por parte dos usuários, teriam pior desempenho que métodos baseados em conteúdo.
+Todavia, percebemos que grande parte dos e-commerces estruturam seus bancos de dados em torno da descrição dos itens à venda e das informações dos clientes. Pouco detalhe é dado à interação entre esses dois grupos, visto que a tabela de compras se limita a informações como data e método de pagamento. Dessa forma concluímos que os métodos de filtragem colaborativa, fundamentados na avaliação dos itens por parte dos usuários, teriam pior desempenho que métodos baseados em conteúdo, que exploram os atributos dos itens na recomendação. Estes podem ser diversos, dependendo do ramo de negócios do e-commerce, tais como marca, esporte, categoria, gênero, cor, preço ou outros.
 
-Métodos de recomendação baseados em conteúdo podem explorar a classificação dos produtos no banco de dados a fim de determinar as sugestões. Os atributos podem ser diversos, dependendo do ramo de negócios do e-commerce, tais como marca, esporte, categoria, sexo, idade, cor, preço, etc.
-
-...
-
-Utilizaremos um banco de dados de e-commerce fornecido anonimamente. Para o segundo semestre, utilizaremos também outros bancos, como o TODO MovieLens, TODO ClickBus. Ele está estruturado da seguinte maneira: TODO 
-
-...
-
-
-Para o segundo semestre deste ano, desenvolveremos um sistema de recomendação a partir de diferentes algoritmos e faremos uma análise de desempenho  para cada um deles. Utilizaremos algoritmos inspirados em \cite{debnath2008feature} e \cite{symeonidis2007feature}. O primeiro artigo determina a similaridade de dois itens a partir de medidas de distância para cada um dos atributos dos itens, ponderadas por pesos determinados na regressão linear de uma equação descrita pelo interesse dos usuários em cada \textit{feature}. O segundo texto parte do princípio que os usuários estão interessados nos atributos dos itens, traçando correlações entre esses dois elementos até chegar nos pesos que servirão de base para a matriz de similaridade de usuários, utilizada na recomendação pelo método da vizinhança (\textit{nearest neighbors}).
+Além disso, formalizamos matematicamente o problema e os algoritmos que serão utilizados. O sistema de recomendação que será desenvolvido será baseado em dois diferentes algoritmos, e será feita uma análise de desempenho  para cada um deles. Utilizaremos algoritmos inspirados em \cite{debnath2008feature} e \cite{symeonidis2007feature}. O primeiro artigo determina a similaridade de dois itens a partir de medidas de distância para cada um dos atributos dos itens, ponderadas por pesos determinados na regressão linear de uma equação descrita pelo interesse dos usuários em cada \textit{feature}. O segundo texto parte do princípio que os usuários estão interessados nos atributos dos itens, traçando correlações entre esses dois elementos até chegar nos pesos que servirão de base para a matriz de similaridade de usuários, utilizada na recomendação pelo método da vizinhança (\textit{nearest neighbors}). Ambos estão descritos com maior detalhe no Capítulo \ref{chap:sintese_de_solucoes}.
 
 ...
 
@@ -42,58 +33,7 @@ Uma das maiores dificuldades do sistema de recomendação é a escala, isto é, 
 
 ...
 
-De modo geral os sistemas de recomendação tem o objetivo de apresentar ao usuário itens pelos quais ele possa se interessar e, no caso de um e-commerce, que ele vá adquirir. O desempenho de um sistema de recomendação se mede, portanto, na qualidade com a qual ele executa essa tarefa. Essa qualidade pode ser medida de diferentes maneiras, tal como pela medida de distância entre os produtos recomendados ($\widetilde{\mathbf{x}}$) e aqueles que seriam efetivamente comprados ($\mathbf{x}$) pelo cliente em uma validação cruzada (\textit{cross validation}). Essa medida pode ser, por exemplo, a distância $L_1$ (erro médio absoluto, $\left|\widetilde{\mathbf{x}} - \mathbf{x}\right|$) ou a distância $L_2$ (erro quadrático médio,  $\sqrt{\left|\widetilde{\mathbf{x}} - \mathbf{x}\right|^2}$)
 
-Outras medidas de predição também serão utilizadas, tais como acurácia (\textit{accuracy}), especificidade (\textit{specificity}), precisão (\textit{precision}), abrangência (\textit{recall}) e a medida $F_1$ (\textit{$F_1$-score}). Elas estão sumarizadas na Tabela \ref{tab:avaliacao-predicao}.
-
-%\begin{table}[H]
-%\begin{center}
-%    \caption{Matriz de confusão}
-%    \label{tab:avaliacao-predicao}
-%    \begin{tabular}{ | l | l | p{5cm} | p{5cm} | }
-%    \hline
-%    & & \multicolumn{2}{|c|}{Caso predito} \\ \hline 
-%    & & \textbf{Positivo} & \textbf{Negativo} \\ \hline
-%    \multirow{2}{*}{Caso real} 
-%        & Positivo & Verdadeiro Positivo &  $(VP)$ & Falso Negativo $(FN)$ \\ \hline
-%        & Negativo & Falso Positivo $(FP)$ & Verdadeiro Negativo $(VN)$ \\ \hline
-%    \end{tabular}
-%\end{center}
-%\end{table}
-
-
-%\begin{tabular}{cc|c|c|c|c|l}
-%\cline{3-4}
-%& & \multicolumn{2}{ c| }{Caso predito} \\ \cline{3-4}
-%& & 2 & 3  \\ \cline{1-4}
-%\multicolumn{1}{ |c| }{\multirow{2}{*}{Powers} } &
-%\multicolumn{1}{ |c| }{504} & 3 & 2 &      \\ \cline{2-4}
-%\multicolumn{1}{ |c  }{}                        &
-%\multicolumn{1}{ |c| }{540} & 2 & 3 &      \\ \cline{1-4}
-%\multicolumn{1}{ |c  }{\multirow{2}{*}{Powers} } &
-%\multicolumn{1}{ |c| }{gcd} & 2 & 2   \\ \cline{2-4}
-%\multicolumn{1}{ |c  }{}                        &
-%\multicolumn{1}{ |c| }{lcm} & 3 & 3   \\ \cline{1-4}
-%\end{tabular}
-
-
-\begin{table}[H]
-\begin{center}
-    \caption{Avaliação de sistemas de predição}
-    \label{tab:avaliacao-predicao}
-    \begin{tabular}{ | l | c | p{5cm} | }
-    \hline
-    \textbf{Medida} & \textbf{Fórmula} & \textbf{Significado} \\ \hline
-    Precisão &  $\frac{VP}{VP+FP}$ & Porcentagem de casos positivos corretamente preditos. \\ \hline                            
-    Abrangência & $\frac{VP}{VP+FN}$ & Porcentagem de casos positivos sobre aqueles que foram marcados como positivos. \\ \hline
-    Especificidade & $\frac{VN}{VN+FP}$ &  Porcentagem de casos negativos sobre aqueles que foram marcados como negativos. \\ \hline
-    Acurácia & $\frac{VP+VN}{VP+VN+FP+FN}$ & Porcentagem de predições corretas. \\ \hline
-    Medida $F_1$ &  $2 \cdot \frac{\mathrm{Precisão}~\cdot~\mathrm{Abrangência}}{\mathrm{Precisão}~+~\mathrm{Abrangência}}$ & Média harmônica entre precisão e abrangência. \\ \hline
-    \end{tabular}
-\end{center}
-\end{table}
-
-Por fim, avaliaremos o desempenho do sistema mediante a mudança nas variáveis de importância do problema, como por exemplo na quantidade de atributos utilizados na recomendação e na capacidade de lidar com problemas como o \textit{cold start}. O tempo de execução também será avaliado em função do tamanho do banco de dados.
 
 ...
 
@@ -223,41 +163,6 @@ Dispondo-se de $\mathbf{S}$, selecionam-se os $k$ vizinhos mais próximos $v_k$ 
 \end{equation} 
 
 ...
-
-A simbologia utilizada neste presente trabalho de conclusão de curso é adaptada de \cite{symeonidis2007feature}, e está descrita na Tabela \ref{tab:simbologia}. As terminologias \textit{cliente} e \textit{usuário} serão intercambiáveis e sem distinção semântica, mesmo que na prática essas duas entidades possam ser diferentes. Da mesma forma, \textit{item} e \textit{produto} terão o mesmo significado neste texto. 
-
-A fim de tornar a formulação mais genérica, também não faremos distinção entre \textit{avaliação positiva} de um item e \textit{compra} de um item. Avaliação positiva é toda avaliação $r_{ui}$ tal que $r_{ui} > M$, e avaliação negativa tal que $r_{ui} \leq M$, sendo $M$ um valor mínimo escolhido a priori indicador de que o usuário $u$ ``gostou'' do item $i$. No caso de um banco de dados sem avaliações dos produtos, será levada em conta a compra dos itens e será admitido \textit{rating} unitário. Desta forma os bancos de dados que contenham informações do tipo ``usuário $u$ avaliou o item $i$ em $r_{ui} = 3.54 > 3.00$'' e aqueles que contenham ``usuário $u$ comprou o item $i$, e logo $r_{ui} = 1$'' são tratados equivalentemente.
-
-\begin{table}[H]
-\begin{center}
-    \caption{Simbologia}
-    \label{tab:simbologia}
-    \begin{tabular}{ | l | l | }
-    \hline
-    \textbf{Símbolo} & \textbf{Definição} \\ \hline
-    $k$ & Número de vizinhos mais próximos \\ \hline
-    $N$ & Tamanho da lista de recomendação \\ \hline
-    $\mathcal{U}$ & Conjunto de todos os usuários \\ \hline
-    $\mathcal{F}$ & Conjunto  de todos os atributos \\ \hline
-    $\mathcal{I}$ & Conjunto de todos os itens \\ \hline
-    $u, v$ & Usuários \\ \hline
-    $i, j$ & Itens \\ \hline
-    $f$ & Atributos dos itens \\ \hline
-    $c $ & Características dos usuários \\ \hline
-    $\mathbf{X}_{M \times N},~\mathbf{X}$ & Matriz de elementos $x_{mn}$ \\ \hline
-    $\mathbf{x}_{N},~\mathbf{x}$ & Vetor de elementos $x_{n}$ \\ \hline
-    $|\mathcal{X}|$ & Número de elementos do conjunto $\mathcal{X}$ \\ \hline
-    $\mathbf{R}, r_{ui}$ & Avaliação do item $i$ pelo usuário $u$\\ \hline
-    $\mathbf{A}, a_{if}$ & Quantificação do atributo $f$ presente no item $i$ \\ \hline
-    $\mathbf{B}, b_{uc}$ & Quantificação das características $c$ de cada usuário $u$ \\ \hline    
-    $\mathbf{T}, t_{uf}$ & Correlação entre usuário $u$ e atributo $f$ \\ \hline
-    $\mathbf{w}, w_{f}$ & Peso do atributo $f$ \\ \hline
-    $\mathbf{W}, w_{uf}$ & Correlação ponderada entre usuário $u$ e atributo $f$ \\ \hline
-    $\mathbf{S}, s_{ij}$ & Similaridade entre itens $i$ e $j$ \\ \hline
-    \end{tabular}
-\end{center}
-\end{table}
-
 
 %Objetivos
 %desenvolvimento de um recsys

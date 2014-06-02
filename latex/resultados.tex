@@ -7,29 +7,33 @@ Até o presente momento, os resultados deste Trabalho de Conclusão de Curso con
 Visto que a primeira etapa de um sistema de recomendação é a coleta e manipulação de dados, definimos que a aquisição de dados será feita a partir de um banco de dados genérico, que deverá alimentar o sistema por meio de arquivos de texto com valores separados por vírgulas (\texttt{.csv}). A fim de facilitar o pré-processamento dos dados, exigem-se três arquivos, cada um com uma tabela de itens e seus atributos $\mathbf{A}$, clientes e suas características $\mathbf{B}$ e histórico de compras ou avaliações $\mathbf{R}$. Caso existam outras tabelas no banco de dados, o sistema deverá ser alterado para levar em conta o processamento dos arquivos suplementares.
 
 \begin{equation} 
-\begin{split} 
-\mathbf{A} &= 
+\mathbf{A} = 
 \begin{bmatrix} 
  a_{i_1 f_1} &  a_{i_1 f_2} &  a_{i_1 f_3}  & \dots   \\
  a_{i_2 f_1} &  a_{i_2 f_2} &  a_{i_2 f_3}  & \dots   \\
  a_{i_3 f_1} &  a_{i_3 f_2} &  a_{i_3 f_3}  & \dots  \\ 
  \vdots &  \vdots &  \vdots  & \ddots   \\
- \end{bmatrix} \\
-\mathbf{B} &= 
+ \end{bmatrix}
+\end{equation}
+
+\begin{equation}
+	\mathbf{B} = 
 \begin{bmatrix} 
  b_{u_1 c_1} &  b_{u_1 c_2} &  b_{u_1 c_3}  & \dots   \\
  b_{u_2 c_1} &  b_{u_2 c_2} &  b_{u_2 c_3}  & \dots   \\
  b_{u_3 c_1} &  b_{u_3 c_2} &  b_{u_3 c_3}  & \dots  \\ 
  \vdots &  \vdots &  \vdots  & \ddots   \\
- \end{bmatrix}\\
-  \mathbf{R} &= 
+ \end{bmatrix}
+\end{equation}
+
+\begin{equation}
+	  \mathbf{R} = 
 \begin{bmatrix} 
   r_{u_1 i_1} &  r_{u_1 i_2} &  r_{u_1 i_3}  & \dots   \\
  r_{u_2 i_1} &  r_{u_2 i_2} &  r_{u_2 i_3}  & \dots   \\
  r_{u_3 i_1} &  r_{u_3 i_2} &  r_{u_3 i_3}  & \dots  \\ 
  \vdots &  \vdots &  \vdots  & \ddots   \\
 \end{bmatrix}
-\end{split} 
 \end{equation}
 
 Em alguns bancos de dados, a tabela de histórico também contém outras informações adicionais $\theta$, tais como o método de pagamento, a data da compra, data de entrega, etc., e é denominada $\mathbf{H}$.
@@ -39,22 +43,9 @@ Em alguns bancos de dados, a tabela de histórico também contém outras informa
 \begin{bmatrix} 
  r_{u_1 i_1} &  \theta_{h_1 1} &  \theta_{h_1 2} & \dots   \\
  r_{u_1 i_2} &  \theta_{h_2 1} &  \theta_{h_2 2} & \dots   \\
- r_{u_1 i_3} &  \theta_{h_3 1} &  \theta_{h_3 2} & \dots   \\
+ r_{u i} &  \theta_{h 1} &  \theta_{h 2} & \dots   \\
  \vdots &  \vdots &  \vdots  & \ddots   \\
  \end{bmatrix} \\
 \end{equation}
 
-
 Uma vez determinada a forma de entrada de dados, definiu-se a escolha do conjunto de dados a serem utilizados. O primeiro conjunto de dados abertos é proveniente do website de recomendações de filmes MovieLens (\url{http://movielens.umn.edu}). Nessa base de dados, o catálogo de filme faz o papel de catálogo de produtos pelos quais os usuários possam se interessar, e o histórico de compras se refere à avaliação dos filmes feita por cada usuário. Outros conjuntos de dados também serão  explorados pela dupla, tais como os dados de classificação de músicas do serviço Yahoo! Music (\url{http://webscope.sandbox.yahoo.com}) ou de dados anônimos de e-commerces.
-
-Por fim, as possíveis soluções do projeto abrangem o cálculo das medidas de similaridade entre itens, para os conjuntos de dados que não foram previamente tratados. Determinar um valor numérico entre dois produtos distintos, tais como uma camiseta e uma prancha de \textit{surf}, é uma tarefa complexa e sujeita a erros humanos. Após reflexão e leitura de referências, definimos possíveis maneiras de realizar esse cálculo: 
-
-\begin{itemize} 
-	\item Grupos de similaridade: a similaridade dos itens seria definida por pelas características do item (como ``esporte radical'', ``corrida'', ``filme de aventura'', etc). Seria necessário classificar manualmente esses atributos (por exemplo, determinar que ``esporte radical'' tem similaridade de $3/5$ com ``corrida'' e $1/5$ com ``produtos de limpeza'').
-	\item Histórico de compra da comunidade: quanto mais usuários comprarem a mesma dupla de itens, maior a similaridade entre estes itens. A classificação se faz pelo histórico mas o índice de similaridade pertence aos itens e não entre os usuários.
-	\item Ranking por arestas: adaptado do sistema \textit{edge rank}, de classificação de posts no Facebook, este sistema levaria em conta a multiplicação de diversas características do item. Características como: popularidade da marca, número de compras por visualização do item, popularidade da marca para o usuário em questão (quantos itens ele comprou desta marca), há quanto tempo o item foi lançado e a relação do item com as compras anteriores do usuário (se este tipo de item já fez sucesso com este usuário).
-\end{itemize}
-
-Para os itens que já foram avaliados, como no caso dos conjuntos de dados de classificação de filmes ou músicas, essa etapa não é necessária, pois a similaridade entre dois itens provém diretamente da avaliação do usuário. Dizer que um filme $A$ tem avaliação $4/5$ e um filme $B$ tem avaliação $5/5$ equivale a dizer que os dois são interessantes para aquele usuários, e por isso vale recomendar filmes similares a $A$ e $B$. Nesse caso, passa-se  diretamente para a etapa das recomendações.
-
-Os resultados práticos de cálculo de similaridade ou descrição completa do banco de dados serão apresentados no relatório final do trabalho, em conjunto com os demais resultados da evolução do projeto. 
