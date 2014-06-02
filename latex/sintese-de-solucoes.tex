@@ -51,7 +51,7 @@ Na filtragem baseada em conteúdo, ``cada item é representado por um vetor de a
     s_{ij} = \sum_{f}{w_{f} \left(1-d_{fij}\right)}
 \end{equation}
 
-As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para atributos literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. É possível considerar a correlação entre atributos (a similaridade de duas marcas de calçado é maior que a de duas marcas de produtos de categorias distintas, mesmo que as marcas sejam diferentes), mas em uma primeira análise utilizaremos para a maior parte dos atributos $f$ a medida de distância $d_{fij}=1-\delta_{ij}^f$. Isso significa que se as \textit{features} de dois itens são idênticas, a distância é nula e logo a similaridade é máxima. O sumário das medidas de distância estão na Tabela \ref{tab:medidas-distancia}.
+As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para atributos literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. É possível considerar a correlação entre atributos (a similaridade de duas marcas de calçado é maior que a de duas marcas de produtos de categorias distintas, mesmo que as marcas sejam diferentes), mas em uma primeira análise utilizaremos para a maior parte dos atributos $f$ a medida de distância $d_{fij}=1-\delta_{ij}^f$. Isso significa que se as \textit{features} de dois itens são idênticas, a distância é nula e logo a similaridade é máxima. O sumário das medidas de distância estão na Tabela \ref{tab:medidas-distancia}. TODO
 
 \begin{equation}
 \label{eq:delta}
@@ -62,7 +62,7 @@ As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dad
 \end{cases} 
 \end{equation}
 
-\begin{table}[H]
+\begin{table}[hp]
 \begin{center}
     \caption{Medidas de distância entre atributos}
     \label{tab:medidas-distancia}
@@ -206,11 +206,11 @@ Outras medidas de predição também serão utilizadas, tais como acurácia (\te
 %\end{tabular}
 
 
-\begin{table}[H]
+\begin{table}[hp]
 \begin{center}
     \caption{Avaliação de sistemas de predição}
     \label{tab:avaliacao-predicao}
-    \begin{tabular}{ | l | c | p{5cm} | }
+    \begin{tabular}{  | >{\arraybackslash} m{3cm} | >{\centering\arraybackslash} m{4cm} | >{\arraybackslash} m{6cm} | }
     \hline
     \textbf{Medida} & \textbf{Fórmula} & \textbf{Significado} \\ \hline
     Precisão &  $\frac{VP}{VP+FP}$ & Porcentagem de casos positivos corretamente preditos. \\ \hline                            

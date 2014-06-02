@@ -18,43 +18,6 @@ Ao longo do semestre, o escopo do presente trabalho de conclusão de curso se al
 
 De início, pensamos fazer um sistema de recomendação utilizando algoritmos de filtragem colaborativa baseada em itens, principalmente motivados pela leitura inicial de \cite{linden2003amazon}, que mostra as vantagens desse método comparado à filtragem colaborativa baseada em usuários. 
 
-Todavia, percebemos que grande parte dos e-commerces estruturam seus bancos de dados em torno da descrição dos itens à venda e das informações dos clientes. Pouco detalhe é dado à interação entre esses dois grupos, visto que a tabela de compras se limita a informações como data e método de pagamento. Dessa forma concluímos que os métodos de filtragem colaborativa, fundamentados na avaliação dos itens por parte dos usuários, teriam pior desempenho que métodos baseados em conteúdo, que exploram os atributos dos itens na recomendação. Estes podem ser diversos, dependendo do ramo de negócios do e-commerce, tais como marca, esporte, categoria, gênero, cor, preço ou outros.
+Todavia, percebemos que grande parte dos e-commerces estruturam seus bancos de dados em torno da descrição dos itens à venda e das informações dos clientes. Pouco detalhe é dado à interação entre esses dois grupos, visto que a tabela de compras se limita a informações como data e método de pagamento. Dessa forma concluímos que os métodos de filtragem colaborativa, fundamentados na avaliação dos itens por parte dos usuários, teriam pior desempenho que métodos baseados em conteúdo, que exploram os atributos dos itens na recomendação. Estes podem ser diversos, dependendo do ramo de negócios do e-commerce, tais como marca, esporte, categoria, cor, preço ou outros.
 
-O sistema de recomendação que será desenvolvido será baseado em dois diferentes algoritmos, e será feita uma análise de desempenho  para cada um deles. Utilizaremos algoritmos inspirados em \cite{debnath2008feature} e \cite{symeonidis2007feature}. O primeiro artigo determina a similaridade de dois itens a partir de medidas de distância para cada um dos atributos dos itens, ponderadas por pesos determinados na regressão linear de uma equação descrita pelo interesse dos usuários em cada \textit{feature}. O segundo texto parte do princípio que os usuários estão interessados nos atributos dos itens, traçando correlações entre esses dois elementos até chegar nos pesos que servirão de base para a matriz de similaridade de usuários, utilizada na recomendação pelo método da vizinhança (\textit{nearest neighbors}). Ambos estão descritos com maior detalhe no Capítulo \ref{chap:sintese_de_solucoes}
-
-...
-
-Problemas que o recsys enfrentará: cold start
-
-...
-
-Algoritmos
-
-...
-
-%Objetivos
-%desenvolvimento de um recsys
-%Recomendação
-%com base em features (ref 28)
-%ditando os pesos w_i = 1 (facil e tosco)
-%“aprender” os w_i de uma fonte externa (rede social)
-%“aprender” os w_i com a base → como?
-%outras??? como?
-%aprender os pesos com base em grafo de pessoas que foram pra A e B ⇒ destino A e destino B sao similares
-%como determinar os pesos de macro/micro categorias? ex: Vestuário { Camiseta {Basquete} , Sunga {Natacao} } 
-%otimizacao dos pesos → “chuta” e vai mudando
-%modelo do video do netflix!!! 
-%
-%
-%Problemas elementares:
-%Estruturar entrada / saida de dados
-%Correlação de 2 features em R (delta, distancia euclidiana, etc)
-%Similaridade entre dois itens quaisquer baseada em features (porque é mais facil)
-%Similaridade para toda a matriz de itens
-%Neighborhood e recomendar top N
-%Nesse ponto ja temos um recsys primario, bem generico e que vale para qualquer e-commerce (passagens de onibus, livros, filmes, etc)
-%Problemas mais dificeis
-%Pensar no problema da data e sazonalidade (inspirar-se de netflix)
-%Ref (25) diz que CF é melhor que CB e sugere melhorias. Estruturar e fazer um CF
-%Qual algoritmo indicará que SP-RJ é similar a SP-BH??? Similar em quanto, de 0 a 10? Adaptar algum CF
-%Sempre ter em mente o geral / especifico (ex: aplicado para a clickbus) do recsys, e escrever o relatório focando no “geral” e mostrando a aplicacao %“especifica”
+O sistema de recomendação que será desenvolvido será baseado em dois diferentes algoritmos, e será feita uma análise de desempenho  para cada um deles. Utilizaremos algoritmos inspirados em \cite{debnath2008feature} e \cite{symeonidis2007feature}. O primeiro artigo determina a similaridade de dois itens a partir de medidas de distância para cada um dos atributos dos itens, ponderadas por pesos determinados na regressão linear de uma equação descrita pelo interesse dos usuários em cada \textit{feature}. O segundo texto parte do princípio que os usuários estão interessados nos atributos dos itens, traçando correlações entre esses dois elementos até chegar nos pesos que servirão de base para a matriz de similaridade de usuários, utilizada na recomendação pelo método da vizinhança (\textit{nearest neighbors}). Ambos estão descritos com maior detalhe no Capítulo \ref{chap:sintese_de_solucoes}.
