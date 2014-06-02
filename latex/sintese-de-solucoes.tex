@@ -4,7 +4,7 @@
 
 A simbologia utilizada neste texto é adaptada de \cite{symeonidis2007feature}, e está descrita na Tabela \ref{tab:simbologia}. As terminologias \textit{cliente} e \textit{usuário} serão intercambiáveis e sem distinção semântica, mesmo que na prática essas duas entidades possam ser diferentes. Da mesma forma, \textit{item} e \textit{produto} terão o mesmo significado neste trabalho. 
 
-A fim de tornar a formulação mais genérica, também não faremos distinção entre \textit{avaliação positiva} de um item e \textit{compra} de um item. Avaliação positiva é toda avaliação $r_{ui}$ tal que $r_{ui} > M$, e avaliação negativa tal que $r_{ui} \leq M$, sendo $M$ um valor mínimo escolhido a priori, indicador de que o usuário $u$ ``gostou'' do item $i$. No caso de um banco de dados sem avaliações dos produtos, será levada em conta a compra dos itens e será admitida avaliação unitária. Desta forma, para $M=3$, os bancos de dados que contenham informações do tipo ``usuário $u$ avaliou o item $i$ em $r_{ui} = 3.54 > 3.00$'' e aqueles que contenham ``usuário $u$ comprou o item $i$, logo $r_{ui} = 1$'' serão tratados equivalentemente.
+A fim de tornar a formulação mais genérica, também não faremos distinção entre \textit{avaliação positiva} de um item e \textit{compra} de um item. Avaliação positiva é toda avaliação $r_{ui}$ do item $i$ feital pelo usuário $u$ tal que $r_{ui} > M$, e avaliação negativa tal que $r_{ui} \leq M$, sendo $M$ um valor mínimo escolhido a priori, indicador de que o usuário $u$ ``gostou'' do item $i$. No caso de um banco de dados sem avaliações dos produtos, será levada em conta a compra dos itens e será admitida avaliação unitária. Desta forma, para $M=3$, os bancos de dados que contenham informações do tipo ``usuário $u$ avaliou o item $i$ em $r_{ui} = 3.54 > 3.00$'' e aqueles que contenham ``usuário $u$ comprou o item $i$, logo $r_{ui} = 1$'' serão tratados equivalentemente.
 
 \begin{table}[hp]
 \begin{center}
@@ -35,6 +35,135 @@ A fim de tornar a formulação mais genérica, também não faremos distinção 
     \end{tabular}
 \end{center}
 \end{table}
+
+
+\section{Algoritmo baseado na ponderação de atributos (FW)} % (fold)
+\label{sec:algoritmo_baseado_na_pondera_o_de_atributos_}
+
+% section algoritmo_baseado_na_pondera_o_de_atributos_ (end)
+
+O primeiro algoritmo que utilizamos no sistema de recomendação, adaptado de  \cite{symeonidis2007feature} e doravante denominado de \textit{feature weighting}, ponderação de atributos ou \textit{FW}, se trata de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar ``o julgamento humano de similaridade entre itens'', e por isso se trata de uma filtragem colaborativa dos usuários. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo e posteriormente os itens com maior similaridade são recomendados.
+
+Na filtragem baseada em conteúdo, ``cada item é representado por um vetor de atributos ou \textit{features}''. A similaridade $s_{ij}$ entre dois itens $i$ e $j$ é dada pela média ponderada das distâncias entre das \textit{features} dos itens:
+
+\begin{equation} 
+\label{eq:similaridade}
+    s_{ij} = \sum_{f}{w_{f} \left(1-d_{fij}\right)}
+\end{equation}
+
+As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para atributos literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. É possível considerar a correlação entre atributos (a similaridade de duas marcas de calçado é maior que a de duas marcas de produtos de categorias distintas, mesmo que as marcas sejam diferentes), mas em uma primeira análise utilizaremos para a maior parte dos atributos $f$ a medida de distância $d_{fij}=1-\delta_{ij}^f$. Isso significa que se as \textit{features} de dois itens são idênticas, a distância é nula e logo a similaridade é máxima. O sumário das medidas de distância estão na Tabela \ref{tab:medidas-distancia}.
+
+\begin{equation}
+\label{eq:delta}
+\delta_{ij} = 
+\begin{cases}
+1, &\text{se }i=j \\
+0, &\text{se }i \neq j
+\end{cases} 
+\end{equation}
+
+\begin{table}[H]
+\begin{center}
+    \caption{Medidas de distância entre atributos}
+    \label{tab:medidas-distancia}
+    \begin{tabular}{ | l | c | p{5cm} | }
+    \hline
+    \textbf{Medida} & \textbf{Fórmula} & \textbf{Significado} \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+ 
+Os pesos $w_f$ são a priori desconhecidos. A referência \cite{symeonidis2007feature} os determina a partir de um conjunto de equações do tipo \ref{eq:regressao-linear}, onde $e_{ij}$ é o número de usuários que se interessam tanto por $i$ quanto por $j$. 
+
+\begin{equation}
+\label{eq:regressao-linear} 
+    e_{ij} = w_0 + \sum_{f}{w_{f} ~ d_{fij}}
+\end{equation} 
+
+A partir da matriz de avaliações $\mathbf{R}$, pode-se determinar $e_{ij}$, conforme a equação \ref{eq:determinacao-eij}, onde $\mathrm{b_0}$ é o operador booleano descrito por \ref{eq:b0}.
+
+\begin{equation}
+\label{eq:determinacao-eij} 
+    e_{ij} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)}
+\end{equation} 
+
+\begin{equation}
+\label{eq:b0}
+\mathrm{b}_y\left(x\right) = 
+\begin{cases}
+1, &\text{se }x>y \\
+0, &\text{se }x\leq y
+\end{cases} 
+\end{equation}
+
+Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de equações lineares \ref{eq:determinacao-wf}. Apenas os pesos positivos e com valor absoluto expressivo (maior que um piso arbitrariamente escolhido a posteriori) são utilizados na recomendação. Calcula-se a matriz de similaridade $\mathbf{S}$ pela equação \ref{eq:similaridade} e recomenda-se os itens similares àqueles já comprados.  
+
+\begin{equation}
+\label{eq:determinacao-wf} 
+    w_0 + \sum_{f}{w_{f} ~ d_{fij}} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)},~\forall i \neq j 
+\end{equation} 
+
+\section{Algoritmo baseado no perfil de usuários (UP)} % (fold)
+\label{sec:algoritmo_baseado_no_perfil_de_usu_rios_}
+
+% section algoritmo_baseado_no_perfil_de_usu_rios_ (end)
+
+O segundo algoritmo, adaptado de \cite{debnath2008feature}, é um hibrido entre filtragem colaborativa e filtragem baseada em conteúdo. Os atributos dos itens são ponderados no cálculo de similaridade, com pesos extraídos de um modelo de perfil de usuários, denominado \textit{user profile} ou \textit{UP}. Esse perfil leva em consideração o interesse dos usuários por \textit{features}, indiretamente calculado a partir de seu interesse pelos itens. Se o usuário avaliou \textit{positivamente} algum item $r_{ui}$, tal que $r_{ui}$ é superior a um valor mínimo $M$, considera-se que $u$ tem interesse $t_{uf}$ nos atributos $f$ dos itens $i$. A correlação $t_{uf}$ entre usuários e \textit{features} é descrita por \ref{eq:puf}.
+
+\begin{equation}
+\label{eq:puf} 
+    t_{uf} = \sum_{i}{\mathrm{b}_M\left(r_{ui}~a_{if}\right)} 
+\end{equation} 
+
+Os pesos $w_{uf}$, que mostram a relevância de $f$ para $u$, são determinados a partir da estatística TF-IDF (\textit{term frequency--inverse document frequency}), presente em formulações de recuperação de informação e mineração de dados. Em nosso caso, TF ou \textit{feature frequency} é a similaridade intra-usuários $p_{uf}$ -- número de vezes em que a \textit{feature} $f$ aparece no perfil do usuário $u$ (equação \ref{eq:tf}). IDF ou \textit{inverse user frequency} é a dissimilaridade inter-usuários $q_{f}$ -- relacionada com o inverso da frequência $\hat{q}_{f}$ de um atributo $f$ dentro de todos os usuários (equações \ref{eq:uf} e \ref{eq:iuf}).
+
+\begin{equation}
+\label{eq:tf} 
+    p_{uf} = t_{uf}
+\end{equation} 
+
+
+\begin{equation}
+\label{eq:uf} 
+    \hat{q}_{f} = \sum_{u}{\mathrm{b}_0\left(t_{uf}\right)}
+\end{equation} 
+
+\begin{equation}
+\label{eq:iuf} 
+    q_{f} = \log \left( \frac{\left|~\mathcal{U}~\right|}{\hat{q}_{f}} \right)
+\end{equation} 
+
+Os pesos, descritos por \ref{eq:w-tfidf}, são utilizados para calcular a similaridade $s_{uv}$ entre dois usuários $u$ e $v$, conforme \ref{eq:suv}.
+
+\begin{equation}
+\label{eq:w-tfidf} 
+    w_{uf} = p_{uf}~q_{f}
+\end{equation} 
+
+
+\begin{equation}
+\label{eq:suv}
+\begin{split}
+    s_{uv} &= \frac{\sum\limits_{f \in \mathcal{F}_{uv}}{w_{uf}~w_{vf}}}{\sqrt{\sum\limits_{f \in \mathcal{F}_{uv}
+    }w_{uf}^2} \sqrt{\sum\limits_{f \in \mathcal{F}_{uv}}w_{vf}^2}} \\
+    \mathcal{F}_{uv} &= \mathcal{F}_u \cap \mathcal{F}_v \\
+    \mathcal{F}_u &= \left\{ f \in \mathcal{F}~|~t_{uf} > 0 \right\}
+\end{split}    
+\end{equation} 
+
+Dispondo-se de $\mathbf{S}$, selecionam-se os $k$ vizinhos mais próximos $v_k$ de $u$ com maior similaridade $s_{uv}$.  Posteriormente, determina-se o conjunto $I_{v_k} = \left\{ i ~|~ r_{v_ki} > M\right\}$ de itens $i$ avaliados positivamente por $v_k$. Em \ref{eq:frf} avalia-se a frequência total $\mathrm{fr}_f$ dos atributos $f$ para os itens de $I_{v_k}$. Por fim, a partir da equação \ref{eq:wi} calcula-se o peso $\omega_i$ de cada item e gera-se a lista dos \textit{top-N} itens a serem recomendados para o usuário $u$. 
+
+
+\begin{equation}
+\label{eq:frf} 
+\mathrm{fr}_f = \sum_{i \in I_{v_k}}{\mathrm{b}_0\left(a_{if}\right)}
+\end{equation} 
+
+\begin{equation}
+\label{eq:wi} 
+    \omega_{i} = \sum_{f}{a_{if}~\mathrm{fr}_f}
+\end{equation} 
+
 
 
 \section{Avaliação do sistema de recomendação} % (fold)
@@ -94,3 +223,5 @@ Outras medidas de predição também serão utilizadas, tais como acurácia (\te
 \end{table}
 
 Por fim, avaliaremos o desempenho do sistema mediante a mudança nas variáveis de importância do problema, como por exemplo na quantidade de atributos utilizados na recomendação e na capacidade de lidar com problemas como o \textit{cold start}. O tempo de execução também será avaliado em função do tamanho do banco de dados.
+
+Os resultados das recomendações serão entregues, da mesma forma, por meio de um arquivo \texttt{.csv} contendo o identificador de cada usuário com as \textit{top-N} recomendações de produtos, assim como o valor numérico associado à recomendação. Esse resultado é o mais importante do ponto de vista do e-commerce, que o utilizará como estratégia de marketing na sugestão de produtos.
