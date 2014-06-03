@@ -185,17 +185,17 @@ Os pesos $w_{uf}$, obtidos na TF-IDF \ref{eq:w-tfidf}, são utilizados para calc
 \end{split}    
 \end{equation} 
 
-Dispondo-se de $\mathbf{S}$, selecionam-se os $k$ vizinhos mais próximos $v_k^u$ com maior similaridade $s_{uv}$.  Posteriormente, determina-se o conjunto $\mathcal{I}_{v_k^u} = \left\{ i ~|~ r_{v_k^ui} > M\right\}$ de itens $i$ avaliados positivamente por $v_k^u$. Em \ref{eq:frf} avalia-se a frequência total $\mathrm{fr}_f$ dos atributos $f$ para os itens de $\mathcal{I}_{v_k^u}$. Por fim, a partir da equação \ref{eq:wi} calcula-se o peso $\omega_{ui}$ de cada item e gera-se a lista dos \textit{top-N} produtos a serem recomendados para o usuário $u$. 
+Dispondo-se de $\mathbf{S}$, selecionam-se os $k$ vizinhos mais próximos $v_k^u$ com maior similaridade $s_{uv}$.  Posteriormente, determina-se o conjunto $\mathcal{I}_{v_k^u} = \left\{ i ~|~ r_{v_k^u i} > M\right\}$ de itens $i$ avaliados positivamente por $v_k^u$. Em \ref{eq:frf} avalia-se a frequência total $\mathrm{f}_{uf}$ dos atributos $f$ para os itens de $\mathcal{I}_{v_k^u}$. Por fim, a partir da equação \ref{eq:wi} calcula-se o peso $\omega_{ui}$ de cada item e gera-se a lista dos \textit{top-N} produtos a serem recomendados para o usuário $u$. 
 
 
 \begin{equation}
 \label{eq:frf} 
-\mathrm{fr}_{uf} = \sum_{i \in \mathcal{I}_{v_k^u}}{\mathrm{b}_0\left(a_{if}\right)}
+\mathrm{f}_{uf} = \sum_{i \in \mathcal{I}_{v_k^u}}{\mathrm{b}_0\left(a_{if}\right)}
 \end{equation} 
 
 \begin{equation}
 \label{eq:wi} 
-    \omega_{ui} = \sum_{f}{a_{if}~\mathrm{fr}_{uf}}
+    \omega_{ui} = \sum_{f}{a_{if}~\mathrm{f}_{uf}}
 \end{equation} 
 
 \subsection{Variante: correlação usuário-item (UI)} % (fold)
