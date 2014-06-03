@@ -33,7 +33,7 @@ A fim de tornar a formulação mais genérica, também não faremos distinção 
     $\mathbf{T}, t_{uf}$ & Correlação entre usuário $u$ e atributo $f$ \\ \hline
     $\mathbf{w}, w_{f}$ & Peso do atributo $f$ \\ \hline
     $\mathbf{W}, w_{uf}$ & Correlação ponderada entre usuário $u$ e atributo $f$ \\ \hline
-    $\mathbf{S}, s_{ij}, s_{uv}$ & Similaridade entre itens $i$ e $j$ ou usuários $u$ e $v$\\ \hline
+    $\mathbf{S}, s_{ij}, s_{uv}$ & Similaridade entre itens $i$ e $j$ ou entre usuários $u$ e $v$\\ \hline
     \end{tabular}
 \end{center}
 \end{table}
@@ -44,7 +44,7 @@ A fim de tornar a formulação mais genérica, também não faremos distinção 
 
 % section algoritmo_baseado_na_pondera_o_de_atributos_ (end)
 
-O primeiro algoritmo que utilizamos no sistema de recomendação, adaptado de  \cite{symeonidis2007feature} e doravante denominado de ponderação de atributos, \textit{feature weighting} ou \textit{FW}, se trata de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar ``o julgamento humano de similaridade entre itens'', e por isso se trata de uma filtragem colaborativa dos usuários. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo e posteriormente os itens com maior similaridade são recomendados.
+O primeiro algoritmo que utilizaremos no sistema de recomendação, adaptado de  \cite{symeonidis2007feature} e doravante denominado de ponderação de atributos, \textit{feature weighting} ou \textit{FW}, se trata de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar ``o julgamento humano de similaridade entre itens'', e por isso se trata de uma filtragem colaborativa dos usuários. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo e posteriormente os itens com maior similaridade são recomendados.
 
 Na filtragem baseada em conteúdo, ``cada item é representado por um vetor de atributos ou \textit{features}''. A similaridade $s_{ij}$ entre dois itens $i$ e $j$ é dada pela média ponderada das distâncias entre das \textit{features} dos itens:
 
