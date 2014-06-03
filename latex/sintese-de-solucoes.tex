@@ -49,7 +49,7 @@ O primeiro algoritmo que utilizaremos no sistema de recomendação, adaptado de 
 Na filtragem baseada em conteúdo, ``cada item é representado por um vetor de atributos ou \textit{features}''. A similaridade $s_{ij}$ entre dois itens $i$ e $j$ é dada pela média ponderada das distâncias entre as \textit{features} dos itens:
 
 \begin{equation} 
-\label{eq:similaridade}
+\label{eq:sij}
     s_{ij} = \sum_{f}{w_{f} \left(1-d_{fij}\right)}
 \end{equation}
 
@@ -98,12 +98,28 @@ A partir da matriz de avaliações $\mathbf{R}$, pode-se determinar $e_{ij}$, co
 \end{cases} 
 \end{equation}
 
-Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de equações lineares \ref{eq:determinacao-wf}. Apenas os pesos positivos e com valor absoluto expressivo (maior que um piso arbitrariamente escolhido a posteriori) são utilizados na recomendação. Calcula-se a matriz de similaridade $\mathbf{S}$ pela equação \ref{eq:similaridade} e recomenda-se os itens similares àqueles já comprados.  
+Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de equações lineares \ref{eq:determinacao-wf}. Apenas os pesos positivos e com valor absoluto expressivo (maior que um piso arbitrariamente escolhido a posteriori) são utilizados na recomendação. Calcula-se a matriz de similaridade $\mathbf{S}$ pela equação \ref{eq:sij} e recomenda-se os itens similares àqueles já comprados.  
 
 \begin{equation}
 \label{eq:determinacao-wf} 
     w_0 + \sum_{f}{w_{f}  \left(1-d_{fij}\right)} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)},~\forall i \neq j 
 \end{equation} 
+
+\subsection{Variante: pesos unitários (FW$_1$)} % (fold)
+\label{sub:variante_pesos_unit_rios}
+
+Além do algoritmo tradicional de ponderação de atributos, avaliaremos também a influência dos pesos $w_f$ na recomendação. Para tanto, as recomendações serão feitas considerando-se $w_f = 1~\forall f$ na variante denominada FW$_1$. 
+
+Essa simplificação reduz grandemente a complexidade do algoritmo, pois a similaridade entre os itens passa a ser calculada por \ref{eq:sij1}, não sendo mais necessário  resolver o sistema linear \ref{eq:determinacao-wf}.
+
+\begin{equation} 
+\label{eq:sij1}
+    s_{ij} = \sum_{f}{\left(1-d_{fij}\right)}
+\end{equation}
+
+Espera-se que o algoritmo \textit{FW$_1$} apresente menor tempo de execução que \textit{FW}, mas que a qualidade das recomendações seja muito inferior. O trabalho final discutirá se esta simplificação é interessante para os bancos de dados analisados, avaliando o compromisso entre custo computacional e qualidade de recomendação.
+
+% subsection variante_pesos_unit_rios (end)
 
 \section{Algoritmo baseado no perfil de usuários (UP)} % (fold)
 \label{sec:algoritmo_baseado_no_perfil_de_usu_rios_}
@@ -119,7 +135,7 @@ Se o usuário avaliou \textit{positivamente} algum item $r_{ui}$, tal que $r_{ui
     t_{uf} = \sum_{i}{\mathrm{b}_M\left(r_{ui}~a_{if}\right)} 
 \end{equation} 
 
-Os pesos $w_{uf}$, que mostram a relevância de $f$ para $u$, são determinados a partir da estatística TF-IDF (\textit{term frequency--inverse document frequency}), presente em formulações de recuperação de informação e mineração de dados. Em nosso caso, TF ou \textit{feature frequency} é a similaridade intra-usuários $p_{uf}$ -- número de vezes em que a \textit{feature} $f$ aparece no perfil do usuário $u$ (equação \ref{eq:tf}). IDF ou \textit{inverse user frequency} é a dissimilaridade inter-usuários $q_{f}$ -- relacionada com o inverso da frequência $\check{q}_{f}$ de um atributo $f$ dentro de todos os usuários (equações \ref{eq:uf} e \ref{eq:iuf}).
+Os pesos $w_{uf}$, que mostram a relevância de $f$ para $u$, são determinados a partir da estatística TF-IDF (\textit{term frequency--inverse document frequency}), presente em formulações de recuperação de informação e mineração de dados. Em nosso caso, TF ou \textit{feature frequency} é a ``similaridade intra-usuários'' $p_{uf}$ -- número de vezes em que a \textit{feature} $f$ aparece no perfil do usuário $u$ (equação \ref{eq:tf}). IDF ou \textit{inverse user frequency} é a ``dissimilaridade inter-usuários'' $q_{f}$ -- relacionada com o inverso da frequência $\check{q}_{f}$ de um atributo $f$ dentro de todos os usuários (equações \ref{eq:uf} e \ref{eq:iuf}).
 
 \begin{equation}
 \label{eq:tf} 
@@ -137,7 +153,7 @@ Os pesos $w_{uf}$, que mostram a relevância de $f$ para $u$, são determinados 
     q_{f} = \log \left( \frac{\left|~\mathcal{U}~\right|}{\check{q}_{f}} \right)
 \end{equation} 
 
-Os pesos $w_{uf}$, descritos por \ref{eq:w-tfidf}, são utilizados para calcular a similaridade $s_{uv}$ entre dois usuários $u$ e $v$, conforme \ref{eq:suv}.
+Os pesos $w_{uf}$, obtidos na TF-IDF \ref{eq:w-tfidf}, são utilizados para calcular a similaridade $s_{uv}$ entre dois usuários $u$ e $v$, conforme \ref{eq:suv}.
 
 \begin{equation}
 \label{eq:w-tfidf} 
@@ -155,12 +171,12 @@ Os pesos $w_{uf}$, descritos por \ref{eq:w-tfidf}, são utilizados para calcular
 \end{split}    
 \end{equation} 
 
-Dispondo-se de $\mathbf{S}$, selecionam-se os $k$ vizinhos mais próximos $v_k$ de $u$ com maior similaridade $s_{uv}$.  Posteriormente, determina-se o conjunto $I_{v_k} = \left\{ i ~|~ r_{v_ki} > M\right\}$ de itens $i$ avaliados positivamente por $v_k$. Em \ref{eq:frf} avalia-se a frequência total $\mathrm{fr}_f$ dos atributos $f$ para os itens de $I_{v_k}$. Por fim, a partir da equação \ref{eq:wi} calcula-se o peso $\omega_i$ de cada item e gera-se a lista dos \textit{top-N} itens a serem recomendados para o usuário $u$. 
+Dispondo-se de $\mathbf{S}$, selecionam-se os $k$ vizinhos mais próximos $v_k$ de $u$ com maior similaridade $s_{uv}$.  Posteriormente, determina-se o conjunto $\mathcal{I}_{v_k} = \left\{ i ~|~ r_{v_ki} > M\right\}$ de itens $i$ avaliados positivamente por $v_k$. Em \ref{eq:frf} avalia-se a frequência total $\mathrm{fr}_f$ dos atributos $f$ para os itens de $\mathcal{I}_{v_k}$. Por fim, a partir da equação \ref{eq:wi} calcula-se o peso $\omega_i$ de cada item e gera-se a lista dos \textit{top-N} itens a serem recomendados para o usuário $u$. 
 
 
 \begin{equation}
 \label{eq:frf} 
-\mathrm{fr}_f = \sum_{i \in I_{v_k}}{\mathrm{b}_0\left(a_{if}\right)}
+\mathrm{fr}_f = \sum_{i \in \mathcal{I}_{v_k}}{\mathrm{b}_0\left(a_{if}\right)}
 \end{equation} 
 
 \begin{equation}
@@ -168,14 +184,27 @@ Dispondo-se de $\mathbf{S}$, selecionam-se os $k$ vizinhos mais próximos $v_k$ 
     \omega_{i} = \sum_{f}{a_{if}~\mathrm{fr}_f}
 \end{equation} 
 
+\subsection{Variante: correlação usuário-item (UI)} % (fold)
+\label{sub:variante_correla_o_usu_rio_item_}
 
+A partir da matriz de correlações ponderadas $\mathbf{W}$ entre usuários e atributos, e da matriz de atributos dos itens $\mathbf{A}$, é possível extrair a correlação $\omega_{ui}$ entre usuários $u$ e itens $i$. A lista dos $N$ produtos a serem recomendados decorre portanto da equação \ref{eq:wui}.
+
+\begin{equation}
+\label{eq:wui} 
+    \omega_{ui} = \sum_{f}{w_{uf}~a_{if}}
+\end{equation} 
+
+Ao passo que o método \textit{UP} recomenda itens a partir dos $k$ vizinhos mais próximos, o algoritmo \textit{UI} busca os itens com \textit{features} mais similares aos atributos pelos quais $u$ se interessa. Espera-se que esse tipo de recomendação forneça sugestões de qualidade similar ao algoritmo original, pois os dois estão fundamentados no fato que o usuário se interessa pelos atributos $f$ dos itens $i$. 
+
+
+% subsection variante_correla_o_usu_rio_item_ (end)
 
 \section{Avaliação do sistema de recomendação} % (fold)
 \label{sec:avalia_o_do_sistema_de_recomenda_o}
 
 % section avalia_o_do_sistema_de_recomenda_o (end)
 
-De modo geral os sistemas de recomendação tem o objetivo de apresentar ao usuário itens pelos quais ele possa se interessar e, no caso de um e-commerce, que ele vá adquirir. O desempenho de um sistema de recomendação se mede, portanto, na qualidade com a qual ele executa essa tarefa. Essa qualidade pode ser medida de diferentes maneiras, tal como pela medida de distância entre os produtos recomendados $\hat{\textbf{\i}}$ e aqueles que seriam efetivamente comprados $\textbf{i}$ pelo cliente em uma validação cruzada (\textit{cross validation}). Essa medida pode ser, por exemplo, a distância $L_1$ (erro médio absoluto, $\left|\hat{\textbf{\i}} - \textbf{i}\right|$) ou a distância $L_2$ (erro quadrático médio,  $\sqrt{\left|\hat{\textbf{\i}} - \textbf{i}\right|^2}$).
+De modo geral os sistemas de recomendação tem o objetivo de apresentar ao usuário itens pelos quais ele possa se interessar e que, no caso de um e-commerce,  ele vá adquirir. O desempenho de um sistema de recomendação se mede, portanto, na qualidade com a qual ele executa essa tarefa. Essa qualidade pode ser medida de diferentes maneiras, tal como pela medida de distância entre os produtos recomendados $\hat{\textbf{\i}}$ e aqueles que seriam efetivamente comprados $\textbf{i}$ pelo cliente em uma validação cruzada (\textit{cross validation}). Essa medida pode ser, por exemplo, a distância $L_1$ (erro médio absoluto, $\left|\hat{\textbf{\i}} - \textbf{i}\right|$) ou a distância $L_2$ (erro quadrático médio,  $\sqrt{\left|\hat{\textbf{\i}} - \textbf{i}\right|^2}$).
 
 Outras medidas de predição também serão utilizadas, tais como acurácia (\textit{accuracy}), especificidade (\textit{specificity}), precisão (\textit{precision}), abrangência (\textit{recall}) e a medida $F_1$ (\textit{$F_1$-score}). Elas estão sumarizadas na Tabela \ref{tab:avaliacao-predicao}.
 
