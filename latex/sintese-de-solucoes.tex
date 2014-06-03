@@ -53,7 +53,7 @@ Na filtragem baseada em conteúdo, ``cada item é representado por um vetor de a
     s_{ij} = \sum_{f}{w_{f} \left(1-d_{fij}\right)}
 \end{equation}
 
-As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para atributos literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. Nas medidas de distância, é interessante considerar a correlação entre atributos (a similaridade de duas marcas de calçado é maior que a de duas marcas de produtos de categorias distintas, mesmo que as marcas sejam diferentes), mas em uma primeira análise utilizaremos para a maior parte das \textit{features} a medida de distância $d_{fij}=1-\delta_{ij}^f$. Isso significa que se os atributos de dois itens são idênticos, a distância é nula e portanto a similaridade é máxima. O sumário das possíveis medidas de distância que serão utilizadas estão na Tabela \ref{tab:medidas-distancia}.
+As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para atributos literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. Nas medidas de distância, é interessante considerar a correlação entre atributos (a similaridade de duas marcas de calçado é maior que a de duas marcas de produtos de categorias distintas, mesmo que as marcas sejam diferentes), mas em uma primeira análise utilizaremos para a maior parte das \textit{features} a medida de distância $d_{fij}=1-\delta_{ij}^f$. Isso significa que se os atributos de dois itens são idênticos, a distância é nula e portanto a similaridade é máxima. O sumário de possíveis medidas de distância que serão utilizadas estão na Tabela \ref{tab:medidas-distancia}.
 
 \begin{equation}
 \label{eq:delta}
@@ -66,12 +66,17 @@ As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dad
 
 \begin{table}[hp]
 \begin{center}
-    \caption{Medidas de distância entre atributos}
+    \caption{Medidas de distância entre alguns atributos}
     \label{tab:medidas-distancia}
-    \begin{tabular}{ | l | c | p{5cm} | }
+    \begin{tabular}{  | >{\arraybackslash} m{3cm} | >{\arraybackslash} m{3cm} | >{\centering\arraybackslash} m{3cm} | } 
     \hline
-    \textbf{Atributo} & \textbf{Fórmula} & \textbf{Significado} \\ \hline
-    \textbf{Medida} & \textbf{Fórmula} & \textbf{Significado} \\ \hline    
+    \textbf{Atributo} $f$ & \textbf{Domínio} $\mathrm{F}$ & \textbf{Distância} $d_f$ \\ \hline
+    Marca & Literal & $1-\delta_{f_if_j}$ \\ \hline    
+    Esporte & Literal & $1-\delta_{f_if_j}$ \\ \hline
+    Categoria & Literal & $1-\delta_{f_if_j}$ \\ \hline            
+    Gênero & Literal & $1-\delta_{f_if_j}$ \\ \hline            
+    Cor & $\left(\mathbb{N}\backslash \mathbb{N}_{255}\right)^3$  tripla ordenada RGB & $ \frac{\lVert f_i-f_j \rVert_2}{\max_{i,j}{\lVert f_i-f_j \rVert_2}} $ \\ \hline
+    Preço & $\mathbb{R}$ & $ \frac{\left| f_i-f_j \right|}{\max_{i,j}{\left| f_i-f_j \right|}} $ \\ \hline                
     \end{tabular}
 \end{center}
 \end{table}
