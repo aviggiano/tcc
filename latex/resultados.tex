@@ -4,7 +4,7 @@
 
 Até o presente momento, os resultados deste Trabalho de Conclusão de Curso concentram-se na definição de necessidades, de parâmetros de sucesso e de síntese de possíveis soluções. 
 
-Visto que a primeira etapa de um sistema de recomendação é a coleta e manipulação de dados, definimos que a aquisição de dados será feita a partir de um banco de dados genérico, que deverá alimentar o sistema por meio de arquivos de texto com valores separados por vírgulas (\texttt{.csv}). A fim de facilitar o pré-processamento dos dados, exigem-se três arquivos, cada um com uma tabela de itens e seus atributos $\mathbf{A}$, clientes e suas características $\mathbf{B}$ e histórico de compras ou avaliações $\mathbf{R}$. Caso existam outras tabelas no banco de dados, o sistema deverá ser alterado para levar em conta o processamento dos arquivos suplementares.
+Visto que a primeira etapa de um sistema de recomendação é a extração de informações, definimos que a aquisição de dados será feita a partir de uma base genérica, que deverá alimentar o sistema por meio de arquivos de texto com valores separados por vírgulas (\texttt{.csv}). A fim de facilitar o pré-processamento dos dados, exigem-se três arquivos, cada um com uma tabela de itens e seus atributos $\mathbf{A}$, clientes e suas características $\mathbf{B}$ e histórico de compras ou avaliações $\mathbf{R}$. Caso existam outras informações no banco de dados, o sistema deverá ser alterado para levar em conta o processamento dos arquivos suplementares.
 
 \begin{equation} 
 \mathbf{A} = 
@@ -36,7 +36,7 @@ Visto que a primeira etapa de um sistema de recomendação é a coleta e manipul
 \end{bmatrix}
 \end{equation}
 
-Em alguns bancos de dados, a tabela de histórico também contém outras informações adicionais $\theta$, tais como o método de pagamento, a data da compra, data de entrega, etc., e é denominada $\mathbf{H}$.
+Em alguns bancos de dados relacionais, a tabela de histórico também contém outras informações adicionais $\theta$, tais como o método de pagamento, a data da compra, data de entrega, etc., e é denominada $\mathbf{H}$.
 
 \begin{equation} 
 \mathbf{H} =
@@ -49,3 +49,5 @@ Em alguns bancos de dados, a tabela de histórico também contém outras informa
 \end{equation}
 
 Uma vez determinada a forma de entrada de dados, definiu-se a escolha do conjunto de dados a serem utilizados. O primeiro conjunto de dados abertos é proveniente do website de recomendações de filmes MovieLens (\url{http://movielens.umn.edu}). Nessa base de dados, o catálogo de filme faz o papel de catálogo de produtos pelos quais os usuários possam se interessar, e o histórico de compras se refere à avaliação dos filmes feita por cada usuário. Outros conjuntos de dados também serão  explorados pela dupla, tais como os dados de classificação de músicas do serviço Yahoo! Music (\url{http://webscope.sandbox.yahoo.com}) ou de dados anônimos de e-commerces.
+
+Os resultados das recomendações serão entregues por meio de um arquivo \texttt{.csv} contendo o identificador de cada usuário com as \textit{top-N} recomendações de produtos, assim como o valor numérico associado à recomendação. Esse resultado é o mais importante do ponto de vista do e-commerce, que o utilizará como estratégia de marketing na sugestão de produtos.

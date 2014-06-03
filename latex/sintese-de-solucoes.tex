@@ -27,9 +27,9 @@ A fim de tornar a formulação mais genérica, também não faremos distinção 
     $\tilde{x}$ & Valor ótimo de $x$ \\ \hline    
     $\hat{x}$ & Valor estimado de $x$ \\ \hline    
     $|\mathcal{X}|$ & Número de elementos do conjunto $\mathcal{X}$ \\ \hline \hline
-    $\mathbf{R}, r_{ui}$ & Avaliação do item $i$ pelo usuário $u$\\ \hline
+    $\mathbf{R}, r_{ui}$ & Avaliação feita pelo usuário $u$ do item $i$ \\ \hline
     $\mathbf{A}, a_{if}$ & Quantificação do atributo $f$ presente no item $i$ \\ \hline
-    $\mathbf{B}, b_{uc}$ & Quantificação das características $c$ de cada usuário $u$ \\ \hline    
+    $\mathbf{B}, b_{uc}$ & Quantificação da característica $c$ do usuário $u$ \\ \hline    
     $\mathbf{T}, t_{uf}$ & Correlação entre usuário $u$ e atributo $f$ \\ \hline
     $\mathbf{w}, w_{f}$ & Peso do atributo $f$ \\ \hline
     $\mathbf{W}, w_{uf}$ & Correlação ponderada entre usuário $u$ e atributo $f$ \\ \hline
@@ -44,16 +44,16 @@ A fim de tornar a formulação mais genérica, também não faremos distinção 
 
 % section algoritmo_baseado_na_pondera_o_de_atributos_ (end)
 
-O primeiro algoritmo que utilizaremos no sistema de recomendação, adaptado de  \cite{symeonidis2007feature} e doravante denominado de ponderação de atributos, \textit{feature weighting} ou \textit{FW}, se trata de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar ``o julgamento humano de similaridade entre itens'', e por isso se trata de uma filtragem colaborativa dos usuários. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo e posteriormente os itens com maior similaridade são recomendados.
+O primeiro algoritmo que utilizaremos no sistema de recomendação, adaptado de  \cite{symeonidis2007feature} e doravante denominado ponderação de atributos, \textit{feature weighting} ou \textit{FW}, trata-se de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar ``o julgamento humano de similaridade entre itens'', e é onde ocorre a filtragem colaborativa dos usuários. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo para determinar os itens com maior similaridade, que são finalmente recomendados.
 
-Na filtragem baseada em conteúdo, ``cada item é representado por um vetor de atributos ou \textit{features}''. A similaridade $s_{ij}$ entre dois itens $i$ e $j$ é dada pela média ponderada das distâncias entre das \textit{features} dos itens:
+Na filtragem baseada em conteúdo, ``cada item é representado por um vetor de atributos ou \textit{features}''. A similaridade $s_{ij}$ entre dois itens $i$ e $j$ é dada pela média ponderada das distâncias entre as \textit{features} dos itens:
 
 \begin{equation} 
 \label{eq:similaridade}
     s_{ij} = \sum_{f}{w_{f} \left(1-d_{fij}\right)}
 \end{equation}
 
-As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para atributos literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. É possível considerar a correlação entre atributos (a similaridade de duas marcas de calçado é maior que a de duas marcas de produtos de categorias distintas, mesmo que as marcas sejam diferentes), mas em uma primeira análise utilizaremos para a maior parte dos atributos $f$ a medida de distância $d_{fij}=1-\delta_{ij}^f$. Isso significa que se as \textit{features} de dois itens são idênticas, a distância é nula e logo a similaridade é máxima. O sumário das medidas de distância estão na Tabela \ref{tab:medidas-distancia}. (TODO arrumar tabela com as medidas de distancia)
+As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para atributos literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. Nas medidas de distância, é interessante considerar a correlação entre atributos (a similaridade de duas marcas de calçado é maior que a de duas marcas de produtos de categorias distintas, mesmo que as marcas sejam diferentes), mas em uma primeira análise utilizaremos para a maior parte das \textit{features} a medida de distância $d_{fij}=1-\delta_{ij}^f$. Isso significa que se os atributos de dois itens são idênticos, a distância é nula e portanto a similaridade é máxima. O sumário das medidas de distância estão na Tabela \ref{tab:medidas-distancia}. (TODO arrumar tabela com as medidas de distancia)
 
 \begin{equation}
 \label{eq:delta}
@@ -79,7 +79,7 @@ Os pesos $w_f$ são a priori desconhecidos. A referência \cite{symeonidis2007fe
 
 \begin{equation}
 \label{eq:regressao-linear} 
-    e_{ij} = w_0 + \sum_{f}{w_{f} ~ d_{fij}}
+    e_{ij} = w_0 + \sum_{f}{w_{f} \left(1-d_{fij}\right)}
 \end{equation} 
 
 A partir da matriz de avaliações $\mathbf{R}$, pode-se determinar $e_{ij}$, conforme a equação \ref{eq:determinacao-eij}, onde $\mathrm{b_0}$ é o operador booleano descrito por \ref{eq:b0}.
@@ -102,7 +102,7 @@ Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de
 
 \begin{equation}
 \label{eq:determinacao-wf} 
-    w_0 + \sum_{f}{w_{f} ~ d_{fij}} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)},~\forall i \neq j 
+    w_0 + \sum_{f}{w_{f}  \left(1-d_{fij}\right)} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)},~\forall i \neq j 
 \end{equation} 
 
 \section{Algoritmo baseado no perfil de usuários (UP)} % (fold)
@@ -110,14 +110,16 @@ Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de
 
 % section algoritmo_baseado_no_perfil_de_usu_rios_ (end)
 
-O segundo algoritmo, adaptado de \cite{debnath2008feature}, é um hibrido entre filtragem colaborativa e filtragem baseada em conteúdo. Os atributos dos itens são ponderados no cálculo de similaridade, com pesos extraídos de um modelo de perfil de usuários, denominado \textit{user profile} ou \textit{UP}. Esse perfil leva em consideração o interesse dos usuários por \textit{features}, indiretamente calculado a partir de seu interesse pelos itens. Se o usuário avaliou \textit{positivamente} algum item $r_{ui}$, tal que $r_{ui}$ é superior a um valor mínimo $M$, considera-se que $u$ tem interesse $t_{uf}$ nos atributos $f$ dos itens $i$. A correlação $t_{uf}$ entre usuários e \textit{features} é descrita por \ref{eq:puf}.
+O segundo algoritmo, adaptado de \cite{debnath2008feature}, é um hibrido entre filtragem colaborativa e filtragem baseada em conteúdo. Os atributos dos itens são ponderados no cálculo de similaridade, com pesos extraídos de um modelo de perfil de usuários, denominado \textit{user profile} ou \textit{UP}. Esse perfil leva em consideração o interesse dos usuários por \textit{features}, indiretamente calculado a partir de seu interesse pelos itens. 
+
+Se o usuário avaliou \textit{positivamente} algum item $r_{ui}$, tal que $r_{ui}$ é superior a um valor mínimo $M$, considera-se que $u$ tem interesse $t_{uf}$ nos atributos $f$ dos itens $i$, representados por $a_{if}$. A correlação $t_{uf}$ entre usuários e \textit{features} é descrita por \ref{eq:puf}.
 
 \begin{equation}
 \label{eq:puf} 
     t_{uf} = \sum_{i}{\mathrm{b}_M\left(r_{ui}~a_{if}\right)} 
 \end{equation} 
 
-Os pesos $w_{uf}$, que mostram a relevância de $f$ para $u$, são determinados a partir da estatística TF-IDF (\textit{term frequency--inverse document frequency}), presente em formulações de recuperação de informação e mineração de dados. Em nosso caso, TF ou \textit{feature frequency} é a similaridade intra-usuários $p_{uf}$ -- número de vezes em que a \textit{feature} $f$ aparece no perfil do usuário $u$ (equação \ref{eq:tf}). IDF ou \textit{inverse user frequency} é a dissimilaridade inter-usuários $q_{f}$ -- relacionada com o inverso da frequência $\hat{q}_{f}$ de um atributo $f$ dentro de todos os usuários (equações \ref{eq:uf} e \ref{eq:iuf}).
+Os pesos $w_{uf}$, que mostram a relevância de $f$ para $u$, são determinados a partir da estatística TF-IDF (\textit{term frequency--inverse document frequency}), presente em formulações de recuperação de informação e mineração de dados. Em nosso caso, TF ou \textit{feature frequency} é a similaridade intra-usuários $p_{uf}$ -- número de vezes em que a \textit{feature} $f$ aparece no perfil do usuário $u$ (equação \ref{eq:tf}). IDF ou \textit{inverse user frequency} é a dissimilaridade inter-usuários $q_{f}$ -- relacionada com o inverso da frequência $\check{q}_{f}$ de um atributo $f$ dentro de todos os usuários (equações \ref{eq:uf} e \ref{eq:iuf}).
 
 \begin{equation}
 \label{eq:tf} 
@@ -127,15 +129,15 @@ Os pesos $w_{uf}$, que mostram a relevância de $f$ para $u$, são determinados 
 
 \begin{equation}
 \label{eq:uf} 
-    \hat{q}_{f} = \sum_{u}{\mathrm{b}_0\left(t_{uf}\right)}
+    \check{q}_{f} = \sum_{u}{\mathrm{b}_0\left(t_{uf}\right)}
 \end{equation} 
 
 \begin{equation}
 \label{eq:iuf} 
-    q_{f} = \log \left( \frac{\left|~\mathcal{U}~\right|}{\hat{q}_{f}} \right)
+    q_{f} = \log \left( \frac{\left|~\mathcal{U}~\right|}{\check{q}_{f}} \right)
 \end{equation} 
 
-Os pesos, descritos por \ref{eq:w-tfidf}, são utilizados para calcular a similaridade $s_{uv}$ entre dois usuários $u$ e $v$, conforme \ref{eq:suv}.
+Os pesos $w_{uf}$, descritos por \ref{eq:w-tfidf}, são utilizados para calcular a similaridade $s_{uv}$ entre dois usuários $u$ e $v$, conforme \ref{eq:suv}.
 
 \begin{equation}
 \label{eq:w-tfidf} 
@@ -173,7 +175,7 @@ Dispondo-se de $\mathbf{S}$, selecionam-se os $k$ vizinhos mais próximos $v_k$ 
 
 % section avalia_o_do_sistema_de_recomenda_o (end)
 
-De modo geral os sistemas de recomendação tem o objetivo de apresentar ao usuário itens pelos quais ele possa se interessar e, no caso de um e-commerce, que ele vá adquirir. O desempenho de um sistema de recomendação se mede, portanto, na qualidade com a qual ele executa essa tarefa. Essa qualidade pode ser medida de diferentes maneiras, tal como pela medida de distância entre os produtos recomendados $\widetilde{\mathbf{x}}$ e aqueles que seriam efetivamente comprados $\mathbf{x}$ pelo cliente em uma validação cruzada (\textit{cross validation}). Essa medida pode ser, por exemplo, a distância $L_1$ (erro médio absoluto, $\left|\widetilde{\mathbf{x}} - \mathbf{x}\right|$) ou a distância $L_2$ (erro quadrático médio,  $\sqrt{\left|\widetilde{\mathbf{x}} - \mathbf{x}\right|^2}$)
+De modo geral os sistemas de recomendação tem o objetivo de apresentar ao usuário itens pelos quais ele possa se interessar e, no caso de um e-commerce, que ele vá adquirir. O desempenho de um sistema de recomendação se mede, portanto, na qualidade com a qual ele executa essa tarefa. Essa qualidade pode ser medida de diferentes maneiras, tal como pela medida de distância entre os produtos recomendados $\hat{\textbf{\i}}$ e aqueles que seriam efetivamente comprados $\textbf{i}$ pelo cliente em uma validação cruzada (\textit{cross validation}). Essa medida pode ser, por exemplo, a distância $L_1$ (erro médio absoluto, $\left|\hat{\textbf{\i}} - \textbf{i}\right|$) ou a distância $L_2$ (erro quadrático médio,  $\sqrt{\left|\hat{\textbf{\i}} - \textbf{i}\right|^2}$).
 
 Outras medidas de predição também serão utilizadas, tais como acurácia (\textit{accuracy}), especificidade (\textit{specificity}), precisão (\textit{precision}), abrangência (\textit{recall}) e a medida $F_1$ (\textit{$F_1$-score}). Elas estão sumarizadas na Tabela \ref{tab:avaliacao-predicao}.
 
@@ -224,6 +226,6 @@ Outras medidas de predição também serão utilizadas, tais como acurácia (\te
 \end{center}
 \end{table}
 
-Por fim, avaliaremos o desempenho do sistema mediante a mudança nas variáveis de importância do problema, como por exemplo na quantidade de atributos utilizados na recomendação e na capacidade de lidar com problemas como o \textit{cold start}. O tempo de execução também será avaliado em função do tamanho do banco de dados.
+Por fim, avaliaremos o desempenho do sistema mediante a mudança nas variáveis de importância do problema, como por exemplo na quantidade de atributos utilizados na recomendação. O tempo de execução também será avaliado em função do tamanho do banco de dados e do algoritmo utilizado.
 
-Os resultados das recomendações serão entregues, da mesma forma, por meio de um arquivo \texttt{.csv} contendo o identificador de cada usuário com as \textit{top-N} recomendações de produtos, assim como o valor numérico associado à recomendação. Esse resultado é o mais importante do ponto de vista do e-commerce, que o utilizará como estratégia de marketing na sugestão de produtos.
+%e na capacidade de lidar com problemas como o \textit{cold start}
