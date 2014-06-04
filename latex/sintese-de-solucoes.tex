@@ -112,7 +112,7 @@ A partir da matriz de avaliações $\mathbf{R}$, pode-se determinar $e_{ij}$, co
 \end{cases} 
 \end{equation}
 
-Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de equações lineares \ref{eq:determinacao-wf}. Apenas os pesos positivos e com valor absoluto expressivo (maior que um piso arbitrariamente escolhido a posteriori) são utilizados na recomendação. Calcula-se a matriz de similaridade $\mathbf{S}$ pela equação \ref{eq:sij} e recomenda-se os itens similares àqueles já comprados.  
+Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de equações lineares \ref{eq:determinacao-wf}. Apenas os pesos positivos e com valor absoluto expressivo (maior que um piso arbitrariamente escolhido a posteriori) são utilizados na recomendação. Calcula-se a matriz de similaridade $\mathbf{S}$ pela equação \ref{eq:sij} e recomendam-se os itens similares àqueles já comprados.  
 
 \begin{equation}
 \label{eq:determinacao-wf} 
@@ -124,11 +124,18 @@ Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de
 
 Além do algoritmo tradicional de ponderação de atributos, avaliaremos também a influência dos pesos $w_f$ na recomendação. Para tanto, as recomendações serão feitas considerando-se $w_f = 1~\forall f$ na variante denominada FW$_1$. 
 
-Essa simplificação reduz grandemente a complexidade do algoritmo, pois a similaridade entre os itens passa a ser calculada por \ref{eq:sij1}, não sendo mais necessário  resolver o sistema linear \ref{eq:determinacao-wf}.
+Essa simplificação reduz grandemente a complexidade do algoritmo, pois a similaridade entre os itens passa a ser calculada por \ref{eq:sij1}, não sendo mais necessário  resolver o sistema linear \ref{eq:determinacao-wf}. 
 
 \begin{equation} 
 \label{eq:sij1}
     s_{ij} = \sum_{f}{\left(1-d_{fij}\right)}
+\end{equation}
+
+Vale observar que esse cálculo é equivalente a admitir a medida de similaridade do cosseno, descrita por \ref{eq:scos}. Essa medida calcula a distância euclidiana entre os vetores de atributos $\mathbf{a}_i = \mathrm{linha}_i \mathbf{A}$ e $\mathbf{a}_j = \mathrm{linha}_j \mathbf{A}$.
+
+\begin{equation} 
+\label{eq:scos}
+    s_{ij} = \frac{\sum\limits_{f \in \mathcal{F}}{a_{if}~a_{jf}}}{\sqrt{\sum\limits_{f \in \mathcal{F}}a_{if}^2} \sqrt{\sum\limits_{f \in \mathcal{F}}a_{jf}^2}}
 \end{equation}
 
 Espera-se que o algoritmo \textit{FW$_1$} apresente menor tempo de execução que \textit{FW}, mas que a qualidade das recomendações seja muito inferior. O trabalho final discutirá se esta simplificação é interessante para os bancos de dados analisados, avaliando o compromisso entre custo computacional e qualidade de recomendação.
