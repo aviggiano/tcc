@@ -18,16 +18,12 @@ O problema central da recomendação é que ``em geral a função $\ell$ é desc
 
 Em algumas formulações, ``a utilidade é descrita pela avaliação $r_{ui}$ do item $i$ feita pelo usuário $u$''. Neste caso, o sistema de recomendação busca determinar $\hat{r}_{ui}$ que melhor se aproxime de $r_{ui}$, e a qualidade da recomendação é normalmente descrita pela distância entre esses dois valores. Em outros sistemas, todavia, a utilidade é descrita diferentemente, não bastando que um item tenha o maior valor de $\hat{r}_{ui}$ para que ele seja recomendado. 
 
-Para lidar com esse problema,  existem três grandes grupos de estratégias de sugestão de itens, conforme apresentam as referências \cite{adomavicius2005toward,balabanovic97fab}:
+Para lidar o problema da recomendação, existem três grandes grupos de estratégias de sugestão de itens, segundo as referências \cite{adomavicius2005toward,balabanovic97fab}:
 
 \begin{itemize}
-\item Recomendações baseadas em conteúdo: o usuário recebe recomendações com base nas descrições dos atributos dos itens; 
-\item Recomendações colaborativas
-\begin{itemize}
-\item Baseada em usuários: o usuário recebe recomendações de itens que pessoas com gostos e preferências semelhantes gostaram no passado;
-\item Baseada em itens: o usuário recebe recomendações de itens semelhantes aos que ele gostou no passado;
-\end{itemize}
-\item Recomendações híbridas: esses métodos combinam métodos colaborativos e métodos baseados em conteúdo.  
+\item Recomendações baseadas em conteúdo: o usuário recebe sugestões de itens similares àqueles pelos quais ele se interessou no passado;
+\item Recomendações colaborativas: o usuário recebe sugestões de itens que pessoas com preferências semelhantes gostaram no passado;
+\item Recomendações híbridas: esses métodos combinam caracteríticas de sistemas colaborativos e baseados em conteúdo.  O usuário recebe sugestões de itens compatíveis com seu perfil e itens do interesse de usuários com perfil similar.
 \end{itemize}
 
 As estratégias de recomendação baseadas em conteúdo exploram os dados dos itens para calcular a sua relevância conforme o perfil do usuário. Suas técnicas de recomendação podem ser classificadas em dois grupos, aquelas baseadas em heurísticas ou memória -- essencialmente fazem a previsão com base em toda a coleção de itens anteriormente classificados pelos usuários -- e aquelas baseadas em modelos -- utilizam o conjunto de avaliações com o objetivo de descrever um modelo, como em uma regressão linear ou em uma rede Bayesiana. 
