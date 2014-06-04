@@ -2,42 +2,9 @@
 \chapter[Síntese de Soluções]{Síntese de Soluções}
 \label{chap:sintese_de_solucoes}
 
-A simbologia utilizada neste texto é adaptada de \cite{symeonidis2007feature}, e está descrita na Tabela \ref{tab:simbologia}. As terminologias \textit{cliente} e \textit{usuário} serão intercambiáveis e sem distinção semântica, mesmo que na prática essas duas entidades possam ser diferentes. Da mesma forma, \textit{item} e \textit{produto} terão o mesmo significado neste trabalho. 
+A simbologia\ref{simbolos} utilizada neste texto é adaptada de \cite{symeonidis2007feature}. As terminologias \textit{cliente} e \textit{usuário} serão intercambiáveis e sem distinção semântica, mesmo que na prática essas duas entidades possam ser diferentes. Da mesma forma, \textit{item} e \textit{produto} terão o mesmo significado neste trabalho. 
 
 A fim de tornar a formulação mais genérica, também não faremos distinção entre \textit{avaliação positiva} de um item e \textit{compra} de um item. Avaliação positiva é toda avaliação $r_{ui}$ do item $i$ feital pelo usuário $u$ tal que $r_{ui} > M$, e avaliação negativa tal que $r_{ui} \leq M$, sendo $M$ um valor mínimo escolhido a priori, indicador de que o usuário $u$ ``gostou'' do item $i$. No caso de um banco de dados sem avaliações dos produtos, será levada em conta a compra dos itens e será admitida avaliação unitária e valor mínimo nulo. Desta forma, os bancos de dados que contenham informações do tipo ``usuário $u$ avaliou o item $i$ em $r_{ui} = 3.54 > M$'' e aqueles que contenham ``usuário $u$ comprou o item $i$, logo $r_{ui} = 1 > 0$'' serão tratados equivalentemente.
-
-\begin{table}[hp]
-\begin{center}
-    \caption{Simbologia}
-    \label{tab:simbologia}
-    \begin{tabular}{ | l | l | }
-    \hline
-    \textbf{Símbolo} & \textbf{Definição} \\ \hline \hline
-    $k$ & Número de vizinhos mais próximos \\ \hline
-    $N$ & Tamanho da lista de recomendação \\ \hline \hline
-    $\mathcal{U}$ & Conjunto de todos os usuários \\ \hline
-    $\mathcal{F}$ & Conjunto  de todos os atributos \\ \hline
-    $\mathcal{I}$ & Conjunto de todos os itens \\ \hline \hline
-    $u, v$ & Usuários \\ \hline
-    $i, j$ & Itens \\ \hline
-    $f$ & Atributos dos itens \\ \hline
-    $c $ & Características dos usuários \\ \hline \hline
-    $\mathbf{X}_{M \times N},~\mathbf{X}$ & Matriz de elementos $x_{mn}$ \\ \hline
-    $\mathbf{x}_{N},~\mathbf{x}$ & Vetor de elementos $x_{n}$ \\ \hline
-    $\tilde{x}$ & Valor ótimo de $x$ \\ \hline    
-    $\hat{x}$ & Valor estimado de $x$ \\ \hline    
-    $|\mathcal{X}|$ & Número de elementos do conjunto $\mathcal{X}$ \\ \hline \hline
-    $\mathbf{R}, r_{ui}$ & Avaliação feita pelo usuário $u$ do item $i$ \\ \hline
-    $\mathbf{A}, a_{if}$ & Quantificação do atributo $f$ presente no item $i$ \\ \hline
-    $\mathbf{B}, b_{uc}$ & Quantificação da característica $c$ do usuário $u$ \\ \hline    
-    $\mathbf{T}, t_{uf}$ & Correlação entre usuário $u$ e atributo $f$ \\ \hline
-    $\mathbf{w}, w_{f}$ & Peso do atributo $f$ \\ \hline
-    $\mathbf{W}, w_{uf}$ & Correlação ponderada entre usuário $u$ e atributo $f$ \\ \hline
-    $\mathbf{S}, s_{ij}, s_{uv}$ & Similaridade entre itens $i$ e $j$ ou entre usuários $u$ e $v$\\ \hline
-    \end{tabular}
-\end{center}
-\end{table}
-
 
 \section{Algoritmo baseado na ponderação de atributos (FW)} % (fold)
 \label{sec:algoritmo_baseado_na_pondera_o_de_atributos_}

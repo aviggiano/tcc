@@ -32,7 +32,8 @@
 	% -- opções da classe memoir --
 	12pt,				% tamanho da fonte
 	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-	oneside,			% para impressão em verso e anverso. Oposto a oneside
+	oneside,			% para impressão em verso e anverso. Oposto a oneside 
+	% oneside twoside twoside openright openany onecolumn twocolumn
 	a4paper,			% tamanho do papel. 
 	% -- opções da classe abntex2 --
 	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
@@ -77,7 +78,6 @@
 \renewcommand{\ABNTEXchapterfontsize}{\HUGE}
 %real numbers
 \usepackage{amssymb}
-
 % ---
 % Configurações do pacote backref
 % Usado sem a opção hyperpageref de backref
@@ -183,6 +183,8 @@
 \tableofcontents*
 \cleardoublepage
 % ---
+
+\input{lista-de-simbolos}
 
 % ----------------------------------------------------------
 % ELEMENTOS TEXTUAIS
