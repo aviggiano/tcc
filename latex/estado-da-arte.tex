@@ -7,18 +7,18 @@
 
 O problema de recomendação pode ser formulado como se segue, adaptado da referência \cite{adomavicius2005toward}, com notação inspirada em \cite{symeonidis2007feature}: 
 
-Seja $\mathcal{U}$ o conjunto de todos os usuários e seja $\mathcal{I}$ o conjunto de todos os itens que podem ser recomendados, tais como livros, filmes ou artigos científicos. Seja $\ell$ uma função de utilidade, que mede a relevância do produto $i$ para usuário $u$, ou seja, $\ell: \mathcal{U} \times \mathcal{I} \rightarrow \mathcal{R}$, onde $\mathcal{R}$ é um  conjunto totalmente ordenado (por exemplo, números inteiros não-negativos ou números reais dentro de um determinado intervalo, em geral $[1, 5]$). O objetivo do sistema de recomendação é determinar o item $\tilde{\imath}$ que maximize a utilidade $\ell_{ui}$ do usuário $u$.
+``Seja $\mathcal{U}$ o conjunto de todos os usuários e seja $\mathcal{I}$ o conjunto de todos os itens que podem ser recomendados, tais como livros, filmes ou artigos científicos. Seja $\ell$ uma função de utilidade, que mede a relevância do produto $i$ para usuário $u$, ou seja, $\ell: \mathcal{U} \times \mathcal{I} \rightarrow \mathcal{R}$, onde $\mathcal{R}$ é um  conjunto totalmente ordenado -- por exemplo, números inteiros não-negativos ou números reais dentro de um determinado intervalo, em geral $[1, 5]$. O objetivo do sistema de recomendação é determinar o item $\tilde{\imath}_u$ que maximize a utilidade $\ell_{ui}$ do usuário $u$.''
 
 \begin{equation} 
 \label{eq:utilidade}
 \forall u \in \mathcal{U}, ~ \tilde{\imath}_u = \argmax_{i \in \mathcal{I}}{\ell_{ui}}
 \end{equation}
 
-O problema central da recomendação é que em geral a função $\ell$ é desconhecida, e portanto determinar $\tilde{\imath}$ através da equação \ref{eq:utilidade} é inviável. 
+O problema central da recomendação é que ``em geral a função $\ell$ é desconhecida ou não é definida para todo o espaço $\mathcal{U} \times \mathcal{I}$'', e portanto determinar $\tilde{\imath}$ através da equação \ref{eq:utilidade} é inviável. 
 
-Em algumas formulações, a utilidade é descrita pela avaliação $r_{ui}$ do item $i$ feita pelo usuário $u$. Neste caso, o sistema de recomendação busca determinar $\hat{r}_{ui}$ que melhor se aproxime de $r_{ui}$, e a qualidade da recomendação é normalmente descrita pela distância entre esses dois valores. Em outros sistemas, todavia, a utilidade é aproximada diferentemente, não bastando que um item tenha o maior valor de $\hat{r}_{ui}$ para que ele seja recomendado. 
+Em algumas formulações, ``a utilidade é descrita pela avaliação $r_{ui}$ do item $i$ feita pelo usuário $u$''. Neste caso, o sistema de recomendação busca determinar $\hat{r}_{ui}$ que melhor se aproxime de $r_{ui}$, e a qualidade da recomendação é normalmente descrita pela distância entre esses dois valores. Em outros sistemas, todavia, a utilidade é descrita diferentemente, não bastando que um item tenha o maior valor de $\hat{r}_{ui}$ para que ele seja recomendado. 
 
-Para lidar com esse problema,  existem três grandes grupos de estratégias de sugestão de itens, conforme apresenta a referência \cite{balabanovic97fab} (TODO refazer essa parte):
+Para lidar com esse problema,  existem três grandes grupos de estratégias de sugestão de itens, conforme apresentam as referências \cite{adomavicius2005toward,balabanovic97fab}:
 
 \begin{itemize}
 \item Recomendações baseadas em conteúdo: o usuário recebe recomendações com base nas descrições dos atributos dos itens; 
