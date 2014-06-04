@@ -2,7 +2,7 @@
 \chapter[Síntese de Soluções]{Síntese de Soluções}
 \label{chap:sintese_de_solucoes}
 
-A simbologia\ref{simbolos} utilizada neste texto é adaptada de \cite{symeonidis2007feature}. As terminologias \textit{cliente} e \textit{usuário} serão intercambiáveis e sem distinção semântica, mesmo que na prática essas duas entidades possam ser diferentes. Da mesma forma, \textit{item} e \textit{produto} terão o mesmo significado neste trabalho. 
+As terminologias \textit{cliente} e \textit{usuário} neste texto serão intercambiáveis e sem distinção semântica, mesmo que na prática essas duas entidades possam ser diferentes. Da mesma forma, \textit{item} e \textit{produto} terão o mesmo significado neste trabalho. 
 
 A fim de tornar a formulação mais genérica, também não faremos distinção entre \textit{avaliação positiva} de um item e \textit{compra} de um item. Avaliação positiva é toda avaliação $r_{ui}$ do item $i$ feital pelo usuário $u$ tal que $r_{ui} > M$, e avaliação negativa tal que $r_{ui} \leq M$, sendo $M$ um valor mínimo escolhido a priori, indicador de que o usuário $u$ ``gostou'' do item $i$. No caso de um banco de dados sem avaliações dos produtos, será levada em conta a compra dos itens e será admitida avaliação unitária e valor mínimo nulo. Desta forma, os bancos de dados que contenham informações do tipo ``usuário $u$ avaliou o item $i$ em $r_{ui} = 3.54 > M$'' e aqueles que contenham ``usuário $u$ comprou o item $i$, logo $r_{ui} = 1 > 0$'' serão tratados equivalentemente.
 
@@ -190,63 +190,3 @@ Ao passo que o método \textit{UP} recomenda itens a partir dos $k$ vizinhos mai
 
 
 % subsection variante_correla_o_usu_rio_item_ (end)
-
-\section{Avaliação do sistema de recomendação} % (fold)
-\label{sec:avalia_o_do_sistema_de_recomenda_o}
-
-% section avalia_o_do_sistema_de_recomenda_o (end)
-
-De modo geral os sistemas de recomendação tem o objetivo de apresentar ao usuário itens pelos quais ele possa se interessar e que, no caso de um e-commerce,  ele vá adquirir. O desempenho de um sistema de recomendação se mede, portanto, na qualidade com a qual ele executa essa tarefa. Essa qualidade pode ser medida de diferentes maneiras, tal como pela medida de distância entre os produtos recomendados $\hat{\textbf{\i}}$ e aqueles que seriam efetivamente comprados $\textbf{i}$ pelo cliente em uma validação cruzada (\textit{cross validation}). Essa medida pode ser, por exemplo, a distância $L_1$ (erro médio absoluto, $\left|\hat{\textbf{\i}} - \textbf{i}\right|$) ou a distância $L_2$ (erro quadrático médio,  $\sqrt{\left|\hat{\textbf{\i}} - \textbf{i}\right|^2}$).
-
-Outras medidas de predição também serão utilizadas, tais como acurácia (\textit{accuracy}), especificidade (\textit{specificity}), precisão (\textit{precision}), abrangência (\textit{recall}) e a medida $F_1$ (\textit{$F_1$-score}). Elas estão sumarizadas na Tabela \ref{tab:avaliacao-predicao}.
-
-%\begin{table}[H]
-%\begin{center}
-%    \caption{Matriz de confusão}
-%    \label{tab:avaliacao-predicao}
-%    \begin{tabular}{ | l | l | p{5cm} | p{5cm} | }
-%    \hline
-%    & & \multicolumn{2}{|c|}{Caso predito} \\ \hline 
-%    & & \textbf{Positivo} & \textbf{Negativo} \\ \hline
-%    \multirow{2}{*}{Caso real} 
-%        & Positivo & Verdadeiro Positivo &  $(VP)$ & Falso Negativo $(FN)$ \\ \hline
-%        & Negativo & Falso Positivo $(FP)$ & Verdadeiro Negativo $(VN)$ \\ \hline
-%    \end{tabular}
-%\end{center}
-%\end{table}
-
-
-%\begin{tabular}{cc|c|c|c|c|l}
-%\cline{3-4}
-%& & \multicolumn{2}{ c| }{Caso predito} \\ \cline{3-4}
-%& & 2 & 3  \\ \cline{1-4}
-%\multicolumn{1}{ |c| }{\multirow{2}{*}{Powers} } &
-%\multicolumn{1}{ |c| }{504} & 3 & 2 &      \\ \cline{2-4}
-%\multicolumn{1}{ |c  }{}                        &
-%\multicolumn{1}{ |c| }{540} & 2 & 3 &      \\ \cline{1-4}
-%\multicolumn{1}{ |c  }{\multirow{2}{*}{Powers} } &
-%\multicolumn{1}{ |c| }{gcd} & 2 & 2   \\ \cline{2-4}
-%\multicolumn{1}{ |c  }{}                        &
-%\multicolumn{1}{ |c| }{lcm} & 3 & 3   \\ \cline{1-4}
-%\end{tabular}
-
-
-\begin{table}[hp]
-\begin{center}
-    \caption{Avaliação de sistemas de predição}
-    \label{tab:avaliacao-predicao}
-    \begin{tabular}{  | >{\arraybackslash} m{3cm} | >{\centering\arraybackslash} m{4cm} | >{\arraybackslash} m{6cm} | }
-    \hline
-    \textbf{Medida} & \textbf{Fórmula} & \textbf{Significado} \\ \hline
-    Precisão &  $\frac{VP}{VP+FP}$ & Porcentagem de casos positivos corretamente preditos. \\ \hline                            
-    Abrangência & $\frac{VP}{VP+FN}$ & Porcentagem de casos positivos sobre aqueles que foram marcados como positivos. \\ \hline
-    Especificidade & $\frac{VN}{VN+FP}$ &  Porcentagem de casos negativos sobre aqueles que foram marcados como negativos. \\ \hline
-    Acurácia & $\frac{VP+VN}{VP+VN+FP+FN}$ & Porcentagem de predições corretas. \\ \hline
-    Medida $F_1$ &  $2 \cdot \frac{\mathrm{Precisão}~\cdot~\mathrm{Abrangência}}{\mathrm{Precisão}~+~\mathrm{Abrangência}}$ & Média harmônica entre precisão e abrangência. \\ \hline
-    \end{tabular}
-\end{center}
-\end{table}
-
-Por fim, avaliaremos o desempenho do sistema mediante a mudança nas variáveis de importância do problema, como por exemplo na quantidade de atributos utilizados na recomendação. O tempo de execução também será avaliado em função do tamanho do banco de dados e do algoritmo utilizado.
-
-%e na capacidade de lidar com problemas como o \textit{cold start}

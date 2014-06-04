@@ -6,12 +6,12 @@ O objetivo do presente Trabalho de Conclusão de Curso é o desenvolvimento de u
 
 Serão propostos diferentes algoritmos de recomendação, e será feita uma avaliação comparativa entre cada um deles. A explicação detalhada dos métodos se encontra no Capítulo \ref{chap:sintese_de_solucoes}.
 
-O sistema a ser desenvolvido será, do ponto de vista da taxonomia tradicional dos sistemas de recomendação \cite{schafer1999recommender}, automático e persistente. Isso significa que as sugestões serão dadas sem a interação do usuário e que as compras anteriores serão levadas em conta. Essas características aproximam o entregável das ferramentas de marketing via e-mail, que sugerem produtos com uma determinada frequência aos usuários com base em seu histórico de compras. 
+O modelo a ser desenvolvido será, do ponto de vista da taxonomia tradicional dos sistemas de recomendação \cite{schafer1999recommender}, automático e persistente. Isso significa que o usuário não precisará informar suas preferências ao sistema e que seu histórico de compras será levado em conta nas sugestões. Essas características aproximam o entregável das ferramentas de marketing via e-mail das lojas online, que sugerem produtos com uma determinada frequência aos usuários com base em seu perfil e últimas compras. 
 
-A qualidade das recomendações será avaliada tanto em termos da similaridade entre os itens efetivamente comprados pelo cliente com aqueles previstos pelo sistema de recomendação, quanto em termos de indicadores de erro tipo I e erro tipo II, como a medida F \cite{sarwar2000analysis}. 
+A qualidade das recomendações será avaliada quanto à acurácia e precisão. Será medida a distância entre os itens efetivamente comprados pelo cliente e aqueles previstos pelo sistema, além de indicadores de erro tipo I e erro tipo II. Uma descrição detalhada da avaliação do sistema de recomendação está descrita no Capítulo \ref{cha:avalia_o_de_desempenho}.
 
-Por meio de uma validação cruzada, analisaremos a influência dos principais parâmetros do problema na qualidade das recomendações, como o tamanho do banco de dados ou a quantidade de informações de itens e clientes utilizadas na recomendação. 
+Por meio de uma validação cruzada, analisaremos a influência dos principais parâmetros do problema na qualidade das recomendações, como o tamanho do banco de dados ou a quantidade de informações de itens e clientes utilizadas na recomendação.
 
-Será discutido o impacto dos principais desafios tecnológicos e científicos dos sistemas de recomendação na nossa proposta de solução, tais como a escalabilidade, a adaptação a novos usuários e a dispersão dos dados \cite{wei2007survey}. Também serão avaliadas as diferentes medidas de similaridade e modelos de predição na qualidade das recomendações. 
+Será discutido o impacto dos principais desafios tecnológicos e científicos dos sistemas de recomendação na nossa proposta de solução, tais como a escalabilidade, a adaptação a novos usuários e a esparsidade dos dados \cite{sarwar2000analysis}.
 
 Ao final, será possível extrair uma validação experimental das diretrizes fundamentais a serem seguidas por e-commerces que desejem desenvolver um sistema de recomendação próprio, a partir de um banco de dados de clientes, produtos e histórico de compras. 
