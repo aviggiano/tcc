@@ -48,8 +48,9 @@ d_{fij} =& 1-\delta_{ij}^f \\
     Esporte & Literal & $1-\delta^f_{ij}$ \\ \hline
     Categoria & Literal & $1-\delta^f_{ij}$ \\ \hline            
     Gênero & Literal & $1-\delta^f_{ij}$ \\ \hline            
-    Cor & $\left(\mathbb{N}\backslash \mathbb{N}_{255}\right)^3$  tripla ordenada RGB & $ \frac{\lVert a_{if}-a_{jf} \rVert_2}{\max_{i,j}{\lVert a_{if}-a_{jf} \rVert_2}} $ \\ \hline
-    Preço & $\mathbb{R}$ & $ \frac{\left| a_{if}-a_{jf} \right|}{\max_{i,j}{\left| a_{if}-a_{jf} \right|}} $ \\ \hline                
+    Cor & $\left(\mathbb{N}\backslash \mathbb{N}_{256}\right)^3$  tripla ordenada RGB & $ \frac{\lVert a_{if}-a_{jf} \rVert_2}{\max_{i,j}{\lVert a_{if}-a_{jf} \rVert_2}} $ \\ \hline
+    Preço & $\mathbb{R}$ & $ \frac{\left| a_{if}-a_{jf} \right|}{\max_{i,j}{\left| a_{if}-a_{jf} \right|}} $ \\ \hline
+    Data & $\mathbb{R}$ milissegundos a partir de \textit{epoch} \cite{epoch} & $ \frac{\left| a_{if}-a_{jf} \right|}{\max_{i,j}{\left| a_{if}-a_{jf} \right|}} $ \\ \hline
     \end{tabular}
 \end{center}
 \end{table}
