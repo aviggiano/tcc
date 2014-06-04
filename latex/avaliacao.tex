@@ -8,9 +8,9 @@
 
 % section avalia_o_do_sistema_de_recomenda_o (end)
 
-De modo geral os sistemas de recomendação tem o objetivo de apresentar ao usuário itens pelos quais ele possa se interessar e que, no caso de um e-commerce,  ele vá adquirir. O desempenho de um sistema de recomendação se mede, portanto, na qualidade com a qual ele executa essa tarefa. Essa qualidade pode ser medida de diferentes maneiras, tal como pela medida de distância entre os produtos recomendados $\hat{\textbf{\i}}$ e aqueles que seriam efetivamente comprados $\textbf{i}$ pelo cliente em uma validação cruzada (\textit{cross validation}). Essa medida pode ser, por exemplo, a distância $L_1$ (erro médio absoluto, $\left|\hat{\textbf{\i}} - \textbf{i}\right|$) ou a distância $L_2$ (erro quadrático médio,  $\sqrt{\left|\hat{\textbf{\i}} - \textbf{i}\right|^2}$).
+De modo geral os sistemas de recomendação tem o objetivo de apresentar ao usuário itens pelos quais ele possa se interessar. O desempenho de um sistema de recomendação se mede, portanto, na qualidade com a qual ele executa essa tarefa. Essa qualidade pode ser medida de diferentes maneiras, tal como pela medida de distância entre os produtos recomendados $\hat{\textbf{\i}}$ e aqueles que seriam efetivamente comprados $\textbf{i}$ pelo cliente em uma validação cruzada (\textit{cross validation}). Essa medida pode ser, por exemplo, a distância $L_1$ (erro médio absoluto, $\left|\hat{\textbf{\i}} - \textbf{i}\right|$) ou a distância $L_2$ (erro quadrático médio,  $\sqrt{\left|\hat{\textbf{\i}} - \textbf{i}\right|^2}$).
 
-Outras medidas de predição também serão utilizadas, tais como acurácia (\textit{accuracy}), especificidade (\textit{specificity}), precisão (\textit{precision}), abrangência (\textit{recall}) e a medida $F_1$ (\textit{$F_1$-score}). Elas estão sumarizadas na Tabela \ref{tab:avaliacao-predicao}.
+Outras medidas de predição também poderão ser utilizadas, tais como acurácia (\textit{accuracy}), especificidade (\textit{specificity}), precisão (\textit{precision}), abrangência (\textit{recall}) e a medida $F_1$ (\textit{$F_1$-score}). Elas estão sumarizadas na Tabela \ref{tab:avaliacao-predicao}.
 
 %\begin{table}[H]
 %\begin{center}
@@ -59,6 +59,6 @@ Outras medidas de predição também serão utilizadas, tais como acurácia (\te
 \end{center}
 \end{table}
 
-Por fim, avaliaremos o desempenho do sistema mediante a mudança nas variáveis de importância do problema, como por exemplo na quantidade de atributos utilizados na recomendação. O tempo de execução também será avaliado em função do tamanho do banco de dados e do algoritmo utilizado.
+Por fim, avaliaremos o desempenho do sistema mediante a mudança nas variáveis de importância do problema, como por exemplo na quantidade de atributos utilizados na recomendação. O tempo de execução também será avaliado em função do algoritmo utilizado e do tamanho do banco de dados.
 
 %e na capacidade de lidar com problemas como o \textit{cold start}
