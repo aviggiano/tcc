@@ -36,8 +36,6 @@ As recomendações colaborativas, por sua vez, tentam prever a utilidade dos ite
 
 Mais formalmente, quando baseada em usuários, a utilidade $\ell_{ui}$ de um item $i$ para um usuário $u$ é estimada com base nas utilidades $\ell_{v_k^u i}$ dos usuários $v_k^u \in \mathcal{U}$ que são ``similares'' ao usuário $u$.  De maneira análoga, quando baseada em itens, a utilidade $\ell_{ui}$ é prevista com base nas utilidades $\ell_{u j_k^u}$, dado itens $j_k^u \in \mathcal{I}$ que são ``similares'' aos itens $i$ .
 
-Por exemplo, em um sistema de recomendação de filmes baseado em usuários, a fim de recomendar um título para um usuário $u$, o sistema tenta identificar ``avaliadores'' $v_k^u$ com gostos similares $\ell_{v_k^u i}$ aos do usuário $u$, e então indicam-se os filmes $i$ que os usuários $v_k$ recomendariam. Caso fosse baseado em itens, ele tentaria identificar os itens $j_k^u$ similares  $\ell_{u j_k^u}$ aos itens $i$ adquiridos por $u$. 
-
 Por fim, as recomendações híbridas combinam aspectos tanto da filtragem colaborativa (baseada em usuários ou em itens) quanto da filtragem baseada em conteúdo, com o objetivo de atingir uma melhor recomendação ou de superar problemas recorrentes nas técnicas individuais, como a dispersão de dados ou o \textit{cold start} \cite{burke2007hybrid}. 
 
 \section{Estado da arte das soluções} % (fold)
