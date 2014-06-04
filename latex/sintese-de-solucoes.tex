@@ -2,10 +2,6 @@
 \chapter[Síntese de Soluções]{Síntese de Soluções}
 \label{chap:sintese_de_solucoes}
 
-As terminologias \textit{cliente} e \textit{usuário} neste texto serão intercambiáveis e sem distinção semântica, mesmo que na prática essas duas entidades possam ser diferentes. Da mesma forma, \textit{item} e \textit{produto} terão o mesmo significado neste trabalho. 
-
-A fim de tornar a formulação mais genérica, também não faremos distinção entre \textit{avaliação positiva} de um item e \textit{compra} de um item. Avaliação positiva é toda avaliação $r_{ui}$ do item $i$ feital pelo usuário $u$ tal que $r_{ui} > M$, e avaliação negativa tal que $r_{ui} \leq M$, sendo $M$ um valor mínimo escolhido a priori, indicador de que o usuário $u$ ``gostou'' do item $i$. No caso de um banco de dados sem avaliações dos produtos, será levada em conta a compra dos itens e será admitida avaliação unitária e valor mínimo nulo. Desta forma, os bancos de dados que contenham informações do tipo ``usuário $u$ avaliou o item $i$ em $r_{ui} = 3.54 > M$'' e aqueles que contenham ``usuário $u$ comprou o item $i$, logo $r_{ui} = 1 > 0$'' serão tratados equivalentemente.
-
 \section{Algoritmo baseado na ponderação de atributos (FW)} % (fold)
 \label{sec:algoritmo_baseado_na_pondera_o_de_atributos_}
 
@@ -20,7 +16,9 @@ Na filtragem baseada em conteúdo, ``cada item é representado por um vetor de a
     s_{ij} = \sum_{f}{w_{f} \left(1-d_{fij}\right)}
 \end{equation}
 
-As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para atributos literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. Nas medidas de distância, é interessante considerar a correlação entre atributos (a similaridade de duas marcas de calçado é maior que a de duas marcas de produtos de categorias distintas, mesmo que as marcas sejam diferentes), mas em uma primeira análise utilizaremos para a maior parte das \textit{features} a medida de distância \ref{eq:dfij}. Isso significa que se os atributos de dois itens são idênticos, a distância é nula e portanto a similaridade é máxima. O sumário de possíveis medidas de distância que serão utilizadas estão na Tabela \ref{tab:medidas-distancia}.
+As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para atributos literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. 
+
+Vale considerar a correlação entre atributos no cálculo das distâncias: a similaridade de duas marcas de calçado, por exemplo, é maior que a de duas marcas de produtos de categorias diferentes, mesmo que as marcas sejam distintas nos dois casos. Em uma primeira análise, todavia, utilizaremos para a maior parte das \textit{features} a medida de distância \ref{eq:dfij}. Isso significa que se os atributos de dois itens são idênticos, a distância é nula e portanto a similaridade é máxima. O sumário de algumas medidas de distância que podem ser utilizadas estão na Tabela \ref{tab:medidas-distancia}.
 
 \begin{equation}
 \label{eq:delta}
@@ -50,8 +48,8 @@ d_{fij} =& 1-\delta_{ij}^f \\
     Esporte & Literal & $1-\delta^f_{ij}$ \\ \hline
     Categoria & Literal & $1-\delta^f_{ij}$ \\ \hline            
     Gênero & Literal & $1-\delta^f_{ij}$ \\ \hline            
-    Cor & $\left(\mathbb{N}\backslash \mathbb{N}_{255}\right)^3$  tripla ordenada RGB & $ \frac{\lVert f_i-f_j \rVert_2}{\max_{i,j}{\lVert f_i-f_j \rVert_2}} $ \\ \hline
-    Preço & $\mathbb{R}$ & $ \frac{\left| f_i-f_j \right|}{\max_{i,j}{\left| f_i-f_j \right|}} $ \\ \hline                
+    Cor & $\left(\mathbb{N}\backslash \mathbb{N}_{255}\right)^3$  tripla ordenada RGB & $ \frac{\lVert a_{if}-a_{jf} \rVert_2}{\max_{i,j}{\lVert a_{if}-a_{jf} \rVert_2}} $ \\ \hline
+    Preço & $\mathbb{R}$ & $ \frac{\left| a_{if}-a_{jf} \right|}{\max_{i,j}{\left| a_{if}-a_{jf} \right|}} $ \\ \hline                
     \end{tabular}
 \end{center}
 \end{table}
@@ -79,11 +77,18 @@ A partir da matriz de avaliações $\mathbf{R}$, pode-se determinar $e_{ij}$, co
 \end{cases} 
 \end{equation}
 
-Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de equações lineares \ref{eq:determinacao-wf}. Apenas os pesos positivos e com valor absoluto expressivo (maior que um piso arbitrariamente escolhido a posteriori) são utilizados na recomendação. Calcula-se a matriz de similaridade $\mathbf{S}$ pela equação \ref{eq:sij} e recomendam-se os itens similares àqueles já comprados.  
+Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de equações lineares \ref{eq:determinacao-wf}. Apenas os pesos positivos e com valor absoluto expressivo (maior que um piso arbitrariamente escolhido a posteriori) são utilizados na recomendação. 
 
 \begin{equation}
 \label{eq:determinacao-wf} 
     w_0 + \sum_{f}{w_{f}  \left(1-d_{fij}\right)} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)},~\forall i \neq j 
+\end{equation} 
+
+Calcula-se a matriz de similaridade $\mathbf{S}$ pela equação \ref{eq:sij} e recomendam-se os itens similares àqueles já comprados, segundo \ref{eq:ifw}.
+
+\begin{equation}
+\label{eq:ifw} 
+    \hat{\imath}_u = \argmax_{i \in \left\{i~|~r_{ui} \neq 0\right\}, j}{s_{ij}}
 \end{equation} 
 
 \subsection{Variante: pesos unitários (FW$_1$)} % (fold)
