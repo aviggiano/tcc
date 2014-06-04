@@ -139,18 +139,16 @@ sim_gender <- function(x,y){
 }
 
 sim <- function(i, j){
-    sim_general_item <- delta(i$general_item_id,j$general_item_id)
-    sim_brand <- delta(i$brand, j$brand)
-    sim_attribute_set <- delta(i$attribute_set, j$attribute_set)
-    sim_type <- delta(i$type, j$type)
-    sim_sport <- delta(i$sport, j$sport)
-    sim_category <- delta(i$category, j$category)
-    sim_subcategory <- delta(i$subcategory, j$subcategory)
-    sim_gender <- sim_gender(i$gender, j$gender)
+    sim_brand <- 1-delta(i$brand, j$brand)
+    sim_attribute_set <- 1-delta(i$attribute_set, j$attribute_set)
+    sim_type <- 1-delta(i$type, j$type)
+    sim_sport <- 1-delta(i$sport, j$sport)
+    sim_category <- 1-delta(i$category, j$category)
+    sim_subcategory <-1- delta(i$subcategory, j$subcategory)
+    sim_gender <- 1-sim_gender(i$gender, j$gender)
     sim_color <- sim_color(i$color, j$color)
     sim_sale_price <- sim_price(i$sale_price, j$sale_price)
-    sim <- c(sim_general_item,
-             sim_brand,
+    sim <- c(sim_brand,
              sim_attribute_set,
              sim_type,
              sim_sport,
@@ -167,7 +165,6 @@ get_sim_matrix <- function(item.df=item, n=100) {
 }
 sim_matrix <- get_sim_matrix(n=10)
 
-# nao esta funfando!!! fazer sim_all(17,17) e sim 17 17
 sim_all <- function(index1, index2){
     if (index1 > index2){
         big <- index1
