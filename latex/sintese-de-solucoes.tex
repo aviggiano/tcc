@@ -141,7 +141,7 @@ Os pesos $w_{uf}$, que mostram a relevância de $f$ para $u$, são determinados 
     q_{f} = \log \left( \frac{\left|~\mathcal{U}~\right|}{\check{q}_{f}} \right)
 \end{equation} 
 
-Os pesos $w_{uf}$, obtidos na TF-IDF \ref{eq:w-tfidf}, são utilizados para calcular a similaridade $s_{uv}$ entre dois usuários $u$ e $v$, conforme \ref{eq:suv}.
+Os pesos $w_{uf}$, obtidos na TF-IDF \ref{eq:w-tfidf}, são utilizados para calcular a similaridade $s_{uv}$ entre dois usuários $u$ e $v$, conforme \ref{eq:suv}, \ref{eq:fuv}.
 
 \begin{equation}
 \label{eq:w-tfidf} 
@@ -151,9 +151,13 @@ Os pesos $w_{uf}$, obtidos na TF-IDF \ref{eq:w-tfidf}, são utilizados para calc
 
 \begin{equation}
 \label{eq:suv}
-\begin{split}
     s_{uv} &= \frac{\sum\limits_{f \in \mathcal{F}_{uv}}{w_{uf}~w_{vf}}}{\sqrt{\sum\limits_{f \in \mathcal{F}_{uv}
-    }w_{uf}^2} \sqrt{\sum\limits_{f \in \mathcal{F}_{uv}}w_{vf}^2}} \\
+    }w_{uf}^2} \sqrt{\sum\limits_{f \in \mathcal{F}_{uv}}w_{vf}^2}} 
+\end{equation} 
+
+\begin{equation}
+\label{eq:fuv}
+\begin{split}
     \mathcal{F}_{uv} &= \mathcal{F}_u \cap \mathcal{F}_v \\
     \mathcal{F}_u &= \left\{ f \in \mathcal{F}~|~t_{uf} > 0 \right\}
 \end{split}    
