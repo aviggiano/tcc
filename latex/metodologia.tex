@@ -16,60 +16,60 @@ Com o crescente número de lojas de comércio online, tornou-se necessário a cr
 
 % section defini_o_dos_par_metros_de_sucesso (end)
 
-O sucesso do projeto poderá ser medido em duas frentes, a primeira sendo a verificação entre as sugestões calculadas pelo sistema geradas a partir de um banco de dados de aprendizado, e as compras realizadas pelos cliente posteriormente ao  periodo do material de aprendizado. A segunda é a escalabilidade do sistema de recomendação. Visto que a tendência é o aumento da base de consumidores e de itens, há um aumento no custo computacional para gerar recomendações, e o sistema deve responder sem grande demora ou perda de qualidade.
+O sucesso do projeto poderá ser medido em duas frentes: a primeira, quantitativa, medirá a precisão e acurácia das recomendações; a segunda, qualitativa, avaliará se o sistema responde bem aos problemas recorrentes desse tópico de pesquisa, tais como a escalabilidade, o excesso de especialização e outros. 
 
 \section{Síntese de Soluções} % (fold)
 \label{sec:s_ntese_de_solu_es}
 
 % section s_ntese_de_solu_es (end)
 
-Nesta fase do projeto serão propostas possíveis soluções para o problema proposto. Aqui o problema principal deverá ser dividido em partes menores, que idealmente são mutuamente exclusivas e coletivamente exaustivas (cobrem todos os pontos uma só vez), que serão individualmente resolvidas. Por exemplo, o método de se fazer o cálculo de medidas de similaridade entre dois itens influencia na taxa de sucesso da recomendação, e o método de se expandir este cálculo para os outros itens influencia na escalabilidade do sistema.
+Nesta fase do projeto serão propostas possíveis soluções para o desafio da recomendação. Aqui o problema principal deverá ser dividido em partes menores, mutuamente exclusivas e coletivamente exaustivas (cobrem todos os pontos uma só vez), que serão resolvidas individualmente. Por exemplo, o algoritmo que calcula as medidas de similaridade entre dois itens influencia na taxa de sucesso da recomendação, e o método que expande este cálculo para todos os outros itens influencia na escalabilidade do sistema.
 
 \section{Processo de escolha} % (fold)
 \label{sec:processo_de_escolha}
 
 % section processo_de_escolha (end)
 
-O processo de escolha da solução deverá levar em conta três pontos. O primeiro, eliminatório, é a viabilidade técnica da solução -- não será levado em conta soluções de execução inviável. Os outros dois, classificatórios, levam em conta a os parâmetros de sucesso do projeto, devendo assim maximizar a escalabilidade e a taxa de recomendações bem sucedidas.
+O processo de escolha da solução deverá levar em conta dois pontos. O primeiro, eliminatório, é a viabilidade técnica da solução -- não será levado em conta soluções de execução inviável. O segundo, classificatório, leva em conta os parâmetros de sucesso do projeto, devendo assim avaliar qual alternativa maximiza a precisão e acurácia e ao mesmo tempo lida com os problemas qualitativos.
 
 \section{Detalhamento da Solução} % (fold)
 \label{sec:detalhamento_da_solu_o}
 
 % section detalhamento_da_solu_o (end)
 
-No detalhamento da solução, serão levantados os pontos que serão comparados entre os itens e a estrutura dos algoritmos que gerarão as recomendações.
+No detalhamento da solução, a estrutura dos algoritmos que gerarão as recomendações será descrita exaustivamente. Serão analisados fatores como complexidade computacional, linguagem de programação e entrada e saída de dados.
 
 \section{Projeto Básico} % (fold)
 \label{sec:projeto_b_sico}
 
 % section projeto_b_sico (end)
 
-Aqui serão codificados os métodos escolhidos para o cálculo da recomendação para uma item qualquer e o método de aplicação deste cálculo para todos os outros casos. Etapa de projeto é incremental e ocorre em ciclos, acompanhada ela própria de testes unitários e testes de integração.   
+Aqui serão codificados os métodos escolhidos. Esta etapa do projeto é incremental e ocorre em ciclos, e é acompanhada de testes unitários e testes de integração. 
 
 \section{Modelamento e Simulação} % (fold)
 \label{sec:modelamento_e_simula_o}
 
 % section modelamento_e_simula_o (end)
 
-Para o modelamento e simulação utilizaremos partes dos bancos de dados que temos disponíveis e serão feitas simulações até que tenhamos resultados satisfatórios.
+Para o modelamento e simulação, utilizaremos um banco de dados de teste, que contenha apenas alguns milhares de dados, e posteriormente uma base maior. Serão feitas simulações e melhoramentos até que tenhamos resultados que antedam aos requisitos de projeto.
 
 \section{Projeto Executivo} % (fold)
 \label{sec:projeto_executivo}
 
 % section projeto_executivo (end)
 
-O Projeto Executivo conterá os métodos escolhidos e a forma de implementá-los em um e-commerce, a fim que seja possível aplicá-lo independentemente da área de atuação desta empresa.
+O Projeto Executivo conterá os métodos escolhidos e a forma de implementá-los em um e-commerce, a fim que seja possível aplicá-lo independentemente da área de atuação da empresa.
 
 \section{Protótipos/Testes} % (fold)
 \label{sec:prot_tipos_testes}
 
 % section prot_tipos_testes (end)
 
-A realização de testes será feita com os bancos de dados de centenas de milhares de itens ou de avaliações. Visto que será feita uma validação cruzada, será necessário descartar os dados e reformular a solução caso as recomendações não atinjam os requisitos funcionais. Isso evita que o projeto seja moldado para operar somente com aquele banco de dados específico.
+A realização de testes será feita com os bancos de dados de centenas de milhares de itens ou de avaliações. Visto que será feita uma validação cruzada, será necessário descartar os dados e reformular a solução caso as recomendações não atinjam os requisitos funcionais. Isso evita que o sistema seja moldado para operar somente com aquele banco de dados específico.
 
 \section{Produto} % (fold)
 \label{sec:produto}
 
 % section produto (end)
 
-Assim que a fase de testes for concluída com êxito, o Projeto Executivo se torna o Produto, já que este é um projeto voltado à programação e aplicação em novos negócios.
+Assim que a fase de testes for concluída com êxito, o Projeto Executivo se torna o Produto, já que este irá conter o código computacional, o ``manual de operação'' e a forma de integração com uma loja online genérica.

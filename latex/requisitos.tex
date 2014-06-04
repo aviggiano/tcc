@@ -2,7 +2,7 @@
 \chapter[Requisitos]{Requisitos}
 \label{chap:requisitos}
 
-A partir dos casos de uso propostos e do projeto do sistema para o sistema de recomendação, é possível extrair os requisitos funcionais do software. Esses requisitos ditam principalmente sobre a escalabilidade e acurácia do sistema.
+A partir dos casos de uso propostos e dos objetivos deste Trabalho de Conclusão de Curso, é possível extrair os requisitos funcionais do sistema de recomendação. Esses requisitos ditam principalmente sobre a escalabilidade e acurácia do sistema.
 
 Como as recomendações serão calculadas com antecedência e dadas de forma automática, não há necessidade para um elevado \textit{throughput} ou taxa de transferência (quantidade de recomendações feitas por período de tempo). Deseja-se contudo que o sistema possa gerar todas as recomendações para um banco de dados de cem mil clientes em uma hora, isto é, que tenha \textit{throughput} mínimo de $28$ recomendação por segundo. Os sistemas de recomendação tradicionais possuem \textit{throughput} de cerca de 500 recomendações por segundo, mas operam em servidores dedicados de maior potência computacional \cite{sarwar2001item}.  
 
@@ -10,8 +10,8 @@ O sistema também deve ser suficientemente acurado para prover recomendações �
 
 Os requisitos funcionais são suportados por requisitos não-funcionais, e estes são determinados pelas restrições sobre o projeto ou execução, tais como requisitos de desempenho, de segurança ou confiabilidade. 
 
-O sistema de recomendação deverá poder ser utilizado por qualquer e-commerce que disponha de um banco de dados de clientes, produtos e histórico de compras, desde que o formato de entrada, a ser especificado, seja seguido.
+O sistema de recomendação deverá poder ser utilizado por qualquer e-commerce que disponha de um banco de dados de clientes, produtos e histórico de compras, desde que o formato de entrada, a ser especificado no Capítulo \ref{chap:resultados}, seja seguido.
 
 Além disso o sistema deverá ser desenvolvido em tecnologias abertas (\textit{open source}) que tenham um alto número de colaboradores, como o sistema de gestão de banco de dados MySQL ou a linguagem de programação orientada a objetos Java, a fim de torná-lo genérico e reutilizável.
 
-Por fim, o sistema de recomendação deverá ser flexível no sentido de poder operar igualmente bem tanto em pequenas quanto em grandes bases de dados, que podem chegar até centenas de milhões de clientes \cite{amazoncustomers} e de produtos \cite{amazonproducts}.
+Por fim, o sistema de recomendação deverá ser escalável e flexível no sentido de poder operar igualmente bem tanto em pequenas quanto em grandes bases de dados.
