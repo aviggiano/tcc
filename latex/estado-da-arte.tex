@@ -12,7 +12,7 @@ A fim de tornar a formulação mais genérica, também não faremos distinção 
 
 O problema de recomendação pode ser formulado como se segue, adaptado da referência \cite{adomavicius2005toward}, com notação inspirada em \cite{symeonidis2007feature}: 
 
-``Seja $\mathcal{U}$ o conjunto de todos os usuários e seja $\mathcal{I}$ o conjunto de todos os itens que podem ser recomendados, tais como livros, filmes ou artigos científicos. Seja $\ell$ uma função de utilidade, que mede a relevância do produto $i$ para usuário $u$, ou seja, $\ell: \mathcal{U} \times \mathcal{I} \rightarrow \mathcal{R}$, onde $\mathcal{R}$ é um  conjunto totalmente ordenado -- por exemplo, números inteiros ou números reais dentro de um determinado intervalo, em geral $\left\{-1, 0, +1\left\}$ ou $[1, 5]$. O objetivo do sistema de recomendação é determinar o item $\tilde{\imath}_u$ que maximize a utilidade $\ell_{ui}$ do usuário $u$.''
+``Seja $\mathcal{U}$ o conjunto de todos os usuários e seja $\mathcal{I}$ o conjunto de todos os itens que podem ser recomendados, tais como livros, filmes ou artigos científicos. Seja $\ell$ uma função de utilidade, que mede a relevância do produto $i$ para usuário $u$, ou seja, $\ell: \mathcal{U} \times \mathcal{I} \rightarrow \mathcal{R}$, onde $\mathcal{R}$ é um  conjunto totalmente ordenado -- por exemplo, números inteiros ou números reais dentro de um determinado intervalo, em geral $\left\{-1, 0, +1\right\}$ ou $[1, 5]$. O objetivo do sistema de recomendação é determinar o item $\tilde{\imath}_u$ que maximize a utilidade $\ell_{ui}$ do usuário $u$.''
 
 \begin{equation} 
 \label{eq:utilidade}
