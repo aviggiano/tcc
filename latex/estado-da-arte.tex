@@ -36,31 +36,31 @@ As recomendações colaborativas, por sua vez, tentam prever a utilidade dos ite
 
 Mais formalmente, quando baseada em usuários, a utilidade $\ell_{ui}$ de um item $i$ para um usuário $u$ é estimada com base nas utilidades $\ell_{v_k^u i}$ dos usuários $v_k^u \in \mathcal{U}$ que são ``similares'' ao usuário $u$.  De maneira análoga, quando baseada em itens, a utilidade $\ell_{ui}$ é prevista com base nas utilidades $\ell_{u j_k^u}$, dado itens $j_k^u \in \mathcal{I}$ que são ``similares'' aos itens $i$ .
 
-Por fim, as recomendações híbridas combinam aspectos tanto da filtragem colaborativa (baseada em usuários ou em itens) quanto da filtragem baseada em conteúdo, com o objetivo de atingir uma melhor recomendação ou de superar problemas recorrentes nas técnicas individuais, como a dispersão de dados ou o \textit{cold start} \cite{burke2007hybrid}. 
+Por fim, as recomendações híbridas combinam aspectos tanto da filtragem colaborativa (baseada em usuários ou em itens) quanto da filtragem baseada em conteúdo, com o objetivo de atingir uma melhor recomendação ou de superar problemas recorrentes nas técnicas individuais, como a esparsidade (\textit{sparsity}) dos dados ou o \textit{cold start} \cite{burke2007hybrid}.
 
 \section{Estado da arte das soluções} % (fold)
 \label{sec:estado_da_arte_das_solu_es}
 
 % section estado_da_arte_das_solu_es (end)
-Do ponto de vista do estado da arte das soluções, as variáveis de interesse estão ligadas do número de usuários no sistema, ao número de itens, ao nível de dispersão, à medida de qualidade da recomendação e ao custo computacional \cite{lee2012comparative}. 
+Do ponto de vista do estado da arte das soluções, as variáveis de interesse estão ligadas do número de usuários no sistema, ao número de itens, à acurácia, à medida de qualidade da recomendação e ao custo computacional \cite{lee2012comparative}. Essa referência faz uma análise extensiva de diversos métodos de filtragem colaborativa.
 
 No que se refere à dependência do número de usuários, a filtragem colaborativa a base de usuários é extremamente efetiva para um baixo número de usuários, mas tem uma dependência quase constante em relação a essa quantidade. A filtragem colaborativa a base de itens é consideravelmente pior para um baixo número de usuários, mas supera todos os outros métodos baseados em memória para quantidades maiores.
 
 A dependência do número de itens é, de certa forma, oposta à de usuários: a filtragem colaborativa a base de itens é extremamente efetiva para poucos itens, mas tem uma dependência quase constante no número de itens. A filtragem colaborativa baseada em usuários tem performance consideravelmente pior de início, mas supera todos os outros métodos baseados em memória para maiores quantidades de usuários.
 
-Com relação ao nível de dispersão dos dados, a filtragem baseada em usuários e a baseada em itens mostram uma dependência semelhante. Na medida de qualidade de recomendação (menor erro quadrático médio), todos os métodos de recomendação variam não-linearmente com o número de usuários, itens e nível de dispersão, e de modo geral há um \textit{trade-off} entre a acurácia e o tempo de processamento da sugestão de produtos. 
+Com relação à acurácia dos dados, a filtragem baseada em usuários e a baseada em itens mostram uma dependência semelhante. Na medida de qualidade de recomendação (menor erro quadrático médio), todos os métodos de recomendação variam não-linearmente com o número de usuários, itens e acurácia, e de modo geral há um \textit{trade-off} entre a dispersão dos dados e o tempo de processamento da sugestão de produtos. 
 % section estado_da_arte_dos_problemas_e_das_solu_es (end)
 
 \section{Desafios científicos e tecnológicos} % (fold)
 \label{sec:desafios_cient_ficos_e_tecnol_gicos}
 
-Um dos maiores desafios tecnológicos dos sistemas de recomendação é, atualmente, o da escalabilidade \cite{wei2007survey}. O sistema de recomendação deverá ser flexível no sentido de poder operar igualmente bem tanto em conjuntos pequenas quanto em grandes bases de dados, que podem chegar até centenas de milhões de clientes \cite{amazoncustomers} e de produtos \cite{amazonproducts}. Isso significa que as recomendações devem ser suficientemente rápidas e ainda assim prover sugestões valiosas aos consumidores.
+Um dos maiores desafios tecnológicos dos sistemas de recomendação é, atualmente, o da escalabilidade \cite{wei2007survey}. O sistema de recomendação deverá ser flexível no sentido de poder operar igualmente bem tanto em conjuntos pequenos quanto em grandes bases de dados, que podem chegar até centenas de milhões de clientes \cite{amazoncustomers} e de produtos \cite{amazonproducts}. Isso significa que as recomendações devem ser suficientemente rápidas e ainda assim prover sugestões valiosas aos consumidores.
 
-Outra grande dificuldade é a esparsidade ou \textit{sparsity} dos dados, ou seja, o fato de a maioria dos clientes nunca ter interagido com mais de algumas unidades de itens, fazendo com que a matriz de relação usuário-item tenha apenas uma quantidade muito pequena de valores preenchidos, da ordem de 1\% \cite{fennell2009collaborative}.
+Outra grande dificuldade é a esparsidade ou \textit{sparsity} dos dados, ou seja, o fato de a maioria dos clientes nunca ter interagido com mais de algumas unidades de itens, fazendo com que a matriz de relação usuário-item tenha uma quantidade muito pequena de valores preenchidos, da ordem de 1\% \cite{fennell2009collaborative}.
 
 Um problema muito comum nos sistemas de recomendação é o do \textit{cold start}: quando itens ou usuários são inicialmente introduzidos no sistema, existe pouca ou nenhuma informação sobre eles. O sistema é incapaz de realizar inferências sobre quais itens recomendar ao novo usuário ou sobre quais produtos são similares ao novo item. 
 
-Outro desafio científico é referente à diversidade das recomendações realizadas, também chamado de excesso de especialização ou \textit{overspecialization} \cite{adomavicius2005toward}. Ao mesmo tempo que o sistema deve apresentar itens similares ao que o usuário está procurando, ele também deve sugerir itens que o usuário desconheça ou que nem saiba que poderiam interessá-lo. 
+Outro desafio científico é referente à diversidade das recomendações realizadas, também chamado de excesso de especialização ou \textit{over-specialization} \cite{adomavicius2005toward}. Ao mesmo tempo que o sistema deve apresentar itens similares ao que o usuário está procurando, ele também deve sugerir itens que o usuário desconheça ou que nem saiba que poderiam interessá-lo. 
 
 Por fim, um desafio científico que este trabalho enfrentará é a execução de um sistema híbrido do ponto de vista de efemeridade e persistência, ao construir um modelo de recomendação que integre as preferências de curto e longo termo dos usuários \cite{schafer1999recommender}. A análise dos dados de compras anteriores, bem como de dados demográficos, deverá portanto ser incorporada à análise de característica dos produtos, a fim de enriquecer a acurácia do sistema \cite{wei2007survey}.
 
