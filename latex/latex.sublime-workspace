@@ -3,15 +3,19 @@
 	{
 		"selected_items":
 		[
+			[
+				"pus",
+				"push_before_deploy"
+			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "latex.sublime-project",
+			"file": "avaliacao.tex",
 			"settings":
 			{
-				"buffer_size": 328,
+				"buffer_size": 3886,
 				"line_ending": "Unix"
 			}
 		},
@@ -19,15 +23,39 @@
 			"file": "index.tex",
 			"settings":
 			{
-				"buffer_size": 6191,
+				"buffer_size": 6721,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "bibliografia.bib",
+			"file": "sumario-final.tex",
 			"settings":
 			{
-				"buffer_size": 10392,
+				"buffer_size": 23,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "referencias-bibliograficas-finais.tex",
+			"settings":
+			{
+				"buffer_size": 571,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "metodologia.tex",
+			"settings":
+			{
+				"buffer_size": 5161,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "cronograma.tex",
+			"settings":
+			{
+				"buffer_size": 2395,
 				"line_ending": "Unix"
 			}
 		},
@@ -35,7 +63,31 @@
 			"file": "andamento-do-projeto.tex",
 			"settings":
 			{
-				"buffer_size": 7560,
+				"buffer_size": 2930,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sintese-de-solucoes.tex",
+			"settings":
+			{
+				"buffer_size": 11517,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "estado-da-arte.tex",
+			"settings":
+			{
+				"buffer_size": 11580,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resultados.tex",
+			"settings":
+			{
+				"buffer_size": 5521,
 				"line_ending": "Unix"
 			}
 		}
@@ -72,10 +124,27 @@
 	},
 	"file_history":
 	[
+		"/home/ag/git/tcc/latex/bibliografia.bib",
+		"/home/ag/git/tcc/latex/title.tex",
+		"/home/ag/git/tcc/latex/latex.sublime-project",
+		"/home/ag/git/tcc/latex/img/Estrutura_Banco_de_Dados.png",
+		"/home/ag/git/tcc/latex/requisitos.tex",
+		"/home/ag/git/tcc/latex/sintese-de-solucoes.tex",
+		"/home/ag/git/tcc/latex/introducao.tex",
+		"/home/ag/git/tcc/latex/estado-da-arte.tex",
+		"/home/ag/git/tcc/latex/objetivos.tex",
+		"/home/ag/git/tcc/latex/lista-de-simbolos.tex",
+		"/home/ag/git/tcc/latex/test/index.tex",
+		"/home/ag/git/tcc/latex/cronograma.tex",
+		"/home/ag/git/tcc/latex/resultados.tex",
+		"/home/ag/git/tcc/latex/index.tex",
+		"/home/ag/git/tcc/latex/andamento-do-projeto.tex",
+		"/home/ag/git/tcc/latex/index.bbl",
+		"/home/ag/git/tcc/latex/reuniao.tex",
+		"/home/ag/development/revmob/setup/.bash_profile",
 		"/home/ag/git/tcc/latex/email.txt",
 		"/opt/sublime_text_2/sublime_text",
 		"/home/ag/.bash_custom",
-		"/home/ag/development/revmob/setup/.bash_profile",
 		"/home/ag/git/tcc/latex/latex.sublime-workspace",
 		"/home/ag/R/tcc/old/rgb.csv",
 		"/home/ag/R/tcc/old/color_name.csv",
@@ -128,6 +197,85 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"--",
+			"f_j",
+			"f_i",
+			"todavia",
+			"& ",
+			"    ",
+			"     ",
+			"    ",
+			"\\hline",
+			"$]",
+			"$ ",
+			"$",
+			"\\\\ \\hline",
+			"tabela-sim",
+			"abnt",
+			"sum_",
+			"fr}",
+			"f_if_j",
+			"v_k(u)",
+			"similaridade",
+			"sij",
+			"I_",
+			"The adaptive web\nThe adaptive web",
+			"{x",
+			"x",
+			"widetilde",
+			"\\breve",
+			"\\dot{q",
+			"\\hat{q",
+			"\\hat{",
+			"table",
+			",00",
+			"r_{",
+			"b",
+			"a_",
+			"1",
+			"R_",
+			"\\ell",
+			"cal{R",
+			"cal{",
+			"conforme ",
+			"conforme",
+			"atribut",
+			"dois atrib",
+			"\\overline{",
+			"overline{\\(.*\\)}",
+			"overline{(.*)}",
+			"\\\\overline{.*}",
+			"\\overline{",
+			"\\bar",
+			"w_",
+			"the",
+			"tabela",
+			"tablea",
+			"tabela",
+			"table",
+			"cada item ",
+			"X",
+			"z_",
+			"q_",
+			"\\hat{q}",
+			"A matriz",
+			"z_",
+			"t_",
+			"p_",
+			"\\tau",
+			"\\hat{s}",
+			"s_",
+			"s",
+			"delta",
+			"\\delta",
+			"1",
+			"\\delta",
+			"debnath2008feature",
+			"math",
+			"deploy_multiple_environments",
+			"deploy_to_prod",
+			"HEAD",
+			"6",
 			"handbook",
 			"debnath2008feature",
 			"0033 0033",
@@ -176,45 +324,30 @@
 			"\\(Figura \\\\(cite)\\{fig:(\\d)\\}\\)",
 			"v",
 			"$v$",
-			"45",
-			"Figura ",
-			"figura ",
-			"Figura ",
-			"Figura 18",
-			"(",
-			"d",
-			"c",
-			"abntex",
-			"introdu",
-			"\\\\lipsum.*",
-			"lipsum",
-			"quadr",
-			"contagem",
-			"items",
-			"wei",
-			"estado da",
-			"entretanto",
-			"state",
-			"e ainda",
-			"Hybr",
-			"Hybrid",
-			"Sutheera",
-			"ítem",
-			"Collec",
-			"collec",
-			"collect",
-			"Adomavicius",
-			"item",
-			"applicat",
-			"e-comm",
-			"handbook"
+			"45"
 		],
 		"highlight": true,
 		"in_selection": false,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
+			"f}",
+			"v_k^u",
+			"\\check",
+			"\\breve{q",
+			"\\dot{q",
+			".00",
+			"rm{R",
+			"rm{",
+			"\\overline",
+			"q_",
+			"\\hat{q}_",
+			"z",
+			"t_",
+			"p_",
+			"z_",
+			"q",
 			"deploy_multiple_environments",
 			"\\1",
 			"",
@@ -249,27 +382,29 @@
 			[
 				{
 					"buffer": 0,
-					"file": "latex.sublime-project",
+					"file": "avaliacao.tex",
 					"settings":
 					{
-						"buffer_size": 328,
+						"buffer_size": 3886,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								328,
-								328
+								3819,
+								3819
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"spell_check": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 804.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -279,19 +414,15 @@
 					"file": "index.tex",
 					"settings":
 					{
-						"buffer_size": 6191,
+						"buffer_size": 6721,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5723,
-								5723
-							],
-							[
-								5922,
-								5922
+								6691,
+								6691
 							]
 						],
 						"settings":
@@ -299,53 +430,51 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3799.0,
+						"translation.y": 4801.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "bibliografia.bib",
+					"file": "sumario-final.tex",
 					"settings":
 					{
-						"buffer_size": 10392,
+						"buffer_size": 23,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6686,
-								6686
+								23,
+								23
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/Bibtex.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3532.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "andamento-do-projeto.tex",
+					"file": "referencias-bibliograficas-finais.tex",
 					"settings":
 					{
-						"buffer_size": 7560,
+						"buffer_size": 571,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4693,
-								4723
+								571,
+								571
 							]
 						],
 						"settings":
@@ -354,7 +483,170 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 1094.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "metodologia.tex",
+					"settings":
+					{
+						"buffer_size": 5161,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23,
+								23
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "cronograma.tex",
+					"settings":
+					{
+						"buffer_size": 2395,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1003,
+								1003
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 25.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "andamento-do-projeto.tex",
+					"settings":
+					{
+						"buffer_size": 2930,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								375,
+								375
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 72.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "sintese-de-solucoes.tex",
+					"settings":
+					{
+						"buffer_size": 11517,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3494,
+								3494
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1164.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "estado-da-arte.tex",
+					"settings":
+					{
+						"buffer_size": 11580,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1848,
+								1848
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 216.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "resultados.tex",
+					"settings":
+					{
+						"buffer_size": 5521,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5103,
+								5103
+							]
+						],
+						"settings":
+						{
+							"spell_check": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1956.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -422,6 +714,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 179.0,
+	"side_bar_width": 194.0,
 	"status_bar_visible": true
 }
