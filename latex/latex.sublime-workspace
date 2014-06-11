@@ -12,82 +12,26 @@
 	"buffers":
 	[
 		{
-			"file": "avaliacao.tex",
+			"file": "referencias/index.tex",
 			"settings":
 			{
-				"buffer_size": 3886,
+				"buffer_size": 6005,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "index.tex",
+			"file": "referencias/title.tex",
 			"settings":
 			{
-				"buffer_size": 6721,
+				"buffer_size": 979,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "sumario-final.tex",
+			"file": "arte/estado-da-arte.tex",
 			"settings":
 			{
-				"buffer_size": 23,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "referencias-bibliograficas-finais.tex",
-			"settings":
-			{
-				"buffer_size": 571,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "metodologia.tex",
-			"settings":
-			{
-				"buffer_size": 5161,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "cronograma.tex",
-			"settings":
-			{
-				"buffer_size": 2395,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "andamento-do-projeto.tex",
-			"settings":
-			{
-				"buffer_size": 2930,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "sintese-de-solucoes.tex",
-			"settings":
-			{
-				"buffer_size": 11517,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "estado-da-arte.tex",
-			"settings":
-			{
-				"buffer_size": 11580,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "resultados.tex",
-			"settings":
-			{
-				"buffer_size": 5521,
+				"buffer_size": 11566,
 				"line_ending": "Unix"
 			}
 		}
@@ -124,21 +68,33 @@
 	},
 	"file_history":
 	[
-		"/home/ag/git/tcc/latex/bibliografia.bib",
+		"/home/ag/git/tcc/latex/referencias/bibliografia.bib",
+		"/home/ag/git/tcc/latex/cronograma/cronograma.tex",
+		"/home/ag/git/tcc/latex/arte/index.tex",
+		"/home/ag/git/tcc/latex/arte/title.tex",
+		"/home/ag/git/tcc/latex/cronograma/index.tex",
+		"/home/ag/git/tcc/latex/cronograma/title.tex",
+		"/home/ag/git/tcc/latex/referencias/index.tex",
+		"/home/ag/git/tcc/latex/referencias/title.tex",
+		"/home/ag/git/tcc/latex/cronograma.tex",
 		"/home/ag/git/tcc/latex/title.tex",
+		"/home/ag/git/tcc/latex/resultados.tex",
+		"/home/ag/git/tcc/latex/estado-da-arte.tex",
+		"/home/ag/git/tcc/latex/sintese-de-solucoes.tex",
+		"/home/ag/git/tcc/latex/andamento-do-projeto.tex",
+		"/home/ag/git/tcc/latex/metodologia.tex",
+		"/home/ag/git/tcc/latex/sumario-final.tex",
+		"/home/ag/git/tcc/latex/avaliacao.tex",
+		"/home/ag/git/tcc/latex/referencias-bibliograficas-finais.tex",
+		"/home/ag/git/tcc/latex/index.tex",
+		"/home/ag/git/tcc/latex/bibliografia.bib",
 		"/home/ag/git/tcc/latex/latex.sublime-project",
 		"/home/ag/git/tcc/latex/img/Estrutura_Banco_de_Dados.png",
 		"/home/ag/git/tcc/latex/requisitos.tex",
-		"/home/ag/git/tcc/latex/sintese-de-solucoes.tex",
 		"/home/ag/git/tcc/latex/introducao.tex",
-		"/home/ag/git/tcc/latex/estado-da-arte.tex",
 		"/home/ag/git/tcc/latex/objetivos.tex",
 		"/home/ag/git/tcc/latex/lista-de-simbolos.tex",
 		"/home/ag/git/tcc/latex/test/index.tex",
-		"/home/ag/git/tcc/latex/cronograma.tex",
-		"/home/ag/git/tcc/latex/resultados.tex",
-		"/home/ag/git/tcc/latex/index.tex",
-		"/home/ag/git/tcc/latex/andamento-do-projeto.tex",
 		"/home/ag/git/tcc/latex/index.bbl",
 		"/home/ag/git/tcc/latex/reuniao.tex",
 		"/home/ag/development/revmob/setup/.bash_profile",
@@ -197,6 +153,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Cap",
+			"Capitulo",
+			"ref",
 			"--",
 			"f_j",
 			"f_i",
@@ -321,10 +280,7 @@
 			"^\\ast",
 			"theta",
 			"split",
-			"\\(Figura \\\\(cite)\\{fig:(\\d)\\}\\)",
-			"v",
-			"$v$",
-			"45"
+			"\\(Figura \\\\(cite)\\{fig:(\\d)\\}\\)"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -377,52 +333,49 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 2,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "avaliacao.tex",
+					"file": "referencias/index.tex",
 					"settings":
 					{
-						"buffer_size": 3886,
+						"buffer_size": 6005,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3819,
-								3819
+								5769,
+								5769
 							]
 						],
 						"settings":
 						{
-							"spell_check": true,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 804.0,
+						"translation.y": 4224.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "index.tex",
+					"file": "referencias/title.tex",
 					"settings":
 					{
-						"buffer_size": 6721,
+						"buffer_size": 979,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								6691,
-								6691
+								0,
+								0
 							]
 						],
 						"settings":
@@ -430,25 +383,25 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 4801.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "sumario-final.tex",
+					"file": "arte/estado-da-arte.tex",
 					"settings":
 					{
-						"buffer_size": 23,
+						"buffer_size": 11566,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								23,
-								23
+								11512,
+								11512
 							]
 						],
 						"settings":
@@ -456,197 +409,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "referencias-bibliograficas-finais.tex",
-					"settings":
-					{
-						"buffer_size": 571,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								571,
-								571
-							]
-						],
-						"settings":
-						{
-							"spell_check": true,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "metodologia.tex",
-					"settings":
-					{
-						"buffer_size": 5161,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								23,
-								23
-							]
-						],
-						"settings":
-						{
-							"spell_check": true,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "cronograma.tex",
-					"settings":
-					{
-						"buffer_size": 2395,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1003,
-								1003
-							]
-						],
-						"settings":
-						{
-							"spell_check": true,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 25.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "andamento-do-projeto.tex",
-					"settings":
-					{
-						"buffer_size": 2930,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								375,
-								375
-							]
-						],
-						"settings":
-						{
-							"spell_check": true,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 72.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "sintese-de-solucoes.tex",
-					"settings":
-					{
-						"buffer_size": 11517,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3494,
-								3494
-							]
-						],
-						"settings":
-						{
-							"spell_check": true,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1164.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "estado-da-arte.tex",
-					"settings":
-					{
-						"buffer_size": 11580,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1848,
-								1848
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 216.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "resultados.tex",
-					"settings":
-					{
-						"buffer_size": 5521,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5103,
-								5103
-							]
-						],
-						"settings":
-						{
-							"spell_check": true,
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1956.0,
+						"translation.y": 3085.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
