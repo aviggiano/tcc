@@ -4,7 +4,7 @@
 %----------------------------------------------------------------------------------------
 
 \documentclass{beamer}
-
+\usepackage[brazil]{babel}
 \mode<presentation> {
 
 % The Beamer class comes with a number of default slide themes
@@ -67,5 +67,49 @@
 \usepackage{graphicx} % Allows including images
 \usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
 
+
+% ---
+% Pacotes básicos 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{color}				% Controle das cores
+\usepackage{microtype} 			% para melhorias de justificação
+% ---
+		
+% ---
+% Pacotes de citações
+% ---
+%\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[num]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+\usepackage{amsmath}
+\usepackage{multirow}
+% helvetica no titulo dos capitulos
+%\usepackage[scaled]{helvet}
+\usepackage{tgheros}
+%real numbers
+\usepackage{amssymb}
+%\hyphenation{Recomendação}
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% ---
+
+%% fonte
+    %\usefonttheme{structurebold}
+    \setbeamerfont{title}{series=\bfseries,parent=structure}
+    \setbeamerfont{subtitle}{size=\scriptsize,series=\bfseries,parent=structure}
+    \setbeamerfont{author}{size=\scriptsize,series=\bfseries,parent=structure}
+    \setbeamerfont{institute}{size=\scriptsize,series=\bfseries,parent=structure}
+    \setbeamerfont{date}{size=\scriptsize,series=\bfseries,parent=structure}
+
+
 \input{title}
+\input{overview}
 \input{presentation}
