@@ -48,3 +48,6 @@
 *.jpg
 *.brf
 *.lo*
+*.snm
+*.nav
+*.vrb

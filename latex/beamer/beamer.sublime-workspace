@@ -15,7 +15,7 @@
 			"file": "referencias/index.tex",
 			"settings":
 			{
-				"buffer_size": 6005,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -23,15 +23,34 @@
 			"file": "referencias/title.tex",
 			"settings":
 			{
-				"buffer_size": 979,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
 		{
+			"contents": "",
 			"file": "arte/estado-da-arte.tex",
+			"file_size": -1,
+			"file_write_time": -1,
 			"settings":
 			{
-				"buffer_size": 11566,
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "beamer.sublime-project",
+			"settings":
+			{
+				"buffer_size": 315,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "beamer.sublime-workspace",
+			"settings":
+			{
+				"buffer_size": 9366,
 				"line_ending": "Unix"
 			}
 		}
@@ -333,7 +352,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -341,15 +360,15 @@
 					"file": "referencias/index.tex",
 					"settings":
 					{
-						"buffer_size": 6005,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5769,
-								5769
+								0,
+								0
 							]
 						],
 						"settings":
@@ -367,7 +386,7 @@
 					"file": "referencias/title.tex",
 					"settings":
 					{
-						"buffer_size": 979,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -393,15 +412,15 @@
 					"file": "arte/estado-da-arte.tex",
 					"settings":
 					{
-						"buffer_size": 11566,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11566,
-								11566
+								0,
+								0
 							]
 						],
 						"settings":
@@ -410,6 +429,60 @@
 						},
 						"translation.x": 0.0,
 						"translation.y": 3085.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "beamer.sublime-project",
+					"settings":
+					{
+						"buffer_size": 315,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								105,
+								105
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "beamer.sublime-workspace",
+					"settings":
+					{
+						"buffer_size": 9366,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								92,
+								92
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 7632.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -423,7 +496,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 40.0
 	},
 	"layout":
 	{
