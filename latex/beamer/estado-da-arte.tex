@@ -2,4 +2,23 @@
 \section[Estado da Arte]{Estado da Arte}
 \begin{frame}
 \frametitle{Estado da Arte}
+\begin{itemize}
+	\item $\mathcal{U}$ conjunto de todos os usuários $u$
+	\item $\mathcal{I}$ conjunto de todos os itens $i$
+	\item $\ell$ função de utilidade 
+	\begin{itemize}
+		\item $\ell: \mathcal{U} \times \mathcal{I} \rightarrow \mathcal{R}$
+		\item $\mathcal{R}$ conjunto totalmente ordenado, p.ex. $\left\{-1, 0, +1\right\}$ ou $[1, 5]$
+	\end{itemize}
+\end{itemize}
+
+
+\begin{block}{Objetivo}
+Determinar o item $\tilde{\imath}_u$ que maximize a utilidade $\ell_{ui}$ do usuário $u$:
+\end{block}
+
+\begin{equation} 
+\label{eq:utilidade}
+\forall u \in \mathcal{U}, ~ \tilde{\imath}_u = \argmax_{i \in \mathcal{I}}{\ell_{ui}}
+\end{equation}
 \end{frame}
