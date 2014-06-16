@@ -12,45 +12,34 @@
 	"buffers":
 	[
 		{
-			"file": "referencias/index.tex",
+			"file": "index.tex",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 3366,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "referencias/title.tex",
+			"file": "overview.tex",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 328,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"contents": "",
-			"file": "arte/estado-da-arte.tex",
-			"file_size": -1,
-			"file_write_time": -1,
+			"file": "title.tex",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 969,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "beamer.sublime-project",
+			"file": "presentation.tex",
 			"settings":
 			{
-				"buffer_size": 315,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "beamer.sublime-workspace",
-			"settings":
-			{
-				"buffer_size": 9366,
+				"buffer_size": 5550,
 				"line_ending": "Unix"
 			}
 		}
@@ -87,6 +76,17 @@
 	},
 	"file_history":
 	[
+		"/home/ag/git/tcc/latex/title.tex",
+		"/home/ag/git/tcc/latex/index.tex",
+		"/home/ag/git/tcc/latex/beamer/beamer.sublime-project",
+		"/home/ag/git/tcc/latex/beamer/presentation.tex",
+		"/home/ag/git/tcc/latex/beamer/title.tex",
+		"/home/ag/git/tcc/latex/introducao.tex",
+		"/home/ag/git/tcc/latex/beamer/beamer.tex",
+		"/home/ag/git/tcc/latex/beamer/referencias/title.tex",
+		"/home/ag/git/tcc/latex/beamer/referencias/index.tex",
+		"/home/ag/git/tcc/latex/beamer/arte/estado-da-arte.tex",
+		"/home/ag/git/tcc/latex/beamer/beamer.sublime-workspace",
 		"/home/ag/git/tcc/latex/referencias/bibliografia.bib",
 		"/home/ag/git/tcc/latex/cronograma/cronograma.tex",
 		"/home/ag/git/tcc/latex/arte/index.tex",
@@ -96,7 +96,6 @@
 		"/home/ag/git/tcc/latex/referencias/index.tex",
 		"/home/ag/git/tcc/latex/referencias/title.tex",
 		"/home/ag/git/tcc/latex/cronograma.tex",
-		"/home/ag/git/tcc/latex/title.tex",
 		"/home/ag/git/tcc/latex/resultados.tex",
 		"/home/ag/git/tcc/latex/estado-da-arte.tex",
 		"/home/ag/git/tcc/latex/sintese-de-solucoes.tex",
@@ -105,12 +104,10 @@
 		"/home/ag/git/tcc/latex/sumario-final.tex",
 		"/home/ag/git/tcc/latex/avaliacao.tex",
 		"/home/ag/git/tcc/latex/referencias-bibliograficas-finais.tex",
-		"/home/ag/git/tcc/latex/index.tex",
 		"/home/ag/git/tcc/latex/bibliografia.bib",
 		"/home/ag/git/tcc/latex/latex.sublime-project",
 		"/home/ag/git/tcc/latex/img/Estrutura_Banco_de_Dados.png",
 		"/home/ag/git/tcc/latex/requisitos.tex",
-		"/home/ag/git/tcc/latex/introducao.tex",
 		"/home/ag/git/tcc/latex/objetivos.tex",
 		"/home/ag/git/tcc/latex/lista-de-simbolos.tex",
 		"/home/ag/git/tcc/latex/test/index.tex",
@@ -172,6 +169,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"beamer",
+			"document",
 			"Cap",
 			"Capitulo",
 			"ref",
@@ -297,9 +296,7 @@
 			"    ",
 			"[Ht]",
 			"^\\ast",
-			"theta",
-			"split",
-			"\\(Figura \\\\(cite)\\{fig:(\\d)\\}\\)"
+			"theta"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -352,23 +349,23 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "referencias/index.tex",
+					"file": "index.tex",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 3366,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								1801,
+								1801
 							]
 						],
 						"settings":
@@ -376,25 +373,25 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 4224.0,
+						"translation.y": 1598.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "referencias/title.tex",
+					"file": "overview.tex",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 328,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								328,
+								328
 							]
 						],
 						"settings":
@@ -409,50 +406,23 @@
 				},
 				{
 					"buffer": 2,
-					"file": "arte/estado-da-arte.tex",
+					"file": "title.tex",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 969,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								813,
+								813
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 3085.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "beamer.sublime-project",
-					"settings":
-					{
-						"buffer_size": 315,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								105,
-								105
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -461,28 +431,27 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "beamer.sublime-workspace",
+					"buffer": 3,
+					"file": "presentation.tex",
 					"settings":
 					{
-						"buffer_size": 9366,
+						"buffer_size": 5550,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								92,
-								92
+								368,
+								368
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 7632.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -523,7 +492,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 130.0
+		"height": 238.0
 	},
 	"replace":
 	{

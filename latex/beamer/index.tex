@@ -81,8 +81,8 @@
 % ---
 % Pacotes de citações
 % ---
-%\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[num]{abntex2cite}	% Citações padrão ABNT
+% Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 
 % --- 
 % CONFIGURAÇÕES DE PACOTES
@@ -99,7 +99,19 @@
 % alterando o aspecto da cor azul
 \definecolor{blue}{RGB}{41,5,195}
 
-% ---
+
+%% sumario com algarismos romanos
+\defbeamertemplate{subsection in toc}{bullets}{%
+  \leavevmode
+  \parbox[t]{1em}{\textbullet\hfill}%
+  \parbox[t]{\dimexpr\textwidth-1em\relax}{\inserttocsubsection}\par}
+\defbeamertemplate{section in toc}{sections numbered roman}{%
+  \leavevmode%
+  \MakeUppercase{\romannumeral\inserttocsectionnumber}.\ %
+  \inserttocsection\par}
+\setbeamertemplate{section in toc}[sections numbered roman]
+\setbeamertemplate{subsection in toc}[bullets]
+
 
 %% fonte
     %\usefonttheme{structurebold}
@@ -110,6 +122,43 @@
     \setbeamerfont{date}{size=\scriptsize,series=\bfseries,parent=structure}
 
 
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+%\title[Short title]{Full Title of the Talk} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[Sistema de Recomendação]{\rmfamily Desenvolvimento de um Sistema de Recomendação para e-Commerces} 
+
+
+\author{Antônio Viggiano, Fernando Fochi} % Your name
+\institute[USP] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Escola Politécnica da Universidade de São Paulo \\ % Your institution for the title page
+\medskip
+\texttt{agfviggiano@gmail.com, fernando.fochi@gmail.com} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+
+% remover icones de bibliografia
+%\setbeamertemplate{bibliography item}{}
+
+
+
+
+\begin{document}
 \input{title}
-\input{overview}
+\input{sumario}
+\input{introducao}
+\input{estado-da-arte}
+\input{objetivos}
+\input{requisitos}
+\input{sintese-de-solucoes}
+\input{avaliacao-de-desempenho}
+\input{resultados}
+
+
+\input{exemplo}
 \input{presentation}
+\input{bibliografia}
+\end{document} 
