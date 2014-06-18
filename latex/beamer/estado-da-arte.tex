@@ -1,10 +1,14 @@
 %!TEX root = index.tex
 \section[Estado da Arte]{Estado da Arte}
+\subsection{Estado da arte dos problemas} % (fold)
+\label{sub:estado_da_arte_dos_problemas}
+% subsection estado_da_arte_dos_problemas (end)
 \begin{frame}
 \frametitle{Estado da Arte}
 \begin{itemize}
-	\item $\mathcal{U}$ conjunto de todos os usuários $u$
-	\item $\mathcal{I}$ conjunto de todos os itens $i$
+	\item $\mathcal{U}$ conjunto de todos os usuários $u$ com características $c$
+	\item $\mathcal{I}$ conjunto de todos os itens $i$ com atributos $f$
+	\item $r_{ui}$ o histórico avaliações dos itens $i$ pelos usuários $u$\par{~}
 	\item $\ell$ função de utilidade 
 	\begin{itemize}
 		\item $\ell: \mathcal{U} \times \mathcal{I} \rightarrow \mathcal{R}$
@@ -21,4 +25,97 @@ Determinar o item $\tilde{\imath}_u$ que maximize a utilidade $\ell_{ui}$ do usu
 \label{eq:utilidade}
 \forall u \in \mathcal{U}, ~ \tilde{\imath}_u = \argmax_{i \in \mathcal{I}}{\ell_{ui}}
 \end{equation}
+
+\end{frame}
+
+
+%% TODO trocar por animacao
+\begin{frame}
+\frametitle{Estado da Arte}
+\begin{block}{Objetivo}
+Determinar o item $\tilde{\imath}_u$ que maximize a utilidade $\ell_{ui}$ do usuário $u$:
+\end{block}
+
+$$
+\forall u \in \mathcal{U}, ~ \tilde{\imath}_u = \argmax_{i \in \mathcal{I}}{\ell_{ui}}
+$$
+
+
+\begin{alertblock}{Problema}
+$\ell$ desconhecida
+\end{alertblock}
+
+\begin{itemize}
+	\item Em algumas formulações se descreve $\ell_{ui} \sim r_{ui}$
+	\begin{itemize}
+		\item determinar $\hat{r}_{ui}$ que melhor se aproxime de $r_{ui}$
+	\end{itemize}
+	\item Problema de otimização
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Estado da Arte}
+\begin{block}{Estratégias de recomendação}
+\begin{itemize}
+	\item Recomendações baseadas em conteúdo ($a_{if}$)
+	\item Recomendações colaborativas ($r_{ui}$)
+	\item Recomendações híbridas
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Estado da Arte}
+\textbf{colocar 1 slide para cada um dos métodos}
+\end{frame}
+
+\begin{frame}
+\frametitle{Estado da Arte}
+
+Utilização comercial \cite{chiang2012networked}
+
+\begin{description}
+\item[Amazon] Filtragem baseada em conteúdo
+\item[YouTube] Contagem de visitas mútuas
+\item[Pandora] Experts + votos positivos/negativos
+\item[Netflix] Filtragem colaborativa
+\end{description}
+\end{frame}
+
+\subsection{Estado da arte das soluções} % (fold)
+\label{sub:estado_da_arte_das_solu_es_}
+% subsection estado_da_arte_das_solu_es_ (end)
+\begin{frame}
+\frametitle{Estado da Arte}
+
+\textbf{colocar gráficos da ref 11}
+\end{frame}
+
+
+\subsection{Desafios científicos e tecnológicos} % (fold)
+\label{sub:desafios_cient_ficos_e_tecnol_gicos_}
+% subsection desafios_cient_ficos_e_tecnol_gicos_ (end)
+
+\begin{frame}
+\frametitle{Estado da Arte}
+\begin{block}{Desafios tecnológicos}
+\begin{itemize}
+	\item Escalabilidade
+	\item Esparsidade
+	\item \textit{Cold start}
+	\item Excesso de especialização \par{~}
+	\item Outros não considerados neste trabalho
+	\begin{itemize}
+		\item Recomendação inter-domínios
+		\item Sequências de recomendações
+		\item Otimização para dispositivos móveis
+		\item $\cdots$
+	\end{itemize}
+\end{itemize}
+\end{block}
 \end{frame}
