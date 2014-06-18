@@ -1,5 +1,152 @@
 %!TEX root = index.tex
 \section[Síntese de Soluções]{Síntese de Soluções}
+\subsubsection{Algoritmo baseado na ponderação de atributos (FW)} % (fold)
+\label{ssub:algoritmo_baseado_na_pondera_o_de_atributos_fw_}
+% subsubsection algoritmo_baseado_na_pondera_o_de_atributos_fw_ (end)
 \begin{frame}
 \frametitle{Síntese de Soluções}
+\textbf{Ponderação de atributos (FW)}
+\begin{equation} 
+\label{eq:sij}
+    s_{ij} = \sum_{f}{w_{f} \left(1-d_{fij}\right)}
+\end{equation}
+
+
+\begin{table}[hp]
+\begin{center}
+    \caption{Medidas de distância entre alguns atributos}
+    \label{tab:medidas-distancia}
+    \begin{tabular}{  | p{3cm} | p{3cm} | p{3cm} | } 
+    \hline
+    \textbf{Atributo} $f$ & \textbf{Domínio} $\mathrm{F}$ & \textbf{Distância} $d_f$ \\ \hline
+    Marca & Literal & $1-\delta^f_{ij}$ \\ \hline    
+    Categoria & Literal & $1-\delta^f_{ij}$ \\ \hline
+    Preço & $\mathbb{R}$ & $ \frac{\left| a_{if}-a_{jf} \right|}{\max_{i,j}{\left| a_{if}-a_{jf} \right|}} $ \\ \hline
+    Data & $\mathbb{R}$ milissegundos a partir de \textit{epoch} \cite{epoch} & $ \frac{\left| a_{if}-a_{jf} \right|}{\max_{i,j}{\left| a_{if}-a_{jf} \right|}} $ \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Síntese de Soluções}
+
+\begin{equation}
+\label{eq:determinacao-eij} 
+    e_{ij} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)}
+\end{equation} 
+
+\begin{equation}
+\label{eq:determinacao-wf} 
+    w_0 + \sum_{f}{w_{f}  \left(1-d_{fij}\right)} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)},~\forall i \neq j 
+\end{equation} 
+
+\begin{equation}
+\label{eq:ifw} 
+    \hat{\imath}_u = \argmax_{i \in \left\{i~|~r_{ui} > 0\right\}, j}{s_{ij}}
+\end{equation} 
+\end{frame}
+
+\subsection{Variante: pesos unitários (FW$_1$)} % (fold)
+\label{sub:variante_pesos_unit_rios}
+
+\begin{frame}
+\frametitle{Síntese de Soluções}
+\begin{equation}
+w_f = 1~\forall f
+\end{equation} 
+
+\begin{equation} 
+\label{eq:sij1}
+    s_{ij} = \sum_{f}{\left(1-d_{fij}\right)}
+\end{equation}
+
+\begin{equation} 
+\label{eq:scos}
+    s_{ij} = \frac{\sum\limits_{f \in \mathcal{F}}{a_{if}~a_{jf}}}{\sqrt{\sum\limits_{f \in \mathcal{F}}a_{if}^2} \sqrt{\sum\limits_{f \in \mathcal{F}}a_{jf}^2}}
+\end{equation}
+\end{frame}
+
+
+\section{Algoritmo baseado no perfil de usuários (UP)} % (fold)
+\label{sec:algoritmo_baseado_no_perfil_de_usu_rios_}
+
+
+\begin{frame}
+\frametitle{Síntese de Soluções}
+
+\begin{equation}
+\label{eq:puf} 
+    t_{uf} = \sum_{i}{\mathrm{b}_M\left(r_{ui}~a_{if}\right)} 
+\end{equation} 
+\begin{equation}
+\label{eq:tf} 
+    p_{uf} = t_{uf}
+\end{equation} 
+
+\begin{equation}
+\label{eq:uf} 
+    \check{q}_{f} = \sum_{u}{\mathrm{b}_0\left(t_{uf}\right)}
+\end{equation} 
+
+\begin{equation}
+\label{eq:iuf} 
+    q_{f} = \log \left( \frac{\left|~\mathcal{U}~\right|}{\check{q}_{f}} \right)
+\end{equation} 
+
+
+\begin{equation}
+\label{eq:w-tfidf} 
+    w_{uf} = p_{uf}~q_{f}
+\end{equation} 
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Síntese de Soluções}
+\begin{equation}
+\label{eq:suv}
+    s_{uv} = \frac{\sum\limits_{f \in \mathcal{F}_{uv}}{w_{uf}~w_{vf}}}{\sqrt{\sum\limits_{f \in \mathcal{F}_{uv}
+    }w_{uf}^2} \sqrt{\sum\limits_{f \in \mathcal{F}_{uv}}w_{vf}^2}} 
+\end{equation} 
+
+\begin{equation}
+\label{eq:fuv}
+\begin{split}
+    \mathcal{F}_{uv} &= \mathcal{F}_u \cap \mathcal{F}_v \\
+    \mathcal{F}_u &= \left\{ f \in \mathcal{F}~|~t_{uf} > 0 \right\}
+\end{split}    
+\end{equation} 
+
+
+
+\begin{equation}
+\label{eq:frf} 
+\mathrm{f}_{uf} = \sum_{i \in \mathcal{I}_{v_k^u}}{\mathrm{b}_0\left(a_{if}\right)}
+\end{equation} 
+
+
+\begin{equation}
+\label{eq:wi} 
+    \omega_{ui} = \sum_{f}{a_{if}~\mathrm{f}_{uf}}
+\end{equation} 
+
+\begin{equation}
+\label{eq:iup} 
+    \hat{\imath}_u = \argmax_{i \in \left\{i~|~r_{ui} > 0\right\}}{\omega_{ui}}
+\end{equation} 
+\end{frame}
+
+
+\subsection{Variante: correlação usuário-item (UI)} % (fold)
+\label{sub:variante_correla_o_usu_rio_item_}
+\begin{frame}
+\frametitle{Síntese de Soluções}
+
+\begin{equation}
+\label{eq:wui} 
+    \omega_{ui} = \sum_{f}{w_{uf}~a_{if}}
+\end{equation} 
 \end{frame}
