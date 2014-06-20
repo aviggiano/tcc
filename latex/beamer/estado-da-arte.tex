@@ -11,7 +11,7 @@
 	\item $r_{ui}$ o histórico avaliações dos itens $i$ pelos usuários $u$\par{~}
 	\item $\ell$ função de utilidade 
 	\begin{itemize}
-		\item $\ell: \mathcal{U} \times \mathcal{I} \rightarrow \mathcal{R}$ ($\left\{-1, 0, +1\right\}$,  $[1, 5]$, $\cdots$)
+		\item $\ell: \mathcal{U} \times \mathcal{I} \rightarrow \mathcal{R}$ $\left(\left\{-1, 0, +1\right\}, \left[1, 5\right], \cdots\right)$
 	\end{itemize}
 \end{itemize}
 
@@ -34,16 +34,27 @@ $\ell$ desconhecida
 
 
 
-\begin{frame}
-\frametitle{Estado da Arte}
+\begin{frame}{Estado da Arte}
+\begin{columns}[c]
+\column{.5\textwidth} % Right column and width
 \begin{block}{Estratégias de recomendação}
 \begin{itemize}
-	\item Recomendações baseadas em conteúdo
-	\item Recomendações colaborativas
-	\item Recomendações híbridas
+	\item Baseadas em conteúdo
+	\item Colaborativas
+	\item Híbridas
 \end{itemize}
 \end{block}
 
+\column{.5\textwidth} % Right column and width
+\begin{block}{Desafios tecnológicos}
+\begin{itemize}
+	\item Escalabilidade
+	\item Esparsidade
+	\item \textit{Cold start}
+	\item Excesso de especialização
+\end{itemize}
+\end{block}
+\end{columns}
 \end{frame}
 
 
@@ -78,22 +89,3 @@ Utilização comercial \cite{chiang2012networked}
 \subsection{Desafios científicos e tecnológicos} % (fold)
 \label{sub:desafios_cient_ficos_e_tecnol_gicos_}
 % subsection desafios_cient_ficos_e_tecnol_gicos_ (end)
-
-\begin{frame}
-\frametitle{Estado da Arte}
-\begin{block}{Desafios tecnológicos}
-\begin{itemize}
-	\item Escalabilidade
-	\item Esparsidade
-	\item \textit{Cold start}
-	\item Excesso de especialização \par{~}
-	\item Outros não considerados neste trabalho
-	\begin{itemize}
-		\item Recomendação inter-domínios
-		\item Sequências de recomendações
-		\item Otimização para dispositivos móveis
-		\item $\cdots$
-	\end{itemize}
-\end{itemize}
-\end{block}
-\end{frame}

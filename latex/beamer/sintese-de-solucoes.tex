@@ -3,14 +3,31 @@
 \subsubsection{Algoritmo baseado na ponderação de atributos (FW)} % (fold)
 \label{ssub:algoritmo_baseado_na_pondera_o_de_atributos_fw_}
 % subsubsection algoritmo_baseado_na_pondera_o_de_atributos_fw_ (end)
-\begin{frame}
-\frametitle{Síntese de Soluções}
-\textbf{Ponderação de atributos (FW)}
-\begin{equation} 
-\label{eq:sij}
+\begin{frame}{Síntese de Soluções}
+\begin{columns}[c]
+\column{.5\textwidth} % Right column and width
+\textbf{Ponderação de atributos}
+$$
     s_{ij} = \sum_{f}{w_{f} \left(1-d_{fij}\right)}
-\end{equation}
+$$
 
+\hfill
+\column{.5\textwidth} % Right column and width
+
+\subsection{Variante: pesos unitários (FW$_1$)} % (fold)
+\label{sub:variante_pesos_unit_rios}
+
+\textbf{Variante: pesos unitários}
+$$
+w_f = 1~\forall f
+$$
+\hfill
+\end{columns}
+
+\begin{equation}
+\label{eq:ifw} 
+    \hat{\imath}_u = \argmax_{i \in \left\{i~|~r_{ui} > 0\right\}, j}{s_{ij}}
+\end{equation} 
 
 \begin{table}[hp]
 \begin{center}
@@ -22,52 +39,13 @@
     Marca & Literal & $1-\delta^f_{ij}$ \\ \hline    
     Categoria & Literal & $1-\delta^f_{ij}$ \\ \hline
     Preço & $\mathbb{R}$ & $ \frac{\left| a_{if}-a_{jf} \right|}{\max_{i,j}{\left| a_{if}-a_{jf} \right|}} $ \\ \hline
-    Data & $\mathbb{R}$ milissegundos a partir de \textit{epoch} \cite{epoch} & $ \frac{\left| a_{if}-a_{jf} \right|}{\max_{i,j}{\left| a_{if}-a_{jf} \right|}} $ \\ \hline
+    Data & $\mathbb{R}$ & $ \frac{\left| a_{if}-a_{jf} \right|}{\max_{i,j}{\left| a_{if}-a_{jf} \right|}} $ \\ \hline
     \end{tabular}
 \end{center}
 \end{table}
 \end{frame}
 
 
-\begin{frame}
-\frametitle{Síntese de Soluções}
-
-\begin{equation}
-\label{eq:determinacao-eij} 
-    e_{ij} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)}
-\end{equation} 
-
-\begin{equation}
-\label{eq:determinacao-wf} 
-    w_0 + \sum_{f}{w_{f}  \left(1-d_{fij}\right)} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)},~\forall i \neq j 
-\end{equation} 
-
-\begin{equation}
-\label{eq:ifw} 
-    \hat{\imath}_u = \argmax_{i \in \left\{i~|~r_{ui} > 0\right\}, j}{s_{ij}}
-\end{equation} 
-\end{frame}
-
-\subsection{Variante: pesos unitários (FW$_1$)} % (fold)
-\label{sub:variante_pesos_unit_rios}
-
-\begin{frame}
-\frametitle{Síntese de Soluções}
-\textbf{Variante: pesos unitários (FW$_1$)}
-\begin{equation}
-w_f = 1~\forall f
-\end{equation} 
-
-\begin{equation} 
-\label{eq:sij1}
-    s_{ij} = \sum_{f}{\left(1-d_{fij}\right)}
-\end{equation}
-
-\begin{equation} 
-\label{eq:scos}
-    s_{ij} = \frac{\sum\limits_{f \in \mathcal{F}}{a_{if}~a_{jf}}}{\sqrt{\sum\limits_{f \in \mathcal{F}}a_{if}^2} \sqrt{\sum\limits_{f \in \mathcal{F}}a_{jf}^2}}
-\end{equation}
-\end{frame}
 
 
 \subsection{Algoritmo baseado no perfil de usuários (UP)} % (fold)
