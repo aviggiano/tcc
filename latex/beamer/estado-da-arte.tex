@@ -11,48 +11,26 @@
 	\item $r_{ui}$ o histórico avaliações dos itens $i$ pelos usuários $u$\par{~}
 	\item $\ell$ função de utilidade 
 	\begin{itemize}
-		\item $\ell: \mathcal{U} \times \mathcal{I} \rightarrow \mathcal{R}$
-		\item $\mathcal{R}$ conjunto totalmente ordenado, p.ex. $\left\{-1, 0, +1\right\}$ ou $[1, 5]$
+		\item $\ell: \mathcal{U} \times \mathcal{I} \rightarrow \mathcal{R}$ ($\left\{-1, 0, +1\right\}$,  $[1, 5]$, $\cdots$)
 	\end{itemize}
 \end{itemize}
 
 
 \begin{block}{Objetivo}
 Determinar o item $\tilde{\imath}_u$ que maximize a utilidade $\ell_{ui}$ do usuário $u$:
-\end{block}
+
 
 \begin{equation} 
 \label{eq:utilidade}
 \forall u \in \mathcal{U}, ~ \tilde{\imath}_u = \argmax_{i \in \mathcal{I}}{\ell_{ui}}
 \end{equation}
-
-\end{frame}
-
-
-%% TODO trocar por animacao
-\begin{frame}
-\frametitle{Estado da Arte}
-\begin{block}{Objetivo}
-Determinar o item $\tilde{\imath}_u$ que maximize a utilidade $\ell_{ui}$ do usuário $u$:
 \end{block}
-
-$$
-\forall u \in \mathcal{U}, ~ \tilde{\imath}_u = \argmax_{i \in \mathcal{I}}{\ell_{ui}}
-$$
-
 
 \begin{alertblock}{Problema}
 $\ell$ desconhecida
 \end{alertblock}
-
-\begin{itemize}
-	\item Em algumas formulações se descreve $\ell_{ui} \sim r_{ui}$
-	\begin{itemize}
-		\item determinar $\hat{r}_{ui}$ que melhor se aproxime de $r_{ui}$
-	\end{itemize}
-	\item Problema de otimização
-\end{itemize}
 \end{frame}
+
 
 
 
@@ -60,8 +38,8 @@ $\ell$ desconhecida
 \frametitle{Estado da Arte}
 \begin{block}{Estratégias de recomendação}
 \begin{itemize}
-	\item Recomendações baseadas em conteúdo ($a_{if}$)
-	\item Recomendações colaborativas ($r_{ui}$)
+	\item Recomendações baseadas em conteúdo
+	\item Recomendações colaborativas
 	\item Recomendações híbridas
 \end{itemize}
 \end{block}
