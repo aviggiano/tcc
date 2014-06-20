@@ -1,40 +1,36 @@
 %!TEX root = index.tex
 \section[Avaliação de Desempenho]{Avaliação de Desempenho}
-\begin{frame}
-\frametitle{Avaliação de Desempenho}
+\begin{frame}{Avaliação de Desempenho}
 
 
-\begin{table}[hp]
+\begin{itemize}
+	\item Distância entre recomendações
+	\begin{itemize}
+		\item $EMA = \left|\hat{\textbf{\i}} - \textbf{i}\right|$
+	\end{itemize}
+	\item Desempenho mediante a mudança nas variáveis 
+	\begin{itemize}
+		\item Quantidade de atributos utilizados
+	\end{itemize}
+	\item Tempo de execução
+	\begin{itemize}
+		\item Em função do algoritmo
+		\item Em função do tamanho do banco de dados
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[ht]
 \begin{center}
     \caption{Avaliação de sistemas de predição}
     \label{tab:avaliacao-predicao}
     \begin{tabular}{  | p{2cm} | p{4cm} | p{4cm} | }
     \hline
     \textbf{Medida} & \textbf{Fórmula} & \textbf{Significado} \\ \hline
-    Precisão &  $\frac{VP}{VP+FP}$ & Porcentagem de casos positivos corretamente preditos. \\ \hline                            
-    Abrangência & $\frac{VP}{VP+FN}$ & Porcentagem de casos positivos sobre aqueles que foram marcados como positivos. \\ \hline
-    Acurácia & $\frac{VP+VN}{VP+VN+FP+FN}$ & Porcentagem de predições corretas. \\ \hline
-    $F_1$ &  $2 \cdot \frac{\mathrm{Precisão}~\cdot~\mathrm{Abrangência}}{\mathrm{Precisão}~+~\mathrm{Abrangência}}$ & Média harmônica entre precisão e abrangência. \\ \hline
+    Precisão &  $\frac{VP}{VP+FP}$ & \% Predições corretas de casos positivos \\ \hline                            
+    Acurácia & $\frac{VP+VN}{VP+VN+FP+FN}$ & \% Predições corretas  \\ \hline
     \end{tabular}
 \end{center}
 \end{table}
 
 \end{frame}
 
-
-\begin{frame}
-\frametitle{Avaliação de Desempenho}
-
-\begin{itemize}
-	\item medida de distância entre  $\hat{\textbf{\i}}$ e  $\textbf{i}$
-	\begin{itemize}
-		\item distância $L_1$ (erro médio absoluto, $\left|\hat{\textbf{\i}} - \textbf{i}\right|$) 
-		\item   distância $L_2$ (erro quadrático médio,  $\sqrt{\left|\hat{\textbf{\i}} - \textbf{i}\right|^2}$)
-	\end{itemize}
-	\item Desempenho do sistema mediante a mudança nas variáveis 
-	\begin{itemize}
-		\item  Quantidade de atributos utilizados na recomendação
-	\end{itemize}
-	\item Tempo de execução em função do algoritmo e do tamanho do banco de dados.
-\end{itemize}
-\end{frame}
