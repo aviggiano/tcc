@@ -105,20 +105,21 @@
 
 
 %% sumario com algarismos romanos
-\defbeamertemplate{subsection in toc}{bullets}{%
-  \leavevmode
-  \parbox[t]{1em}{\textbullet\hfill}%
-  \parbox[t]{\dimexpr\textwidth-1em\relax}{\inserttocsubsection}\par}
-\defbeamertemplate{section in toc}{sections numbered roman}{%
-  \leavevmode%
-  \MakeUppercase{\romannumeral\inserttocsectionnumber}.\ %
-  \inserttocsection\par}
-\setbeamertemplate{section in toc}[sections numbered roman]
-\setbeamertemplate{subsection in toc}[bullets]
+%\defbeamertemplate{subsection in toc}{bullets}{%
+  %\leavevmode
+  %\parbox[t]{1em}{\textbullet\hfill}%
+  %\parbox[t]{\dimexpr\textwidth-1em\relax}{\inserttocsubsection}\par}
+%\defbeamertemplate{section in toc}{sections numbered roman}{%
+  %\leavevmode%
+  %\MakeUppercase{\romannumeral\inserttocsectionnumber}.\ %
+  %\inserttocsection\par}
+%\setbeamertemplate{section in toc}[sections numbered roman]
+%\setbeamertemplate{subsection in toc}[bullets]
 
 
 %% fonte
     %\usefonttheme{structurebold}
+
     \setbeamerfont{title}{series=\bfseries,parent=structure}
     \setbeamerfont{subtitle}{size=\scriptsize,series=\bfseries,parent=structure}
     \setbeamerfont{author}{size=\scriptsize,series=\bfseries,parent=structure}
@@ -160,7 +161,7 @@ Escola Politécnica da Universidade de São Paulo \\ % Your institution for the 
 \input{sintese-de-solucoes}
 \input{avaliacao-de-desempenho}
 \input{resultados}
-
+\input{cronograma}
 
 %\input{exemplo}
 %\input{presentation}
