@@ -1,3 +1,6 @@
+t0 <- Sys.time()
+print("Setup started")
+
 history1_filename <- "history1.csv"
 history2_filename <- "history2.csv"
 item_filename <- "item.csv"
@@ -21,3 +24,4 @@ rm(h2)
 gc()
 
 source('functions.R')
+print(paste("Setup finished after", format(round(Sys.time()-t0, 2), nsmall = 2)))
