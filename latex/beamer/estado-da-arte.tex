@@ -57,25 +57,31 @@ $\ell$ desconhecida
 \end{frame}
 
 
-\begin{frame}{Estado da Arte}{Soluções}
+\begin{frame}{Estado da Arte}{Soluções\only<2>{ e Desafios}}
 \begin{columns}[c]
 \column{.65\textwidth}
 \textbf{Filtragem colaborativa (FC)}
-\begin{itemize}
-	\item Usuário-usuário
-	\item Item-item
-%	\item Fatorização de matrizes
-\end{itemize}
-
+\only<1>{
+	\begin{itemize}
+		\item Usuário-usuário
+		\item Item-item
+	%	\item Fatorização de matrizes
+	\end{itemize}
+}
+\only<2>{\structure<2>{\begin{center}\textbf{\textit{Cold start}}\end{center}}}
 
 \textbf{Filtragem baseada em conteúdo (BC)}
+\only<2>{\structure<2>{\begin{center}\textbf{Excesso de especialização}\end{center}}}
 \par{~}
 
 \textbf{Métodos híbridos}
-\begin{itemize}
-	\item FC + BC
-\end{itemize}
+\only<1>{
+	\begin{itemize}
+		\item FC + BC
+	\end{itemize}
+}
 
+\only<2>{\structure<2>{\begin{center}\textbf{Esparsidade, Escalabilidade}\end{center}}}
 
 \column{.35\textwidth}
 
@@ -110,19 +116,3 @@ $\ell$ desconhecida
 \end{frame}
 
 %\subsection*{Desafios científicos e tecnológicos}
-
-\begin{frame}{Estado da Arte}{Desafios}
-\begin{columns}[c]
-\column{.4\textwidth}
-
-\begin{block}{Desafios científicos e tecnológicos}
-\begin{itemize}
-	\item Escalabilidade
-	\item Esparsidade
-	\item \textit{Cold start}
-	\item Excesso de especialização
-\end{itemize}
-\end{block}
-
-\end{columns}
-\end{frame}
