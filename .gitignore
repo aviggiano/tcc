@@ -33,7 +33,6 @@
 *.synctex.gz
 *.fdb_latexmk
 *.aux
-*.pdf
 *.log
 *.md
 *.fdb_latexmk
