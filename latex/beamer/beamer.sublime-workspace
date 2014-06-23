@@ -12,34 +12,42 @@
 	"buffers":
 	[
 		{
+			"file": "estado-da-arte.tex",
+			"settings":
+			{
+				"buffer_size": 2869,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resultados.tex",
+			"settings":
+			{
+				"buffer_size": 1100,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sintese-de-solucoes.tex",
+			"settings":
+			{
+				"buffer_size": 1311,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "index.tex",
 			"settings":
 			{
-				"buffer_size": 3366,
+				"buffer_size": 5227,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "overview.tex",
+			"file": "bibliografia.tex",
 			"settings":
 			{
-				"buffer_size": 328,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "title.tex",
-			"settings":
-			{
-				"buffer_size": 969,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "presentation.tex",
-			"settings":
-			{
-				"buffer_size": 5550,
+				"buffer_size": 129,
 				"line_ending": "Unix"
 			}
 		}
@@ -76,13 +84,35 @@
 	},
 	"file_history":
 	[
-		"/home/ag/git/tcc/latex/title.tex",
-		"/home/ag/git/tcc/latex/index.tex",
-		"/home/ag/git/tcc/latex/beamer/beamer.sublime-project",
-		"/home/ag/git/tcc/latex/beamer/presentation.tex",
+		"/home/ag/git/tcc/latex/beamer/introducao.tex",
+		"/home/ag/git/tcc/latex/bibliografia.bib",
+		"/home/ag/git/tcc/latex/beamer/objetivos.tex",
+		"/home/ag/git/tcc/latex/beamer/requisitos.tex",
+		"/home/ag/git/tcc/latex/beamer/sintese-de-solucoes.tex",
+		"/home/ag/git/tcc/latex/beamer/estado-da-arte.tex",
+		"/home/ag/git/tcc/latex/beamer/cronograma.tex",
+		"/home/ag/git/tcc/latex/beamer/index.tex",
+		"/home/ag/git/tcc/latex/beamer/resultados.tex",
+		"/home/ag/git/tcc/latex/beamer/avaliacao-de-desempenho.tex",
+		"/home/ag/git/tcc/latex/beamer/bibliografia.tex",
+		"/home/ag/git/tcc/latex/cronograma.tex",
 		"/home/ag/git/tcc/latex/beamer/title.tex",
-		"/home/ag/git/tcc/latex/introducao.tex",
+		"/home/ag/git/tcc/latex/beamer/index.bbl",
+		"/home/ag/git/tcc/latex/title.tex",
+		"/home/ag/git/tcc/latex/sintese-de-solucoes.tex",
+		"/home/ag/git/tcc/latex/beamer/presentation.tex",
+		"/home/ag/git/tcc/latex/resultados.tex",
+		"/home/ag/git/tcc/latex/avaliacao.tex",
+		"/home/ag/tmp/beamer/index.tex",
+		"/home/ag/git/tcc/latex/estado-da-arte.tex",
+		"/home/ag/git/tcc/latex/index.tex",
+		"/home/ag/git/tcc/latex/beamer/index.vrb",
 		"/home/ag/git/tcc/latex/beamer/beamer.tex",
+		"/home/ag/git/tcc/latex/beamer/sumario.tex",
+		"/home/ag/git/tcc/latex/beamer/beamer.sublime-project",
+		"/home/ag/git/tcc/latex/beamer/exemplo.tex",
+		"/home/ag/git/tcc/latex/introducao.tex",
+		"/home/ag/git/tcc/latex/beamer/overview.tex",
 		"/home/ag/git/tcc/latex/beamer/referencias/title.tex",
 		"/home/ag/git/tcc/latex/beamer/referencias/index.tex",
 		"/home/ag/git/tcc/latex/beamer/arte/estado-da-arte.tex",
@@ -95,16 +125,10 @@
 		"/home/ag/git/tcc/latex/cronograma/title.tex",
 		"/home/ag/git/tcc/latex/referencias/index.tex",
 		"/home/ag/git/tcc/latex/referencias/title.tex",
-		"/home/ag/git/tcc/latex/cronograma.tex",
-		"/home/ag/git/tcc/latex/resultados.tex",
-		"/home/ag/git/tcc/latex/estado-da-arte.tex",
-		"/home/ag/git/tcc/latex/sintese-de-solucoes.tex",
 		"/home/ag/git/tcc/latex/andamento-do-projeto.tex",
 		"/home/ag/git/tcc/latex/metodologia.tex",
 		"/home/ag/git/tcc/latex/sumario-final.tex",
-		"/home/ag/git/tcc/latex/avaliacao.tex",
 		"/home/ag/git/tcc/latex/referencias-bibliograficas-finais.tex",
-		"/home/ag/git/tcc/latex/bibliografia.bib",
 		"/home/ag/git/tcc/latex/latex.sublime-project",
 		"/home/ag/git/tcc/latex/img/Estrutura_Banco_de_Dados.png",
 		"/home/ag/git/tcc/latex/requisitos.tex",
@@ -169,6 +193,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"title",
+			"\\subsection",
+			"Cor",
+			"frame",
+			"Variante",
+			"    \n",
+			"bibliogr",
+			"Paragraphs",
 			"beamer",
 			"document",
 			"Cap",
@@ -288,15 +320,7 @@
 			"coe",
 			"sao",
 			"cao",
-			"lamina",
-			"rm",
-			"rem",
-			"text",
-			"1",
-			"    ",
-			"[Ht]",
-			"^\\ast",
-			"theta"
+			"lamina"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -349,49 +373,51 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "index.tex",
+					"file": "estado-da-arte.tex",
 					"settings":
 					{
-						"buffer_size": 3366,
+						"buffer_size": 2869,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1801,
-								1801
+								1111,
+								1111
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+							"spell_check": true,
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1598.0,
+						"translation.y": 883.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "overview.tex",
+					"file": "resultados.tex",
 					"settings":
 					{
-						"buffer_size": 328,
+						"buffer_size": 1100,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								328,
-								328
+								467,
+								467
 							]
 						],
 						"settings":
@@ -406,23 +432,25 @@
 				},
 				{
 					"buffer": 2,
-					"file": "title.tex",
+					"file": "sintese-de-solucoes.tex",
 					"settings":
 					{
-						"buffer_size": 969,
+						"buffer_size": 1311,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								813,
-								813
+								278,
+								278
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -432,18 +460,46 @@
 				},
 				{
 					"buffer": 3,
-					"file": "presentation.tex",
+					"file": "index.tex",
 					"settings":
 					{
-						"buffer_size": 5550,
+						"buffer_size": 5227,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								368,
-								368
+								4961,
+								4961
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4286.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "bibliografia.tex",
+					"settings":
+					{
+						"buffer_size": 129,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								129,
+								129
 							]
 						],
 						"settings":
@@ -504,6 +560,30 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"bi",
+				"bibliografia.tex"
+			],
+			[
+				"intro",
+				"introducao.tex"
+			],
+			[
+				"intr",
+				"introducao.tex"
+			],
+			[
+				"sintese",
+				"sintese-de-solucoes.tex"
+			],
+			[
+				"arte",
+				"estado-da-arte.tex"
+			],
+			[
+				"estad",
+				"estado-da-arte.tex"
+			]
 		],
 		"width": 0.0
 	},
@@ -519,6 +599,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 194.0,
+	"side_bar_width": 104.0,
 	"status_bar_visible": true
 }
