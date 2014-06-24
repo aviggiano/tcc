@@ -178,7 +178,12 @@ Prof. Dr. Fábio Gagliardi Cozman
 %espaco entre caption
 %\usepackage{caption}
 %\captionsetup{skip=0pt,belowskip=0pt}
+\newcommand\numbered{\setbeamertemplate{footline}{%
+  \raisebox{5pt}{\makebox[\paperwidth]{%
+    \hfill\makebox[10pt]{%
+      \scriptsize\insertframenumber}}}}}
 
+\newcommand\unnumbered{\setbeamertemplate{footline}{}\addtocounter{framenumber}{-1}}
 
 
 \begin{document}
