@@ -60,7 +60,7 @@ $\ell$ desconhecida
 \begin{frame}{Estado da Arte}{Soluções}
 \begin{columns}[c]
 \column{.65\textwidth}
-\textbf{Filtragem colaborativa (FC)}
+\textbf{Filtragem colaborativa (CF)}
 	\begin{itemize}
 		\item Usuário-usuário
 		\item Item-item
@@ -68,12 +68,12 @@ $\ell$ desconhecida
 	\end{itemize}
 
 
-\textbf{Filtragem baseada em conteúdo (BC)}
+\textbf{Filtragem de conteúdo (CB)}
 \par{~}
 
-\textbf{Métodos híbridos}
+\textbf{Métodos híbridos (H)}
 	\begin{itemize}
-		\item FC + BC
+		\item CF + CB
 	\end{itemize}
 \column{.35\textwidth}
 
@@ -114,26 +114,24 @@ $\ell$ desconhecida
 \begin{frame}{Estado da Arte}{Desafios}
 \begin{columns}[c]
 \column{.65\textwidth}
-\textbf{Filtragem colaborativa (FC)}
+\textbf{Filtragem colaborativa (CF)}
+\begin{itemize}
+    \item \structure{\textit{Cold start}}
+    \item \structure{Esparsidade}
+\end{itemize}
 
-\structure{\textbf{\textit{Cold start}}}
+\textbf{Filtragem de conteúdo (CB)}
 
-\structure{\textbf{Esparsidade}}
+\begin{itemize}
+    \item \structure{Excesso de especialização}
+    \item \structure{Análise ``superficial'' do conteúdo}
+\end{itemize}
 
-\par{~}
+\textbf{Todos os métodos (CF, CB, H)}
 
-
-\textbf{Filtragem baseada em conteúdo (BC)}
-
-\structure{\textbf{Excesso de especialização}}
-
-\structure{\textbf{Análise ``superficial'' do conteúdo}}
-
-\par{~}
-
-\textbf{Métodos híbridos}
-
-\structure{\textbf{Escalabilidade}}
+\begin{itemize}
+    \item \structure{Escalabilidade}
+\end{itemize}
 
 \column{.35\textwidth}
 
