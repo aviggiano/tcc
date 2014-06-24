@@ -57,36 +57,27 @@ $\ell$ desconhecida
 \end{frame}
 
 
-\begin{frame}{Estado da Arte}{\only<1>{Soluções}\only<2>{Desafios}}
+\begin{frame}{Estado da Arte}{Soluções}
 \begin{columns}[c]
 \column{.65\textwidth}
 \textbf{Filtragem colaborativa (FC)}
-\only<1>{
 	\begin{itemize}
 		\item Usuário-usuário
 		\item Item-item
 	%	\item Fatorização de matrizes
 	\end{itemize}
-}
-\only<2>{\structure<2>{\begin{center}\textbf{\textit{Cold start} \\ Esparsidade}\end{center}}}
 
 
 \textbf{Filtragem baseada em conteúdo (BC)}
-\only<2>{\structure<2>{\begin{center}\textbf{Excesso de especialização}\end{center}}}
 \par{~}
 
 \textbf{Métodos híbridos}
-\only<1>{
 	\begin{itemize}
 		\item FC + BC
 	\end{itemize}
-}
-
-\only<2>{\structure<2>{\begin{center}\textbf{Escalabilidade}\end{center}}}
-
 \column{.35\textwidth}
 
-\begin{table}[hp]
+\begin{table}[h]
 \begin{center}
 	\caption{Avaliações $r_{ui}$}
     \begin{tabular}{ | c | c | c | c | c | c |} 
@@ -99,16 +90,77 @@ $\ell$ desconhecida
 \end{center}
 \end{table}
 
+\vspace{-0.5cm}
 
-\begin{table}[hp]
+\begin{table}[h]
+\begin{center}
+    \caption{Atributos $a_{if}$}\vspace{-0.4cm}
+    \begin{tabular}{ | c | c | c | c | c | } 
+    \hline
+     & $f_1$ & $f_2$ & $f_3$ & $f_4$ \\ \hline
+     $i_1$ & 1 & 50 & 0.8 & P \\ \hline
+     $i_2$ & 0 & 75 & 0.3 & M \\ \hline
+     $i_3$ & 1 & 30 & 0.4 & G \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+\end{columns}
+\end{frame}
+
+
+
+
+\begin{frame}{Estado da Arte}{Desafios}
+\begin{columns}[c]
+\column{.65\textwidth}
+\textbf{Filtragem colaborativa (FC)}
+
+\structure{\textbf{\textit{Cold start}}}
+
+\structure{\textbf{Esparsidade}}
+
+\par{~}
+
+
+\textbf{Filtragem baseada em conteúdo (BC)}
+
+\structure{\textbf{Excesso de especialização}}
+
+\structure{\textbf{Análise ``superficial'' do conteúdo}}
+
+\par{~}
+
+\textbf{Métodos híbridos}
+
+\structure{\textbf{Escalabilidade}}
+
+\column{.35\textwidth}
+
+\begin{table}[h]
+\begin{center}
+    \caption{Avaliações $r_{ui}$}\vspace{-0.4cm}
+    \begin{tabular}{ | c | c | c | c | c | c |} 
+    \hline
+     & $i_1$ & $i_2$ & $\cdots$ & $i_{100}$ \\ \hline
+     $u_1$ & - & 4 & $\cdots$ & - \\ \hline
+     $u_2$ & - & 2 & $\cdots$ & - \\ \hline
+     $u_3$ & 5 & - & $\cdots$ & - \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+\vspace{-.5cm}
+
+\begin{table}[h]
 \begin{center}
     \caption{Atributos $a_{if}$}
     \begin{tabular}{ | c | c | c | c | } 
     \hline
      & $f_1$ & $f_2$ & $f_3$ \\ \hline
-     $i_1$ & 1 & 0 & 0 \\ \hline
-     $i_2$ & 0 & 1 & 0 \\ \hline
-     $i_3$ & 0 & 1 & 1 \\ \hline
+     $i_1$ & 1 & 50 & 0.8 \\ \hline
+     $i_2$ & 1 & 50 & 0.8 \\ \hline
+     $i_3$ & 0 & 75 & 0.3 \\ \hline
     \end{tabular}
 \end{center}
 \end{table}
