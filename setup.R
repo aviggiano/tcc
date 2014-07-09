@@ -1,6 +1,7 @@
 t0 = Sys.time()
 print("Setup started")
 
+## READ INPUT DATA
 directory = 'ml-100k'
 history_filename = paste(directory,"u.data",sep='/')
 item_filename = paste(directory,"u.item",sep='/')
@@ -16,11 +17,17 @@ colnames(item)=c("id", "title", "release_date", "video_release_date", "IMDB_URL"
                  "Film_Noir", "Horror", "Musical", "Mystery", "Romance", "Sci_Fi", "Thriller", "War", "Western")
 colnames(user)=c("id", "age", "gender", "occupation", "zip_code")
 
+## READ AUXILIARY FUNCTIONS
 source('functions.R')
 
-rating = matrix(0,length(unique(history$user_id)),length(unique(h$item_id)))
-lapply(1:size(history), function(index) {
-  rating[history[index,]$user_id][history[index,]$item_id] = history[index,]$rating
-})
+## CREATE RATING MATRIX
+rating = matrix(0,length(unique(history$user_id)),length(unique(history$item_id)))
+print(paste("Initialized rating matrix after", format(round(Sys.time()-t0, 2), nsmall = 2)))
+for(i in 1:size(history)) {
+  h = history[i,1:3]
+  rating[h$user_id, h$item_id] = h$rating
+}
+print(paste("Created rating matrix after", format(round(Sys.time()-t0, 2), nsmall = 2)))
 
+## FINISHED
 print(paste("Setup finished after", format(round(Sys.time()-t0, 2), nsmall = 2)))
