@@ -1,27 +1,20 @@
-t0 <- Sys.time()
+t0 = Sys.time()
 print("Setup started")
 
-history1_filename <- "history1.csv"
-history2_filename <- "history2.csv"
-item_filename <- "item.csv"
-customer_filename <- "customer.csv"
-brand_filename <- "brand.csv"
-color_filename <- "color.csv"
-color_map_filename <- "color_map.csv"
+directory = 'ml-100k'
+history_filename = paste(directory,"u.data",sep='/')
+item_filename = paste(directory,"u.item",sep='/')
+user_filename = paste(directory,"u.user",sep='/')
 
-h1 <- read.csv(history1_filename, as.is=TRUE)
-h2 <- read.csv(history2_filename, as.is=TRUE)
-item <- read.csv(item_filename, as.is=TRUE)
-customer <- read.csv(customer_filename, as.is=TRUE)
-brand <- read.csv(brand_filename, as.is=TRUE)
-color <- read.csv(color_filename, as.is=TRUE)
-color_map <- read.csv(color_map_filename, as.is=TRUE)
+history = read.csv(history_filename, as.is=TRUE, sep="\t", header=FALSE)
+item = read.csv(item_filename, as.is=TRUE, sep="|", header=FALSE)
+user = read.csv(user_filename, as.is=TRUE, sep="|", header=FALSE)
 
-colnames(h2) <- colnames(h1)
-history <- rbind(h1,h2)
-rm(h1)
-rm(h2)
-gc()
+colnames(history)=c("user_id", "item_id", "rating", "timestamp")
+colnames(item)=c("id", "title", "release_date", "video_release_date", "IMDB_URL", 
+                 "unknown", "Action", "Adventure", "Animation", "Children's", "Comedy", "Crime", "Documentary", "Drama", "Fantasy",
+                 "Film_Noir", "Horror", "Musical", "Mystery", "Romance", "Sci_Fi", "Thriller", "War", "Western")
+colnames(user)=c("id", "age", "gender", "occupation", "zip_code")
 
-source('functions.R')
+#source('functions.R')
 print(paste("Setup finished after", format(round(Sys.time()-t0, 2), nsmall = 2)))
