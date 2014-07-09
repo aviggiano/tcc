@@ -16,5 +16,11 @@ colnames(item)=c("id", "title", "release_date", "video_release_date", "IMDB_URL"
                  "Film_Noir", "Horror", "Musical", "Mystery", "Romance", "Sci_Fi", "Thriller", "War", "Western")
 colnames(user)=c("id", "age", "gender", "occupation", "zip_code")
 
-#source('functions.R')
+source('functions.R')
+
+rating = matrix(0,length(unique(history$user_id)),length(unique(h$item_id)))
+lapply(1:size(history), function(index) {
+  rating[history[index,]$user_id][history[index,]$item_id] = history[index,]$rating
+})
+
 print(paste("Setup finished after", format(round(Sys.time()-t0, 2), nsmall = 2)))
