@@ -21,13 +21,23 @@ colnames(user)=c("id", "age", "gender", "occupation", "zip_code")
 source('functions.R')
 
 ## CREATE RATING MATRIX
-rating = matrix(0,length(unique(history$user_id)),length(unique(history$item_id)))
+r = matrix(0,length(unique(history$user_id)),length(unique(history$item_id)))
 print(paste("Initialized rating matrix after", format(round(Sys.time()-t0, 2), nsmall = 2)))
 for(i in 1:size(history)) {
   h = history[i,1:3]
-  rating[h$user_id, h$item_id] = h$rating
+  r[h$user_id, h$item_id] = h$rating
 }
 print(paste("Created rating matrix after", format(round(Sys.time()-t0, 2), nsmall = 2)))
+
+## TRANSFORM ITEM MATRIX
+item$release_date = as.numeric(as.Date(as.character(item$release_date), "%d-%b-%Y"))
+drops = c("id","title", "video_release_date", "IMDB_URL")
+a_temp = item[,!(names(item) %in% drops)]
+a = matrix(0, length(a_temp[,1]), length(a_temp[1,]))
+for(i in 1:length(a_temp[1,])) {
+  a[,i] = a_temp[,i]
+}
+F = colnames(a_temp)
 
 ## FINISHED
 print(paste("Setup finished after", format(round(Sys.time()-t0, 2), nsmall = 2)))
