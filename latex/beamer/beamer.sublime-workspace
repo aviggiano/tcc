@@ -44,6 +44,14 @@
 			}
 		},
 		{
+			"file": "/home/ag/development/revmob/setup/.bash_profile",
+			"settings":
+			{
+				"buffer_size": 15552,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "estado-da-arte.tex",
 			"settings":
 			{
@@ -210,6 +218,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"clon",
+			"clone_all",
 			"setbeamertemplate",
 			"\\textbf{",
 			"\\end{center}",
@@ -335,9 +345,7 @@
 			"| style=\"padding: 2px;\"",
 			"\"(.*)\",.*,.*,.*,\"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\",\"(.*)\"",
 			"0.5",
-			"`a",
-			"varphi",
-			"matrix"
+			"`a"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -390,7 +398,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 4,
 			"sheets":
 			[
 				{
@@ -498,13 +506,41 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 10480.0,
+						"translation.y": 8656.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
+					"file": "/home/ag/development/revmob/setup/.bash_profile",
+					"settings":
+					{
+						"buffer_size": 15552,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15552,
+								15552
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 11274.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
 					"file": "estado-da-arte.tex",
 					"settings":
 					{
@@ -533,7 +569,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "sintese-de-solucoes.tex",
 					"settings":
 					{
@@ -561,7 +597,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "introducao.tex",
 					"settings":
 					{
