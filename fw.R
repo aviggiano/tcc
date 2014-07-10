@@ -1,5 +1,12 @@
-F = colnames(item)
-U = customer$customer_id
+## SETUP OF E_IxJ
+e=matrix(0,length(r[,1]), length(r[1,]))
+for(i in 1:length(e[,1])){
+  for(j in 1:length(e[1,])){
+    e[i,j] = sum(
+      b0(r[,i] * r[,j])
+    )
+  } 
+}
 
 sim = function(i,j){
   sum(sapply(F), function(f) {
@@ -7,8 +14,19 @@ sim = function(i,j){
   })
 }
 
-d = function(f, i, j){
-  delta(i,j)
+d = function(i, j, feature="NA"){
+  if(feature == "release_date"){
+    f = 1 # which(F==feature) # not necessary for now
+    abs(a[i,f]-a[j,f])
+  }
+  else{
+    inters = sum(
+      a[i,2:length(a[1,])] * a[j,2:length(a[1,])]
+    )
+    union = sum(a[i,2:length(a[1,])]) + sum(a[j,2:length(a[1,])])
+    jaccard = inters/union
+    jaccard
+  }
 }
 
 b0 = function(x){
@@ -16,18 +34,9 @@ b0 = function(x){
 }
 
 b = function(x,y){
-  as.numeric(x > y)
+  1*(x > y)
 }
 
 delta = function(m, n){
-  as.numeric(m == n)
-}
-
-r = function(u,i){
-  has_bought_i = sapply(which(history$customer_id == u), function(hi){ history$item_id[hi] == i})
-  any(has_bought_i, function(has) has == TRUE)
-}
-
-e = function(i,j){
-  sum(sapply(U, b0(r(u,i) * r(u,j)))) 
+  1*(m == n)
 }

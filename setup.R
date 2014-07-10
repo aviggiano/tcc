@@ -37,7 +37,13 @@ a = matrix(0, length(a_temp[,1]), length(a_temp[1,]))
 for(i in 1:length(a_temp[1,])) {
   a[,i] = a_temp[,i]
 }
+rm(a_temp)
+rm(drop)
+gc()
+
+## SET OF FEATURES AND USERS
 F = colnames(a_temp)
+U = user$id
 
 ## FINISHED
 print(paste("Setup finished after", format(round(Sys.time()-t0, 2), nsmall = 2)))
