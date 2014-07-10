@@ -37,13 +37,9 @@ a = matrix(0, length(a_temp[,1]), length(a_temp[1,]))
 for(i in 1:length(a_temp[1,])) {
   a[,i] = a_temp[,i]
 }
-for(i in 1:length(a[,1])){
-  a[i,2] = paste(rbind(a[i,2:20]), collapse='')
-}
-a = a[,1:2]
   
 rm(a_temp)
-rm(drop)
+rm(drops)
 gc()
 
 ## SET OF FEATURES AND USERS
