@@ -14,16 +14,16 @@ sim = function(i,j){
   })
 }
 
-d = function(i, j, feature="NA"){
+d = function(i, j, feature="gender"){
   if(feature == "release_date"){
     f = 1 # which(F==feature) # not necessary for now
     abs(a[i,f]-a[j,f])
   }
   else{
-    inters = sum(
-      a[i,2:length(a[1,])] * a[j,2:length(a[1,])]
-    )
-    union = sum(a[i,2:length(a[1,])]) + sum(a[j,2:length(a[1,])])
+    aif = sapply(1:19, function(x) as.numeric(substr(a[i,2],x,x)))
+    ajf = sapply(1:19, function(x) as.numeric(substr(a[j,2],x,x)))
+    inters = sum(aif * ajf)
+    union = sum(aif) + sum(ajf)
     jaccard = inters/union
     jaccard
   }
