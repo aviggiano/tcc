@@ -54,11 +54,13 @@ for(i in 1:length(d1[,1])){
 # Y = A X
 # Y = as.vector(e)
 # A = ONES D1 D2
-D1 = as.vector(d1)
-D2 = as.vector(d2)
+D1 = as.vector(1-d1)
+D2 = as.vector(1-d2)
 ONES = rep(1, length(D1))
 A = cbind(ONES, D1, D2, deparse.level = 0)
 W = solve(t(A) %*% A) %*% t(A) %*% cbind(as.vector(e))
 
 # SIMILARITY MATRIX
-s = W[1,1] + W[2,1]*d1 + W[3,1]*d2
+s = W[1,1] + W[2,1]*(1-d1) + W[3,1]*(1-d2)
+# NORMALIZED SIMILARITY
+s = s / max(s)
