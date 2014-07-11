@@ -1,9 +1,3 @@
-sim = function(i,j){
-  sum(sapply(F), function(f) {
-    w(f) * (1 - d(f, i, j))
-  })
-}
-
 b0 = function(x){
   b(x,0)
 }
@@ -65,3 +59,6 @@ D2 = as.vector(d2)
 ONES = rep(1, length(D1))
 A = cbind(ONES, D1, D2, deparse.level = 0)
 W = solve(t(A) %*% A) %*% t(A) %*% cbind(as.vector(e))
+
+# SIMILARITY MATRIX
+s = W[1,1] + W[2,1]*d1 + W[3,1]*d2
