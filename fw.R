@@ -34,15 +34,16 @@ d = function(i, j, feature="gender"){
     aif = a[i,2:20]
     ajf = a[j,2:20]
     inters = sum(aif * ajf)
-    union = sum(aif) + sum(ajf)
+    union = sum(b0(aif+ajf))
     jaccard = inters/union
     if(union == 0) jaccard = 0
-    jaccard
+    1-jaccard
   }
 }
 
 d1 = matrix(0,length(r[1,]), length(r[1,]))
 d2 = matrix(0,length(r[1,]), length(r[1,]))
+ones = matrix(1,length(r[1,]), length(r[1,]))
 for(i in 1:length(d1[,1])){
   for(j in 1:length(d1[1,])){
     d1[i,j] = d(i,j,"release_date")
@@ -54,9 +55,15 @@ for(i in 1:length(d1[,1])){
 # Y = A X
 # Y = as.vector(e)
 # A = ONES D1 D2
-D1 = as.vector(1-d1)
-D2 = as.vector(1-d2)
-ONES = rep(1, length(D1))
+
+# equation not valid for i=j
+diag(d1) = 1
+diag(d2) = 1
+diag(ones) = 0
+D1 = cbind(as.vector(1-d1))
+D2 = cbind(as.vector(1-d2))
+ONES = cbind(as.vector(ones))
+
 A = cbind(ONES, D1, D2, deparse.level = 0)
 W = solve(t(A) %*% A) %*% t(A) %*% cbind(as.vector(e))
 
