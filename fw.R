@@ -11,7 +11,7 @@ delta = function(m, n){
 }
 
 ## SETUP OF E_IxJ
-e = matrix(0,length(r[,1]), length(r[1,]))
+e = matrix(0,length(r[1,]), length(r[1,]))
 for(i in 1:length(e[,1])){
   for(j in 1:length(e[1,])){
     e[i,j] = sum(
@@ -41,8 +41,8 @@ d = function(i, j, feature="gender"){
   }
 }
 
-d1 = matrix(0,length(r[,1]), length(r[1,]))
-d2 = matrix(0,length(r[,1]), length(r[1,]))
+d1 = matrix(0,length(r[1,]), length(r[1,]))
+d2 = matrix(0,length(r[1,]), length(r[1,]))
 for(i in 1:length(d1[,1])){
   for(j in 1:length(d1[1,])){
     d1[i,j] = d(i,j,"release_date")
