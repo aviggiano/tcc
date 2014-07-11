@@ -40,6 +40,7 @@ for(i in 1:length(a_temp[1,])) {
   
 rm(a_temp)
 rm(drops)
+rm(h)
 gc()
 
 ## SET OF FEATURES AND USERS

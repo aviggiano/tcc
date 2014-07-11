@@ -31,7 +31,10 @@ max_distance_release_date = max(a[,1], na.rm=T) - min(a[,1], na.rm=T)
 d = function(i, j, feature="gender"){
   if(feature == "release_date"){
     f = 1 # which(F==feature) # not necessary for now
-    abs(a[i,f]-a[j,f])/max_distance_release_date
+    if(is.na(a[i,f]) || is.na(a[j,f]))
+      1
+    else
+      abs(a[i,f]-a[j,f])/max_distance_release_date
   }
   else{
     aif = a[i,2:20]
@@ -39,7 +42,7 @@ d = function(i, j, feature="gender"){
     inters = sum(aif * ajf)
     union = sum(aif) + sum(ajf)
     jaccard = inters/union
-    if(union = 0) jaccard = 0
+    if(union == 0) jaccard = 0
     jaccard
   }
 }
@@ -61,4 +64,4 @@ D1 = as.vector(d1)
 D2 = as.vector(d2)
 ONES = rep(1, length(D1))
 A = cbind(ONES, D1, D2, deparse.level = 0)
-W = solve(t(A) %*% A) * t(A) * as.vector(e) ## COMO LIDAR COM NA? ver por exempplo a[267,1]
+W = solve(t(A) %*% A) %*% t(A) %*% cbind(as.vector(e))
