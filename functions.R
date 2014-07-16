@@ -41,3 +41,15 @@ dist_L2 <- function(X,Y){
 dist <- function(X,Y){
     dist_L2(X,Y)
 }
+
+h = function(matrix, N=6){
+  if(dim(matrix)[1] < N) 
+    N1 = dim(matrix)[1]
+  else
+    N1 = N
+  if(dim(matrix)[2] < N) 
+    N2 = dim(matrix)[2]
+  else
+    N2 = N  
+  matrix[1:N1, 1:N2]
+}
