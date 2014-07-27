@@ -38,3 +38,9 @@ for(u in 1:length(U)){
     )
   }
 }
+omega = a %*% t(fuf)
+omega = omega/max(omega, na.rm=TRUE)
+
+iu = sapply(1:length(U), function(u){
+  which(omega[u,]==max(omega[u,][which(r[u,]>0)], na.rm=TRUE))
+})
