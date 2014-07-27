@@ -26,9 +26,15 @@ for(u in 1:length(U)){
 }
 
 k = 5
+fuf = matrix(0, length(U), length(a[1,]))
 for(u in 1:length(U)){
-  top_K = h(sort(s[u,], decreasing=TRUE), k)
-  vuk = sapply(top_K, function(x) which(s[u,]==x))
-  Ivuk = 
-  
+  for(f in 1:length(a[1,])){
+    top_K = h(sort(s[u,], decreasing=TRUE), k)
+    vuk = sapply(top_K, function(x) which(s[u,]==x))
+    Ivuk = sapply(vuk, function(v) which(r[v,]>M))
+    Ivuk = unique(unlist(Ivuk))
+    fuf[u,f] = sum(
+      b0(a[,f])[Ivuk], na.rm = TRUE
+    )
+  }
 }
