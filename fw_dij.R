@@ -1,11 +1,3 @@
-b0 = function(x){
-  b(x,0)
-}
-
-b = function(x,y){
-  1*(x > y)
-}
-
 delta = function(m, n){
   1*(m == n)
 }

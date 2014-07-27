@@ -1,3 +1,11 @@
+b0 = function(x){
+  b(x,0)
+}
+
+b = function(x,y){
+  1*(x > y)
+}
+
 size <- function(x.df) {
     length(x.df[,1])
 }
@@ -43,13 +51,22 @@ dist <- function(X,Y){
 }
 
 h = function(matrix, N=6){
-  if(dim(matrix)[1] < N) 
-    N1 = dim(matrix)[1]
-  else
-    N1 = N
-  if(dim(matrix)[2] < N) 
-    N2 = dim(matrix)[2]
-  else
-    N2 = N  
-  matrix[1:N1, 1:N2]
+  if(is.null(dim(matrix))){
+    if(length(matrix) < N)
+      N1 = length(matrix)
+    else
+      N1 = N
+    matrix[1:N1]
+  }
+  else {
+    if(dim(matrix)[1] < N) 
+      N1 = dim(matrix)[1]
+    else
+      N1 = N
+    if(dim(matrix)[2] < N) 
+      N2 = dim(matrix)[2]
+    else
+      N2 = N  
+    matrix[1:N1, 1:N2]    
+  }
 }

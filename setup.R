@@ -24,8 +24,8 @@ source('functions.R')
 r = matrix(0,length(unique(history$user_id)),length(unique(history$item_id)))
 print(paste("Initialized rating matrix after", format(round(Sys.time()-t0, 2), nsmall = 2)))
 for(i in 1:size(history)) {
-  h = history[i,1:3]
-  r[h$user_id, h$item_id] = h$rating
+  hi = history[i,1:3]
+  r[hi$user_id, hi$item_id] = hi$rating
 }
 print(paste("Created rating matrix after", format(round(Sys.time()-t0, 2), nsmall = 2)))
 
@@ -43,9 +43,10 @@ rm(drops)
 rm(h)
 gc()
 
-## SET OF FEATURES AND USERS
+## SET OF FEATURES, USERS AND ITEMS
 F = c("release_date", "gender")
 U = user$id
+I = item$id
 
 ## FINISHED
 print(paste("Setup finished after", format(round(Sys.time()-t0, 2), nsmall = 2)))
