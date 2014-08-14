@@ -7,7 +7,7 @@ for(u in 1:length(U)){
     Fu = which(t[u,]>0)
     Fv = which(t[v,]>0)
     Fuv = intersect(Fu, Fv)
-    s[u,v] = sum((w[u,]*w[v,])[Fuv]) / (sqrt(sum((w[u,]*w[u,])[Fuv])) * sqrt(sum((w[v,]*w[v,])[Fuv])))
+    s[u,v] = if(length(Fuv) == 0) 0 else sum((w[u,]*w[v,])[Fuv]) / (sqrt(sum((w[u,]*w[u,])[Fuv])) * sqrt(sum((w[v,]*w[v,])[Fuv])))
   }
 }
 
