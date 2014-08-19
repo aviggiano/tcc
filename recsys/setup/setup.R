@@ -2,7 +2,7 @@ t0 = Sys.time()
 print("Setup started")
 
 ## READ INPUT DATA
-directory = 'ml-100k'
+directory = 'db/ml-100k'
 history_filename = paste(directory,"u.data",sep='/')
 item_filename = paste(directory,"u.item",sep='/')
 user_filename = paste(directory,"u.user",sep='/')
@@ -18,7 +18,7 @@ colnames(item)=c("id", "title", "release_date", "video_release_date", "IMDB_URL"
 colnames(user)=c("id", "age", "gender", "occupation", "zip_code")
 
 ## READ AUXILIARY FUNCTIONS
-source('functions.R')
+source('setup/functions.R')
 
 ## CREATE RATING MATRIX
 r = matrix(0,length(unique(history$user_id)),length(unique(history$item_id)))

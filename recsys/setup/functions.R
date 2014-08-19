@@ -22,8 +22,8 @@ count.different.not.na <- function(xs) {
     count.not.na(unique(xs))
 }
 
-delta <- function(x, y){
-    as.numeric(x == y)
+delta = function(m, n){
+  1*(m == n)
 }
 
 delta_vector <- function(xs, ys){
