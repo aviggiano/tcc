@@ -8,7 +8,7 @@ get_s = function(w, t, U, debug){
       Fu = which(t[u,]>0)
       Fv = which(t[v,]>0)
       Fuv = intersect(Fu, Fv)
-      s[u,v] = if(length(Fuv) == 0) 0 else sum((w[u,]*w[v,])[Fuv]) / (sqrt(sum((w[u,]*w[u,])[Fuv])) * sqrt(sum((w[v,]*w[v,])[Fuv])))
+      s[u,v] = if(length(Fuv) == 0) 0 else sum((w[u,]*w[v,])[Fuv], na.rm=TRUE) / (sqrt(sum((w[u,]*w[u,])[Fuv], na.rm=TRUE)) * sqrt(sum((w[v,]*w[v,])[Fuv], na.rm=TRUE)))
     }
   }
   if(debug) {
@@ -48,7 +48,7 @@ get_omega = function(a, fuf, debug){
 }
 
 
-up = function(a, r, U, M=2, k=5, debug=FALSE){
+up = function(a, r, U, M=2, k=2, debug=FALSE){
   t = get_t(a, r, U, M, debug)
   q = get_q(t, U, debug)
   w = get_w(t, q, debug)

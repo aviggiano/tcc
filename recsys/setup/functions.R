@@ -70,3 +70,23 @@ h = function(matrix, N=6){
     matrix[1:N1, 1:N2]    
   }
 }
+
+top.N = function(xs, N=10){
+  xs.length = length(xs)
+  x0 = if(N > xs.length) 1 else (xs.length-N+1)
+  sort(xs)[x0:xs.length]
+}
+
+index.top.N = function(xs, N=10){
+  nx <- length(xs)
+  p <- nx-N
+  xp <- sort(xs, partial=p)[p]
+  which(xs > xp)
+}
+
+top.N.not.self = function(xs, self, N=10) {
+  indexes = index.top.N(xs[-self], N)
+  w = which(indexes > self)
+  indexes[w] = indexes[w] + 1
+  indexes
+}
