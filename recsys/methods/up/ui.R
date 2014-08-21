@@ -7,7 +7,7 @@ get_omega = function(w, a){
 }
 
 ui = function(a, r, U, M){
-  t = get_t(a, U, M)
+  t = get_t(a, r, U, M)
   q = get_q(t, U)
   w = get_w(t, q)
   omega = get_omega(w, a)

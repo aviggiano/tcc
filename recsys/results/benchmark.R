@@ -16,3 +16,6 @@ A = matrix(
   nrow=6,
   ncol=4)
 
+U = 1:length(R[,1])
+I = 1:length(R[1,])
+F = 1:length(A[1,])

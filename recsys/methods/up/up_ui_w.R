@@ -1,5 +1,5 @@
 ## SETUP OF T_UxF
-get_t = function(a, U, M=2){
+get_t = function(a, r, U, M, debug){
   t = matrix(0,length(U), length(a[1,]))
   for(u in 1:length(t[,1])){
     for(f in 1:length(t[1,])){
@@ -8,26 +8,44 @@ get_t = function(a, U, M=2){
         , na.rm = TRUE)
     } 
   } 
+  
+  if(debug) {
+    print("t")
+    print(t)
+  }
   t
 }
 
 
-get_q = function(t, U){
+get_q = function(t, U, debug){
   qbar = sapply(1:length(t[1,]), function(f) sum(b0(t[,f])))
   q = log(length(U)/qbar, 10)
+  if(debug) {
+    print("q")
+    print(q)
+  }
   q
 }
 
-get_w = function(t, q){
+get_w = function(t, q, debug){
   w = matrix(0, length(t[,1]), length(q))
   for(u in 1:length(w[,1])){
     w[u,] = t[u,]*q
   }
+  if(debug) {
+    print("w")
+    print(w)
+  }
   w
 }
 
-get_iu = function(omega, r, U){
+get_iu = function(omega, r, U, debug){
   iu = sapply(1:length(U), function(u){
     which(omega[u,]==max(omega[u,][which(r[u,]>0)], na.rm=TRUE))
   })
+  if (debug){
+    print("iu")
+    print(iu)
+  }
+  iu
 }
