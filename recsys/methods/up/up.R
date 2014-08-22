@@ -40,7 +40,9 @@ get_omega = function(a, r, s, U, k, debug){
   omega = fuf %*% t(a)
   for(vuk in 1:length(Ivuk_list)){
     Ivuk = Ivuk_list[[vuk]]
-    if(!is.null(Ivuk))
+    if(is.null(Ivuk))
+      omega[vuk,] = 0
+    else
       omega[vuk,][-Ivuk] = 0
   }
   if(debug) {
