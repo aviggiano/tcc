@@ -39,9 +39,9 @@ get_w = function(t, q, debug){
   w
 }
 
-get_iu = function(omega, r, U, debug){
-  iu = sapply(1:length(U), function(u){
-    which(omega[u,]==max(omega[u,][which(r[u,]>0)], na.rm=TRUE))
+get_iu = function(omega, r, U, k, debug){
+  iu = lapply(1:length(U), function(u){
+    index.top.N(omega[u,], k-1)
   })
   if (debug){
     print("iu")

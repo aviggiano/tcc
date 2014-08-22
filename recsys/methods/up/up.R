@@ -55,6 +55,6 @@ up = function(a, r, U, M=2, k=2, debug=FALSE){
   w = get_w(t, q, debug)
   s = get_s(w, t, U, debug)
   omega = get_omega(a, r, s, U, k, debug)
-  iu = get_iu(omega, r, U, debug)
+  iu = get_iu(omega, r, U, k, debug)
   iu
 }
