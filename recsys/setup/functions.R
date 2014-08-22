@@ -84,9 +84,13 @@ index.top.N = function(xs, N=10){
   which(xs > xp)
 }
 
-top.N.not.self = function(xs, self, N=10) {
+index.top.N.not.self = function(xs, self, N=10) {
   indexes = index.top.N(xs[-self], N)
   w = which(indexes > self)
   indexes[w] = indexes[w] + 1
   indexes
+}
+
+top.N.not.self = function(xs, self, N=10) {
+  xs[index.top.N.not.self(xs, self, N)]
 }
