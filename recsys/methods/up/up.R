@@ -1,5 +1,6 @@
 ## get W_UF
-source('methods/up/up_ui_w.R')
+source('recsys/methods/up/up_ui_w.R')
+source('recsys/setup/functions.R')
 
 get_s = function(w, t, U, debug){
   s = matrix(0, length(U), length(U))
@@ -18,7 +19,7 @@ get_s = function(w, t, U, debug){
   s
 }
 
-get_omega = function(a, r, s, U, k, debug){
+get_omega = function(a, r, s, U, M, k, debug){
   fuf = matrix(0, length(U), length(a[1,]))
   Ivuk_list = list()
   for(u in 1:length(U)){
@@ -56,7 +57,7 @@ up = function(a, r, U, M=2, k=2, debug=FALSE){
   q = get_q(t, U, debug)
   w = get_w(t, q, debug)
   s = get_s(w, t, U, debug)
-  omega = get_omega(a, r, s, U, k, debug)
+  omega = get_omega(a, r, s, U, M, k, debug)
   iu = get_iu(omega, r, U, k, debug)
   iu
 }

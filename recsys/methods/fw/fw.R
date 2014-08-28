@@ -1,6 +1,4 @@
-source('fw_dij.R')
-
-
+source('recsys/methods/fw/fw_dij.R')
 
 get_W = function(d1, d1){
   # best fit to W = [w0, w_release_date, w_gender]'
