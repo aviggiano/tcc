@@ -1,6 +1,5 @@
 ## get W_UF
 source('recsys/methods/up/up_ui_w.R')
-source('recsys/setup/functions.R')
 
 get_s = function(w, t, U, debug){
   s = matrix(0, length(U), length(U))
