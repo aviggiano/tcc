@@ -80,6 +80,7 @@ top.N = function(xs, N=10){
 index.top.N = function(xs, N=10){
   nx <- length(xs)
   p <- nx-N
+  if(p <= 0) p = 1
   xp <- sort(xs, partial=p)[p]
   which(xs > xp)
 }
