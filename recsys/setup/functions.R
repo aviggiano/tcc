@@ -74,15 +74,19 @@ h = function(matrix, N=6){
 top.N = function(xs, N=10){
   xs.length = length(xs)
   x0 = if(N > xs.length) 1 else (xs.length-N+1)
-  sort(xs)[x0:xs.length]
+  sort(xs, na.last=FALSE)[x0:xs.length]
 }
 
 index.top.N = function(xs, N=10){
-  nx <- length(xs)
-  p <- nx-N
-  if(p <= 0) p = 1
-  xp <- sort(xs, partial=p)[p]
-  which(xs > xp)
+  if(length(xs) > 0){
+    o = order(xs, na.last=FALSE)
+    o.length = length(o)
+    if (N > o.length) N = o.length
+    o[((o.length-N+1):o.length)]
+  }
+  else {
+    0
+  }
 }
 
 index.top.N.not.self = function(xs, self, N=10) {
@@ -94,4 +98,8 @@ index.top.N.not.self = function(xs, self, N=10) {
 
 top.N.not.self = function(xs, self, N=10) {
   xs[index.top.N.not.self(xs, self, N)]
+}
+
+list.length = function(l){
+  sum(sapply(1:length(l), function(x) length(l[[x]])))
 }
