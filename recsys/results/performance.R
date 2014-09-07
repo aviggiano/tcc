@@ -7,15 +7,15 @@ hide.data = function(R, kappa = 0.75){
   R
 }
 
-performance.up = function(a, r, U, M=2, k=2, debug=FALSE){
+performance.up = function(a, r, U, M=2, k=2, N=10, debug=FALSE){
   rtest = hide.data(r)
   if(debug){
-    print("r")
-    print(r)
-    print("rtest")
-    print(rtest)
+    print("h(r)")
+    print(h(r))
+    print("h(rtest)")
+    print(h(rtest))
   }
-  iu = up(a, rtest, U, M, k, debug)
+  iu = up(a, rtest, U, M, k, N, debug)
   print(iu)
   TP = sum(sapply(1:length(U), function(u) length(intersect(iu[[u]], which(r[u,]>M)))))
   P = list.length(iu)

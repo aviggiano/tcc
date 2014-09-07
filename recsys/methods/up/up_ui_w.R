@@ -41,9 +41,9 @@ get_w = function(t, q, debug){
   w
 }
 
-get_iu = function(omega, r, U, k, debug){
+get_iu = function(omega, r, U, N, debug){
   iu = lapply(1:length(U), function(u){
-    index.top.N(omega[u,], k-1)
+    index.top.N(omega[u,], N)
   })
   if (debug){
     print("iu")
