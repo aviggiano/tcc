@@ -1,3 +1,7 @@
+time = function(str, t0){
+  print(paste(str, format(round(Sys.time()-t0, 2), nsmall = 2)))
+}
+
 b0 = function(x){
   b(x,0)
 }

@@ -23,7 +23,7 @@ performance = function(a, r, U, M=2, k=2, N=10, debug=FALSE){
 }
 
 performance.up = function(a, r, rtest, U, M=2, k=2, N=10, debug=FALSE){
-  iu = up(a, rtest, U, M, k, N, debug)
+  iu = up(a, rtest, U, M, k, N, debug=FALSE)
   TP = sum(sapply(1:length(U), function(u) length(intersect(iu[[u]], which(r[u,]>M)))))
   P = list.length(iu)
   RELEVANT = length(which(rtest>2)) #sum(sapply(1:length(U), function(u) length(which(rtest[u,]>M))))
@@ -31,6 +31,7 @@ performance.up = function(a, r, rtest, U, M=2, k=2, N=10, debug=FALSE){
   recall = TP/RELEVANT
   F1 = 2 * (precision * recall) / (precision + recall)
   if(debug){
+    print("UP")
     print("precision")
     print(precision)
     print("recall")
@@ -42,7 +43,7 @@ performance.up = function(a, r, rtest, U, M=2, k=2, N=10, debug=FALSE){
 }
 
 performance.ui =  function(a, r, rtest, U, M=2, k=2, N=10, debug=FALSE){
-  iu = ui(a, rtest, U, M, k, N, debug)
+  iu = ui(a, rtest, U, M, k, N, debug=FALSE)
   TP = sum(sapply(1:length(U), function(u) length(intersect(iu[[u]], which(r[u,]>M)))))
   P = list.length(iu)
   RELEVANT = length(which(rtest>2)) #sum(sapply(1:length(U), function(u) length(which(rtest[u,]>M))))
@@ -50,6 +51,7 @@ performance.ui =  function(a, r, rtest, U, M=2, k=2, N=10, debug=FALSE){
   recall = TP/RELEVANT
   F1 = 2 * (precision * recall) / (precision + recall)
   if(debug){
+    print("UI")
     print("precision")
     print(precision)
     print("recall")

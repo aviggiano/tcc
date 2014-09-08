@@ -1,6 +1,9 @@
 t0 = Sys.time()
 print("Setup started")
 
+## READ AUXILIARY FUNCTIONS
+source('recsys/setup/functions.R')
+
 ## READ INPUT DATA
 directory = 'recsys/db/ml-100k'
 history_filename = paste(directory,"u.data",sep='/')
@@ -17,17 +20,19 @@ colnames(item)=c("id", "title", "release_date", "video_release_date", "IMDB_URL"
                  "Film_Noir", "Horror", "Musical", "Mystery", "Romance", "Sci_Fi", "Thriller", "War", "Western")
 colnames(user)=c("id", "age", "gender", "occupation", "zip_code")
 
-## READ AUXILIARY FUNCTIONS
-source('recsys/setup/functions.R')
+## GET MORE DATA
+source('recsys/results/benchmark2.R')
+time("Got more data after", t0)
 
 ## CREATE RATING MATRIX
 r = matrix(0,length(unique(history$user_id)),length(unique(history$item_id)))
-print(paste("Initialized rating matrix after", format(round(Sys.time()-t0, 2), nsmall = 2)))
+time("Initialized rating matrix after", t0)
+
 for(i in 1:size(history)) {
   hi = history[i,1:3]
   r[hi$user_id, hi$item_id] = hi$rating
 }
-print(paste("Created rating matrix after", format(round(Sys.time()-t0, 2), nsmall = 2)))
+time("Created rating matrix after", t0)
 
 ## TRANSFORM ITEM MATRIX
 item$release_date = as.numeric(as.Date(as.character(item$release_date), "%d-%b-%Y"))
@@ -44,9 +49,9 @@ rm(hi)
 gc()
 
 ## SET OF FEATURES, USERS AND ITEMS
-F = c("release_date", "gender")
+F = c("release_date", "gender", "year", "length", "budget", "rating", "votes")
 U = user$id
 I = item$id
 
 ## FINISHED
-print(paste("Setup finished after", format(round(Sys.time()-t0, 2), nsmall = 2)))
+time("Setup finished after", t0)
