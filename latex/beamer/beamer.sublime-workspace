@@ -171,6 +171,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			" NaN",
+			" 0",
+			" 1",
+			" 0",
+			" NaN",
+			" 1",
+			" 0",
+			" ",
 			"\\item[",
 			"publisher_c",
 			"publisher_comm",
@@ -290,15 +298,7 @@
 			"/media",
 			".js",
 			"-",
-			"\"(.*)\"",
-			"\\)",
-			"\\(",
-			"\"#",
-			"(#.*)",
-			"#.*",
-			" \\|",
-			".- style=\"background:.*",
-			"|- style=\"background:.*"
+			"\"(.*)\""
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -306,6 +306,12 @@
 		"regex": false,
 		"replace_history":
 		[
+			", NaN",
+			", 0",
+			", 1",
+			", NaN",
+			", 1",
+			", 0",
 			"f}",
 			"v_k^u",
 			"\\check",
@@ -401,7 +407,7 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 2509.0,
+						"translation.y": 2533.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
