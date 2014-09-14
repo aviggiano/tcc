@@ -23,7 +23,7 @@ O problema central da recomendação é que ``em geral a função $\ell$ é desc
 
 Em algumas formulações, ``a utilidade é descrita pela avaliação $r_{ui}$ do item $i$ feita pelo usuário $u$''. Neste caso, o sistema de recomendação busca determinar $\hat{r}_{ui}$ que melhor se aproxime de $r_{ui}$, e a qualidade da recomendação é normalmente descrita pela distância entre esses dois valores. Em outros sistemas, todavia, a utilidade é descrita diferentemente, de forma que o item com maior valor de $\hat{r}_{ui}$ não é necessariamente recomendado. 
 
-Para lidar o problema da recomendação, existem três grandes grupos de estratégias de sugestão de itens, segundo as referências \cite{adomavicius2005toward,balabanovic97fab}:
+Para lidar com o problema da recomendação, existem três grandes grupos de estratégias de sugestão de itens, segundo as referências \cite{adomavicius2005toward,balabanovic97fab}:
 
 \begin{itemize}
 \item Recomendações baseadas em conteúdo: o usuário recebe sugestões de itens similares àqueles pelos quais ele se interessou no passado;
@@ -86,7 +86,7 @@ No que se refere à dependência do número de usuários, a filtragem colaborati
 
 A dependência do número de itens é, de certa forma, oposta à de usuários: a filtragem colaborativa baseada em itens é extremamente efetiva para poucos itens, enquanto aquela baseada em usuários supera todos os outros métodos baseados em memória para grandes quantidades de itens.
 
-Com relação à medida de qualidade, avaliada a partir da acurácia dos dados, a filtragem baseada em usuários e a baseada em itens mostram uma dependência semelhante. Na análise de menor erro quadrático médio entre o item sugerido e o item efetivamente comprado, todos os métodos de recomendação variam não-linearmente com o número de usuários, itens e acurácia, e de modo geral há um compromisso (\textit{trade-off}) entre a esparsidade dos dados e o tempo de processamento. 
+Com relação à medida de qualidade, avaliada a partir da acurácia dos dados, a filtragem baseada em usuários e a baseada em itens mostram uma dependência semelhante. Na análise de menor erro quadrático médio entre o item sugerido e o item efetivamente comprado, todos os métodos de recomendação variam não-linearmente com o número de usuários, itens e acurácia, e de modo geral há um compromisso (\textit{trade-off}) entre a esparsidade (\textit{sparsity}) dos dados e o tempo de processamento. 
 % section estado_da_arte_dos_problemas_e_das_solu_es (end)
 
 \section{Desafios científicos e tecnológicos} % (fold)
@@ -110,9 +110,9 @@ Um problema muito comum nos sistemas de recomendação é o do \textit{cold star
 \end{center}
 \end{table}
 
-Também é uma grande dificuldade dos algorítmos baseados em filtragem colaborativa a esparsidade (\textit{sparsity}) dos dados, ou seja, o fato de a maioria dos clientes ter interagido com  pouquíssimos itens, fazendo com que a matriz de avaliações usuário-item tenha uma quantidade muito pequena de valores preenchidos, da ordem de 1\% \cite{fennell2009collaborative}. 
+Também é uma grande dificuldade dos algoritmos baseados em filtragem colaborativa a esparsidade dos dados. Como a maioria dos clientes interage  com uma pequena quantidade  de itens, a matriz de avaliações tem em geral menos de 1\%  dos valores preenchidos, e o sistema deve prever os outros valores \cite{fennell2009collaborative}. 
 
-Outro desafio científico é referente à diversidade das recomendações realizadas, também chamado de excesso de especialização (\textit{over-specialization}) \cite{adomavicius2005toward}. Ao mesmo tempo que o sistema deve apresentar itens similares ao que o usuário está procurando, ele também deve sugerir itens que o usuário desconheça ou que nem saiba que poderiam interessá-lo. Esse problema afeta principalmente os sistemas baseados em conteúdo, pois itens com características similares tendem a ser sempre recomendados. Na Tabela \ref{tab:aif_overspec}, o item $i_2$ seria sugerido para um usuário que tenha avaliado $i_1$, apesar de esse não apresentar nenhuma característica diferente do item previamente comprado. Para contornar essa dificuldade, costuma-se introduzir elementos de aleatoriedade na recomendação, por exemplo a partir de algorítmos genéticos \cite{balabanovic97fab}. 
+Outro desafio científico é referente à diversidade das recomendações realizadas, também chamado de excesso de especialização (\textit{over-specialization}) \cite{adomavicius2005toward}. Ao mesmo tempo que o sistema deve apresentar itens similares ao que o usuário está procurando, ele também deve sugerir itens que o usuário desconheça ou que nem saiba que poderiam interessá-lo. Esse problema afeta principalmente os sistemas baseados em conteúdo, pois itens com características similares tendem a ser sempre recomendados. Na Tabela \ref{tab:aif_overspec}, o item $i_2$ seria sugerido para um usuário que tenha avaliado $i_1$, apesar de esse não apresentar nenhuma característica diferente do item previamente comprado. Para contornar essa dificuldade, costuma-se introduzir elementos de aleatoriedade na recomendação, por exemplo a partir de algoritmos genéticos \cite{balabanovic97fab}. 
 
 \begin{table}[h]
 \begin{center}
@@ -128,10 +128,25 @@ Outro desafio científico é referente à diversidade das recomendações realiz
 \end{center}
 \end{table}
 
-Além desse desafio, existe também o da análise rasa do conteúdo (\textit{shallow content analysis}). O sistema, ao avaliar a característica dos itens, não consegue extrair importantes aspectos para o usuário caso eles não estejam explicitamente descritos na categorização do banco de dados. Isso pode ocorrer, por exemplo, com fatores externos ao produto que influenciem na compra do usuário, como em datas comemorativas, em compras induzidas por propaganda, em compras ``impulsivas'', etc. Se um usuário comprou um arranjo de flores no dia das mães, não é necessariamente verdade que ele se interessa por flores. Da mesma maneira, sistemas que ignorem a sasonalidade de certos produtos não recomendariam arranjos de flores para clientes que não tenham comprado itens parecidos, mesmo no dia das mães.
+Além desse desafio, existe também o da análise rasa do conteúdo (\textit{shallow content analysis}). O sistema, ao avaliar a característica dos itens, não consegue extrair importantes aspectos para o usuário caso eles não estejam explicitamente descritos na categorização do banco de dados. Isso pode ocorrer, por exemplo, com fatores externos ao produto que influenciem na compra do usuário, como em datas comemorativas, em compras induzidas por propaganda, em compras ``impulsivas'', etc. Se um usuário comprou um arranjo de flores no dia das mães, não é necessariamente verdade que ele se interessa por flores. Da mesma maneira, sistemas que ignorem a sazonalidade de certos produtos não recomendariam arranjos de flores para clientes que não tenham comprado itens parecidos, mesmo no dia das mães.
 
 Por fim, um desafio científico que este trabalho enfrentará é a execução de um sistema híbrido do ponto de vista de efemeridade e persistência, ao construir um modelo de recomendação que integre as preferências de curto e longo termo dos usuários \cite{schafer1999recommender}. A análise dos dados de compras anteriores, bem como de dados demográficos, deverá portanto ser incorporada à análise de característica dos produtos, a fim de enriquecer a acurácia do sistema \cite{wei2007survey}.
 
 Esse tópico de pesquisa inclui ainda diversos desafios científicos e tecnológicos que não serão tratados no nosso projeto, tais como a preservação da privacidade dos usuários, a criação de modelos de recomendação inter-domínios, o desenvolvimento de sistemas descentralizados operando em redes computacionais distribuídas, a otimização de sistemas para sequências de recomendações, a otimização de sistemas para dispositivos móveis e outros. Um sistema de recomendação inteligente também deveria prever quando enviar uma determinada recomendação, e não agir apenas mediante requisição dos clientes \cite{lops2011content}.
 
 % section desafios_cient_ficos_e_tecnol_gicos (end)
+
+\section{Soluções propostas} % (fold)
+\label{sec:solu_es_propostas}
+
+Este Trabalho de Conclusão de Curso aborda quatro propostas de solução para o problema da recomendação, sendo duas delas retiradas das referências bibliográficas \cite{symeonidis2007feature} e \cite{debnath2008feature}, e outras duas variantes apresentadas pela dupla. O objetivo é realizar uma análise comparativa entre cada um dos métodos e estabelecer diretrizes para sua aplicação em e-commerces.
+
+Ambas soluções de referência são algoritmos híbridos, por utilizarem na recomendação tanto a matriz de avaliações $\mathbf{R}$ quanto a matriz de atributos $\mathbf{A}$. Também se trata de um algoritmo híbrido a variante do algoritmo \textit{UP} \cite{debnath2008feature} denominada \textit{UI}. O único método puramente baseado em conteúdo é a variante do algoritmo \textit{FW} \cite{symeonidis2007feature} denominada \textit{FW$_1$}. 
+
+Optou-se por dar importância aos algoritmos híbridos e baseados em conteúdo em razão de os e-commerces estruturarem normalmente seus bancos de dados em torno da descrição dos itens à venda e das informações dos clientes. De modo geral, as tabelas de itens possuem dezenas de atributos, dependendo do ramo de negócios da loja. Pouco detalhe é dado à interação entre o grupo de usuários e itens, visto que a tabela de histórico de compras se limita a informações como data e método de pagamento. Dessa forma supusemos que métodos de filtragem colaborativa, fundamentados na avaliação dos itens por parte dos usuários, teriam pior desempenho que métodos baseados em conteúdo, que exploram as características dos itens na recomendação. 
+
+Os métodos....TODO...O primeiro artigo determina a similaridade de dois itens a partir de medidas de distância para cada um dos atributos dos itens, ponderadas por pesos determinados na regressão linear de uma equação descrita pelo interesse dos usuários em cada \textit{feature}. O segundo texto parte do princípio que os usuários estão interessados nos atributos dos itens, traçando correlações entre esses dois elementos até chegar nos pesos que servirão de base para o cálculo da similaridade inter-usuários, utilizada na recomendação pelo método da vizinhança (\textit{nearest neighbors}). Ambos estão descritos com maior detalhe no Capítulo \ref{chap:sintese_de_solucoes}.
+
+
+
+% section solu_es_propostas (end)
