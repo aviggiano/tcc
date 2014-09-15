@@ -7,7 +7,7 @@
 
 % section algoritmo_baseado_na_pondera_o_de_atributos_ (end)
 
-O primeiro algoritmo que utilizaremos no sistema de recomendação, adaptado de  \cite{symeonidis2007feature} e doravante denominado ponderação de atributos, \textit{feature weighting} ou \textit{FW}, trata-se de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar ``o julgamento humano de similaridade entre itens'', e é onde ocorre a filtragem colaborativa dos usuários. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo para determinar os itens com maior similaridade, que são finalmente recomendados.
+O primeiro algoritmo que utilizaremos no sistema de recomendação, adaptado da Referência \citeonline{symeonidis2007feature} e doravante denominado ponderação de atributos, \textit{feature weighting} ou \textit{FW}, trata-se de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar ``o julgamento humano de similaridade entre itens'', e é onde ocorre a filtragem colaborativa dos usuários. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo para determinar os itens com maior similaridade, que são finalmente recomendados.
 
 Na filtragem baseada em conteúdo, ``cada item é representado por um vetor de atributos ou \textit{features}''. A similaridade $s_{ij}$ entre dois itens $i$ e $j$ é dada pela média ponderada das distâncias entre as \textit{features} dos itens:
 
@@ -92,28 +92,12 @@ Calcula-se a matriz de similaridade $\mathbf{S}$ pela equação \ref{eq:sij} e r
     \hat{\imath}_u = \argmax_{i \in \left\{i~|~r_{ui} > 0\right\}, j}{s_{ij}}
 \end{equation} 
 
-\subsection{Variante: pesos unitários (FW$_1$)} % (fold)
-\label{sub:variante_pesos_unit_rios}
-
-Além do algoritmo tradicional de ponderação de atributos, avaliaremos também a influência dos pesos $w_f$ na recomendação. Para tanto, as recomendações serão feitas considerando-se $w_f = 1~\forall f$ na variante denominada FW$_1$. 
-
-Essa simplificação reduz grandemente a complexidade do algoritmo, pois a similaridade entre os itens passa a ser calculada por \ref{eq:sij1}, não sendo mais necessário  resolver o sistema linear \ref{eq:determinacao-wf}. 
-
-\begin{equation} 
-\label{eq:sij1}
-    s_{ij} = \sum_{f}{\left(1-d_{fij}\right)}
-\end{equation}
-
-Espera-se que o algoritmo \textit{FW$_1$} apresente menor tempo de execução que \textit{FW}, mas que a qualidade das recomendações seja inferior. O trabalho final discutirá se esta simplificação é interessante para os bancos de dados analisados, avaliando o compromisso entre custo computacional e qualidade de recomendação.
-
-% subsection variante_pesos_unit_rios (end)
-
 \section{Algoritmo baseado no perfil de usuários (UP)} % (fold)
 \label{sec:algoritmo_baseado_no_perfil_de_usu_rios_}
 
 % section algoritmo_baseado_no_perfil_de_usu_rios_ (end)
 
-O segundo algoritmo, adaptado de \cite{debnath2008feature}, é um hibrido entre filtragem colaborativa e filtragem baseada em conteúdo. Os atributos dos itens são ponderados no cálculo de similaridade, com pesos extraídos de um modelo de perfil de usuários, denominado \textit{user profile} ou \textit{UP}. Esse perfil leva em consideração o interesse dos usuários por \textit{features}, indiretamente calculado a partir de seu interesse pelos itens. 
+O segundo algoritmo, adaptado de \citeonline{debnath2008feature}, é um hibrido entre filtragem colaborativa e filtragem baseada em conteúdo. Os atributos dos itens são ponderados no cálculo de similaridade, com pesos extraídos de um modelo de perfil de usuários, denominado \textit{user profile} ou \textit{UP}. Esse perfil leva em consideração o interesse dos usuários por \textit{features}, indiretamente calculado a partir de seu interesse pelos itens. 
 
 Se o usuário avaliou \textit{positivamente} algum item $r_{ui}$, tal que $r_{ui}$ é superior a um valor mínimo $M$, considera-se que $u$ tem interesse $t_{uf}$ nos atributos $f$ dos itens $i$, representados por $a_{if}$. A correlação $t_{uf}$ entre usuários e \textit{features} é descrita por \ref{eq:puf}.
 
@@ -181,8 +165,10 @@ Por fim, a partir da equação \ref{eq:wi} calcula-se o peso $\omega_{ui}$ de ca
     \hat{\imath}_u = \argmax_{i \in \left\{i~|~r_{ui} > 0\right\}}{\omega_{ui}}
 \end{equation} 
 
-\subsection{Variante: correlação usuário-item (UI)} % (fold)
-\label{sub:variante_correla_o_usu_rio_item_}
+\section{Algoritmo baseado na correlação usuário-item (UI)} % (fold)
+\label{sec:algoritmo_baseado_na_correla_o_usu_rio_item_ui_}
+
+Este método... TODO variante
 
 A partir da matriz de correlações ponderadas entre usuários e atributos $\mathbf{W}$, e da matriz de atributos dos itens $\mathbf{A}$, é possível extrair a correlação $\omega_{ui}$ entre usuários $u$ e itens $i$. A lista dos $N$ produtos a serem recomendados decorre portanto das equações \ref{eq:wui} e \ref{eq:iup}.
 
