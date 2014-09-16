@@ -106,7 +106,7 @@ d_{fij} =&~ 1-J^f(i,j) \\
 \end{center}
 \end{table}
  
-Os pesos $w_f$ são a priori desconhecidos. A Referência \citeonline{symeonidis2007feature} os determina a partir de uma regressão linear do tipo \ref{eq:regressao-linear}, onde $e_{ij}$ é o número de usuários que se interessam tanto por $i$ quanto por $j$. Esses valores permitem determinar ``o julgamento humano de similaridade entre itens'', e pode ser calculado a partir da matriz de avaliações, conforme a equação \ref{eq:determinacao-eij}. O operador booleano $\mathrm{b}_M$, descrito pela Equação \ref{eq:b0}, nada mais é que uma ferramenta matemática para se poder extrair o número de usuários que avaliaram positivamente tanto $i$ quanto $j$ a partir de $\mathbf{R}$. 
+Os pesos $w_f$ são a priori desconhecidos. A Referência \citeonline{symeonidis2007feature} os determina a partir de uma regressão linear do tipo \ref{eq:regressao-linear}, onde $e_{ij}$ é o número de usuários que se interessam tanto por $i$ quanto por $j$. Esses valores permitem determinar ``o julgamento humano de similaridade entre itens'', e pode ser calculado a partir da matriz de avaliações, conforme a equação \ref{eq:determinacao-eij}. O operador booleano $\mathrm{b}_M$, descrito pela Equação \ref{eq:b0}, nada mais é que uma ferramenta matemática para se poder extrair o número de usuários que avaliaram \textit{positivamente} tanto $i$ quanto $j$ a partir de $\mathbf{R}$. 
 
 \begin{equation}
 \label{eq:regressao-linear} 
@@ -167,38 +167,29 @@ Calcula-se a matriz de similaridade $\mathbf{S}$ pela equação \ref{eq:sij} e r
 
 % section algoritmo_baseado_no_perfil_de_usu_rios_ (end)
 
-O segundo algoritmo, adaptado de \citeonline{debnath2008feature}, é um hibrido entre filtragem colaborativa e filtragem baseada em conteúdo. Os atributos dos itens são ponderados no cálculo de similaridade, com pesos extraídos de um modelo de perfil de usuários, denominado \textit{user profile} ou \textit{UP}. Esse perfil leva em consideração o interesse dos usuários por \textit{features}, indiretamente calculado a partir de seu interesse pelos itens. 
+O segundo algoritmo, adaptado da Referência \citeonline{debnath2008feature}, é um hibrido entre filtragem colaborativa e filtragem baseada em conteúdo. Os atributos dos itens são ponderados no cálculo de similaridade, com pesos extraídos de um modelo de perfil de usuários, denominado \textit{user profile} ou \textit{UP}. Esse perfil leva em consideração o interesse dos usuários por \textit{features}, indiretamente calculado a partir de seu interesse pelos itens. 
 
-Se o usuário avaliou \textit{positivamente} algum item $r_{ui}$, tal que $r_{ui}$ é superior a um valor mínimo $M$, considera-se que $u$ tem interesse $t_{uf}$ nos atributos $f$ dos itens $i$, representados por $a_{if}$. A correlação $t_{uf}$ entre usuários e \textit{features} é descrita por \ref{eq:puf}.
+Para se determinar a relevância de $f$ para $u$, deve-se levar em conta não somente a frequência com a qual uma característica aparece, mas também o fato de algumas características estarem contidas na maioria dos itens. Determina-se, então, os pesos $w_{uf}$, que mostram a relevância de $f$ para $u$, a partir da medida estatística TF-IDF (\textit{term frequency--inverse document frequency}), presente em formulações de recuperação de informação e mineração de dados (Equação \ref{eq:w-tfidf}. 
 
-\begin{equation}
-\label{eq:puf} 
-    t_{uf} = \sum_{i}{\mathrm{b}_M\left(r_{ui}~a_{if}\right)} 
-\end{equation} 
-
-Os pesos $w_{uf}$, que mostram a relevância de $f$ para $u$, são determinados a partir da estatística TF-IDF (\textit{term frequency--inverse document frequency}), presente em formulações de recuperação de informação e mineração de dados. Em nosso caso, TF ou \textit{feature frequency} é a ``similaridade intra-usuários'' $p_{uf}$, igual ao número de vezes em que a \textit{feature} $f$ aparece no perfil do usuário $u$ (equação \ref{eq:tf}). O termo IDF ou \textit{inverse user frequency} é a ``dissimilaridade inter-usuários'' $q_{f}$, relacionada com o inverso da frequência $\check{q}_{f}$ de um atributo $f$ dentro de todos os usuários (equações \ref{eq:uf} e \ref{eq:iuf}).
+Em nosso caso, TF ou \textit{feature frequency} é a ``similaridade intra-usuários'', igual ao número de vezes em que a \textit{feature} $f$ aparece no perfil do usuário $u$ (Equação \ref{eq:tf}). Se o usuário avaliou \textit{positivamente} algum item $r_{ui}$, tal que $r_{ui}$ é superior a um valor mínimo $M$, considera-se que $u$ tem interesse $\mathrm{TF}_{uf}$ nos atributos $f$ dos itens $i$, representados por $a_{if}$. 
 
 \begin{equation}
 \label{eq:tf} 
-    p_{uf} = t_{uf}
+    \mathrm{TF}_{uf}  = \sum_{i}{\mathrm{b}_M\left(r_{ui}~a_{if}\right)} 
 \end{equation} 
 
-
-\begin{equation}
-\label{eq:uf} 
-    \check{q}_{f} = \sum_{u}{\mathrm{b}_0\left(t_{uf}\right)}
-\end{equation} 
+O termo IDF ou \textit{inverse user frequency} é a ``dissimilaridade inter-usuários'', relacionada com o inverso da frequência de um atributo $f$ dentro de todos os usuários (Equação \ref{eq:iuf}).
 
 \begin{equation}
 \label{eq:iuf} 
-    q_{f} = \log \left( \frac{\left|~\mathcal{U}~\right|}{\check{q}_{f}} \right)
+    \mathrm{IDF}_{f} = \log \left( \frac{\left|~\mathcal{U}~\right|}{\sum_{u}{\mathrm{b}_0\left(\mathrm{TF}_{uf}\right)}} \right)
 \end{equation} 
 
-Os pesos $w_{uf}$, obtidos na TF-IDF \ref{eq:w-tfidf}, são utilizados para calcular a similaridade $s_{uv}$ entre dois usuários $u$ e $v$, conforme \ref{eq:suv}, \ref{eq:fuv}.
+Os pesos $w_{uf}$, obtidos na TF-IDF \ref{eq:w-tfidf}, são utilizados para calcular a similaridade $s_{uv}$ entre dois usuários $u$ e $v$, conforme as Equações \ref{eq:suv} e \ref{eq:fuv}.
 
 \begin{equation}
 \label{eq:w-tfidf} 
-    w_{uf} = p_{uf}~q_{f}
+    w_{uf} = \mathrm{TF}_{uf}~\mathrm{IDF}_{f}
 \end{equation} 
 
 
@@ -238,16 +229,16 @@ Por fim, a partir da equação \ref{eq:wi} calcula-se o peso $\omega_{ui}$ de ca
 \section{Algoritmo baseado na correlação usuário-item (UI)} % (fold)
 \label{sec:algoritmo_baseado_na_correla_o_usu_rio_item_ui_}
 
-Este método... TODO variante
+Este método se trata de uma variante da solução \textit{UP}, e também está embasado no cálculo da preferência do usuário por \textit{features}, medida através do seu interesse pelos itens. O algoritmo \textit{UI} utiliza as matrizes de correlação ponderada entre usuários e atributos $\mathbf{W}$ e a matriz de atributos dos itens $\mathbf{A}$ no cálculo da correlação usuário-item.
 
-A partir da matriz de correlações ponderadas entre usuários e atributos $\mathbf{W}$, e da matriz de atributos dos itens $\mathbf{A}$, é possível extrair a correlação $\omega_{ui}$ entre usuários $u$ e itens $i$. A lista dos $N$ produtos a serem recomendados decorre portanto das equações \ref{eq:wui} e \ref{eq:iup}.
+A lista dos $N$ produtos a serem recomendados decorre portanto do cálculo de $\omega_{ui}$ (Equação \ref{eq:wui}) e da escolha dos itens que maximizem essa variável para cada usuário (Equação \ref{eq:iup}).
 
 \begin{equation}
 \label{eq:wui} 
     \omega_{ui} = \sum_{f}{w_{uf}~a_{if}}
 \end{equation} 
 
-Ao passo que o método \textit{UP} recomenda itens a partir dos $k$ vizinhos mais próximos, o algoritmo \textit{UI} busca os itens com \textit{features} mais similares aos atributos pelos quais $u$ se interessa. Espera-se que esse tipo de recomendação forneça sugestões de qualidade similar ao algoritmo original, pois os dois estão fundamentados no fato que o usuário se interessa pelos atributos $f$ dos itens $i$. 
+Ao passo que o método \textit{UP} recomenda itens a partir dos $k$ vizinhos mais próximos, o algoritmo \textit{UI} busca os itens com \textit{features} mais similares aos atributos pelos quais $u$ se interessa, diretamente através da matriz de atributos. Espera-se que esse tipo de recomendação forneça sugestões de qualidade similar ao algoritmo original, pois os dois tem a mesma fundamentação inicial. 
 
 
 % subsection variante_correla_o_usu_rio_item_ (end)
