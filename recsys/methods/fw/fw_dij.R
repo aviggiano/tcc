@@ -1,12 +1,12 @@
 ## SETUP OF E_IxJ
 source('recsys/setup/functions.R')
 
-setup_eij = function(r, debug) {
+setup_eij = function(r, M, debug) {
   e = matrix(0,length(r[1,]), length(r[1,]))
   for(i in 1:length(e[,1])){
     for(j in 1:length(e[1,])){
       e[i,j] = sum(
-        b0(r[,i] * r[,j])
+        b(r[,i] * r[,j], M)
       , na.rm=TRUE)
     } 
   }

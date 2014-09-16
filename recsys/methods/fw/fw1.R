@@ -21,8 +21,8 @@ get_s = function(W, d1, d2, debug){
   s
 }
 
-fw1 = function(r, a, F, debug=FALSE){
-  e = setup_eij(r, debug)
+fw1 = function(r, a, F, M=2, debug=FALSE){
+  e = setup_eij(r, M, debug)
   d1d2 = setup_dfij(a, r, debug)
   W = get_W(F, debug)
   s = get_s(W, d1d2[[1]], d1d2[[2]], debug)

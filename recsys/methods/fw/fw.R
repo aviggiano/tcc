@@ -46,8 +46,8 @@ get_s = function(W, d1, d2, debug){
 ## for this dataset we have W = [8.0998016, -1.1060046, -0.2921785]
 ## either the implementation is wrong or this model can't be used!!!
 
-fw = function(r, a, debug=FALSE){
-  e = setup_eij(r, debug)
+fw = function(r, a, M=2, debug=FALSE){
+  e = setup_eij(r, M, debug)
   d1d2 = setup_dfij(a, r, debug)
   W = get_W(d1d2[[1]], d1d2[[2]], r, debug)
   s = get_s(W, d1d2[[1]], d1d2[[2]], debug)

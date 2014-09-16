@@ -7,7 +7,7 @@
 
 % section algoritmo_baseado_na_pondera_o_de_atributos_ (end)
 
-O primeiro algoritmo que utilizaremos no sistema de recomendação, adaptado da Referência \citeonline{symeonidis2007feature} e doravante denominado ponderação de atributos, \textit{feature weighting} ou \textit{FW}, trata-se de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens. Essa rede social permite determinar ``o julgamento humano de similaridade entre itens'', e é onde ocorre a filtragem colaborativa dos usuários. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo para determinar os itens com maior similaridade, que são finalmente recomendados.
+O primeiro algoritmo que utilizaremos no sistema de recomendação, adaptado da Referência \citeonline{symeonidis2007feature} e denominado ponderação de atributos, \textit{feature weighting} ou \textit{FW}, trata-se de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens, e é onde ocorre a filtragem colaborativa dos usuários. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo para determinar os itens com maior similaridade, que são finalmente recomendados.
 
 Na filtragem baseada em conteúdo, ``cada item é representado por um vetor de atributos ou \textit{features}''. A similaridade $s_{ij}$ entre dois itens $i$ e $j$ é dada pela média ponderada das distâncias entre as \textit{features} dos itens:
 
@@ -16,13 +16,16 @@ Na filtragem baseada em conteúdo, ``cada item é representado por um vetor de a
     s_{ij} = \sum_{f}{w_{f} \left(1-d_{fij}\right)}
 \end{equation}
 
-As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. Para atributos literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. 
+As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. 
 
-Vale considerar a correlação entre atributos no cálculo das distâncias: a similaridade de duas marcas de calçado, por exemplo, é maior que a de duas marcas de produtos de categorias diferentes, mesmo que as marcas sejam distintas nos dois casos. Em uma primeira análise, todavia, utilizaremos para a maior parte das \textit{features} a medida de distância \ref{eq:dfij}. Isso significa que se os atributos de dois itens são idênticos, a distância é nula e portanto a similaridade é máxima. O sumário de algumas medidas de distância que podem ser utilizadas estão na Tabela \ref{tab:medidas-distancia}.
+Para atributos literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. A similaridade entre as cores ``azul'' e ``vermelho'' é, nesse caso, 0, e sua distância é 1. O valor da distância é nulo se e somente se os atributos são idênticos.
+
+Para atributos pertencentes a uma coleção finita de itens, tais como os atores participantes de um filme, é possível estabelecer a similaridade entre dois conjuntos a partir do índice Jaccard, descrito em \ref{eq:jaccard}. Neste caso, a similaridade entre os conjuntos \{Al Pacino, Tom Hanks\} e \{Tom Hanks, Marlon Brando\} é $1/3$, e a sua distância é $2/3$.
+
 
 \begin{equation}
 \label{eq:delta}
-\delta_{mn} = 
+\delta_{mn} =  
 \begin{cases}
 1, &\text{se }m=n \\
 0, &\text{se }m \neq n
@@ -30,10 +33,25 @@ Vale considerar a correlação entre atributos no cálculo das distâncias: a si
 \end{equation}
 
 \begin{equation}
-\label{eq:dfij}
+\label{eq:jaccard}
+J(A,B) ={{|A \cap B|}\over{|A \cup B|}}
+\end{equation}
+
+Vale considerar a correlação entre atributos no cálculo das distâncias: a similaridade de duas marcas de calçado, por exemplo, é maior que a de duas marcas de produtos de categorias diferentes, mesmo que as marcas sejam distintas nos dois casos. Em uma primeira análise, todavia, utilizaremos para a maior parte das \textit{features} as medidas de distância do delta de Kronecker \ref{eq:dfij_delta} e do índice Jaccard \ref{eq:dfij_jaccard}. Isso significa que se os atributos de dois itens são idênticos, a distância é nula e portanto a similaridade é máxima. O sumário de algumas medidas de distância que podem ser utilizadas estão na Tabela \ref{tab:medidas-distancia}.
+
+\begin{equation}
+\label{eq:dfij_delta}
 \begin{split}
-d_{fij} =& 1-\delta_{ij}^f \\
-    =& 1-\delta_{a_{if} a_{jf}}
+d_{fij} =&~ 1-\delta_{ij}^f \\
+    =&~ 1-\delta_{a_{if} a_{jf}}
+\end{split} 
+\end{equation}
+
+\begin{equation}
+\label{eq:dfij_jaccard}
+\begin{split}
+d_{fij} =&~ 1-J^f(i,j) \\
+    =&~ 1-J(a_{if},a_{jf})
 \end{split} 
 \end{equation}
 
@@ -46,8 +64,8 @@ d_{fij} =& 1-\delta_{ij}^f \\
     \textbf{Atributo} $f$ & \textbf{Domínio} $\mathrm{F}$ & \textbf{Distância} $d_f$ \\ \hline
     Marca & Literal & $1-\delta^f_{ij}$ \\ \hline    
     Esporte & Literal & $1-\delta^f_{ij}$ \\ \hline
-    Categoria & Literal & $1-\delta^f_{ij}$ \\ \hline            
     Gênero & Literal & $1-\delta^f_{ij}$ \\ \hline            
+    Categoria & Conjunto Literal & $1-J^f(i,j)$ \\ \hline            
     Cor & $\left(\mathbb{N}\backslash \mathbb{N}_{256}\right)^3$  tripla ordenada RGB & $ \frac{\lVert a_{if}-a_{jf} \rVert_2}{\max_{i,j}{\lVert a_{if}-a_{jf} \rVert_2}} $ \\ \hline
     Preço & $\mathbb{R}$ & $ \frac{\left| a_{if}-a_{jf} \right|}{\max_{i,j}{\left| a_{if}-a_{jf} \right|}} $ \\ \hline
     Data & $\mathbb{R}$ milissegundos a partir de \textit{epoch} \cite{epoch} & $ \frac{\left| a_{if}-a_{jf} \right|}{\max_{i,j}{\left| a_{if}-a_{jf} \right|}} $ \\ \hline
@@ -55,18 +73,17 @@ d_{fij} =& 1-\delta_{ij}^f \\
 \end{center}
 \end{table}
  
-Os pesos $w_f$ são a priori desconhecidos. A referência \cite{symeonidis2007feature} os determina a partir de um conjunto de equações do tipo \ref{eq:regressao-linear}, onde $e_{ij}$ é o número de usuários que se interessam tanto por $i$ quanto por $j$. 
+Os pesos $w_f$ são a priori desconhecidos. A Referência \citeonline{symeonidis2007feature} os determina a partir de uma regressão linear do tipo \ref{eq:regressao-linear}, onde $e_{ij}$ é o número de usuários que se interessam tanto por $i$ quanto por $j$. Esses valores permitem determinar ``o julgamento humano de similaridade entre itens'', e pode ser calculado a partir da matriz de avaliações, conforme a equação \ref{eq:determinacao-eij}. O operador booleano $\mathrm{b_M}$, descrito pela Equação \ref{eq:b0}, nada mais é que uma ferramenta matemática para se poder aplicar extrair o número de usuários que avaliaram positivamente tanto $i$ quanto $j$ a partir de $\mathbf{R}$. 
 
 \begin{equation}
 \label{eq:regressao-linear} 
     e_{ij} = w_0 + \sum_{f}{w_{f} \left(1-d_{fij}\right)}
 \end{equation} 
 
-A partir da matriz de avaliações $\mathbf{R}$, pode-se determinar $e_{ij}$, conforme a equação \ref{eq:determinacao-eij}, onde $\mathrm{b_0}$ é o operador booleano descrito por \ref{eq:b0}.
 
 \begin{equation}
 \label{eq:determinacao-eij} 
-    e_{ij} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)}
+    e_{ij} = \sum_{u}{\mathrm{b_M}\left(r_{ui} ~ r_{uj}\right)}
 \end{equation} 
 
 \begin{equation}
