@@ -2,6 +2,40 @@
 \chapter[Síntese de Soluções]{Síntese de Soluções}
 \label{chap:sintese_de_solucoes}
 
+%A fim de facilitar a compreensão dos métodos propostos neste trabalho, serão utilizadas as matrizes de avaliações $\mathbf{R}$ e de atributos $\mathbf{A}$ abaixo, adaptadas da Referência \citeonline{debnath2008feature}. Em todos os exemplos, considera-se valor mínimo $M=2$.
+
+%\begin{table}[h]
+%\begin{center}
+%    \caption{Avaliações $r_{ui}$}
+%%    \label{tab:aif_overspec}
+%    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+%    \hline
+%     & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$ \\ \hline
+%     $u_1$ & - & 4 & - & - & 5 & - \\ \hline
+%     $u_2$ & - & 3 & - & 4 & - & - \\ \hline
+%     $u_3$ & - & - & - & - & - & 4 \\ \hline
+%     $u_4$ & 5 & - & 3 & - & - & - \\ \hline
+%    \end{tabular}
+%\end{center}
+%\end{table}
+%
+%\begin{table}[h]
+%\begin{center}
+%    \caption{Atributos $a_{if}$}
+%%    \label{tab:aif_overspec}
+%    \begin{tabular}{ | c | c | c | c | c | } 
+%    \hline
+%     & $f_1$ & $f_2$ & $f_3$ & $f_4$  \\ \hline
+%     $i_1$ & 0 & 1 & 0 & 0  \\ \hline
+%     $i_2$ & 1 & 1 & 0 & 0  \\ \hline
+%     $i_3$ & 0 & 1 & 1 & 0  \\ \hline
+%     $i_4$ & 0 & 1 & 0 & 0  \\ \hline
+%     $i_5$ & 1 & 1 & 1 & 0  \\ \hline
+%     $i_6$ & 0 & 0 & 0 & 1  \\ \hline
+%    \end{tabular}
+%\end{center}
+%\end{table}
+
 \section{Algoritmo baseado na ponderação de atributos (FW)} % (fold)
 \label{sec:algoritmo_baseado_na_pondera_o_de_atributos_}
 
@@ -66,14 +100,13 @@ d_{fij} =&~ 1-J^f(i,j) \\
     Esporte & Literal & $1-\delta^f_{ij}$ \\ \hline
     Gênero & Literal & $1-\delta^f_{ij}$ \\ \hline            
     Categoria & Conjunto Literal & $1-J^f(i,j)$ \\ \hline            
-    Cor & $\left(\mathbb{N}\backslash \mathbb{N}_{256}\right)^3$  tripla ordenada RGB & $ \frac{\lVert a_{if}-a_{jf} \rVert_2}{\max_{i,j}{\lVert a_{if}-a_{jf} \rVert_2}} $ \\ \hline
     Preço & $\mathbb{R}$ & $ \frac{\left| a_{if}-a_{jf} \right|}{\max_{i,j}{\left| a_{if}-a_{jf} \right|}} $ \\ \hline
     Data & $\mathbb{R}$ milissegundos a partir de \textit{epoch} \cite{epoch} & $ \frac{\left| a_{if}-a_{jf} \right|}{\max_{i,j}{\left| a_{if}-a_{jf} \right|}} $ \\ \hline
     \end{tabular}
 \end{center}
 \end{table}
  
-Os pesos $w_f$ são a priori desconhecidos. A Referência \citeonline{symeonidis2007feature} os determina a partir de uma regressão linear do tipo \ref{eq:regressao-linear}, onde $e_{ij}$ é o número de usuários que se interessam tanto por $i$ quanto por $j$. Esses valores permitem determinar ``o julgamento humano de similaridade entre itens'', e pode ser calculado a partir da matriz de avaliações, conforme a equação \ref{eq:determinacao-eij}. O operador booleano $\mathrm{b_M}$, descrito pela Equação \ref{eq:b0}, nada mais é que uma ferramenta matemática para se poder aplicar extrair o número de usuários que avaliaram positivamente tanto $i$ quanto $j$ a partir de $\mathbf{R}$. 
+Os pesos $w_f$ são a priori desconhecidos. A Referência \citeonline{symeonidis2007feature} os determina a partir de uma regressão linear do tipo \ref{eq:regressao-linear}, onde $e_{ij}$ é o número de usuários que se interessam tanto por $i$ quanto por $j$. Esses valores permitem determinar ``o julgamento humano de similaridade entre itens'', e pode ser calculado a partir da matriz de avaliações, conforme a equação \ref{eq:determinacao-eij}. O operador booleano $\mathrm{b}_M$, descrito pela Equação \ref{eq:b0}, nada mais é que uma ferramenta matemática para se poder extrair o número de usuários que avaliaram positivamente tanto $i$ quanto $j$ a partir de $\mathbf{R}$. 
 
 \begin{equation}
 \label{eq:regressao-linear} 
@@ -88,10 +121,10 @@ Os pesos $w_f$ são a priori desconhecidos. A Referência \citeonline{symeonidis
 
 \begin{equation}
 \label{eq:b0}
-\mathrm{b}_y\left(x\right) = 
+\mathrm{b}_M\left(x\right) = 
 \begin{cases}
-1, &\text{se }x>y \\
-0, &\text{se }x\leq y
+1, &\text{se }x>M \\
+0, &\text{se }x\leq M
 \end{cases} 
 \end{equation}
 
@@ -108,6 +141,26 @@ Calcula-se a matriz de similaridade $\mathbf{S}$ pela equação \ref{eq:sij} e r
 \label{eq:ifw} 
     \hat{\imath}_u = \argmax_{i \in \left\{i~|~r_{ui} > 0\right\}, j}{s_{ij}}
 \end{equation} 
+
+%Para o exemplo proposto, o valor da matriz $e_{ij}$ seria
+
+
+%\begin{table}[h]
+%\begin{center}
+    %\caption{$e_{ij}$}
+%%    \label{tab:aif_overspec}
+    %\begin{tabular}{ | c | c | c | c | c | c | c | } 
+    %\hline
+     %& $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ %\hline
+     %$i_1$ & 0 & 1 & 0 & 0  \\ \hline
+     %$i_2$ & 1 & 1 & 0 & 0  \\ \hline
+     %$i_3$ & 0 & 1 & 1 & 0  \\ \hline
+     %$i_4$ & 0 & 1 & 0 & 0  \\ \hline
+     %$i_5$ & 1 & 1 & 1 & 0  \\ \hline
+     %$i_6$ & 0 & 0 & 0 & 1  \\ \hline
+    %\end{tabular}
+%\end{center}
+%\end{table}
 
 \section{Algoritmo baseado no perfil de usuários (UP)} % (fold)
 \label{sec:algoritmo_baseado_no_perfil_de_usu_rios_}
