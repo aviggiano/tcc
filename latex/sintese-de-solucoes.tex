@@ -2,39 +2,39 @@
 \chapter[Síntese de Soluções]{Síntese de Soluções}
 \label{chap:sintese_de_solucoes}
 
-%A fim de facilitar a compreensão dos métodos propostos neste trabalho, serão utilizadas as matrizes de avaliações $\mathbf{R}$ e de atributos $\mathbf{A}$ abaixo, adaptadas da Referência \citeonline{debnath2008feature}. Em todos os exemplos, considera-se valor mínimo $M=2$.
+A fim de facilitar a compreensão dos métodos propostos neste trabalho, serão utilizadas as matrizes de avaliações $\mathbf{R}$ e de atributos $\mathbf{A}$ abaixo, adaptadas da Referência \citeonline{debnath2008feature}. Em todos os exemplos, considera-se valor mínimo $M=2$.
 
-%\begin{table}[h]
-%\begin{center}
-%    \caption{Avaliações $r_{ui}$}
-%%    \label{tab:aif_overspec}
-%    \begin{tabular}{ | c | c | c | c | c | c | c | } 
-%    \hline
-%     & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$ \\ \hline
-%     $u_1$ & - & 4 & - & - & 5 & - \\ \hline
-%     $u_2$ & - & 3 & - & 4 & - & - \\ \hline
-%     $u_3$ & - & - & - & - & - & 4 \\ \hline
-%     $u_4$ & 5 & - & 3 & - & - & - \\ \hline
-%    \end{tabular}
-%\end{center}
-%\end{table}
-%
-%\begin{table}[h]
-%\begin{center}
-%    \caption{Atributos $a_{if}$}
-%%    \label{tab:aif_overspec}
-%    \begin{tabular}{ | c | c | c | c | c | } 
-%    \hline
-%     & $f_1$ & $f_2$ & $f_3$ & $f_4$  \\ \hline
-%     $i_1$ & 0 & 1 & 0 & 0  \\ \hline
-%     $i_2$ & 1 & 1 & 0 & 0  \\ \hline
-%     $i_3$ & 0 & 1 & 1 & 0  \\ \hline
-%     $i_4$ & 0 & 1 & 0 & 0  \\ \hline
-%     $i_5$ & 1 & 1 & 1 & 0  \\ \hline
-%     $i_6$ & 0 & 0 & 0 & 1  \\ \hline
-%    \end{tabular}
-%\end{center}
-%\end{table}
+\begin{table}[h]
+\begin{center}
+    \caption{Avaliações $r_{ui}$}
+%    \label{tab:aif_overspec}
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$ \\ \hline
+     $u_1$ & - & 4 & - & - & 5 & - \\ \hline
+     $u_2$ & - & 3 & - & 4 & - & - \\ \hline
+     $u_3$ & - & - & - & - & - & 4 \\ \hline
+     $u_4$ & 5 & - & 3 & - & - & - \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+    \caption{Atributos $a_{if}$}
+%    \label{tab:aif_overspec}
+    \begin{tabular}{ | c | c | c | c | c | } 
+    \hline
+     & $f_1$ & $f_2$ & $f_3$ & $f_4$  \\ \hline
+     $i_1$ & 0 & 1 & 0 & 0  \\ \hline
+     $i_2$ & 1 & 1 & 0 & 0  \\ \hline
+     $i_3$ & 0 & 1 & 1 & 0  \\ \hline
+     $i_4$ & 0 & 1 & 0 & 0  \\ \hline
+     $i_5$ & 1 & 1 & 1 & 0  \\ \hline
+     $i_6$ & 0 & 0 & 0 & 1  \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
 
 \section{Algoritmo baseado na ponderação de atributos (FW)} % (fold)
 \label{sec:algoritmo_baseado_na_pondera_o_de_atributos_}
@@ -142,25 +142,24 @@ Calcula-se a matriz de similaridade $\mathbf{S}$ pela equação \ref{eq:sij} e r
     \hat{\imath}_u = \argmax_{i \in \left\{i~|~r_{ui} > 0\right\}, j}{s_{ij}}
 \end{equation} 
 
-%Para o exemplo proposto, o valor da matriz $e_{ij}$ seria
+Para o exemplo proposto, o valor da matriz $e_{ij}$ seria conforme a Tabela \ref{tab:eij_fw}.
 
-
-%\begin{table}[h]
-%\begin{center}
-    %\caption{$e_{ij}$}
-%%    \label{tab:aif_overspec}
-    %\begin{tabular}{ | c | c | c | c | c | c | c | } 
-    %\hline
-     %& $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ %\hline
-     %$i_1$ & 0 & 1 & 0 & 0  \\ \hline
-     %$i_2$ & 1 & 1 & 0 & 0  \\ \hline
-     %$i_3$ & 0 & 1 & 1 & 0  \\ \hline
-     %$i_4$ & 0 & 1 & 0 & 0  \\ \hline
-     %$i_5$ & 1 & 1 & 1 & 0  \\ \hline
-     %$i_6$ & 0 & 0 & 0 & 1  \\ \hline
-    %\end{tabular}
-%\end{center}
-%\end{table}
+\begin{table}[H]
+\begin{center}
+    \caption{$e_{ij}$}
+    \label{tab:eij_fw}
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ %\hline
+     $i_1$ &  &  &  & & &  \\ \hline
+     $i_2$ &  &  &  & & &  \\ \hline
+     $i_3$ &  &  &  & & &  \\ \hline
+     $i_4$ &  &  &  & & &  \\ \hline
+     $i_5$ &  &  &  & & &  \\ \hline
+     $i_6$ &  &  &  & & &  \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
 
 \section{Algoritmo baseado no perfil de usuários (UP)} % (fold)
 \label{sec:algoritmo_baseado_no_perfil_de_usu_rios_}
