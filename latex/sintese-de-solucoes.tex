@@ -71,7 +71,7 @@ Para atributos pertencentes a uma coleção finita de itens, tais como os atores
 J(A,B) ={{|A \cap B|}\over{|A \cup B|}}
 \end{equation}
 
-Vale considerar a correlação entre atributos no cálculo das distâncias: a similaridade de duas marcas de calçado, por exemplo, é maior que a de duas marcas de produtos de categorias diferentes, mesmo que as marcas sejam distintas nos dois casos. Em uma primeira análise, todavia, utilizaremos para a maior parte das \textit{features} as medidas de distância do delta de Kronecker \ref{eq:dfij_delta} e do índice Jaccard \ref{eq:dfij_jaccard}. Isso significa que se os atributos de dois itens são idênticos, a distância é nula e portanto a similaridade é máxima. O sumário de algumas medidas de distância que podem ser utilizadas estão na Tabela \ref{tab:medidas-distancia}.
+Vale considerar a correlação entre atributos no cálculo das distâncias: a similaridade de duas marcas de calçado, por exemplo, é maior que a de duas marcas de produtos de categorias diferentes, mesmo que as marcas sejam distintas nos dois casos. Em uma primeira análise, todavia, utilizaremos para a maior parte das \textit{features} as medidas de distância do delta de Kronecker \ref{eq:dfij_delta} (Tabela \ref{tab:d_ijf}) e do índice Jaccard \ref{eq:dfij_jaccard}. Isso significa que se os atributos de dois itens são idênticos, a distância é nula e portanto a similaridade é máxima. O sumário de algumas medidas de distância que podem ser utilizadas estão na Tabela \ref{tab:medidas-distancia}.
 
 \begin{equation}
 \label{eq:dfij_delta}
@@ -80,6 +80,58 @@ d_{fij} =&~ 1-\delta_{ij}^f \\
     =&~ 1-\delta_{a_{if} a_{jf}}
 \end{split} 
 \end{equation}
+
+
+\begin{table}[p]
+\begin{center}
+    \caption{$d_{ij}^{f}$}
+    \label{tab:d_ijf}
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     $f_1$ & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ \hline
+     $i_1$ & 1  &  0  &  1  &  1  &  0  &  1 \\ \hline
+     $i_2$ & 0  &  1  &  0  &  0  &  1  &  0  \\ \hline
+     $i_3$ & 1  &  0  &  1  &  1  &  0  &  1 \\ \hline
+     $i_4$ & 1  &  0  &  1  &  1  &  0  &  1 \\ \hline
+     $i_5$ & 0  &  0  &  0  &  0  &  0  &  0 \\ \hline
+     $i_6$ & 0  &  0  &  0  &  0  &  0  &  0 \\ \hline
+    \end{tabular}
+    \quad
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     $f_2$ & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ \hline
+     $i_1$ & 1  &  1  &  1  &  1  &  1  &  0 \\ \hline
+     $i_2$ & 1  &  1  &  1  &  1  &  1  &  0  \\ \hline
+     $i_3$ & 1  &  1  &  1  &  1  &  1  &  0 \\ \hline
+     $i_4$ & 1  &  1  &  1  &  1  &  1  &  0 \\ \hline
+     $i_5$ & 0  &  0  &  0  &  0  &  0  &  0 \\ \hline
+     $i_6$ & 0  &  0  &  0  &  0  &  0  &  0 \\ \hline
+    \end{tabular}
+    
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     $f_3$ & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ \hline
+     $i_1$ & 1  &  1  &  0  &  1  &  0  &  1 \\ \hline
+     $i_2$ & 1  &  1  &  0  &  1  &  0  &  1  \\ \hline
+     $i_3$ & 0  &  0  &  1  &  0  &  1  &  0 \\ \hline
+     $i_4$ & 1  &  1  &  0  &  1  &  0  &  1 \\ \hline
+     $i_5$ & 0  &  0  &  0  &  0  &  0  &  0 \\ \hline
+     $i_6$ & 0  &  0  &  0  &  0  &  0  &  0 \\ \hline
+    \end{tabular}    
+    \quad
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     $f_4$ & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ \hline
+     $i_1$ & 1  &  1  &  1  &  1  &  1  &  0 \\ \hline
+     $i_2$ & 1  &  1  &  1  &  1  &  1  &  0  \\ \hline
+     $i_3$ & 1  &  1  &  1  &  1  &  1  &  0 \\ \hline
+     $i_4$ & 1  &  1  &  1  &  1  &  1  &  0 \\ \hline
+     $i_5$ & 0  &  0  &  0  &  0  &  0  &  0 \\ \hline
+     $i_6$ & 0  &  0  &  0  &  0  &  0  &  0 \\ \hline
+    \end{tabular}        
+\end{center}
+\end{table}
+
 
 \begin{equation}
 \label{eq:dfij_jaccard}
