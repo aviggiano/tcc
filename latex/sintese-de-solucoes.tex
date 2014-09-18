@@ -198,12 +198,24 @@ Os pesos $w_f$ são a priori desconhecidos. A Referência \citeonline{symeonidis
 \end{center}
 \end{table}
 
-Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de equações lineares \ref{eq:determinacao-wf}. Apenas os pesos positivos e com valor absoluto expressivo (maior que um piso arbitrariamente escolhido a posteriori) são utilizados na recomendação. 
+Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de equações lineares \ref{eq:determinacao-wf} (Tabela \ref{tab:w_f}). Apenas os pesos positivos e com valor absoluto expressivo (maior que um piso arbitrariamente escolhido a posteriori) são utilizados na recomendação. 
 
 \begin{equation}
 \label{eq:determinacao-wf} 
     w_0 + \sum_{f}{w_{f}  \left(1-d_{fij}\right)} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)},~\forall i \neq j 
 \end{equation} 
+
+\begin{table}[p]
+\begin{center}
+    \caption{$w_f$}
+    \label{tab:w_f}
+    \begin{tabular}{ | c | c | c | c | c | } 
+    \hline
+     $w_0$ & $w_1$ & $w_2$ & $w_3$ & $w_4$   \\ \hline
+     0.41 & -0.22 & -0.34 & -0.03 & -   \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
 
 Calcula-se a matriz de similaridade $\mathbf{S}$ pela equação \ref{eq:sij} e recomendam-se os itens similares àqueles já comprados, segundo \ref{eq:ifw}.
 
