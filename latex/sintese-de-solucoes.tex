@@ -2,7 +2,7 @@
 \chapter[Síntese de Soluções]{Síntese de Soluções}
 \label{chap:sintese_de_solucoes}
 
-A fim de facilitar a compreensão dos métodos propostos neste trabalho, serão utilizadas as matrizes de avaliações $\mathbf{R}$ e de atributos $\mathbf{A}$ abaixo, adaptadas da Referência \citeonline{debnath2008feature}. Em todos os exemplos, considera-se valor mínimo $M=2$. Os logaritmos são expressos em base 10.
+A fim de facilitar a compreensão dos métodos propostos neste trabalho, serão utilizadas as matrizes de avaliações $\mathbf{R}$ e de atributos $\mathbf{A}$ abaixo, adaptadas da Referência \citeonline{debnath2008feature}. Em todos os exemplos, considera-se valor mínimo $M=2$. Os logaritmos são expressos em base 10 e todos os pesos $w_f$ (descritos a seguir) são utilizados.
 
 \begin{table}[h]
 \begin{center}
@@ -89,45 +89,45 @@ d_{fij} =&~ 1-\delta_{ij}^f \\
     \begin{tabular}{ | c | c | c | c | c | c | c | } 
     \hline
      $f_1$ & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ \hline
-     $i_1$ & 1  &  0  &  1  &  1  &  0  &  1 \\ \hline
-     $i_2$ & 0  &  1  &  0  &  0  &  1  &  0  \\ \hline
-     $i_3$ & 1  &  0  &  1  &  1  &  0  &  1 \\ \hline
-     $i_4$ & 1  &  0  &  1  &  1  &  0  &  1 \\ \hline
-     $i_5$ & 0  &  1  &  0  &  0  &  1  &  0 \\ \hline
-     $i_6$ & 1  &  0  &  1  &  1  &  0  &  1 \\ \hline
+     $i_1$ & -  &  0  &  1  &  1  &  0  &  1 \\ \hline
+     $i_2$ & 0  &  -  &  0  &  0  &  1  &  0  \\ \hline
+     $i_3$ & 1  &  0  &  -  &  1  &  0  &  1 \\ \hline
+     $i_4$ & 1  &  0  &  1  &  -  &  0  &  1 \\ \hline
+     $i_5$ & 0  &  1  &  0  &  0  &  -  &  0 \\ \hline
+     $i_6$ & 1  &  0  &  1  &  1  &  0  &  - \\ \hline
     \end{tabular}
     \quad
     \begin{tabular}{ | c | c | c | c | c | c | c | } 
     \hline
      $f_2$ & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ \hline
-     $i_1$ & 1  &  1  &  1   & 1  &  1  &  0 \\ \hline
-     $i_2$ & 1  &  1  &  1   & 1  &  1  &  0  \\ \hline
-     $i_3$ & 1  &  1  &  1   & 1  &  1  &  0 \\ \hline
-     $i_4$ & 1  &  1  &  1   & 1  &  1  &  0 \\ \hline
-     $i_5$ & 1  &  1  &  1   & 1  &  1  &  0 \\ \hline
-     $i_6$ & 0  &  0  &  0   & 0  &  0  &  1 \\ \hline
+     $i_1$ & -  &  1  &  1   & 1  &  1  &  0 \\ \hline
+     $i_2$ & 1  &  -  &  1   & 1  &  1  &  0  \\ \hline
+     $i_3$ & 1  &  1  &  -   & 1  &  1  &  0 \\ \hline
+     $i_4$ & 1  &  1  &  1   & -  &  1  &  0 \\ \hline
+     $i_5$ & 1  &  1  &  1   & 1  &  -  &  0 \\ \hline
+     $i_6$ & 0  &  0  &  0   & 0  &  0  &  - \\ \hline
     \end{tabular}
     
     \begin{tabular}{ | c | c | c | c | c | c | c | } 
     \hline
      $f_3$ & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ \hline
-     $i_1$ & 1  &  1  &  0  &  1  &  0  &  1 \\ \hline
-     $i_2$ & 1  &  1  &  0  &  1  &  0  &  1  \\ \hline
-     $i_3$ & 0  &  0  &  1  &  0  &  1  &  0 \\ \hline
-     $i_4$ & 1  &  1  &  0  &  1  &  0  &  1 \\ \hline
-     $i_5$ & 0  &  0  &  1  &  0  &  1  &  0 \\ \hline
-     $i_6$ & 1  &  1  &  0  &  1  &  0  &  1 \\ \hline
+     $i_1$ & -  &  1  &  0  &  1  &  0  &  1 \\ \hline
+     $i_2$ & 1  &  -  &  0  &  1  &  0  &  1  \\ \hline
+     $i_3$ & 0  &  0  &  -  &  0  &  1  &  0 \\ \hline
+     $i_4$ & 1  &  1  &  0  &  -  &  0  &  1 \\ \hline
+     $i_5$ & 0  &  0  &  1  &  0  &  -  &  0 \\ \hline
+     $i_6$ & 1  &  1  &  0  &  1  &  0  &  - \\ \hline
     \end{tabular}    
     \quad
     \begin{tabular}{ | c | c | c | c | c | c | c | } 
     \hline
      $f_4$ & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ \hline
-     $i_1$ & 1  &  1  &  1 &   1 &   1  &  0 \\ \hline
-     $i_2$ & 1  &  1  &  1 &   1 &   1  &  0  \\ \hline
-     $i_3$ & 1  &  1  &  1 &   1 &   1  &  0 \\ \hline
-     $i_4$ & 1  &  1  &  1 &   1 &   1  &  0 \\ \hline
-     $i_5$ & 1  &  1  &  1 &   1 &   1  &  0 \\ \hline
-     $i_6$ & 0  &  0  &  0 &   0 &   0  &  1 \\ \hline
+     $i_1$ & -  &  1  &  1 &   1 &   1  &  0 \\ \hline
+     $i_2$ & 1  &  -  &  1 &   1 &   1  &  0  \\ \hline
+     $i_3$ & 1  &  1  &  - &   1 &   1  &  0 \\ \hline
+     $i_4$ & 1  &  1  &  1 &   - &   1  &  0 \\ \hline
+     $i_5$ & 1  &  1  &  1 &   1 &   -  &  0 \\ \hline
+     $i_6$ & 0  &  0  &  0 &   0 &   0  &  - \\ \hline
     \end{tabular}        
 \end{center}
 \end{table}
@@ -217,7 +217,7 @@ Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de
 \end{center}
 \end{table}
 
-Calcula-se a matriz de similaridade $\mathbf{S}$ pela Equação \ref{eq:sij} (Tabela \ref{tab:sij}) e recomendam-se os itens similares àqueles já comprados, segundo \ref{eq:ifw}.
+Calcula-se a matriz de similaridade $\mathbf{S}$ pela Equação \ref{eq:sij} (Tabela \ref{tab:sij}) e recomendam-se os itens similares àqueles já comprados, segundo \ref{eq:ifw} (Tabela \ref{tab:i_u_fw}).
 
 \begin{table}[p]
 \begin{center}
@@ -243,6 +243,18 @@ Calcula-se a matriz de similaridade $\mathbf{S}$ pela Equação \ref{eq:sij} (Ta
     \hat{\imath}_u = \argmax_{i \in \left\{i~|~r_{ui} > 0\right\}, j}{s_{ij}}
 \end{equation} 
 
+
+\begin{table}[p]
+\begin{center}
+    \caption{$\hat{\imath}_u$ (FW)}
+    \label{tab:i_u_fw}
+    \begin{tabular}{ | c | c | c | c | } 
+    \hline
+     $u_1$ & $u_2$ & $u_3$ & $u_4$   \\ \hline
+     3 & 5 & 3 & 4  \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
 
 
 \section{Algoritmo baseado no perfil de usuários (UP)} % (fold)
@@ -330,10 +342,10 @@ Os pesos $w_{uf}$, obtidos na TF-IDF \ref{eq:w-tfidf} (Tabela \ref{tab:w_uf}), s
     \begin{tabular}{ | c | c | c | c | c | } 
     \hline
      & $u_1$ & $u_2$ & $u_3$ & $u_4$   \\ \hline
-     $u_1$ & 1 & 0.96 & 0 & 1  \\ \hline
-     $u_2$ & 0.96 & 1 & 0 & 1  \\ \hline
-     $u_3$ & 0 & 0 & 1 & 0  \\ \hline
-     $u_4$ & 1 & 1 & 0 & 1  \\ \hline
+     $u_1$ & - & 0.96 & 0 & 1  \\ \hline
+     $u_2$ & 0.96 & - & 0 & 1  \\ \hline
+     $u_3$ & 0 & 0 & - & 0  \\ \hline
+     $u_4$ & 1 & 1 & 0 & -  \\ \hline
     \end{tabular}
 \end{center}
 \end{table}
