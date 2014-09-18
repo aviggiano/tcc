@@ -6,11 +6,11 @@
 \label{sec:primeira_etapa_do_trabalho_de_conclus_o_de_curso}
 
 % section primeira_etapa_do_trabalho_de_conclus_o_de_curso (end)
-Os resultados da primeira etapa deste Trabalho de Conclusão de Curso, realizadas na disciplina PMR2500, concentram-se na definição de necessidades e de parâmetros de sucesso e elaboração de possíveis soluções. 
+Os resultados da primeira etapa deste Trabalho de Conclusão de Curso, realizadas na disciplina PMR2500, foram principalmente a definição de necessidades, de parâmetros de sucesso e a elaboração de possíveis soluções. 
 
-Definimos que a aquisição de dados será feita a partir de uma base arbitrária, que deverá alimentar o sistema por meio de arquivos de texto com valores separados por vírgulas (\texttt{.csv}).
+Definimos que a aquisição de dados seria feita a partir de uma base arbitrária, que deveria alimentar o sistema por meio de arquivos de texto com valores separados por vírgulas (\texttt{.csv}).
 
-A fim de facilitar o pré-processamento dos dados, exigem-se dois arquivos. Um deles deve conter a matriz de atributos $\mathbf{A}$ e o outro, a matriz de avaliações  $\mathbf{R}$. 
+A fim de facilitar o pré-processamento dos dados, estabelecemos que seriam necessários dois arquivos. Um deles deve conter a matriz de atributos $\mathbf{A}$ e o outro, a matriz de avaliações  $\mathbf{R}$. 
 
 \begin{equation} 
 \mathbf{A} = 
@@ -33,7 +33,7 @@ A fim de facilitar o pré-processamento dos dados, exigem-se dois arquivos. Um d
 \end{bmatrix}
 \end{equation}
 
-Em alguns bancos de dados relacionais, a tabela de histórico também contém outras informações adicionais $\theta$, tais como método de pagamento, data da compra, data de entrega, etc., e é denominada $\mathbf{H}$. Optamos nessa etapa do projeto por não aceitar esse tipo de informação, e nem tampouco informações de  características de clientes (matriz $\mathbf{B}$). Para o emprego do sistema de recomendação em um e-commerce real, deverão ser efetuados ajustes no algoritmo a fim de tratar de particularidades envolvendo informações adicionais e arquivos suplementares.
+Em alguns bancos de dados relacionais, a tabela de avaliações também contém informações adicionais $\theta$, tais como método de pagamento, data da compra, data de entrega, etc., e é denominada matriz histórico de avaliações $\mathbf{H}$. Optamos, no nosso projeto, por não aceitar esse tipo de informação, e nem tampouco dados ligados a características de clientes (matriz $\mathbf{B}$). Para o emprego do sistema de recomendação em um e-commerce real, deve-se portanto efetuar ajustes no algoritmo a fim de tratar de particularidades envolvendo informações adicionais e arquivos suplementares.
 
 \begin{equation} 
 \mathbf{H} =
@@ -55,19 +55,21 @@ Em alguns bancos de dados relacionais, a tabela de histórico também contém ou
  \end{bmatrix}
 \end{equation}
 
-Uma vez determinada a forma de entrada de dados, definiu-se o conjunto de dados a serem utilizados. O primeiro conjunto de dados abertos é proveniente do website de recomendações de filmes MovieLens (\url{http://movielens.umn.edu}). Nessa base de dados, o catálogo de filme faz o papel de catálogo de produtos pelos quais os usuários possam se interessar, e o histórico de compras se refere à avaliação dos filmes feita por cada usuário. Outro conjunto de dados abertos que serão utilizados é do Internet Movie Database (IMDB), e poderá ser utilizado em complemento ou independência do primeiro banco.
+Uma vez determinada a forma de entrada de informações, definiram-se os conjuntos de dados que serão utilizados. O primeiro conjunto de dados abertos é proveniente do sistema de recomendações de filmes MovieLens (\url{http://movielens.umn.edu}). Nessa base de dados, o catálogo de filme faz o papel de catálogo de produtos, e o histórico de compras se refere à avaliação dos filmes feita por cada usuário. Outro conjunto de dados abertos é do website Internet Movie Database (IMDB). Na nossa análise, esses dois bancos poderão ser utilizado complementar ou independentemente.
 
-Na primeira etapa do projeto, buscamos parcerias com e-commerces que estivessem dispostos a doar anonimamente seu banco de dados. Como as negociações ainda não foram estabelecidas, essa possibilidade está em aberto.
+Na primeira etapa do projeto, buscamos parcerias com e-commerces que estivessem dispostos a doar anonimamente seu banco de dados. Há ainda a possibilidade de utilizarmos uma terceira base, mas visto que as negociações ainda não foram concluídas, daremos prioridades aos conjuntos \textit{open source}.  
 
 \section{Segunda etapa do Trabalho de Conclusão de Curso} % (fold)
 \label{sec:segunda_etapa_do_trabalho_de_conclus_o_de_curso}
 
 % section segunda_etapa_do_trabalho_de_conclus_o_de_curso (end)
 
-A partir da síntese de soluções estabelecida na primeira etapa do projeto, implementamos os três algoritmos de recomendação e as medidas de recomendação na linguagem de programação estatística R.
+A partir da síntese de soluções estabelecida na primeira etapa do projeto, implementamos os três algoritmos de recomendação e as medidas de recomendação na linguagem de programação estatística R. O código já está disponível para consulta através do endereço \url{https://github.com/aviggiano/tcc}.
 
-Confirmamos a validade dos métodos aplicando-os nas matrizes de referência das Tabelas \ref{tab:rui_ref} e \ref{tab:aif_ref} e obtendo os mesmos resultados dos artigos-base.
+Ainda na etapa de implementação, confirmamos a validade de cada um dos métodos aplicando-os nas matrizes-referência (Tabelas \ref{tab:rui_ref} e \ref{tab:aif_ref}). 
 
-Tratamos todos os dados das bases que serão utilizadas e iniciamos o processo de desenvolvimento da análise de \textit{cross-validation}.
+Em seguida, fizemos o tratamento das bases de dados, adequando-as ao formato de entrada especificado, e  iniciamos o processo de desenvolvimento do \textit{cross-validation}.
 
-Uma vez que a análise desempenho estiver finalizada para todos os métodos, será possível avaliar se os requisitos funcionais foram estabelecidos. Em seguida, procuraremos melhorar o sistema de recomendação a fim de torná-lo mais genérico. Buscaremos deixar a entrada e saída de informações arbitrária, de modo que o usuário possa informar ao sistema como é formado sua base e tabelas. Trabalharemos também na construção de um \textit{driver} que possibilite a conexão entre o sistema de recomendação e um banco de dados SQL, sem que seja necessária a etapa intermediária de arquivos \texttt{csv} para aquisição de dados. Caso haja tempo, planejamos elaborar um \textit{website} para o sistema de recomendação e exportar a lógica de recomendação para um servidor dedicado. Dessa forma, esse serviço de ``sistema de recomendação nas nuvens'' estaria completo e poderia ser utilizado por diferentes ramos de e-commerces.
+Para os trabalhos futuros, iremos realizar a validação cruzada e avaliar se os requisitos funcionais foram estabelecidos. Em seguida, procuraremos melhorar o sistema de recomendação a fim de torná-lo mais genérico. Buscaremos eliminar restrições quanto a entrada e saída de dados, tornando-as o mais arbitrária possível. O objetivo é que o usuário possa informar ao sistema como é formado sua base e tabelas, e que todo o tratamento preliminar seja feito automaticamente. 
+
+Caso haja tempo, trabalharemos também na construção de um \textit{driver} que possibilite a conexão entre o sistema de recomendação e um banco de dados SQL, sem que seja necessária a etapa intermediária de arquivos \texttt{csv} para aquisição de dados. Planejamos elaborar um \textit{website} para o sistema de recomendação e exportar toda a lógica para um servidor dedicado. Outra melhoria desejada é a reconstrução dos métodos na linguagem de programação C, a fim de melhorar a performance computacional. Dessa forma, o serviço de ``sistema de recomendação nas nuvens'' estaria completo e poderia ser utilizado por diferentes ramos de e-commerces.
