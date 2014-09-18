@@ -293,9 +293,9 @@ Por fim, a partir da Equação \ref{eq:wi} calcula-se o peso $\omega_{ui}$ (Tabe
 \end{equation} 
 
 
-\begin{table}[h]
+\begin{table}[p]
 \begin{center}
-    \caption{$\omega_{ui}$}
+    \caption{$\omega_{ui}$ (UP)}
     \label{tab:omega_ui}
     \begin{tabular}{ | c | c | c | c | c | c | c | } 
     \hline
@@ -310,12 +310,12 @@ Por fim, a partir da Equação \ref{eq:wi} calcula-se o peso $\omega_{ui}$ (Tabe
 
 \begin{equation}
 \label{eq:iup} 
-    \hat{\imath}_u = \argmax_{i \in \left\{i~|~r_{ui} > 0\right\}}{\omega_{ui}}
+    \hat{\imath}_u = \argmax_{i \in \left\{i~|~r_{ui}~=~0\right\}}{\omega_{ui}}
 \end{equation} 
 
 \begin{table}[p]
 \begin{center}
-    \caption{$\hat{\imath}_u$}
+    \caption{$\hat{\imath}_u$ (UP)}
     \label{tab:i_u}
     \begin{tabular}{ | c | c | c | c | } 
     \hline
@@ -330,12 +330,41 @@ Por fim, a partir da Equação \ref{eq:wi} calcula-se o peso $\omega_{ui}$ (Tabe
 
 Este método se trata de uma variante da solução \textit{UP}, e também está embasado no cálculo da preferência do usuário por \textit{features}, medida através do seu interesse pelos itens. O algoritmo \textit{UI} utiliza as matrizes de correlação ponderada entre usuários e atributos $\mathbf{W}$ e a matriz de atributos dos itens $\mathbf{A}$ no cálculo da correlação usuário-item.
 
-A lista dos $N$ produtos a serem recomendados decorre portanto do cálculo de $\omega_{ui}$ (Equação \ref{eq:wui}) e da escolha dos itens que maximizem essa variável para cada usuário (Equação \ref{eq:iup}).
+A lista dos $N$ produtos a serem recomendados decorre portanto do cálculo de $\omega_{ui}$ (Equação \ref{eq:wui}, Tabela \ref{tab:omega_ui_ui}) e da escolha dos itens que maximizem essa variável para cada usuário (Equação \ref{eq:iup}, Tabela \ref{tab:i_u_ui}).
 
 \begin{equation}
 \label{eq:wui} 
     \omega_{ui} = \sum_{f}{w_{uf}~a_{if}}
 \end{equation} 
+
+
+\begin{table}[p]
+\begin{center}
+    \caption{$\omega_{ui}$ (UI)}
+    \label{tab:omega_ui_ui}
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$ \\ \hline
+     $u_1$ & 0.25 & 0.85 & 0.55 & 0.25 & 1.15 & 0 \\ \hline
+     $u_2$ & 0.25 & 0.55 & 0.25 & 0.25 & 0.55 & 0 \\ \hline
+     $u_3$ & 0    & 0    & 0    & 0    & 0    & 0.60 \\ \hline
+     $u_4$ & 0.25 & 0.25 & 0.55 & 0.25 & 0.55 & 0 \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+
+\begin{table}[p]
+\begin{center}
+    \caption{$\hat{\imath}_u$ (UI)}
+    \label{tab:i_u_ui}
+    \begin{tabular}{ | c | c | c | c | } 
+    \hline
+     $u_1$ & $u_2$ & $u_3$ & $u_4$   \\ \hline
+     3 & 5 & - & 5  \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
 
 Ao passo que o método \textit{UP} recomenda itens a partir dos $k$ vizinhos mais próximos, o algoritmo \textit{UI} busca os itens com \textit{features} mais similares aos atributos pelos quais $u$ se interessa, diretamente através da matriz de atributos. Espera-se que esse tipo de recomendação forneça sugestões de qualidade similar ao algoritmo original, pois os dois tem a mesma fundamentação inicial. 
 
