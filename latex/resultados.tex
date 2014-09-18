@@ -8,7 +8,7 @@
 % section primeira_etapa_do_trabalho_de_conclus_o_de_curso (end)
 Os resultados da primeira etapa deste Trabalho de Conclusão de Curso, realizadas na disciplina PMR2500, foram principalmente a definição de necessidades, de parâmetros de sucesso e a elaboração de possíveis soluções. 
 
-Definimos que a aquisição de dados seria feita a partir de uma base arbitrária, que deveria alimentar o sistema por meio de arquivos de texto com valores separados por vírgulas (\texttt{.csv}).
+Definimos que a aquisição de dados seria feita a partir de uma base qualquer, que deveria alimentar o sistema por meio de arquivos de texto com valores separados por vírgulas (\texttt{.csv}).
 
 A fim de facilitar o pré-processamento dos dados, estabelecemos que seriam necessários dois arquivos. Um deles deve conter a matriz de atributos $\mathbf{A}$ e o outro, a matriz de avaliações  $\mathbf{R}$. 
 
@@ -70,6 +70,6 @@ Ainda na etapa de implementação, confirmamos a validade de cada um dos método
 
 Em seguida, fizemos o tratamento das bases de dados, adequando-as ao formato de entrada especificado, e  iniciamos o processo de desenvolvimento do \textit{cross-validation}.
 
-Para os trabalhos futuros, iremos realizar a validação cruzada e avaliar se os requisitos funcionais foram estabelecidos. Em seguida, procuraremos melhorar o sistema de recomendação a fim de torná-lo mais genérico. Buscaremos eliminar restrições quanto a entrada e saída de dados, tornando-as o mais arbitrária possível. O objetivo é que o usuário possa informar ao sistema como é formado sua base e tabelas, e que todo o tratamento preliminar seja feito automaticamente. 
+Para os trabalhos futuros, iremos realizar a validação cruzada e avaliar se os requisitos funcionais foram estabelecidos. Em seguida, procuraremos melhorar o sistema de recomendação a fim de torná-lo mais genérico. Buscaremos eliminar restrições quanto a entrada e saída de dados, de forma que elas sejam completamente arbitrárias. O objetivo é que o usuário possa informar ao sistema como é formado sua base, e que todo o tratamento preliminar seja feito automaticamente. 
 
-Caso haja tempo, trabalharemos também na construção de um \textit{driver} que possibilite a conexão entre o sistema de recomendação e um banco de dados SQL, sem que seja necessária a etapa intermediária de arquivos \texttt{csv} para aquisição de dados. Planejamos elaborar um \textit{website} para o sistema de recomendação e exportar toda a lógica para um servidor dedicado. Outra melhoria desejada é a reconstrução dos métodos na linguagem de programação C, a fim de melhorar a performance computacional. Dessa forma, o serviço de ``sistema de recomendação nas nuvens'' estaria completo e poderia ser utilizado por diferentes ramos de e-commerces.
+Caso haja tempo, trabalharemos também na construção de um \textit{driver} que possibilite a conexão entre o sistema de recomendação e um banco de dados SQL, sem que seja necessária a etapa intermediária de arquivos \texttt{csv} para aquisição de dados. Planejamos elaborar um \textit{website} para o sistema de recomendação e exportar toda a lógica para um servidor dedicado. Outra melhoria desejada é a reconstrução dos métodos na linguagem de programação C, a fim de melhorar a performance computacional. Dessa forma, o serviço de ``sistema de recomendação nas nuvens'' estaria completo e poderia ser utilizado por e-commerces reais.
