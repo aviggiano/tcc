@@ -46,21 +46,23 @@ get_W = function(d1, d2, r, debug, generic){
     
     # linear fit E ~ w0 + w D
     lm.W = lm(E ~ D)
-    lm.W
+    W = as.vector(lm.W$coefficients)
+    W
   }
   
 }
 
-get_s = function(W, d1, d2, debug){
+get_s = function(W, d, debug, generic){
   # SIMILARITY MATRIX
-  s = W[1,1] + W[2,1]*(1-d1) + W[3,1]*(1-d2)
+  W[which(is.na(W))] = 0
+  s = W[1] + W[2] * (1-d[,,1]) + W[3] * (1-d[,,2]) + W[4] * (1-d[,,3]) + W[5] * (1-d[,,4])
   # NORMALIZED SIMILARITY
-  s = s / max(s)
+  s = s / max(s, na.rm=TRUE)
   if(debug){
     print("s")
     print(s)
   }
-  s
+  s 
 }
 
 ## for this dataset we have W = [8.0998016, -1.1060046, -0.2921785]

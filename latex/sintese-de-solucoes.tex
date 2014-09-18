@@ -188,12 +188,12 @@ Os pesos $w_f$ são a priori desconhecidos. A Referência \citeonline{symeonidis
     \begin{tabular}{ | c | c | c | c | c | c | c | } 
     \hline
      & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ \hline
-     $i_1$ & 1 & 0 & 1 & 0 & 0 & 0 \\ \hline
-     $i_2$ & 0 & 2 & 0 & 1 & 1 & 0  \\ \hline
-     $i_3$ & 1 & 0 & 1 & 0 & 0 & 0 \\ \hline
-     $i_4$ & 0 & 1 & 0 & 1 & 0 & 0 \\ \hline
-     $i_5$ & 0 & 1 & 0 & 0 & 1 & 0 \\ \hline
-     $i_6$ & 0 & 0 & 0 & 0 & 0 & 1 \\ \hline
+     $i_1$ & - & 0 & 1 & 0 & 0 & 0 \\ \hline
+     $i_2$ & 0 & - & 0 & 1 & 1 & 0  \\ \hline
+     $i_3$ & 1 & 0 & - & 0 & 0 & 0 \\ \hline
+     $i_4$ & 0 & 1 & 0 & - & 0 & 0 \\ \hline
+     $i_5$ & 0 & 1 & 0 & 0 & - & 0 \\ \hline
+     $i_6$ & 0 & 0 & 0 & 0 & 0 & - \\ \hline
     \end{tabular}
 \end{center}
 \end{table}
@@ -217,7 +217,26 @@ Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de
 \end{center}
 \end{table}
 
-Calcula-se a matriz de similaridade $\mathbf{S}$ pela equação \ref{eq:sij} e recomendam-se os itens similares àqueles já comprados, segundo \ref{eq:ifw}.
+Calcula-se a matriz de similaridade $\mathbf{S}$ pela Equação \ref{eq:sij} (Tabela \ref{tab:sij}) e recomendam-se os itens similares àqueles já comprados, segundo \ref{eq:ifw}.
+
+\begin{table}[p]
+\begin{center}
+    \caption{$s_{ij}$}
+    \label{tab:sij}
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ \hline
+     $i_1$ & - &  0.44 & 1.00 & 0.93 &  0.51 &  0.17 \\ \hline
+     $i_2$ & 0.44 &         - & 0.51 & 0.44 &  1 & -0.32  \\ \hline
+     $i_3$ & 1.00 &  0.51 &        - & 1.00 &  0.44 &  0.24 \\ \hline
+     $i_4$ & 0.93 &  0.44 & 1.00 &        - &  0.51 &  0.17 \\ \hline
+     $i_5$ & 0.51 &  1.00 & 0.44 & 0.51 &         - & -0.25 \\ \hline
+     $i_6$ & 0.17 & -0.33 & 0.24 & 0.17 & -0.25 &         - \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+
 
 \begin{equation}
 \label{eq:ifw} 
