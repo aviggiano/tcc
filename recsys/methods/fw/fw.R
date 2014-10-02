@@ -35,7 +35,7 @@ get_W = function(d, e, r, debug, generic=TRUE){
     D = matrix(0, length(d[,,1]), length(d[1,1,]))
     for(f in 1:length(d[1,1,])){
       diag(d[,,f]) = NA
-      D[,f] = as.vector(1-d[,,f])
+      D[,f] = as.vector(d[,,f])
     }
     
     # removing elements i=j
@@ -57,7 +57,7 @@ get_s = function(W, d, debug, generic){
   W[which(is.na(W))] = 0
   s = matrix(0, length(d[,1,1]), length(d[,1,1]))
   for(f in 2:length(W)){
-    s = s + W[f] * (1-d[,,f-1])
+    if(W[f] > 0) s = s + W[f] * (1-d[,,f-1])
   }
   
   # NORMALIZED SIMILARITY
@@ -72,10 +72,11 @@ get_s = function(W, d, debug, generic){
 ## for this dataset we have W = [8.0998016, -1.1060046, -0.2921785]
 ## either the implementation is wrong or this model can't be used!!!
 
-fw = function(r, a, M=2, debug=FALSE){
+fw = function(r, a, M=2, N=1, debug=FALSE){
   e = setup_eij(r, M, debug)
   d = setup_dfij(a, r, debug)
   W = get_W(d, e, r, debug)
   s = get_s(W, d, debug)
-  s
-}
+  iu = get_iu_fw(r, s, M, N, debug)
+  iu
+}  

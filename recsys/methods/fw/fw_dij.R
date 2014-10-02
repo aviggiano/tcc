@@ -25,7 +25,7 @@ setup_dfij = function(a, r, debug, generic=TRUE){
     for(f in 1:length(d[1,1,])) {
       for(i in 1:length(d[1,,1])){
         for(j in 1:length(d[,1,1])){
-          d[i,j,f] = delta(a[i,f],a[j,f])
+          d[i,j,f] = 1-delta(a[i,f],a[j,f])
         } 
      }
     }
@@ -67,4 +67,24 @@ setup_dfij = function(a, r, debug, generic=TRUE){
     }
     list(d1, d2)    
   }
+}
+
+get_iu_fw = function(r, s, M, N, debug){
+  diag(s) = NA
+  iu = sapply(1:length(U), function(u){
+    positive = which(r[u,] > M)
+    ans = c() # ans funciona como um conjunto de itens
+    for(i in positive){
+      # which(is.na(r[u,])) sao os itens ainda nao avaliados por u
+      # index.top.N(s[i,], N) sao os melhores itens para u
+      # a interseccao da os itens recomendados para u
+      ans = union(ans, intersect(which(is.na(r[u,])), index.top.N(s[i,], N)))
+    }
+    ans[1:N] # escolhemos no maximo N elementos
+  })
+  if (debug){
+    print("iu")
+    print(iu)
+  }
+  iu
 }
