@@ -1,6 +1,6 @@
 source('recsys/methods/fw/fw_dij.R')
 
-get_W = function(d1, d2, r, debug, generic){
+get_W = function(d, e, r, debug, generic=TRUE){
   if(!generic){
     ones = matrix(1,length(r[1,]), length(r[1,]))
     # best fit to W = [w0, w_release_date, w_gender]'
@@ -55,9 +55,13 @@ get_W = function(d1, d2, r, debug, generic){
 get_s = function(W, d, debug, generic){
   # SIMILARITY MATRIX
   W[which(is.na(W))] = 0
-  s = W[1] + W[2] * (1-d[,,1]) + W[3] * (1-d[,,2]) + W[4] * (1-d[,,3]) + W[5] * (1-d[,,4])
+  s = matrix(0, length(d[,1,1]), length(d[,1,1]))
+  for(f in 2:length(W)){
+    s = s + W[f] * (1-d[,,f-1])
+  }
+  
   # NORMALIZED SIMILARITY
-  s = s / max(s, na.rm=TRUE)
+  s = s / max(abs(s), na.rm=TRUE)
   if(debug){
     print("s")
     print(s)
@@ -70,8 +74,8 @@ get_s = function(W, d, debug, generic){
 
 fw = function(r, a, M=2, debug=FALSE){
   e = setup_eij(r, M, debug)
-  d1d2 = setup_dfij(a, r, debug)
-  W = get_W(d1d2[[1]], d1d2[[2]], r, debug)
-  s = get_s(W, d1d2[[1]], d1d2[[2]], debug)
+  d = setup_dfij(a, r, debug)
+  W = get_W(d, e, r, debug)
+  s = get_s(W, d, debug)
   s
 }

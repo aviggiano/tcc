@@ -19,7 +19,7 @@ setup_eij = function(r, M, debug) {
 
 
 ## d_fij
-setup_dfij = function(a, r, debug, generic=FALSE){
+setup_dfij = function(a, r, debug, generic=TRUE){
   if(generic) {
     d = array(0,c(length(r[1,]), length(r[1,]), length(a[1,])))
     for(f in 1:length(d[1,1,])) {
@@ -29,6 +29,7 @@ setup_dfij = function(a, r, debug, generic=FALSE){
         } 
      }
     }
+    d
   }
   else {
     max_distance_release_date = max(a[,1], na.rm=T) - min(a[,1], na.rm=T)
