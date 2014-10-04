@@ -52,7 +52,7 @@ get_W = function(d, e, r, debug, generic=TRUE){
   
 }
 
-get_s = function(W, d, debug, generic){
+get_sij = function(W, d, debug, generic){
   # SIMILARITY MATRIX
   W[which(is.na(W))] = 0
   s = matrix(0, length(d[,1,1]), length(d[,1,1]))
@@ -69,14 +69,11 @@ get_s = function(W, d, debug, generic){
   s 
 }
 
-## for this dataset we have W = [8.0998016, -1.1060046, -0.2921785]
-## either the implementation is wrong or this model can't be used!!!
-
 fw = function(r, a, M=2, N=1, debug=FALSE){
   e = setup_eij(r, M, debug)
   d = setup_dfij(a, r, debug)
   W = get_W(d, e, r, debug)
-  s = get_s(W, d, debug)
+  s = get_sij(W, d, debug)
   iu = get_iu_fw(r, s, M, N, debug)
   iu
 }  

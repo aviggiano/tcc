@@ -42,7 +42,7 @@ get_w = function(t, q, debug){
 }
 
 get_iu = function(omega, r, U, N, debug){
-  omega[(which(!is.na(r)))] = NA # previne escolher itens repetidos
+  omega[union(which(!is.na(r)),  which(r != 0))] = NA # previne escolher itens repetidos
   iu = lapply(1:length(U), function(u){
     index.top.N(omega[u,], N)
   })

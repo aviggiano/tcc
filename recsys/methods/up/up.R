@@ -49,6 +49,7 @@ get_omega = function(a, r, s, U, M, k, debug){
     print("omega")
     print(omega)
   }
+  omega
 }
 
 up = function(a, r, U, M=2, k=2, N=1, debug=FALSE){
