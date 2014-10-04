@@ -80,7 +80,11 @@ get_iu_fw = function(r, s, M, N, debug){
       # a interseccao da os itens recomendados para u
       ans = union(ans, intersect(which(is.na(r[u,])), index.top.N(s[i,], N)))
     }
+    ans.length = length(ans)
+    if(ans.length < N) N = ans.length
     ans[1:N] # escolhemos no maximo N elementos
+    
+    ## TODO: melhorar... se N e' uma lista de 6 elementos, devemos chutar outros 6 mesmo que nao haja similaridade (?)
   })
   if (debug){
     print("iu")
