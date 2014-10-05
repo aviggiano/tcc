@@ -9,7 +9,7 @@ hide.data = function(R, kappa = 0.75){
   R
 }
 
-performance = function(a, r, U, M=2, k=2, N=10, debug=FALSE){
+performance = function(a, r, U, M=2, k=10, N=20, debug=FALSE){
   rtest = hide.data(r)
   if(debug){
     print("h(r)")
@@ -39,7 +39,9 @@ get.R = function(r, rtest, U, M, N){
   # RELEVANT = length(which(rtest>M)) #length(which(!is.na(r))) - length(which(r == rtest)) #
   sum(sapply(1:length(U), function(u) {
     relevant = length(which(r[u,] > M)) - length(which(r[u,] == rtest[u,]))
-    if(relevant > N) N else relevant
+    if(relevant < 0) relevant = 0
+    if(relevant > N) relevant = N
+    relevant
   }))
 }
 
@@ -79,14 +81,13 @@ performance.fw =  function(a, r, rtest, U, M=2, N=10, debug=FALSE){
   get.precision.recall.F1(iu, r, rtest, U, M, N, debug)
 }
 
-cross.validation = function(r, a, K=10){
+cross.validation = function(r, a, U, M=2, k=2, N=10, K=10, debug=FALSE){
   require(caret)
-  folds <- createFolds(r, K, list = TRUE, returnTrain = FALSE)
   r[which(is.na(r))]=0
+  folds <- createFolds(r, K, list = TRUE, returnTrain = FALSE)
   for(i in 1:length(folds)){
     rtest = r
-    rtest[folds[[i]]]=NA
+    rtest[folds[[i]]]=0
     up = performance.up(a, r, rtest, U, M, k, N, debug)
-    print(up)
   }
 }
