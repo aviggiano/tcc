@@ -81,13 +81,18 @@ performance.fw =  function(a, r, rtest, U, M=2, N=10, debug=FALSE){
   get.precision.recall.F1(iu, r, rtest, U, M, N, debug)
 }
 
-cross.validation = function(r, a, U, M=2, k=2, N=10, K=10, debug=FALSE){
+cross.validate = function(r, a, U, M=2, k=2, N=10, K=10, debug=FALSE){
   require(caret)
-  r[which(is.na(r))]=0
-  folds <- createFolds(r, K, list = TRUE, returnTrain = FALSE)
+  folds = createFolds(U, K, list = TRUE, returnTrain = FALSE)
   for(i in 1:length(folds)){
-    rtest = r
-    rtest[folds[[i]]]=0
-    up = performance.up(a, r, rtest, U, M, k, N, debug)
+    Uvalidate = folds[[i]]
+    Utrain = unlist(unname(folds[-i]))
+    
+    rvalidate = r[Uvalidate,]
+    rtrain = r[Utrain,]
+    
+    up(a, rtrain, Utrain, M, k, N, debug, TRAIN)
+    iu = up(a, rvalidate, Uvalidate, M, k, N, debug, VALIDATE)
+    get.precision.recall.F1(iu, , rtest, U, M, N, debug)
   }
 }

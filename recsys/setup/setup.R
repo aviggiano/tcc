@@ -1,6 +1,9 @@
 t0 = Sys.time()
 print("Setup started")
 
+TRAIN <<- 1
+VALIDATE <<- 2
+
 ## READ AUXILIARY FUNCTIONS
 source('recsys/setup/functions.R')
 

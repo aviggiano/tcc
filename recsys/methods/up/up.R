@@ -53,11 +53,23 @@ get_omega = function(a, r, s, U, M, k, debug){
 }
 
 up = function(a, r, U, M=2, k=2, N=1, debug=FALSE){
-  t = get_t(a, r, U, M, debug)
-  q = get_q(t, U, debug)
-  w = get_w(t, q, debug)
-  s = get_s(w, t, U, debug)
+  TF = get_t(a, r, U, M, debug)
+  IDF = get_q(TF, U, debug)
+  w = get_w(TF, IDF, debug)
+  s = get_s(w, TF, U, debug)
   omega = get_omega(a, r, s, U, M, k, debug)
   iu = get_iu(omega, r, U, N, debug)
-  iu
+  iu  
 }
+
+#up = function(a, r, U, M=2, k=2, N=1, debug=FALSE, nilOrTrainOrValidate=0){
+#  TF = get_t(a, r, U, M, debug)
+#  if(nilOrTrainOrValidate != VALIDATE) IDF <<- get_q(TF, U, debug)
+#  if(nilOrTrainOrValidate != TRAIN){
+#    w = get_w(TF, IDF, debug)
+#    s = get_s(w, TF, U, debug)
+#    omega = get_omega(a, r, s, U, M, k, debug)
+#    iu = get_iu(omega, r, U, N, debug)
+#    iu  
+#  } 
+#}
