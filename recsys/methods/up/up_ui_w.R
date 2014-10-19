@@ -49,10 +49,11 @@ get_w = function(TF, q, debug){
   w
 }
 
-get_iu = function(omega, r, Utest, N, debug){
-  omega[union(which(!is.na(r)),  which(r != 0))] = NA # previne escolher itens repetidos
+get_iu = function(omega, r, rtrain.rtest, Utest, N, debug){
+  repeated = which(rtrain.rtest[Utest,] == r[Utest,])
+  omega[repeated] = NA # previne escolher itens repetidos
   iu = lapply(Utest, function(u){
-    index.top.N(omega[u,], N)
+    index.top.N(omega[u,], N) ## correto??
   })
   names(iu) = Utest
   if (debug){

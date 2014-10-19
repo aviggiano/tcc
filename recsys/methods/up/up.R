@@ -86,6 +86,6 @@ up = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
   w = get_w(TF, IDF, debug)
   s = get_s(w, TF, U, debug)
   omega = get_omega(a, r, s, Utrain.Utest, M, k, debug)
-  iu = get_iu(omega, r, Utest, N, debug)
+  iu = get_iu(omega, r, rtrain.rtest, Utest, N, debug)
   iu     
 }
