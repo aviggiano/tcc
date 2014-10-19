@@ -1,38 +1,46 @@
 ## SETUP OF T_UxF
 source('recsys/setup/functions.R')
 
-get_t = function(a, r, U, M, debug){
-  t = matrix(0,length(U), length(a[1,]))
-  for(u in 1:length(t[,1])){
-    for(f in 1:length(t[1,])){
-      t[u,f] = sum(
+get_U = function(r, debug){
+  U = 1:length(r[,1])
+  if(debug){
+    print("U")
+    print(U)
+  }
+}
+
+get_TF = function(a, r, M, debug){
+  TF = matrix(0,length(r[,1]), length(a[1,]))
+  for(u in 1:length(TF[,1])){
+    for(f in 1:length(TF[1,])){
+      TF[u,f] = sum(
         b(r[u,] * a[,f], M)
         , na.rm = TRUE)
     } 
   } 
   
   if(debug) {
-    print("t")
-    print(t)
+    print("TF")
+    print(TF)
   }
-  t
+  TF
 }
 
 
-get_q = function(t, U, debug){
-  qbar = sapply(1:length(t[1,]), function(f) sum(b0(t[,f])))
-  q = log(length(U)/qbar, 10)
+get_IDF = function(TF, U, debug){
+  IDFbar = sapply(1:length(TF[1,]), function(f) sum(b0(TF[,f])))
+  IDF = log(length(U)/IDFbar, 10)
   if(debug) {
-    print("q")
-    print(q)
+    print("IDF")
+    print(IDF)
   }
-  q
+  IDF
 }
 
-get_w = function(t, q, debug){
-  w = matrix(0, length(t[,1]), length(q))
-  for(u in 1:length(w[,1])){
-    w[u,] = t[u,]*q
+get_w = function(TF, q, debug){
+  w = matrix(0, length(TF[,1]), length(q))
+  for(u in 1:length(TF[,1])){
+    w[u,] = TF[u,]*q
   }
   if(debug) {
     print("w")
@@ -41,11 +49,12 @@ get_w = function(t, q, debug){
   w
 }
 
-get_iu = function(omega, r, U, N, debug){
+get_iu = function(omega, r, Utest, N, debug){
   omega[union(which(!is.na(r)),  which(r != 0))] = NA # previne escolher itens repetidos
-  iu = lapply(1:length(U), function(u){
+  iu = lapply(Utest, function(u){
     index.top.N(omega[u,], N)
   })
+  names(iu) = Utest
   if (debug){
     print("iu")
     print(iu)

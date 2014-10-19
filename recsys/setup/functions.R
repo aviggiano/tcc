@@ -81,22 +81,27 @@ top.N = function(xs, N=10){
   sort(xs, na.last=FALSE)[x0:xs.length]
 }
 
-index.top.N = function(xs, N=10){
+index.top.N = function(xs, N=10, ys.remove=NULL){
   if(length(xs) > 0){
     o = order(xs, na.last=FALSE)
+    if(!is.null(ys.remove)) o = setdiff(o, ys.remove)
     o.length = length(o)
     if (N > o.length) N = o.length
-    o[((o.length-N+1):o.length)]
+    if (length(o) > 0) 
+      o[((o.length-N+1):o.length)]
+    else 
+      c()
   }
   else {
     0
   }
 }
 
-index.top.N.not.self = function(xs, self, N=10) {
-  indexes = index.top.N(xs[-self], N)
-  w = which(indexes > self)
-  indexes[w] = indexes[w] + 1
+index.top.N.not.self = function(xs, self, N=10, ys.remove) {
+  ys.remove = union(self, ys.remove)
+  indexes = index.top.N(xs, N, ys.remove)
+  #w = which(indexes > self)
+  #indexes[w] = indexes[w] + 1
   indexes
 }
 
