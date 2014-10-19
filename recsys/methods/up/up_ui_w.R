@@ -52,9 +52,9 @@ get_w = function(TF, q, debug){
 
 get_iu = function(omega, r, rtrain.rtest, Utest, N, debug){
   repeated = which(rtrain.rtest[Utest,] == r[Utest,])
-  omega[repeated] = NA # previne escolher itens repetidos
+  #omega[repeated] = NA # previne escolher itens repetidos
   iu = lapply(Utest, function(u){
-    index.top.N(omega[u,], N) ## correto??
+    index.top.N(omega[u,], N, repeated) ## correto??
   })
   names(iu) = Utest
   if (debug){

@@ -112,3 +112,10 @@ top.N.not.self = function(xs, self, N=10) {
 list.length = function(l){
   sum(sapply(1:length(l), function(x) length(l[[x]])))
 }
+
+normalize = function(x, columns=FALSE){
+  if(columns)
+    apply(a,2,function(x) x/max(abs(x), na.rm=TRUE))
+  else
+    x/max(abs(x), na.rm=TRUE)
+}
