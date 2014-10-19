@@ -26,8 +26,6 @@ performance = function(a, r, M=2, k=10, N=20, debug=FALSE){
   Utrain.Utest = divide.train.test(r)
   rtrain.rtest = hide.data(r, Utrain.Utest, has.na=FALSE)
   
-  a = normalize(a, columns=TRUE)
-  
   up = performance.up(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
   #ui = performance.ui(a, r, rtest, U, M, N, debug)
   #fw = performance.fw(a, r, rtest, U, M, N, debug)
@@ -103,10 +101,12 @@ performance.fw =  function(a, r, rtest, U, M=2, N=10, debug=FALSE){
 
 plot.results = function(){
   Ns = c(1,5,10,15,20)
+  
+  ap = normalize(a, columns=TRUE)
   results = lapply(Ns, function(n) performance.up(ap, r, rtrain.rtest, Utrain.Utest, M=3, k=10, N=n, debug=TRUE))
   
   par(mfrow=c(3,1))
-  par(mar=rep(2, 4))
+  par(mar=rep(2,4))
   
   plot(unlist(results)[c(1,4,7,10,13)])    
   plot(unlist(results)[c(1+1,4+1,7+1,10+1,13+1)])    
