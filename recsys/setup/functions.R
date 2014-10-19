@@ -114,6 +114,7 @@ list.length = function(l){
 }
 
 normalize = function(x, columns=FALSE){
+  x[which(is.na(x))]=0
   if(columns)
     apply(a,2,function(x) x/max(abs(x), na.rm=TRUE))
   else
