@@ -1,4 +1,4 @@
-t0 = Sys.time()
+t0 <<- Sys.time()
 print("Setup started")
 
 ## READ AUXILIARY FUNCTIONS
@@ -22,17 +22,17 @@ colnames(user)=c("id", "age", "gender", "occupation", "zip_code")
 
 ## GET MORE DATA
 source('recsys/results/benchmark2.R')
-time("Got more data after", t0)
+time("Got more data after")
 
 ## CREATE RATING MATRIX
 r = matrix(0,length(unique(history$user_id)),length(unique(history$item_id)))
-time("Initialized rating matrix after", t0)
+time("Initialized rating matrix after")
 
 for(i in 1:size(history)) {
   hi = history[i,1:3]
   r[hi$user_id, hi$item_id] = hi$rating
 }
-time("Created rating matrix after", t0)
+time("Created rating matrix after")
 
 ## TRANSFORM ITEM MATRIX
 item$release_date = as.numeric(as.Date(as.character(item$release_date), "%d-%b-%Y"))
@@ -54,4 +54,4 @@ U = user$id
 I = item$id
 
 ## FINISHED
-time("Setup finished after", t0)
+time("Setup finished after")

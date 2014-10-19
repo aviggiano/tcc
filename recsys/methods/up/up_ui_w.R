@@ -7,6 +7,7 @@ get_U = function(r, debug){
     print("U")
     print(U)
   }
+  U
 }
 
 get_TF = function(a, r, M, debug){
