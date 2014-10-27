@@ -6,6 +6,7 @@ b0 = function(x){
   b(x,0)
 }
 
+# no artigo UP, Pt e' tal que x >= y. Aqui usamos x > y, entao t = t+1
 b = function(x,y){
   1*(x > y)
 }

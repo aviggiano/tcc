@@ -49,7 +49,7 @@ rm(hi)
 gc()
 
 ## SET OF FEATURES, USERS AND ITEMS
-F = c("release_date", "gender", "year", "length", "budget", "rating", "votes")
+F = c("release_date", "genre", "year", "length", "budget", "rating", "votes")
 U = user$id
 I = item$id
 

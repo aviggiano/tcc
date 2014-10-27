@@ -1,6 +1,7 @@
 source('recsys/methods/up/up.R')
 source('recsys/methods/up/ui.R')
 source('recsys/methods/fw/fw.R')
+set.seed(2)
 
 hide.data = function(r, Utrain.Utest, HIDDEN = 0.75, random = FALSE, has.na = TRUE){
   Utest = Utrain.Utest[[2]]
@@ -93,7 +94,7 @@ performance.ui =  function(a, r, rtest, U, M=2, N=10, debug=FALSE){
   get.precision.recall.F1(iu, r, rtest, U, M, N, debug)
 }
 
-performance.fw =  function(a, r, rtest, U, M=2, N=10, debug=FALSE){
+performance.fw = function(a, r, rtrain.rtest, Utrain.Utest, M=2, k=2, N=10, debug=FALSE){
   cat("FW\n")
   iu = fw(rtest, a, M, N, debug)
   get.precision.recall.F1(iu, r, rtest, U, M, N, debug)
