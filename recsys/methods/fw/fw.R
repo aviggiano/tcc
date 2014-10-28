@@ -69,11 +69,18 @@ get_sij = function(W, d, debug, generic){
   s 
 }
 
-fw = function(r, a, M=2, N=1, debug=FALSE){
-  e = setup_eij(r, M, debug)
-  d = setup_dfij(a, r, debug)
-  W = get_W(d, e, r, debug)
+fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
+  Utrain = Utrain.Utest[[1]]
+  Utest = Utrain.Utest[[2]]
+  
+  rtrain = rtrain.rtest[Utrain,]
+  rtest = rtrain.rtest[Utest,]
+  
+  U = get_U(rtrain, debug)
+  e = setup_eij(rtrain.rtest, M, debug)
+  d = setup_dfij(a, rtrain.rtest, debug)
+  W = get_W(d, e, rtrain.rtest, debug)
   s = get_sij(W, d, debug)
-  iu = get_iu_fw(r, s, M, N, debug)
+  iu = get_iu_fw(rtrain.rtest, s, M, N, debug)
   iu
 }  
