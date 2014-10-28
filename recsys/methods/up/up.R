@@ -80,6 +80,7 @@ up = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
   TF = get_TF(a, rtrain, M, debug)
   IDF = get_IDF(TF, U, debug)
   
+  print(IDF)
   # test
   U = get_U(rtrain.rtest, debug)
   TF = get_TF(a, rtrain.rtest, M, debug)

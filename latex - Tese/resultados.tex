@@ -2,6 +2,37 @@
 \chapter[Resultados]{Resultados}
 \label{chap:resultados}
 
+Os resultados deste trabalho são a análise de desempenho dos algoritmos propostos, em termos de precisão, abrangência e tempo computacional, mediante a mudanças em suas variáveis de importância (Tabela \ref{tab:variaveis}). 
+
+Além disso, as metodologias de solução de cada um dos sistemas serão debatidas, de modo a explorar casos de uso particulares e a propor melhorias nos métodos computacionais. Serão respondidas perguntas como ``O que acontece com itens ou usuários sem nenhuma avaliação?'' e ``Qual o desempenho dos métodos para outros bancos de dados?''.
+
+\begin{table}[hp]
+\begin{center}
+    \caption{Parâmetros de influência no desempenho dos algoritmos de recomendação}
+    \label{tab:variaveis}
+    \begin{tabular}{  | p{2cm} | p{7cm} | p{3.5cm} | } 
+    \hline
+    \textbf{Variável} & \textbf{Descrição} & \textbf{Valor padrão}  \\ \hline
+    $N$ & Tamanho da lista de recomendação & $10$ \\ \hline   
+    $T$ & Percentual da base de aprendizado na validação cruzada & $75\%$ \\ \hline
+    $H$ & Percentual de avaliações ``escondidas'' dos usuários-teste na validação cruzada & $75\%$ \\ \hline
+    $M$ & Valor mínimo para avaliações positivas & $2$ \\ \hline
+    $k$ & Número de vizinhos mais próximos & $10$ \\ \hline
+    $\mathcal{F}$ & Conjunto de atributos dos itens & Escolhido \textit{a priori} para cada método \\ \hline
+    $d^f$ & Medida de distância entre atributos & Delta de Kronecker $\delta^f$ \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+%- diferenca entre NA e 0
+
+\section{Tamanho da lista de recomendações $N$} % (fold)
+\label{sec:tamanho_da_lista_de_recomenda_es_}
+
+Assim como era de se esperar, a medida que o tamanho da lista de recomendações aumenta, a precisão cai e a abrangência cresce. O método TODO supera os dois outros algoritmos, etc tal
+
+\chapter[old]{old}
+\label{chap:old}
+
 \section{Primeira etapa do Trabalho de Conclusão de Curso} % (fold)
 \label{sec:primeira_etapa_do_trabalho_de_conclus_o_de_curso}
 

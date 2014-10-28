@@ -1,9 +1,10 @@
 source('recsys/methods/up/up.R')
 source('recsys/methods/up/ui.R')
 source('recsys/methods/fw/fw.R')
-set.seed(2)
+SEED = 2
 
 hide.data = function(r, Utrain.Utest, HIDDEN = 0.75, random = FALSE, has.na = TRUE){
+  set.seed(SEED)
   Utest = Utrain.Utest[[2]]
   for(u in Utest){
     i.length = length(r[u,])
@@ -16,6 +17,7 @@ hide.data = function(r, Utrain.Utest, HIDDEN = 0.75, random = FALSE, has.na = TR
 }
 
 divide.train.test = function(r, TEST = 0.25){
+  set.seed(SEED)
   U.length = length(r[,1])
   mix = sample(U.length)
   U.test = mix[1:round(TEST * length(mix))]
@@ -23,12 +25,17 @@ divide.train.test = function(r, TEST = 0.25){
   list(U.train, U.test)
 }
 
-performance = function(a, r, M=2, k=10, N=20, debug=FALSE){
+performance = function(a, r, M=2, k=10, N=20, debug=FALSE, normalize=TRUE){
   Utrain.Utest = divide.train.test(r)
   rtrain.rtest = hide.data(r, Utrain.Utest, has.na=FALSE)
   
-  up = performance.up(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
-  #ui = performance.ui(a, r, rtest, U, M, N, debug)
+  if(normalize){
+    a[which(is.na(a))]=0
+    a = normalize(a, columns = TRUE)
+    a = a[,-c(1,21)]
+  }
+  #performance.up(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
+  performance.ui(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
   #fw = performance.fw(a, r, rtest, U, M, N, debug)
 }
 
@@ -82,16 +89,16 @@ get.precision.recall.F1 = function(iu, r, rtrain.rtest, Utrain.Utest, M, N, debu
   list(precision, recall, F1)
 }
 
-performance.up = function(a, r, rtrain.rtest, Utrain.Utest, M=2, k=2, N=10, debug=FALSE){
+performance.up = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
   cat("UP\n")
   iu = up(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
   get.precision.recall.F1(iu, r, rtrain.rtest, Utrain.Utest, M, N, debug)
 }
 
-performance.ui =  function(a, r, rtest, U, M=2, N=10, debug=FALSE){
+performance.ui =  function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
   cat("UI\n")
-  iu = ui(a, rtest, U, M, N, debug)
-  get.precision.recall.F1(iu, r, rtest, U, M, N, debug)
+  iu = ui(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
+  get.precision.recall.F1(iu, r, rtrain.rtest, Utrain.Utest, M, N, debug)
 }
 
 performance.fw = function(a, r, rtrain.rtest, Utrain.Utest, M=2, k=2, N=10, debug=FALSE){
