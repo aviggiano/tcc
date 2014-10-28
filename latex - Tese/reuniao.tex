@@ -1,0 +1,85 @@
+%!TEX root = index.tex
+\chapter[Reunião com a Click Bus]{Reunião com a Click Bus}
+\label{chap:Reuniao_com_a_click_bus}
+
+Desde o início do projeto tínhamos a intenção de trabalhar em parceria com uma empresa para que nosso trabalho fosse implementado para que pudéssemos mensurar sua efetividade em um ambiente real. Para isso fizemos contato com a Click Bus, uma loja online que vende passagens de ônibus, hoje a maior do país.
+
+Na reunião que tivemos foi discutido o que nos seria fornecido para o desenvolvimento do projeto e o que deveríamos devolver ao final. Foi acordado que teríamos acesso ao banco de dados com alguns dos dados codificados para preservar a identidade de seus clientes e para que estes dados não fossem usados por outras empresas.
+
+Nos foi mostrada a estrutura do banco de dados usado na empresa. O banco de dados está atualmente dividido em  seis diferentes tabelas:
+
+\begin{\begin{itemize}
+	\item Ordem
+	\item Itens da ordem
+	\item Rotas
+	\item Lugares
+	\item Pagamentos de ordens
+	\item Endereço de cobrança
+\end{itemize}
+
+A tabela Ordem é composta por 7 campos:
+
+\begin{itemize}
+	\item idOrdem, o identificador único da ordem de compra
+	\item Total Reais, o valor gasto na ordem
+	\item idUsuario, neste caso o email do usuario
+	\item nome, nome do usuario
+	\item Criado em, data em que o pedido foi feito
+	\item Status da ordem, com relação a pagamento e processamento do pedido
+	\item Dia da semana, dia da semana em que a ordem foi feita
+\end{itemize}
+
+Itens da ordem é composta por 10 campos: 
+
+\begin{itemize}
+	\item idItens da ordem, é o identificador único do item
+	\item Ordem_idOrdem, identificador de a qual ordem o item pertence, referencia a tabela Ordem
+	\item Origem, cidade de origem
+	\item Destino, cidade de destino
+	\item Serviço, Leito, executivo ou comum
+	\item idLinha de Onibus, qual a empresa que opera a viagem
+	\item Departure date_time, dia e hora de saída
+	\item Arrival date_time, dia e hora de chegada
+	\item Ida/Volta, viagem de ida ou de volta
+	\item Rotas_idRotas, identificador da rota a ser realizada, referencia a tabela Rotas
+\end{itemize}
+
+Rotas é composta de 3 itens:
+
+\begin{itemize}
+	\item idRotas, identificador único de rota
+	\item Lugares_idLugares_Origem, Lugar de origem, referencia a tabela Lugares
+	\item Lugares_idLugares_Destino, Lugar de destino, referencia a tabela Lugares
+\end{itemize}
+
+Lugares é composta por 3 itens:
+
+\begin{itemize}
+	\item  idLugares, identificador único de lugar
+	\item Cidade, casos especiais ocorrem quando a cidade possui mais de uma estação rodoviária
+	\item Estado
+\end{itemize}
+
+Pagamentos de ordens, 3 itens:
+
+\begin{itemize}
+	\item idPagamentos de ordens, identificador único de pagamento
+	\item Ordem_idOrdem, referencia a qual ordem pertence o pagamento
+	\item Tipo de pagamento, modo de pagamento, cartão de crédito etc.
+\end{itemize}
+
+A última tabela, Endereço de cobra consiste em 6 campos:
+\begin{itemize}
+	\item idEndereço de cobrança, identificador de cobrança
+	\item Pagamentos de ordens_idPagamentos de ordem, referencia a qual pagamento o endereço pertence
+	\item Cidade
+	\item Estado
+	\item Endereço
+	\item Cep 
+\end{itemize}
+
+Os relacionamentos entre tabelas estão demonstrados na figura abaixo.
+
+Inserir Figura aqui
+
+Outro importante tópico conversado em reunião foi a questão da importância do timing da recomendação. O sistema deve não só prever qual será a próxima viagem do usuário, mas quando esta se dará e quanto tempo antes da viagem devemos oferecê-la ao cliente. Foi feito um estudo sobre quando os cliente costumam comprar as passagens pela Click Bus e nos foi informado que 60 por cento das passagens são compradas 3 dias antes da data de embarque. Então é importante que a sugestão seja feita antes que o cliente compre a passagem, porém perto o bastante da data de embarque para que esse tenha interesse.

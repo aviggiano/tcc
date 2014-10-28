@@ -1,0 +1,524 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pus",
+				"push_before_deploy"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/ag/tmp/crono.tex",
+			"settings":
+			{
+				"buffer_size": 1247,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ag/tmp/index.tex",
+			"settings":
+			{
+				"buffer_size": 6315,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 201.0,
+		"selected_items":
+		[
+			[
+				"Latex",
+				"LaTeXTools: Reconfigure and migrate settings"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ag/git/tcc/latex/beamer/index.tex",
+		"/home/ag/git/tcc/latex/beamer/cronograma.tex",
+		"/home/ag/git/tcc/latex/beamer/introducao.tex",
+		"/home/ag/git/tcc/latex/beamer/sintese-de-solucoes.tex",
+		"/home/ag/git/tcc/latex/beamer/estado-da-arte.tex",
+		"/home/ag/git/tcc/latex/bibliografia.bib",
+		"/home/ag/git/tcc/latex/beamer/bibliografia.tex",
+		"/home/ag/git/tcc/latex/beamer/resultados.tex",
+		"/home/ag/development/revmob/setup/.bash_profile",
+		"/home/ag/king",
+		"/home/ag/git/tcc/latex/beamer/requisitos.tex",
+		"/home/ag/git/tcc/latex/beamer/objetivos.tex",
+		"/home/ag/git/tcc/latex/index.tex",
+		"/home/ag/git/tcc/latex/index.aux",
+		"/home/ag/git/tcc/latex/beamer/avaliacao-de-desempenho.tex",
+		"/home/ag/git/tcc/latex/cronograma.tex",
+		"/home/ag/git/tcc/latex/beamer/title.tex",
+		"/home/ag/git/tcc/latex/beamer/index.bbl",
+		"/home/ag/git/tcc/latex/title.tex",
+		"/home/ag/git/tcc/latex/sintese-de-solucoes.tex",
+		"/home/ag/git/tcc/latex/beamer/presentation.tex",
+		"/home/ag/git/tcc/latex/resultados.tex",
+		"/home/ag/git/tcc/latex/avaliacao.tex",
+		"/home/ag/tmp/beamer/index.tex",
+		"/home/ag/git/tcc/latex/estado-da-arte.tex",
+		"/home/ag/git/tcc/latex/beamer/index.vrb",
+		"/home/ag/git/tcc/latex/beamer/beamer.tex",
+		"/home/ag/git/tcc/latex/beamer/sumario.tex",
+		"/home/ag/git/tcc/latex/beamer/beamer.sublime-project",
+		"/home/ag/git/tcc/latex/beamer/exemplo.tex",
+		"/home/ag/git/tcc/latex/introducao.tex",
+		"/home/ag/git/tcc/latex/beamer/overview.tex",
+		"/home/ag/git/tcc/latex/beamer/referencias/title.tex",
+		"/home/ag/git/tcc/latex/beamer/referencias/index.tex",
+		"/home/ag/git/tcc/latex/beamer/arte/estado-da-arte.tex",
+		"/home/ag/git/tcc/latex/beamer/beamer.sublime-workspace",
+		"/home/ag/git/tcc/latex/referencias/bibliografia.bib",
+		"/home/ag/git/tcc/latex/cronograma/cronograma.tex",
+		"/home/ag/git/tcc/latex/arte/index.tex",
+		"/home/ag/git/tcc/latex/arte/title.tex",
+		"/home/ag/git/tcc/latex/cronograma/index.tex",
+		"/home/ag/git/tcc/latex/cronograma/title.tex",
+		"/home/ag/git/tcc/latex/referencias/index.tex",
+		"/home/ag/git/tcc/latex/referencias/title.tex",
+		"/home/ag/git/tcc/latex/andamento-do-projeto.tex",
+		"/home/ag/git/tcc/latex/metodologia.tex",
+		"/home/ag/git/tcc/latex/sumario-final.tex",
+		"/home/ag/git/tcc/latex/referencias-bibliograficas-finais.tex",
+		"/home/ag/git/tcc/latex/latex.sublime-project",
+		"/home/ag/git/tcc/latex/img/Estrutura_Banco_de_Dados.png",
+		"/home/ag/git/tcc/latex/requisitos.tex",
+		"/home/ag/git/tcc/latex/objetivos.tex",
+		"/home/ag/git/tcc/latex/lista-de-simbolos.tex",
+		"/home/ag/git/tcc/latex/test/index.tex",
+		"/home/ag/git/tcc/latex/index.bbl",
+		"/home/ag/git/tcc/latex/reuniao.tex",
+		"/home/ag/git/tcc/latex/email.txt",
+		"/opt/sublime_text_2/sublime_text",
+		"/home/ag/.bash_custom",
+		"/home/ag/git/tcc/latex/latex.sublime-workspace",
+		"/home/ag/R/tcc/old/rgb.csv",
+		"/home/ag/R/tcc/old/color_name.csv",
+		"/home/ag/R/tcc/ibrand.csv",
+		"/home/ag/R/tcc/color.csv",
+		"/home/ag/g.txt",
+		"/home/ag/R/tcc/old/hexa.csv",
+		"/home/ag/R/tcc/hexa.csv",
+		"/home/ag/R/tcc/old/all.csv",
+		"/media/Data/Dropbox/Poli/1. Disciplinas/5. Quinto Ano/PMR2520 Cad Cam/Consulta/Caderno/latex/representacao.tex",
+		"/media/Data/Dropbox/Poli/1. Disciplinas/5. Quinto Ano/PMR2520 Cad Cam/Consulta/Caderno/latex/interpolacoes.tex",
+		"/media/Data/Dropbox/Poli/1. Disciplinas/5. Quinto Ano/PMR2520 Cad Cam/Consulta/Caderno/latex/title.tex",
+		"/media/Data/Dropbox/Poli/1. Disciplinas/5. Quinto Ano/PMR2520 Cad Cam/Consulta/Caderno/latex/index.tex",
+		"/media/Data/Dropbox/Poli/1. Disciplinas/5. Quinto Ano/PMR2520 Cad Cam/Consulta/Caderno/latex/bibliografia.tex",
+		"/media/Data/Dropbox/Poli/1. Disciplinas/5. Quinto Ano/PMR2520 Cad Cam/Consulta/Caderno/latex/introducao.tex",
+		"/media/Data/Dropbox/Poli/1. Disciplinas/5. Quinto Ano/PMR2520 Cad Cam/Consulta/Caderno/latex/computacao-grafica-bidimensional.tex",
+		"/media/Data/Dropbox/Poli/1. Disciplinas/5. Quinto Ano/PMR2520 Cad Cam/Consulta/Caderno/latex/latex.sublime-workspace",
+		"/media/Data/Dropbox/Poli/latex/computacao-grafica-bidimensional.tex",
+		"/media/Data/Dropbox/Poli/latex/latex.sublime-project",
+		"/media/Data/Dropbox/Poli/latex/title.tex",
+		"/media/Data/Dropbox/Poli/latex/abntex2-modelo-references.bib",
+		"/media/Data/Dropbox/Poli/latex/bibliografia.bib",
+		"/media/Data/Dropbox/TCC/latex/abntex2-modelo-trabalho-academico.tex",
+		"/media/Data/Dropbox/TCC/latex/index.tex",
+		"/usr/local/texlive/2013/texmf-dist/tex/latex/biblatex/biblatex1.sty",
+		"/media/Data/Dropbox/TCC/latex/revisao.tex",
+		"/media/Data/Dropbox/TCC/latex/img/logo_poli.jpg",
+		"/media/Data/Dropbox/TCC/latex/biblio.bib",
+		"/home/ag/git/_tcc/bibliografia.tex",
+		"/home/ag/git/_tcc/cv.sublime-project",
+		"/home/ag/git/_tcc/title.tex",
+		"/home/ag/git/cv/cv.sublime-project",
+		"/home/ag/git/cv/index.tex",
+		"/home/ag/git/_tcc/index.tex"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			" NaN",
+			" 0",
+			" 1",
+			" 0",
+			" NaN",
+			" 1",
+			" 0",
+			" ",
+			"\\item[",
+			"publisher_c",
+			"publisher_comm",
+			"publisher_",
+			"clon",
+			"clone_all",
+			"setbeamertemplate",
+			"\\textbf{",
+			"\\end{center}",
+			"\\begin{center}",
+			"template",
+			"abntex",
+			"title",
+			"\\subsection",
+			"Cor",
+			"frame",
+			"Variante",
+			"    \n",
+			"bibliogr",
+			"Paragraphs",
+			"beamer",
+			"document",
+			"Cap",
+			"Capitulo",
+			"ref",
+			"--",
+			"f_j",
+			"f_i",
+			"todavia",
+			"& ",
+			"    ",
+			"     ",
+			"    ",
+			"\\hline",
+			"$]",
+			"$ ",
+			"$",
+			"\\\\ \\hline",
+			"tabela-sim",
+			"abnt",
+			"sum_",
+			"fr}",
+			"f_if_j",
+			"v_k(u)",
+			"similaridade",
+			"sij",
+			"I_",
+			"The adaptive web\nThe adaptive web",
+			"{x",
+			"x",
+			"widetilde",
+			"\\breve",
+			"\\dot{q",
+			"\\hat{q",
+			"\\hat{",
+			"table",
+			",00",
+			"r_{",
+			"b",
+			"a_",
+			"1",
+			"R_",
+			"\\ell",
+			"cal{R",
+			"cal{",
+			"conforme ",
+			"conforme",
+			"atribut",
+			"dois atrib",
+			"\\overline{",
+			"overline{\\(.*\\)}",
+			"overline{(.*)}",
+			"\\\\overline{.*}",
+			"\\overline{",
+			"\\bar",
+			"w_",
+			"the",
+			"tabela",
+			"tablea",
+			"tabela",
+			"table",
+			"cada item ",
+			"X",
+			"z_",
+			"q_",
+			"\\hat{q}",
+			"A matriz",
+			"z_",
+			"t_",
+			"p_",
+			"\\tau",
+			"\\hat{s}",
+			"s_",
+			"s",
+			"delta",
+			"\\delta",
+			"1",
+			"\\delta",
+			"debnath2008feature",
+			"math",
+			"deploy_multiple_environments",
+			"deploy_to_prod",
+			"HEAD",
+			"6",
+			"handbook",
+			"debnath2008feature",
+			"0033 0033",
+			"0033",
+			"0043",
+			"0021",
+			"0021 002a",
+			"002b 0021",
+			"43 33 33 42 30 32",
+			"deploying_multiple_environments",
+			"checkout",
+			"DEPLOY_USERNAME",
+			"/media",
+			".js",
+			"-",
+			"\"(.*)\""
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			", NaN",
+			", 0",
+			", 1",
+			", NaN",
+			", 1",
+			", 0",
+			"f}",
+			"v_k^u",
+			"\\check",
+			"\\breve{q",
+			"\\dot{q",
+			".00",
+			"rm{R",
+			"rm{",
+			"\\overline",
+			"q_",
+			"\\hat{q}_",
+			"z",
+			"t_",
+			"p_",
+			"z_",
+			"q",
+			"deploy_multiple_environments",
+			"\\1",
+			"",
+			"\"\\1\"",
+			"",
+			"\\1,.*,.*,.*,\\2,\\3,\\4,\\5,\\6,\\7,\\8,\\9",
+			"à",
+			"estão",
+			"çõe",
+			"são",
+			"ção",
+			"lâmina",
+			"[Hp]",
+			"(Figura \\\\ref{fig:\\2})",
+			"(Figura \\ref{fig:\\2})",
+			"(Figura \\ref {fig:\\2})",
+			"",
+			"itens",
+			"item"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/ag/tmp/crono.tex",
+					"settings":
+					{
+						"buffer_size": 1247,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								834,
+								834
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/ag/tmp/index.tex",
+					"settings":
+					{
+						"buffer_size": 6315,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3421,
+								3421
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2533.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 40.0
+	},
+	"input":
+	{
+		"height": 40.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 238.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"intro",
+				"introducao.tex"
+			],
+			[
+				"res",
+				"resultados.tex"
+			],
+			[
+				"sinte",
+				"sintese-de-solucoes.tex"
+			],
+			[
+				"inde",
+				"index.tex"
+			],
+			[
+				"estad",
+				"estado-da-arte.tex"
+			],
+			[
+				"bibli",
+				"bibliografia.tex"
+			],
+			[
+				"obj",
+				"objetivos.tex"
+			],
+			[
+				"bi",
+				"bibliografia.tex"
+			],
+			[
+				"intr",
+				"introducao.tex"
+			],
+			[
+				"sintese",
+				"sintese-de-solucoes.tex"
+			],
+			[
+				"arte",
+				"estado-da-arte.tex"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 210.0,
+	"status_bar_visible": true
+}

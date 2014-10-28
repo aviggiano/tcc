@@ -1,0 +1,66 @@
+%!TEX root = index.tex
+\chapter{Avaliação de Desempenho} % (fold)
+\label{cha:avalia_o_de_desempenho}
+
+% chapter avalia_o_de_desempenho (end)
+
+% chapter avalia_o_do_sistema_de_recomenda_o (end)
+
+% section avalia_o_do_sistema_de_recomenda_o (end)
+
+De modo geral os sistemas de recomendação tem o objetivo de apresentar ao usuário itens pelos quais ele possa se interessar. O desempenho de um sistema de recomendação se mede, portanto, na qualidade com a qual ele executa essa tarefa. 
+
+Essa qualidade pode ser medida de diferentes maneiras, tal como pela medida de distância entre os produtos recomendados $\hat{\textbf{\i}}$ e aqueles que seriam efetivamente comprados $\textbf{i}$ pelo cliente em uma validação cruzada (\textit{cross validation}). Outras medidas de predição também podem ser utilizadas, a exemplo de trabalhos de recuperação de informação, tais como acurácia (\textit{accuracy}), especificidade (\textit{specificity}), precisão (\textit{precision}), abrangência (\textit{recall}), medida $F_1$ (\textit{$F_1$-score}), e outras. 
+
+No nosso Trabalho de Conclusão de Curso, serão utilizados precisão, abrangência, e medida $F_1$. Essas medidas foram escolhidas a fim de se poder estabelecer uma base comparativa com os textos de referência, que também as utilizam. Elas estão sumarizadas na Tabela \ref{tab:avaliacao-predicao}. As quantidades $VP$, $FP$, $VN$ e $FN$ significam o número de verdadeiro e falso positivos e o número de verdadeiro e falso negativos.
+
+%\begin{table}[H]
+%\begin{center}
+%    \caption{Matriz de confusão}
+%    \label{tab:avaliacao-predicao}
+%    \begin{tabular}{ | l | l | p{5cm} | p{5cm} | }
+%    \hline
+%    & & \multicolumn{2}{|c|}{Caso predito} \\ \hline 
+%    & & \textbf{Positivo} & \textbf{Negativo} \\ \hline
+%    \multirow{2}{*}{Caso real} 
+%        & Positivo & Verdadeiro Positivo &  $(VP)$ & Falso Negativo $(FN)$ \\ \hline
+%        & Negativo & Falso Positivo $(FP)$ & Verdadeiro Negativo $(VN)$ \\ \hline
+%    \end{tabular}
+%\end{center}
+%\end{table}
+
+
+%\begin{tabular}{cc|c|c|c|c|l}
+%\cline{3-4}
+%& & \multicolumn{2}{ c| }{Caso predito} \\ \cline{3-4}
+%& & 2 & 3  \\ \cline{1-4}
+%\multicolumn{1}{ |c| }{\multirow{2}{*}{Powers} } &
+%\multicolumn{1}{ |c| }{504} & 3 & 2 &      \\ \cline{2-4}
+%\multicolumn{1}{ |c  }{}                        &
+%\multicolumn{1}{ |c| }{540} & 2 & 3 &      \\ \cline{1-4}
+%\multicolumn{1}{ |c  }{\multirow{2}{*}{Powers} } &
+%\multicolumn{1}{ |c| }{gcd} & 2 & 2   \\ \cline{2-4}
+%\multicolumn{1}{ |c  }{}                        &
+%\multicolumn{1}{ |c| }{lcm} & 3 & 3   \\ \cline{1-4}
+%\end{tabular}
+
+
+\begin{table}[hp]
+\begin{center}
+    \caption{Avaliação de sistemas de predição}
+    \label{tab:avaliacao-predicao}
+    \begin{tabular}{  | >{\arraybackslash} m{3cm} | >{\centering\arraybackslash} m{4cm} | >{\arraybackslash} m{6cm} | }
+    \hline
+    \textbf{Medida} & \textbf{Fórmula} & \textbf{Significado} \\ \hline
+    Precisão &  $\frac{VP}{VP+FP}$ & Porcentagem de casos positivos corretamente preditos. \\ \hline                            
+    Abrangência & $\frac{VP}{VP+FN}$ & Porcentagem de casos positivos sobre aqueles que foram marcados como positivos. \\ \hline
+%    Especificidade & $\frac{VN}{VN+FP}$ &  Porcentagem de casos negativos sobre aqueles que foram marcados como negativos. \\ \hline
+%    Acurácia & $\frac{VP+VN}{VP+VN+FP+FN}$ & Porcentagem de predições corretas. \\ \hline
+    $F_1$ &  $2 \cdot \frac{\mathrm{Precisão}~\cdot~\mathrm{Abrangência}}{\mathrm{Precisão}~+~\mathrm{Abrangência}}$ & Média harmônica entre precisão e abrangência. \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+Por fim, avaliaremos o desempenho do sistema mediante a mudança nas variáveis de importância do problema, como por exemplo na quantidade de atributos utilizados na recomendação. O tempo de execução também será avaliado em função do algoritmo utilizado e do tamanho do banco de dados.
+
+%e na capacidade de lidar com problemas como o \textit{cold start}

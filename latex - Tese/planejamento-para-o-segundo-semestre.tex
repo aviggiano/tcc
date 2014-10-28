@@ -1,0 +1,24 @@
+%!TEX root = index.tex
+\chapter[Planejamento para o segundo semestre]{Planejamento para o segundo semestre}
+\label{chap:Planejamento_para_o_segundo_semestre}
+
+As atividades a serem realizadas no segundo semestre serão focadas na codificação de dois sistemas de recomendação com diferentes métodos de definição de importância de características, testes no banco de dados da click-bus, a comparação dos resultados obtidos e comparação dos resultados com o intuito de implementá-lo no sistema de e-mail marketing da click-bus, estas atividades serão divididas em 3 principais grupos:
+
+\begin{itemize} 
+	\item Desenvolvimento dos sistemas de recomendação
+	\item Testes com os sistemas desenvolvido
+	\item Consolidação de resultados e finalização de relatórios
+\end{itemize}
+
+O desenvolvimento dos sistemas de recomendação se dará durante todo o mês de julho e início de agosto e consistirá em:
+
+\begin{itemize}
+	\item Estruturação e consolidação do banco de dados
+	\item Criação de novas variáveis com relação a data de compra e data da viagem, para que o sistema retorne qual seriam as melhores datas para sugerir a compra ao cliente e que também leve em conta a natureza sazonal do nicho que estamos tratando
+	\item Determinação dos algoritmos de varredura
+	\item Programação do sistema de recomendação com o método proposto em \cite{debnath2008feature}
+	\item Programação do sistema de recomendação com o método proposto em \cite{symeonidis2007feature}
+\end{itemize}
+
+Os testes com os sistemas desenvolvidos consistirão em testes de aprendizado do sistema e validações cruzadas. O teste de aprendizado consiste em medir o erro médio do sistema no banco de dados de aprendizado já a validação cruzada será voltada para evitar problemas como overfitting e para obtermos uma medida de performance com dados novos. Para comparar os sistemas de recomendação utilizaremos os erros das recomendações, assim como a quantidade de informação necessária para o aprendizado do sistema. Deste modo poderemos definir qual dos métodos é melhor e em qual situação
+

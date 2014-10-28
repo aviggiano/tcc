@@ -1,0 +1,27 @@
+%!TEX root = index.tex
+\chapter[Andamento do Projeto]{Andamento do Projeto}
+\label{chap:andamento_do_projeto}
+
+%Tal relatório deverá conter 
+%	descrição minuciosa 
+%		do andamento do projeto
+%		das etapas cumpridas, 
+%		do planejamento do trabalho no segundo semestre, 
+%		dos resultados alcançados  , 
+%		das modificações em relação à proposta inicial, 
+%	bem como uma avaliação precisa e detalhada 
+%		dos resultados alcançados neste semestre , 
+%		dos objetivos do próximo semestre 
+%		da viabilidade de alcance do resultado programado  no fim do segundo semestre. 
+
+Ao longo do semestre, o escopo deste Trabalho de Conclusão de Curso se alterou no que tange as possíveis soluções e aquilo que será entregue como produto.
+
+De início, pensamos fazer um sistema de recomendação utilizando algoritmos de filtragem colaborativa baseada em itens, principalmente motivados pela leitura inicial de \cite{linden2003amazon}, que mostra as vantagens desse método comparado à filtragem colaborativa baseada em usuários. 
+
+Todavia, percebemos que grande parte dos e-commerces estruturam seus bancos de dados em torno da descrição dos itens à venda e das informações dos clientes. As tabelas de itens podem possuir dezenas de atributos, dependendo do ramo de negócios da loja, tais como marca, esporte, categoria, cor, preço ou outros. Pouco detalhe é dado à interação entre esses dois grupos, visto que a tabela de histórico de compras se limita a informações como data e método de pagamento. Dessa forma supusemos que métodos de filtragem colaborativa, fundamentados na avaliação dos itens por parte dos usuários, teriam pior desempenho que métodos baseados em conteúdo, que exploram as características dos itens na recomendação. 
+
+Ao considerarmos os possíveis algoritmos de recomendação, decidimos  não apenas testar um método de sugestão de produtos, mas sim fazer uma análise comparativa entre dois ou mais estratégias de recomendação. 
+
+Os métodos do sistema de recomendação a ser desenvolvido serão, portanto, híbridos baseados em variantes de dois diferentes algoritmos, descritos nas Seções \ref{sec:algoritmo_baseado_na_pondera_o_de_atributos_} e \ref{sec:algoritmo_baseado_no_perfil_de_usu_rios_}, inspirados em \cite{symeonidis2007feature} e \cite{debnath2008feature}.
+
+O primeiro artigo determina a similaridade de dois itens a partir de medidas de distância para cada um dos atributos dos itens, ponderadas por pesos determinados na regressão linear de uma equação descrita pelo interesse dos usuários em cada \textit{feature}. O segundo texto parte do princípio que os usuários estão interessados nos atributos dos itens, traçando correlações entre esses dois elementos até chegar nos pesos que servirão de base para o cálculo da similaridade inter-usuários, utilizada na recomendação pelo método da vizinhança (\textit{nearest neighbors}). Ambos estão descritos com maior detalhe no Capítulo \ref{chap:sintese_de_solucoes}.

@@ -1,0 +1,36 @@
+%!TEX root = index.tex
+\section[Avaliação de Desempenho]{Avaliação de Desempenho}
+\begin{frame}{Avaliação de Desempenho}
+
+
+\begin{itemize}
+	\item Distância entre recomendações
+	\begin{itemize}
+		\item $EMA = \left|\hat{\textbf{\i}} - \textbf{i}\right|$
+	\end{itemize}
+	\item Desempenho mediante a mudança nas variáveis 
+	\begin{itemize}
+		\item Quantidade de atributos utilizados
+	\end{itemize}
+	\item Tempo de execução
+	\begin{itemize}
+		\item Em função do algoritmo
+		\item Em função do tamanho do banco de dados
+	\end{itemize}
+\end{itemize}
+
+\begin{table}[ht]
+\begin{center}
+    \label{tab:avaliacao-predicao}
+    \caption{Avaliação de sistemas de predição}
+    \begin{tabular}{  | p{2cm} | p{2.5cm} | p{4cm} | }
+    \hline
+    \textbf{Medida} & \textbf{Fórmula} & \textbf{Significado} \\ \hline
+    Precisão &  $\frac{VP}{VP+FP}$ & \% Predições corretas de casos positivos \\ \hline                            
+    Acurácia & $\frac{VP+VN}{VP+VN+FP+FN}$ & \% Predições corretas  \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+\end{frame}
+

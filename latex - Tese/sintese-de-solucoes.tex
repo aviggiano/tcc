@@ -1,0 +1,469 @@
+%!TEX root = index.tex
+\chapter[Síntese de Soluções]{Síntese de Soluções}
+\label{chap:sintese_de_solucoes}
+
+A fim de facilitar a compreensão dos métodos propostos neste trabalho, serão utilizadas as matrizes de avaliações $\mathbf{R}$ e de atributos $\mathbf{A}$ abaixo, adaptadas da Referência \citeonline{debnath2008feature}. Em todos os exemplos, considera-se valor mínimo $M=2$. Os logaritmos são expressos em base 10 e todos os pesos $w_f$ (descritos a seguir) são utilizados.
+
+\begin{table}[h]
+\begin{center}
+    \caption{Avaliações $r_{ui}$}
+    \label{tab:rui_ref}
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$ \\ \hline
+     $u_1$ & - & 4 & - & - & 5 & - \\ \hline
+     $u_2$ & - & 3 & - & 4 & - & - \\ \hline
+     $u_3$ & - & - & - & - & - & 4 \\ \hline
+     $u_4$ & 5 & - & 3 & - & - & - \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+\begin{table}[h]
+\begin{center}
+    \caption{Atributos $a_{if}$}
+    \label{tab:aif_ref}
+    \begin{tabular}{ | c | c | c | c | c | } 
+    \hline
+     & $f_1$ & $f_2$ & $f_3$ & $f_4$  \\ \hline
+     $i_1$ & 0 & 1 & 0 & 0  \\ \hline
+     $i_2$ & 1 & 1 & 0 & 0  \\ \hline
+     $i_3$ & 0 & 1 & 1 & 0  \\ \hline
+     $i_4$ & 0 & 1 & 0 & 0  \\ \hline
+     $i_5$ & 1 & 1 & 1 & 0  \\ \hline
+     $i_6$ & 0 & 0 & 0 & 1  \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+\section{Algoritmo baseado na ponderação de atributos (FW)} % (fold)
+\label{sec:algoritmo_baseado_na_pondera_o_de_atributos_}
+
+% section algoritmo_baseado_na_pondera_o_de_atributos_ (end)
+
+O primeiro algoritmo que utilizaremos no sistema de recomendação, adaptado da Referência \citeonline{symeonidis2007feature} e denominado ponderação de atributos, \textit{feature weighting} ou \textit{FW}, trata-se de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens, e é onde ocorre a filtragem colaborativa dos usuários. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo para determinar os itens com maior similaridade, que são finalmente recomendados.
+
+Na filtragem baseada em conteúdo, ``cada item é representado por um vetor de atributos ou \textit{features}''. A similaridade $s_{ij}$ entre dois itens $i$ e $j$ é dada pela média ponderada das distâncias entre as \textit{features} dos itens:
+
+\begin{equation} 
+\label{eq:sij}
+    s_{ij} = \sum_{f}{w_{f} \left(1-d_{fij}\right)}
+\end{equation}
+
+As distâncias entre os atributos $d_f$ são determinadas conforme o tipo de dado avaliado e seu domínio, normalizadas no intervalo $\left[0,1\right]$. 
+
+Para atributos literais, como categoria, marca, cor, etc., uma possível medida de distância é o delta de Kronecker descrito em \ref{eq:delta}. A similaridade entre as cores ``azul'' e ``vermelho'' é, nesse caso, 0, e sua distância é 1. O valor da distância é nulo se e somente se os atributos são idênticos.
+
+Para atributos pertencentes a uma coleção finita de itens, tais como os atores participantes de um filme, é possível estabelecer a similaridade entre dois conjuntos a partir do índice Jaccard, descrito em \ref{eq:jaccard}. Neste caso, a similaridade entre os conjuntos \{Al Pacino, Tom Hanks\} e \{Tom Hanks, Marlon Brando\} é $1/3$, e a sua distância é $2/3$.
+
+
+\begin{equation}
+\label{eq:delta}
+\delta_{mn} =  
+\begin{cases}
+1, &\text{se }m=n \\
+0, &\text{se }m \neq n
+\end{cases} 
+\end{equation}
+
+\begin{equation}
+\label{eq:jaccard}
+J(A,B) ={{|A \cap B|}\over{|A \cup B|}}
+\end{equation}
+
+Vale considerar a correlação entre atributos no cálculo das distâncias: a similaridade de duas marcas de calçado, por exemplo, é maior que a de duas marcas de produtos de categorias diferentes, mesmo que as marcas sejam distintas nos dois casos. Em uma primeira análise, todavia, utilizaremos para a maior parte das \textit{features} as medidas de distância do delta de Kronecker \ref{eq:dfij_delta} (Tabela \ref{tab:d_ijf}) e do índice Jaccard \ref{eq:dfij_jaccard}. Isso significa que se os atributos de dois itens são idênticos, a distância é nula e portanto a similaridade é máxima. O sumário de algumas medidas de distância que podem ser utilizadas estão na Tabela \ref{tab:medidas-distancia}.
+
+\begin{equation}
+\label{eq:dfij_delta}
+\begin{split}
+d_{fij} =&~ 1-\delta_{ij}^f \\
+    =&~ 1-\delta_{a_{if} a_{jf}}
+\end{split} 
+\end{equation}
+
+
+\begin{table}[p]
+\begin{center}
+    \caption{$d_{ij}^{f}$}
+    \label{tab:d_ijf}
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     $f_1$ & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ \hline
+     $i_1$ & -  &  0  &  1  &  1  &  0  &  1 \\ \hline
+     $i_2$ & 0  &  -  &  0  &  0  &  1  &  0  \\ \hline
+     $i_3$ & 1  &  0  &  -  &  1  &  0  &  1 \\ \hline
+     $i_4$ & 1  &  0  &  1  &  -  &  0  &  1 \\ \hline
+     $i_5$ & 0  &  1  &  0  &  0  &  -  &  0 \\ \hline
+     $i_6$ & 1  &  0  &  1  &  1  &  0  &  - \\ \hline
+    \end{tabular}
+    \quad
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     $f_2$ & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ \hline
+     $i_1$ & -  &  1  &  1   & 1  &  1  &  0 \\ \hline
+     $i_2$ & 1  &  -  &  1   & 1  &  1  &  0  \\ \hline
+     $i_3$ & 1  &  1  &  -   & 1  &  1  &  0 \\ \hline
+     $i_4$ & 1  &  1  &  1   & -  &  1  &  0 \\ \hline
+     $i_5$ & 1  &  1  &  1   & 1  &  -  &  0 \\ \hline
+     $i_6$ & 0  &  0  &  0   & 0  &  0  &  - \\ \hline
+    \end{tabular}
+    
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     $f_3$ & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ \hline
+     $i_1$ & -  &  1  &  0  &  1  &  0  &  1 \\ \hline
+     $i_2$ & 1  &  -  &  0  &  1  &  0  &  1  \\ \hline
+     $i_3$ & 0  &  0  &  -  &  0  &  1  &  0 \\ \hline
+     $i_4$ & 1  &  1  &  0  &  -  &  0  &  1 \\ \hline
+     $i_5$ & 0  &  0  &  1  &  0  &  -  &  0 \\ \hline
+     $i_6$ & 1  &  1  &  0  &  1  &  0  &  - \\ \hline
+    \end{tabular}    
+    \quad
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     $f_4$ & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ \hline
+     $i_1$ & -  &  1  &  1 &   1 &   1  &  0 \\ \hline
+     $i_2$ & 1  &  -  &  1 &   1 &   1  &  0  \\ \hline
+     $i_3$ & 1  &  1  &  - &   1 &   1  &  0 \\ \hline
+     $i_4$ & 1  &  1  &  1 &   - &   1  &  0 \\ \hline
+     $i_5$ & 1  &  1  &  1 &   1 &   -  &  0 \\ \hline
+     $i_6$ & 0  &  0  &  0 &   0 &   0  &  - \\ \hline
+    \end{tabular}        
+\end{center}
+\end{table}
+
+
+\begin{equation}
+\label{eq:dfij_jaccard}
+\begin{split}
+d_{fij} =&~ 1-J^f(i,j) \\
+    =&~ 1-J(a_{if},a_{jf})
+\end{split} 
+\end{equation}
+
+\begin{table}[hp]
+\begin{center}
+    \caption{Medidas de distância entre alguns atributos}
+    \label{tab:medidas-distancia}
+    \begin{tabular}{  | >{\arraybackslash} m{3cm} | >{\arraybackslash} m{3cm} | >{\centering\arraybackslash} m{3cm} | } 
+    \hline
+    \textbf{Atributo} $f$ & \textbf{Domínio} $\mathrm{F}$ & \textbf{Distância} $d_f$ \\ \hline
+    Marca & Literal & $1-\delta^f_{ij}$ \\ \hline    
+    Esporte & Literal & $1-\delta^f_{ij}$ \\ \hline
+    Gênero & Literal & $1-\delta^f_{ij}$ \\ \hline            
+    Categoria & Conjunto Literal & $1-J^f(i,j)$ \\ \hline            
+    Preço & $\mathbb{R}$ & $ \frac{\left| a_{if}-a_{jf} \right|}{\max_{i,j}{\left| a_{if}-a_{jf} \right|}} $ \\ \hline
+    Data & $\mathbb{R}$ milissegundos a partir de \textit{epoch} \cite{epoch} & $ \frac{\left| a_{if}-a_{jf} \right|}{\max_{i,j}{\left| a_{if}-a_{jf} \right|}} $ \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+ 
+Os pesos $w_f$ são a priori desconhecidos. A Referência \citeonline{symeonidis2007feature} os determina a partir de uma regressão linear do tipo \ref{eq:regressao-linear}, onde $e_{ij}$ é o número de usuários que se interessam tanto por $i$ quanto por $j$. Esses valores permitem determinar ``o julgamento humano de similaridade entre itens'', e pode ser calculado a partir da matriz de avaliações, conforme a equação \ref{eq:determinacao-eij} (Tabela \ref{tab:eij}). O operador booleano $\mathrm{b}_M$, descrito pela Equação \ref{eq:b0}, nada mais é que uma ferramenta matemática para se poder extrair o número de usuários que avaliaram \textit{positivamente} tanto $i$ quanto $j$ a partir de $\mathbf{R}$. 
+
+
+\begin{equation}
+\label{eq:regressao-linear} 
+    e_{ij} = w_0 + \sum_{f}{w_{f} \left(1-d_{fij}\right)}
+\end{equation} 
+
+
+\begin{equation}
+\label{eq:determinacao-eij} 
+    e_{ij} = \sum_{u}{\mathrm{b_M}\left(r_{ui} ~ r_{uj}\right)}
+\end{equation} 
+
+\begin{equation}
+\label{eq:b0}
+\mathrm{b}_M\left(x\right) = 
+\begin{cases}
+1, &\text{se }x>M \\
+0, &\text{se }x\leq M
+\end{cases} 
+\end{equation}
+
+\begin{table}[p]
+\begin{center}
+    \caption{$e_{ij}$}
+    \label{tab:eij}
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ \hline
+     $i_1$ & - & 0 & 1 & 0 & 0 & 0 \\ \hline
+     $i_2$ & 0 & - & 0 & 1 & 1 & 0  \\ \hline
+     $i_3$ & 1 & 0 & - & 0 & 0 & 0 \\ \hline
+     $i_4$ & 0 & 1 & 0 & - & 0 & 0 \\ \hline
+     $i_5$ & 0 & 1 & 0 & 0 & - & 0 \\ \hline
+     $i_6$ & 0 & 0 & 0 & 0 & 0 & - \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+Desta forma, os pesos $w_f$ são determinados a partir resolução do sistema de equações lineares \ref{eq:determinacao-wf} (Tabela \ref{tab:w_f}). Apenas os pesos positivos e com valor absoluto expressivo (maior que um piso arbitrariamente escolhido a posteriori) são utilizados na recomendação. 
+
+\begin{equation}
+\label{eq:determinacao-wf} 
+    w_0 + \sum_{f}{w_{f}  \left(1-d_{fij}\right)} = \sum_{u}{\mathrm{b_0}\left(r_{ui} ~ r_{uj}\right)},~\forall i \neq j 
+\end{equation} 
+
+\begin{table}[p]
+\begin{center}
+    \caption{$w_f$}
+    \label{tab:w_f}
+    \begin{tabular}{ | c | c | c | c | c | } 
+    \hline
+     $w_0$ & $w_1$ & $w_2$ & $w_3$ & $w_4$   \\ \hline
+     0.41 & -0.22 & -0.34 & -0.03 & -   \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+Calcula-se a matriz de similaridade $\mathbf{S}$ pela Equação \ref{eq:sij} (Tabela \ref{tab:sij}) e recomendam-se os itens similares àqueles já comprados, segundo \ref{eq:ifw} (Tabela \ref{tab:i_u_fw}).
+
+\begin{table}[p]
+\begin{center}
+    \caption{$s_{ij}$}
+    \label{tab:sij}
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$  \\ \hline
+     $i_1$ & - &  0.44 & 1.00 & 0.93 &  0.51 &  0.17 \\ \hline
+     $i_2$ & 0.44 &         - & 0.51 & 0.44 &  1 & -0.32  \\ \hline
+     $i_3$ & 1.00 &  0.51 &        - & 1.00 &  0.44 &  0.24 \\ \hline
+     $i_4$ & 0.93 &  0.44 & 1.00 &        - &  0.51 &  0.17 \\ \hline
+     $i_5$ & 0.51 &  1.00 & 0.44 & 0.51 &         - & -0.25 \\ \hline
+     $i_6$ & 0.17 & -0.33 & 0.24 & 0.17 & -0.25 &         - \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+
+
+\begin{equation}
+\label{eq:ifw} 
+    \hat{\imath}_u = \argmax_{i \in \left\{i~|~r_{ui} > 0\right\}, j}{s_{ij}}
+\end{equation} 
+
+
+\begin{table}[p]
+\begin{center}
+    \caption{$\hat{\imath}_u$ (FW)}
+    \label{tab:i_u_fw}
+    \begin{tabular}{ | c | c | c | c | } 
+    \hline
+     $u_1$ & $u_2$ & $u_3$ & $u_4$   \\ \hline
+     3 & 5 & 3 & 4  \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+
+\section{Algoritmo baseado no perfil de usuários (UP)} % (fold)
+\label{sec:algoritmo_baseado_no_perfil_de_usu_rios_}
+
+% section algoritmo_baseado_no_perfil_de_usu_rios_ (end)
+
+O segundo algoritmo, adaptado da Referência \citeonline{debnath2008feature}, é um hibrido entre filtragem colaborativa e filtragem baseada em conteúdo. Os atributos dos itens são ponderados no cálculo de similaridade, com pesos extraídos de um modelo de perfil de usuários, denominado \textit{user profile} ou \textit{UP}. Esse perfil leva em consideração o interesse dos usuários por \textit{features}, indiretamente calculado a partir de seu interesse pelos itens. 
+
+Para se determinar a relevância de $f$ para $u$, deve-se levar em conta não somente a frequência com a qual uma característica aparece, mas também o fato de algumas características estarem contidas na maioria dos itens. Determina-se, então, os pesos $w_{uf}$, que mostram a relevância de $f$ para $u$, a partir da medida estatística TF-IDF (\textit{term frequency--inverse document frequency}), presente em formulações de recuperação de informação e mineração de dados (Equação \ref{eq:w-tfidf}). 
+
+Em nosso caso, TF ou \textit{feature frequency} é a ``similaridade intra-usuários'', igual ao número de vezes em que a \textit{feature} $f$ aparece no perfil do usuário $u$ (Equação \ref{eq:tf}, Tabela \ref{tab:tf_uf}). Se o usuário avaliou \textit{positivamente} algum item $r_{ui}$, tal que $r_{ui}$ é superior a um valor mínimo $M$, considera-se que $u$ tem interesse $\mathrm{TF}_{uf}$ nos atributos $f$ dos itens $i$, representados por $a_{if}$. 
+
+\begin{equation}
+\label{eq:tf} 
+    \mathrm{TF}_{uf}  = \sum_{i}{\mathrm{b}_M\left(r_{ui}~a_{if}\right)} 
+\end{equation} 
+
+\begin{table}[p]
+\begin{center}
+    \caption{$\mathrm{TF}_{uf}$}
+    \label{tab:tf_uf}
+    \begin{tabular}{ | c | c | c | c | c | } 
+    \hline
+     & $f_1$ & $f_2$ & $f_3$ & $f_4$   \\ \hline
+     $u_1$ & 2 & 2 & 1 & 0  \\ \hline
+     $u_2$ & 1 & 2 & 0 & 0  \\ \hline
+     $u_3$ & 0 & 0 & 0 & 1  \\ \hline
+     $u_4$ & 0 & 2 & 1 & 0  \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+O termo IDF ou \textit{inverse user frequency} é a ``dissimilaridade inter-usuários'', relacionada com o inverso da frequência de um atributo $f$ dentro de todos os usuários (Equação \ref{eq:iuf}, Tabela \ref{tab:idf_f}).
+
+\begin{equation}
+\label{eq:iuf} 
+    \mathrm{IDF}_{f} = \log \left( \frac{\left|~\mathcal{U}~\right|}{\sum_{u}{\mathrm{b}_0\left(\mathrm{TF}_{uf}\right)}} \right)
+\end{equation} 
+
+\begin{table}[p]
+\begin{center}
+    \caption{$\mathrm{IDF}_{f}$}
+    \label{tab:idf_f}
+    \begin{tabular}{ | c | c | c | c | } 
+    \hline
+     $f_1$ & $f_2$ & $f_3$ & $f_4$   \\ \hline
+     0.30 & 0.12 & 0.30 & 0.60  \\ \hline
+     \end{tabular}
+\end{center}
+\end{table}
+
+Os pesos $w_{uf}$, obtidos na TF-IDF \ref{eq:w-tfidf} (Tabela \ref{tab:w_uf}), são utilizados para calcular a similaridade $s_{uv}$ entre dois usuários $u$ e $v$, conforme as Equações \ref{eq:suv} e \ref{eq:fuv} (Tabela \ref{tab:s_uv}).
+
+\begin{equation}
+\label{eq:w-tfidf} 
+    w_{uf} = \mathrm{TF}_{uf}~\mathrm{IDF}_{f}
+\end{equation} 
+
+\begin{table}[p]
+\begin{center}
+    \caption{$w_{uf}$}
+    \label{tab:w_uf}
+    \begin{tabular}{ | c | c | c | c | c | } 
+    \hline
+     & $f_1$ & $f_2$ & $f_3$ & $f_4$   \\ \hline
+     $u_1$ & 0.60 & 0.25 & 0.30 & 0  \\ \hline
+     $u_2$ & 0.30 & 0.25 & 0 & 0  \\ \hline
+     $u_3$ & 0 & 0 & 0 & 0.60  \\ \hline
+     $u_4$ & 0 & 0.25 & 0.30 & 0  \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+\begin{equation}
+\label{eq:suv}
+    s_{uv} = \frac{\sum\limits_{f \in \mathcal{F}_{uv}}{w_{uf}~w_{vf}}}{\sqrt{\sum\limits_{f \in \mathcal{F}_{uv}
+    }w_{uf}^2} \sqrt{\sum\limits_{f \in \mathcal{F}_{uv}}w_{vf}^2}} 
+\end{equation} 
+
+\begin{table}[p]
+\begin{center}
+    \caption{$s_{uv}$}
+    \label{tab:s_uv}
+    \begin{tabular}{ | c | c | c | c | c | } 
+    \hline
+     & $u_1$ & $u_2$ & $u_3$ & $u_4$   \\ \hline
+     $u_1$ & - & 0.96 & 0 & 1  \\ \hline
+     $u_2$ & 0.96 & - & 0 & 1  \\ \hline
+     $u_3$ & 0 & 0 & - & 0  \\ \hline
+     $u_4$ & 1 & 1 & 0 & -  \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+\begin{equation}
+\label{eq:fuv}
+\begin{split}
+    \mathcal{F}_{uv} &= \mathcal{F}_u \cap \mathcal{F}_v \\
+    \mathcal{F}_u &= \left\{ f \in \mathcal{F}~|~t_{uf} > 0 \right\}
+\end{split}    
+\end{equation} 
+
+Dispondo-se de $\mathbf{S}$, selecionam-se os $k$ vizinhos mais próximos $v_k^u$ com maior similaridade $s_{uv}$, dentre todos $v \neq u$.  Posteriormente, determina-se o conjunto $\mathcal{I}_{v_k^u} = \left\{ i ~|~ r_{v_k^u i} > M\right\}$ de itens $i$ avaliados positivamente por $v_k^u$. Em \ref{eq:frf} avalia-se a frequência total $\mathrm{f}_{uf}$ dos atributos $f$ para os itens de $\mathcal{I}_{v_k^u}$ (Tabela \ref{tab:f_uf}). 
+
+\begin{equation}
+\label{eq:frf} 
+\mathrm{f}_{uf} = \sum_{i \in \mathcal{I}_{v_k^u}}{\mathrm{b}_0\left(a_{if}\right)}
+\end{equation} 
+
+\begin{table}[p]
+\begin{center}
+    \caption{$\mathrm{f}_{uf}$}
+    \label{tab:f_uf}
+    \begin{tabular}{ | c | c | c | c | c | } 
+    \hline
+     & $f_1$ & $f_2$ & $f_3$ & $f_4$   \\ \hline
+     $u_1$ & 0 & 2 & 1 & 0  \\ \hline
+     $u_2$ & 1 & 3 & 2 & 0  \\ \hline
+     $u_3$ & 1 & 2 & 0 & 0  \\ \hline
+     $u_4$ & 2 & 3 & 1 & 0  \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+Por fim, a partir da Equação \ref{eq:wi} calcula-se o peso $\omega_{ui}$ (Tabela \ref{tab:omega_ui}) de cada item e gera-se a lista dos \textit{top-N} produtos a serem recomendados para o usuário $u$, conforme \ref{eq:iup} (Tabela \ref{tab:i_u}). 
+
+\begin{equation}
+\label{eq:wi} 
+    \omega_{ui} = \sum_{f}{a_{if}~\mathrm{f}_{uf}}
+\end{equation} 
+
+
+\begin{table}[p]
+\begin{center}
+    \caption{$\omega_{ui}$ (UP)}
+    \label{tab:omega_ui}
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$ \\ \hline
+     $u_1$ & 2 & 0 & 3 & 0 & 0 & 0 \\ \hline
+     $u_2$ & 3 & 0 & 5 & 0 & 6 & 0 \\ \hline
+     $u_3$ & 0 & 3 & 0 & 2 & 0 & 0 \\ \hline
+     $u_4$ & 0 & 5 & 0 & 3 & 6 & 0 \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+\begin{equation}
+\label{eq:iup} 
+    \hat{\imath}_u = \argmax_{i \in \left\{i~|~r_{ui}~=~0\right\}}{\omega_{ui}}
+\end{equation} 
+
+\begin{table}[p]
+\begin{center}
+    \caption{$\hat{\imath}_u$ (UP)}
+    \label{tab:i_u}
+    \begin{tabular}{ | c | c | c | c | } 
+    \hline
+     $u_1$ & $u_2$ & $u_3$ & $u_4$   \\ \hline
+     3 & 5 & 2 & 5  \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+\section{Algoritmo baseado na correlação usuário-item (UI)} % (fold)
+\label{sec:algoritmo_baseado_na_correla_o_usu_rio_item_ui_}
+
+Este método se trata de uma variante da solução \textit{UP}, e também está embasado no cálculo da preferência do usuário por \textit{features}, medida através do seu interesse pelos itens. O algoritmo \textit{UI} utiliza as matrizes de correlação ponderada entre usuários e atributos $\mathbf{W}$ e a matriz de atributos dos itens $\mathbf{A}$ no cálculo da correlação usuário-item.
+
+A lista dos $N$ produtos a serem recomendados decorre portanto do cálculo de $\omega_{ui}$ (Equação \ref{eq:wui}, Tabela \ref{tab:omega_ui_ui}) e da escolha dos itens que maximizem essa variável para cada usuário (Equação \ref{eq:iup}, Tabela \ref{tab:i_u_ui}).
+
+\begin{equation}
+\label{eq:wui} 
+    \omega_{ui} = \sum_{f}{w_{uf}~a_{if}}
+\end{equation} 
+
+
+\begin{table}[p]
+\begin{center}
+    \caption{$\omega_{ui}$ (UI)}
+    \label{tab:omega_ui_ui}
+    \begin{tabular}{ | c | c | c | c | c | c | c | } 
+    \hline
+     & $i_1$ & $i_2$ & $i_3$ & $i_4$ & $i_5$ & $i_6$ \\ \hline
+     $u_1$ & 0.25 & 0.85 & 0.55 & 0.25 & 1.15 & 0 \\ \hline
+     $u_2$ & 0.25 & 0.55 & 0.25 & 0.25 & 0.55 & 0 \\ \hline
+     $u_3$ & 0    & 0    & 0    & 0    & 0    & 0.60 \\ \hline
+     $u_4$ & 0.25 & 0.25 & 0.55 & 0.25 & 0.55 & 0 \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+
+\begin{table}[p]
+\begin{center}
+    \caption{$\hat{\imath}_u$ (UI)}
+    \label{tab:i_u_ui}
+    \begin{tabular}{ | c | c | c | c | } 
+    \hline
+     $u_1$ & $u_2$ & $u_3$ & $u_4$   \\ \hline
+     3 & 5 & - & 5  \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+
+Ao passo que o método \textit{UP} recomenda itens a partir dos $k$ vizinhos mais próximos, o algoritmo \textit{UI} busca os itens com \textit{features} mais similares aos atributos pelos quais $u$ se interessa, diretamente através da matriz de atributos. 
+
+Espera-se que esse tipo de recomendação forneça sugestões de qualidade similar ao algoritmo original, pois os dois tem a mesma fundamentação inicial. Pode-se observar que, para o exemplo-base, ambos algoritmos forneceram a mesma recomendação para três de quatro usuários.
+
+
+% subsection variante_correla_o_usu_rio_item_ (end)
