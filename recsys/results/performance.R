@@ -36,7 +36,7 @@ performance = function(a, r, M=2, k=10, N=20, debug=FALSE, normalize=TRUE){
   }
   #performance.up(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
   #performance.ui(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
-  fw = performance.fw(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
+  performance.fw(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
 }
 
 get.TP = function(iu, r, rtrain.rtest, Utest, M){
@@ -104,7 +104,7 @@ performance.ui =  function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
 performance.fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
   cat("FW\n")
   iu = fw(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
-  get.precision.recall.F1(iu, r, rtest, U, M, N, debug)
+  get.precision.recall.F1(iu, r, rtrain.rtest, Utrain.Utest, M, N, debug)
 }
 
 plot.results = function(){

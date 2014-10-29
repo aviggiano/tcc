@@ -121,3 +121,12 @@ normalize = function(x, columns=FALSE){
   else
     x/max(abs(x), na.rm=TRUE)
 }
+
+get_U = function(r, debug){
+  U = 1:length(r[,1])
+  if(debug){
+    print("U")
+    print(U)
+  }
+  U
+}

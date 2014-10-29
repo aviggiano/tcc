@@ -1,15 +1,6 @@
 ## SETUP OF T_UxF
 source('recsys/setup/functions.R')
 
-get_U = function(r, debug){
-  U = 1:length(r[,1])
-  if(debug){
-    print("U")
-    print(U)
-  }
-  U
-}
-
 get_TF = function(a, r, M, debug){
   TF = matrix(0,length(r[,1]), length(a[1,]))
   for(u in 1:length(TF[,1])){

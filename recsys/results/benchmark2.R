@@ -14,10 +14,10 @@ for(t in item$title){
   if(t %in% inter) {
     i = which(t == item$title)
     j = which(t == m.title)
-    b = m[j, (names(m) %in% keeps)]
+    B = m[j, (names(m) %in% keeps)]
 
     for(k in keeps){
-      item[i,k] =  b[k]
+      item[i,k] =  B[k]
     }
   }
 }
@@ -26,3 +26,5 @@ rm(m)
 rm(inter)
 rm(m.title)
 rm(keeps)
+rm(movies)
+rm(B)
