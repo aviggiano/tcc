@@ -22,13 +22,13 @@ setup_eij = function(r, M, debug) {
 setup_dfij = function(a, r, debug, generic=TRUE){
   if(generic) {
     d = array(0,c(length(r[1,]), length(r[1,]), length(a[1,])))
-    for(f in 1:length(d[1,1,])) {
+    #for(f in 1:length(d[1,1,])) {
       for(i in 1:length(d[1,,1])){
         for(j in 1:length(d[,1,1])){
-          d[i,j,f] = 1-delta(a[i,f],a[j,f])
+          d[i,j,] = 1-delta(a[i,],a[j,])
         } 
      }
-    }
+    #}
     d
   }
   else {
