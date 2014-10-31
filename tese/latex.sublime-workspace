@@ -12,66 +12,10 @@
 	"buffers":
 	[
 		{
-			"file": "referencias/index.tex",
-			"settings":
-			{
-				"buffer_size": 6005,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "referencias/title.tex",
-			"settings":
-			{
-				"buffer_size": 979,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "arte/estado-da-arte.tex",
-			"settings":
-			{
-				"buffer_size": 11566,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "avaliacao.tex",
-			"settings":
-			{
-				"buffer_size": 3956,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "resultados.tex",
 			"settings":
 			{
-				"buffer_size": 7335,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "sintese-de-solucoes.tex",
-			"settings":
-			{
-				"buffer_size": 20008,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ag/git/tcc/latex/estado-da-arte.tex",
-			"settings":
-			{
-				"buffer_size": 17872,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "estado-da-arte.tex",
-			"settings":
-			{
-				"buffer_size": 17871,
+				"buffer_size": 8977,
 				"line_ending": "Unix"
 			}
 		}
@@ -108,6 +52,16 @@
 	},
 	"file_history":
 	[
+		"/home/ag/git/tcc/tese/title.tex",
+		"/home/ag/git/tcc/latex - Tese/resultados.tex",
+		"/home/ag/git/tcc/tese/estado-da-arte.tex",
+		"/home/ag/git/tcc/tese/resultados.tex",
+		"/home/ag/git/tcc/tese/avaliacao.tex",
+		"/home/ag/git/tcc/tese/arte/estado-da-arte.tex",
+		"/home/ag/git/tcc/tese/referencias/title.tex",
+		"/home/ag/git/tcc/tese/referencias/index.tex",
+		"/home/ag/git/tcc/tese/sintese-de-solucoes.tex",
+		"/home/ag/git/tcc/latex/estado-da-arte.tex",
 		"/home/ag/git/tcc/latex/referencias/bibliografia.bib",
 		"/home/ag/git/tcc/latex/cronograma/cronograma.tex",
 		"/home/ag/git/tcc/latex/arte/index.tex",
@@ -119,7 +73,6 @@
 		"/home/ag/git/tcc/latex/cronograma.tex",
 		"/home/ag/git/tcc/latex/title.tex",
 		"/home/ag/git/tcc/latex/resultados.tex",
-		"/home/ag/git/tcc/latex/estado-da-arte.tex",
 		"/home/ag/git/tcc/latex/sintese-de-solucoes.tex",
 		"/home/ag/git/tcc/latex/andamento-do-projeto.tex",
 		"/home/ag/git/tcc/latex/metodologia.tex",
@@ -373,127 +326,23 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "referencias/index.tex",
-					"settings":
-					{
-						"buffer_size": 6005,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								5769,
-								5769
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 4224.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "referencias/title.tex",
-					"settings":
-					{
-						"buffer_size": 979,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								417,
-								417
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "arte/estado-da-arte.tex",
-					"settings":
-					{
-						"buffer_size": 11566,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4392,
-								4392
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2326.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "avaliacao.tex",
-					"settings":
-					{
-						"buffer_size": 3956,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								846,
-								846
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "resultados.tex",
 					"settings":
 					{
-						"buffer_size": 7335,
+						"buffer_size": 8977,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1869,
-								1869
+								1871,
+								1871
 							]
 						],
 						"settings":
@@ -503,91 +352,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 989.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "sintese-de-solucoes.tex",
-					"settings":
-					{
-						"buffer_size": 20008,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								18573,
-								18573
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 13409.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "/home/ag/git/tcc/latex/estado-da-arte.tex",
-					"settings":
-					{
-						"buffer_size": 17872,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								365,
-								365
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 69.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "estado-da-arte.tex",
-					"settings":
-					{
-						"buffer_size": 17871,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1299,
-								1299
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 207.0,
+						"translation.y": 1836.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

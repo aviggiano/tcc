@@ -25,18 +25,19 @@ divide.train.test = function(r, TEST = 0.25){
   list(U.train, U.test)
 }
 
-performance = function(a, r, M=2, k=10, N=20, debug=FALSE, normalize=TRUE){
+performance = function(a, r, M=2, k=10, N=20, debug=FALSE, normalize=TRUE, remove=c(1,21), method="up"){
+  timer <<- Sys.time()
   Utrain.Utest = divide.train.test(r)
   rtrain.rtest = hide.data(r, Utrain.Utest, has.na=FALSE)
   
   if(normalize){
     a[which(is.na(a))]=0
     a = normalize(a, columns = TRUE)
-    a = a[,-c(1,21)]
+    if(remove) a = a[,-remove]
   }
-  #performance.up(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
-  #performance.ui(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
-  performance.fw(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
+  if("up" == method) performance.up(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
+  else if("ui" == method) performance.ui(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
+  else if("fw" == method) performance.fw(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
 }
 
 get.TP = function(iu, r, rtrain.rtest, Utest, M){
@@ -107,20 +108,6 @@ performance.fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
   get.precision.recall.F1(iu, r, rtrain.rtest, Utrain.Utest, M, N, debug)
 }
 
-plot.results = function(){
-  Ns = c(1,5,10,15,20)
-  
-  ap = normalize(a, columns=TRUE)
-  results = lapply(Ns, function(n) performance.up(ap, r, rtrain.rtest, Utrain.Utest, M=3, k=10, N=n, debug=TRUE))
-  
-  par(mfrow=c(3,1))
-  par(mar=rep(2,4))
-  
-  plot(unlist(results)[c(1,4,7,10,13)])    
-  plot(unlist(results)[c(1+1,4+1,7+1,10+1,13+1)])    
-  plot(unlist(results)[c(1+1+1,4+1+1,7+1+1,10+1+1,13+1+1)])    
-}
-
 cross.validate = function(r, a, U, M=2, k=2, N=10, K=10, debug=FALSE){
   require(caret)
   folds = createFolds(U, K, list = TRUE, returnTrain = FALSE)
@@ -135,4 +122,46 @@ cross.validate = function(r, a, U, M=2, k=2, N=10, K=10, debug=FALSE){
     iu = up(a, rvalidate, Uvalidate, M, k, N, debug, VALIDATE)
     get.precision.recall.F1(iu, , rtest, U, M, N, debug)
   }
+}
+
+plot.results = function(){
+  library(ggplot2) 
+  library(reshape2)
+  options(digits=3)
+  
+  methods = c("UP","UI")
+  Ns = c(1,10,20,30,40,50,60,70,80,90,100)
+  
+  methods.length = length(methods)
+  Ns.length = length(Ns)
+  df = data.frame(precision = numeric(Ns.length*methods.length), Ns = integer(Ns.length*methods.length), method = character(Ns.length*methods.length), stringsAsFactors = FALSE)
+  xl = "N"
+  yl = "Precisão (%)"
+  filename = paste("tese/img/",xl,".png",sep="")
+  i = 0
+  for(m in methods){#,"fw")){
+    results = sapply(Ns, 
+                     function(n){
+                       performance(a,r,N=n,remove=FALSE,method=tolower(m))                 
+                     })
+    precision = 100*unlist(results[1,])
+    
+    df$precision[(1+ i*Ns.length):((i+1)*Ns.length)] = precision
+    df$Ns[(1+ i*Ns.length):((i+1)*Ns.length)] = Ns
+    df$method[(1+ i*Ns.length):((i+1)*Ns.length)] = m
+    i = i+1
+  }
+  
+
+
+  p = ggplot(df, aes(Ns, precision, colour=method)) + 
+    geom_line() + 
+    geom_point( size=4, shape=21, fill="white") +
+    scale_x_continuous(breaks=Ns) +
+    #scale_y_continuous(breaks=precision) +
+    labs(colour="Método") +
+    xlab(xl) +
+    ylab(yl)
+  p
+  ggsave(p, file=filename)
 }
