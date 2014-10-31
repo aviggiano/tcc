@@ -145,11 +145,17 @@ get_W = function(d, e, r, debug, generic=TRUE){
     
     # cleaning memory
     rm(e)
+    rm(r)
+    rm(d)
     gc()
     
     # linear fit E ~ w0 + w D
-    lm.W = lm(E ~ D, model=FALSE, qr=FALSE) # free some space
+    lm.W = lm(E ~ D, x=FALSE, y=FALSE, model=FALSE, qr=FALSE) # free some space
     W = as.vector(lm.W$coefficients)
+    
+    rm(lm.W)
+    gc()
+    
     W
   }
   

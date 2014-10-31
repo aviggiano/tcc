@@ -19,7 +19,8 @@ Além disso, as metodologias de solução de cada um dos sistemas serão debatid
     $M$ & Valor mínimo para avaliações positivas & $2$ \\ \hline
     $k$ & Número de vizinhos mais próximos & $10$ \\ \hline
     $\mathcal{F}$ & Conjunto de atributos dos itens & Escolhido \textit{a priori} para cada método \\ \hline
-    $d^f$ & Medida de distância entre atributos & Delta de Kronecker $\delta^f$ \\ \hline
+    $d^f$ & Medida de distância entre atributos & $1 - \delta^f$ \\ \hline
+    $w_f$ & Pesos dos atributos & $w_f>0$ \\ \hline
     \end{tabular}
 \end{center}
 \end{table}
@@ -28,7 +29,16 @@ Além disso, as metodologias de solução de cada um dos sistemas serão debatid
 \section{Tamanho da lista de recomendações $N$} % (fold)
 \label{sec:tamanho_da_lista_de_recomenda_es_}
 
-Assim como era de se esperar, a medida que o tamanho da lista de recomendações aumenta, a precisão cai e a abrangência cresce. O método TODO supera os dois outros algoritmos, etc tal
+Assim como mostra a literatura, a medida que o tamanho da lista de recomendações aumenta, a precisão cai e a abrangência cresce. O método UP supera os dois outros algoritmos para o valor padrão de $N$, tanto em precisão quanto em abrangência. 
+
+Contrariamente ao esperado, a qualidade de recomendação do algoritmo UI é sensivelmente inferior à do algoritmo UP. Isso se deve ao fato de a correlação usuário-item daquele método colocar ênfase no valor do atributo $a_{if}$, mesmo que esses atributos não sejam diretamente proporcionais à preferência do usuário. Esse cálculo é incoerente, por exemplo, para atributos $f=\mathrm{data}$: mesmo que o usuário tenha um elevado interesse $w_{uf}$ por filmes antigos, o valor de $a_{if}$ não leva em conta se sua preferência é por filmes da década de 1970 ou 1990. Nesse caso, o algoritmo indicaria incorretamente que filmes mais recentes são mais adequados para aquele usuário, porque possuem maior $a_{if}$.
+
+A fim de corrigir essa falha no algoritmo UI, seria necessário, por exemplo, aplicar nos atributos $a_{if}$ uma função $g$ que crescesse no mesmo sentido do interesse do usuário por aquela \textit{feature}. Dessa forma, o cálculo $\sum_f w_{uf}~g\left(a_{if}\right)$ de fato significaria a similaridade entre o usuário $u$ e o item $i$ medido através de seu interesse $g\left(a_{if}\right)$ pelas \textit{features} $f$.
+
+\section{Percentual da base de aprendizado $T$} % (fold)
+\label{sec:percentual_da_base_de_aprendizado_}
+
+% section percentual_da_base_de_aprendizado_ (end)
 
 \chapter[old]{old}
 \label{chap:old}

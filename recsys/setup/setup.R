@@ -46,12 +46,15 @@ for(i in 1:length(a_temp[1,])) {
 rm(a_temp)
 rm(drops)
 rm(hi)
+rm(item)
+rm(history)
+rm(user)
 gc()
 
 ## SET OF FEATURES, USERS AND ITEMS
-F = c("release_date", "genre", "year", "length", "budget", "rating", "votes")
-U = user$id
-I = item$id
+#F = c("release_date", "genre", "year", "length", "budget", "rating", "votes")
+#U = user$id
+#I = item$id
 
 ## FINISHED
 time("Setup finished after")

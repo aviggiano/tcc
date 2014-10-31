@@ -34,6 +34,46 @@
 				"buffer_size": 11566,
 				"line_ending": "Unix"
 			}
+		},
+		{
+			"file": "avaliacao.tex",
+			"settings":
+			{
+				"buffer_size": 3956,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resultados.tex",
+			"settings":
+			{
+				"buffer_size": 7335,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sintese-de-solucoes.tex",
+			"settings":
+			{
+				"buffer_size": 20008,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ag/git/tcc/latex/estado-da-arte.tex",
+			"settings":
+			{
+				"buffer_size": 17872,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "estado-da-arte.tex",
+			"settings":
+			{
+				"buffer_size": 17871,
+				"line_ending": "Unix"
+			}
 		}
 	],
 	"build_system": "",
@@ -333,7 +373,7 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 5,
 			"sheets":
 			[
 				{
@@ -374,8 +414,8 @@
 						"selection":
 						[
 							[
-								0,
-								0
+								417,
+								417
 							]
 						],
 						"settings":
@@ -400,8 +440,8 @@
 						"selection":
 						[
 							[
-								11566,
-								11566
+								4392,
+								4392
 							]
 						],
 						"settings":
@@ -409,7 +449,145 @@
 							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3085.0,
+						"translation.y": 2326.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "avaliacao.tex",
+					"settings":
+					{
+						"buffer_size": 3956,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								846,
+								846
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "resultados.tex",
+					"settings":
+					{
+						"buffer_size": 7335,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1869,
+								1869
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 989.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "sintese-de-solucoes.tex",
+					"settings":
+					{
+						"buffer_size": 20008,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								18573,
+								18573
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 13409.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/home/ag/git/tcc/latex/estado-da-arte.tex",
+					"settings":
+					{
+						"buffer_size": 17872,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								365,
+								365
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 69.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "estado-da-arte.tex",
+					"settings":
+					{
+						"buffer_size": 17871,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1299,
+								1299
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 207.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -450,7 +628,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 130.0
+		"height": 293.0
 	},
 	"replace":
 	{
