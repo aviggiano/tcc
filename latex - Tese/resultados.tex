@@ -2,7 +2,7 @@
 \chapter[Resultados]{Resultados}
 \label{chap:resultados}
 
-Os resultados deste trabalho são a análise de desempenho dos algoritmos propostos, em termos de precisão, abrangência e tempo computacional, mediante a mudanças em suas variáveis de importância (Tabela \ref{tab:variaveis}). 
+Os resultados deste trabalho são a análise de desempenho dos algoritmos propostos, em termos de precisão, abrangência e tempo computacional, mediante a mudanças em suas variáveis de importância (Tabela \ref{tab:variaveis}).
 
 Além disso, as metodologias de solução de cada um dos sistemas serão debatidas, de modo a explorar casos de uso particulares e a propor melhorias nos métodos computacionais. Serão respondidas perguntas como ``O que acontece com itens ou usuários sem nenhuma avaliação?'' e ``Qual o desempenho dos métodos para outros bancos de dados?''.
 
@@ -33,7 +33,7 @@ Assim como mostra a literatura, a medida que o tamanho da lista de recomendaçõ
 
 Contrariamente ao esperado, a qualidade de recomendação do algoritmo UI é sensivelmente inferior à do algoritmo UP. Isso se deve ao fato de a correlação usuário-item daquele método colocar ênfase no valor do atributo $a_{if}$, mesmo que esses atributos não sejam diretamente proporcionais à preferência do usuário. Esse cálculo é incoerente, por exemplo, para atributos $f=\mathrm{data}$: mesmo que o usuário tenha um elevado interesse $w_{uf}$ por filmes antigos, o valor de $a_{if}$ não leva em conta se sua preferência é por filmes da década de 1970 ou 1990. Nesse caso, o algoritmo indicaria incorretamente que filmes mais recentes são mais adequados para aquele usuário, porque possuem maior $a_{if}$.
 
-A fim de corrigir essa falha no algoritmo UI, seria necessário, por exemplo, aplicar nos atributos $a_{if}$ uma função $g$ que crescesse no mesmo sentido do interesse do usuário por aquela \textit{feature}. Dessa forma, o cálculo $\sum_f w_{uf}~g\left(a_{if}\right)$ de fato significaria a similaridade entre o usuário $u$ e o item $i$ medido através de seu interesse $g\left(a_{if}\right)$ pelas \textit{features} $f$.
+A fim de corrigir essa falha no algoritmo UI, seria necessário, por exemplo, aplicar nos atributos $a_{if}$ uma função $g$ que crescesse no mesmo sentido do interesse do usuário por aquela \textit{feature}. Dessa forma, o cálculo $\sum_f w_{uf}~g\left(a_{if}\right)$ significaria de fato a similaridade entre o usuário $u$ e o item $i$ medida através de seu interesse $g\left(a_{if}\right)$ pelas \textit{features} $f$.
 
 \section{Percentual da base de aprendizado $T$} % (fold)
 \label{sec:percentual_da_base_de_aprendizado_}
