@@ -1,6 +1,9 @@
 source('recsys/methods/up/up.R')
 source('recsys/methods/up/ui.R')
 source('recsys/methods/fw/fw.R')
+library(ggplot2) 
+library(reshape2)
+options(digits=3)
 SEED = 2
 
 hide.data = function(r, Utrain.Utest, HIDDEN = 0.75, random = FALSE, has.na = TRUE){
@@ -124,20 +127,33 @@ cross.validate = function(r, a, U, M=2, k=2, N=10, K=10, debug=FALSE){
   }
 }
 
-plot.results = function(){
-  library(ggplot2) 
-  library(reshape2)
-  options(digits=3)
-  
-  methods = c("UP","UI")
-  Ns = c(1,10,20,30,40,50,60,70,80,90,100)
+plot.T = function(){
+  methods = c("UP")#,"UI")
+  Ts = c(0,1,10,20,30,40,50,60,70,75,80,90,100)
+
+  methods.length = length(methods)
+  Ts.length = length(Ts)
+  df = data.frame(precision = numeric(Ts.length*methods.length), 
+                  recall = numeric(Ts.length*methods.length), 
+                  F1 = numeric(Ts.length*methods.length), 
+                  Ts = integer(Ts.length*methods.length), 
+                  method = character(Ts.length*methods.length), 
+                  stringsAsFactors = FALSE)
+}
+
+plot.N = function(){
+  methods = c("UP")#,"UI")
+  Ns = c(1,10)#,20,30,40,50,60,70,80,90,100)0
   
   methods.length = length(methods)
   Ns.length = length(Ns)
-  df = data.frame(precision = numeric(Ns.length*methods.length), Ns = integer(Ns.length*methods.length), method = character(Ns.length*methods.length), stringsAsFactors = FALSE)
-  xl = "N"
-  yl = "Precisão (%)"
-  filename = paste("tese/img/",xl,".png",sep="")
+  df = data.frame(precision = numeric(Ns.length*methods.length), 
+                  recall = numeric(Ns.length*methods.length), 
+                  F1 = numeric(Ns.length*methods.length), 
+                  Ns = integer(Ns.length*methods.length), 
+                  method = character(Ns.length*methods.length), 
+                  stringsAsFactors = FALSE)
+
   i = 0
   for(m in methods){#,"fw")){
     results = sapply(Ns, 
@@ -145,23 +161,35 @@ plot.results = function(){
                        performance(a,r,N=n,remove=FALSE,method=tolower(m))                 
                      })
     precision = 100*unlist(results[1,])
+    recall = 100*unlist(results[2,])
+    F1 = 100*unlist(results[3,])
     
     df$precision[(1+ i*Ns.length):((i+1)*Ns.length)] = precision
+    df$recall[(1+ i*Ns.length):((i+1)*Ns.length)] = recall
+    df$F1[(1+ i*Ns.length):((i+1)*Ns.length)] = F1
     df$Ns[(1+ i*Ns.length):((i+1)*Ns.length)] = Ns
     df$method[(1+ i*Ns.length):((i+1)*Ns.length)] = m
     i = i+1
   }
-  
 
-
-  p = ggplot(df, aes(Ns, precision, colour=method)) + 
-    geom_line() + 
-    geom_point( size=4, shape=21, fill="white") +
-    scale_x_continuous(breaks=Ns) +
-    #scale_y_continuous(breaks=precision) +
-    labs(colour="Método") +
-    xlab(xl) +
-    ylab(yl)
-  p
-  ggsave(p, file=filename)
+  i = 0
+  xl = "N"
+  for(Y in list(precision, recall, F1)){
+    yl = if(i == 0) "Precisão (%)" else if (i == 1) "Abrangência (%)" else "F1"
+    fl = if(i == 0) "precision_" else if (i == 1) "recall_" else "F1_"
+    filename = paste("tese/img_temp/",fl,".png",sep="")
+    
+    p = ggplot(df, aes(Ns, Y, colour=method)) + 
+      geom_line() + 
+      geom_point( size=4, shape=21, fill="white") +
+      scale_x_continuous(breaks=Ns) +
+      #scale_y_continuous(breaks=Y) +
+      labs(colour="Método") +
+      xlab(xl) +
+      ylab(yl)
+    p
+    ggsave(p, file=filename)  
+    
+    i = i+1
+  }
 }
