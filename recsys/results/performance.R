@@ -6,7 +6,7 @@ library(reshape2)
 options(digits=3)
 SEED = 2
 
-hide.data = function(r, Utrain.Utest, HIDDEN = 0.75, random = FALSE, has.na = TRUE){
+hide.data = function(r, Utrain.Utest, HIDDEN, random = FALSE, has.na = TRUE){
   set.seed(SEED)
   Utest = Utrain.Utest[[2]]
   for(u in Utest){
@@ -19,7 +19,8 @@ hide.data = function(r, Utrain.Utest, HIDDEN = 0.75, random = FALSE, has.na = TR
   r
 }
 
-divide.train.test = function(r, TEST = 0.25){
+divide.train.test = function(r, TRAIN){
+  TEST = 1 - TRAIN
   set.seed(SEED)
   U.length = length(r[,1])
   mix = sample(U.length)
@@ -28,10 +29,12 @@ divide.train.test = function(r, TEST = 0.25){
   list(U.train, U.test)
 }
 
-performance = function(a, r, M=2, k=10, N=20, debug=FALSE, normalize=TRUE, remove=c(1,21), method="up"){
+performance = function(a, r, M=2, k=10, N=20, debug=FALSE, 
+                       normalize=TRUE, remove=c(1,21), method="up", 
+                       TRAIN=0.75, HIDDEN=0.75){
   timer <<- Sys.time()
-  Utrain.Utest = divide.train.test(r)
-  rtrain.rtest = hide.data(r, Utrain.Utest, has.na=FALSE)
+  Utrain.Utest = divide.train.test(r, TRAIN)
+  rtrain.rtest = hide.data(r, Utrain.Utest, HIDDEN, has.na=FALSE)
   
   if(normalize){
     a[which(is.na(a))]=0
@@ -128,20 +131,78 @@ cross.validate = function(r, a, U, M=2, k=2, N=10, K=10, debug=FALSE){
 }
 
 plot.T = function(){
-  methods = c("UP")#,"UI")
-  Ts = c(0,1,10,20,30,40,50,60,70,75,80,90,100)
-
-  methods.length = length(methods)
-  Ts.length = length(Ts)
-  df = data.frame(precision = numeric(Ts.length*methods.length), 
-                  recall = numeric(Ts.length*methods.length), 
-                  F1 = numeric(Ts.length*methods.length), 
-                  Ts = integer(Ts.length*methods.length), 
-                  method = character(Ts.length*methods.length), 
-                  stringsAsFactors = FALSE)
+  Ts = c(0,1,10,20,30,40,50,60,70,75,80,90,100)/100
+  Ts = c(1,75)/100
+  plot.results(Ts, "T")
 }
 
 plot.N = function(){
+  Ns = c(1,10)#,20,30,40,50,60,70,80,90,100)
+  plot.results(Ns, "N")
+}
+
+get.results = function(Xs, xl, a, r, method){
+  
+  sapply(Xs, 
+         function(y){
+           if(xl == "N") performance(a,r,N=y,remove=FALSE,method=tolower(method))                 
+           else if(xl == "T") performance(a,r,TRAIN=y,remove=FALSE,method=tolower(method))                 
+           else if(xl == "H") performance(a,r,HIDDEN=y,remove=FALSE,method=tolower(method))
+           else if(xl == "M") performance(a,r,M=y,remove=FALSE,method=tolower(method))
+           else if(xl == "k") performance(a,r,k=y,remove=FALSE,method=tolower(method))
+           else -1
+         })
+  
+}
+
+plot.results = function(Xs, xl){
+  methods = c("UP")#,"UI")
+  
+  methods.length = length(methods)
+  Xs.length = length(Xs)
+  df = data.frame(precision = numeric(Xs.length*methods.length), 
+                  recall = numeric(Xs.length*methods.length), 
+                  F1 = numeric(Xs.length*methods.length), 
+                  Xs = integer(Xs.length*methods.length), 
+                  method = character(Xs.length*methods.length), 
+                  stringsAsFactors = FALSE)
+  i = 0
+  for(method in methods){
+    results = get.results(Xs, xl, a, r, method)
+    precision = 100*unlist(results[1,])
+    recall = 100*unlist(results[2,])
+    F1 = 100*unlist(results[3,])
+    
+    df$precision[(1+ i*Xs.length):((i+1)*Xs.length)] = precision
+    df$recall[(1+ i*Xs.length):((i+1)*Xs.length)] = recall
+    df$F1[(1+ i*Xs.length):((i+1)*Xs.length)] = F1
+    df$Xs[(1+ i*Xs.length):((i+1)*Xs.length)] = Xs
+    df$method[(1+ i*Xs.length):((i+1)*Xs.length)] = method
+    i = i+1
+  }
+  
+  i = 0
+  for(Y in list(precision, recall, F1)){
+    yl = if(i == 0) "Precisão (%)" else if (i == 1) "Abrangência (%)" else "F1"
+    fl = if(i == 0) "precision_" else if (i == 1) "recall_" else "F1_"
+    filename = paste("tese/img_temp/",fl,xl,".png",sep="")
+    
+    p = ggplot(df, aes(Xs, Y, colour=method)) + 
+      geom_line() + 
+      geom_point( size=4, shape=21, fill="white") +
+      scale_x_continuous(breaks=Xs) +
+      #scale_y_continuous(breaks=Y) +
+      labs(colour="Método") +
+      xlab(xl) +
+      ylab(yl)
+    p
+    ggsave(p, file=filename)  
+    
+    i = i+1
+  }
+}
+
+plot.N.old = function(){
   methods = c("UP")#,"UI")
   Ns = c(1,10)#,20,30,40,50,60,70,80,90,100)0
   
@@ -155,7 +216,7 @@ plot.N = function(){
                   stringsAsFactors = FALSE)
 
   i = 0
-  for(m in methods){#,"fw")){
+  for(m in methods){
     results = sapply(Ns, 
                      function(n){
                        performance(a,r,N=n,remove=FALSE,method=tolower(m))                 
