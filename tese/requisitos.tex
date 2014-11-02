@@ -24,3 +24,19 @@ Além disso o sistema deverá ser desenvolvido em tecnologias abertas (\textit{o
 Por fim, o sistema de recomendação deverá ser escalável e flexível no sentido de poder operar igualmente bem tanto em pequenas quanto em grandes bases de dados.
 
 Apesar serem importantes parâmetros de um sistema de recomendação, a taxa de recomendações por período de tempo e a escalabilidade estão intimamente relacionados ao orçamento do projeto. Pode-se obter virtualmente qualquer \textit{throughput} desejado, contanto que haja investimento equivalente em infra-estrutura computacional. O mesmo não é válido para os parâmetros de qualidade da recomendação, que dependem tão somente dos algoritmos de sugestão. Neste trabalho, assumimos que o sistema de operará em microcomputadores pessoais, e por isso o requisito funcional \textit{throughput} se faz necessário.
+
+Com os requisitos do sistema de recomendação definidos, devemos estruturar o seu relacionamento com o administrador do sistema. Para isto determinamos as ações que o administrador pode realizar com este sistema. Cada uma destas ações é um caso de uso, e ao total foram criados nove casos de uso para este sistema.
+
+O primeiro caso de uso é o caso \textit{Selecionar Método}, onde o administrador do sistema pode selecionar entre qual método de recomendação será utilizado para gerar as recomendações do sistema.
+
+O segundo caso é o \textit{Selecionar Banco de Dados}, pelo qual é permitido ao administrador selecionar o banco de dados para o qual serão geradas as recomendações.
+
+O terceiro caso \texit{Gerar Recomendações} é o caso onde o dá ínicio aos cálculos das recomendações com o método e o banco de dados préviamente escolhidos, o que caracteriza dependência indicada na figura.
+
+O quarto caso de uso, \textit{Escolher Cliente}, permite ao administrador selecionar o cliente para o qual quer ter acesso às recomendações. Isto que nos leva ao quinto caso de uso, \textit{Ranquear Itens Para Cliente},o qual ordenas os itens do banco de dados de forma decrescente de acordo com o valor da recomendação para o cliente escolhido.
+
+ O sexto caso, \textit{Avaliar Recomendações}, permite ao usuário avaliar a precisão de a acurácia do sistema. Este, em conjunto com o \textit{Fazer Validação Cruzada}, servirá para avaliar se o método utilizado para gerar as recomendações é indicado para ser implementado no sistema de vendas do e-commerce.
+
+ O caso de uso \textit{Devolver Banco de Recomendações}, é o principal output do sistema, onde se devolve um banco de dados com todas as precisões de avaliações de cada um dos itens por cada um dos usuários.
+
+ O último caso de uso, \textit{Devolver Pesos dos Atributos}, retornará o peso que cada atributo dos itens tem. Assim definindo quais atributos são mais importantes para cada usuário.
