@@ -181,9 +181,9 @@ plot.results = function(Xs, xl){
     i = i+1
     
     ggplot.results(Xs, precision, aes(x=Xs, y=precision, colour=method), df, xl, method,
-                   "_precision_", "Precisão (%)")
+                   "_precision_", "Precisao (%)")
     ggplot.results(Xs, recall, aes(x=Xs, y=recall, colour=method), df, xl, method,
-                   "_recall_", "Abrangência (%)")
+                   "_recall_", "Abrangencia (%)")
     ggplot.results(Xs, F1, aes(x=Xs, y=F1, colour=method), df, xl, method,
                    "_F1_", "F1 (%)")
   }
@@ -197,7 +197,7 @@ ggplot.results = function(Xs, Y, aes.f, df, xl, method, fl, yl){
     geom_point(size=4, shape=21, fill="white") +
     scale_x_continuous(breaks=Xs) +
     #scale_y_continuous(breaks=Y) +
-    labs(colour="Método") +
+    labs(colour="Metodo") +
     xlab(xl) +
     ylab(yl)
   width = 10
