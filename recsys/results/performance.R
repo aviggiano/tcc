@@ -183,12 +183,12 @@ plot.results = function(Xs, xl){
   
   i = 0
   for(Y in list(precision, recall, F1)){    
-    ggplot.results(Xs, Y, df, xl, method)
+    ggplot.results(Xs, Y, method, df, xl)
     i = i+1
   }
 }
 
-ggplot.results = function(Xs="Xs", Y="Y", df, xl, method){
+ggplot.results = function(Xs="Xs", Y="Y", method="method", df, xl){
   dev.new()
   
   yl = if(i == 0) "Precisão (%)" else if (i == 1) "Abrangência (%)" else "F1"
