@@ -181,23 +181,26 @@ plot.results = function(Xs, xl){
     i = i+1
   }
   
-  i = 0
-  for(Y in list(precision, recall, F1)){    
-    ggplot.results(Xs, Y, method, df, xl)
-    i = i+1
-  }
+  
+  ggplot.results(Xs, precision, aes(x=Xs, y=precision, colour=method), df, xl)
+  ggplot.results(Xs, recall, aes(x=Xs, y=recall, colour=method), df, xl)
+  ggplot.results(Xs, F1, aes(x=Xs, y=F1, colour=method), df, xl)
+  
+  #for(Y in list(precision, recall, F1)){    
+  #  aes.f = aes(x=Xs, y=Y, colour=method)
+  #  ggplot.results(Xs, Y, aes.f, df, xl)
+  #  i = i+1
+  #}
 }
 
-ggplot.results = function(Xs="Xs", Y="Y", method, df, xl){
-  dev.new()
-  
+ggplot.results = function(Xs, Y, aes.f, df, xl){
   yl = if(i == 0) "Precisão (%)" else if (i == 1) "Abrangência (%)" else "F1"
   fl = if(i == 0) "precision_" else if (i == 1) "recall_" else "F1_"
   filename = paste("tese/img_temp/",fl,xl,".png",sep="")
   
-  p = ggplot(df, aes_string(x=Xs, y=Y, colour=method)) + 
+  p = ggplot(df, aes.f) + 
     geom_line() + 
-    geom_point( size=4, shape=21, fill="white") +
+    geom_point(size=4, shape=21, fill="white") +
     scale_x_continuous(breaks=Xs) +
     #scale_y_continuous(breaks=Y) +
     labs(colour="Método") +
