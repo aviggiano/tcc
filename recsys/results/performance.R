@@ -30,13 +30,13 @@ divide.train.test = function(r, TRAIN){
 }
 
 performance = function(a, r, M=2, k=10, N=20, debug=FALSE, 
-                       normalize=TRUE, remove=c(1,21), method="up", 
+                       norm=TRUE, remove=c(1,21), method="up", 
                        TRAIN=0.75, HIDDEN=0.75){
   timer <<- Sys.time()
   Utrain.Utest = divide.train.test(r, TRAIN)
   rtrain.rtest = hide.data(r, Utrain.Utest, HIDDEN, has.na=FALSE)
   
-  if(normalize){
+  if(norm){
     a[which(is.na(a))]=0
     a = normalize(a, columns = TRUE)
     if(remove) a = a[,-remove]
