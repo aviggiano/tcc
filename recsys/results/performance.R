@@ -137,7 +137,7 @@ plot.T = function(){
 }
 
 plot.N = function(){
-  Ns = c(1,10)#,20,30,40,50,60,70,80,90,100)
+  Ns = c(10)#c(1,10,20,30,40,50,60,70,80,90,100)
   plot.results(Ns, "N")
 }
 
@@ -156,7 +156,7 @@ get.results = function(Xs, xl, a, r, method){
 }
 
 plot.results = function(Xs, xl){
-  methods = c("UP","UI","FW")
+  methods = c("FW")#c("UP","UI","FW")
   
   methods.length = length(methods)
   Xs.length = length(Xs)
