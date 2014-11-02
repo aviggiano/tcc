@@ -158,7 +158,7 @@ get_W = function(d, e, r, debug, generic=TRUE){
     
     # using sparse matrix
     d=as(d,"sparseMatrix")
-    W = MatrixModels:::lm.fit.sparse(t(e),D)
+    W = MatrixModels:::lm.fit.sparse(t(e),d)
 
     W
   }
