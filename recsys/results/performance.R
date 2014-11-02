@@ -188,7 +188,7 @@ plot.results = function(Xs, xl){
   }
 }
 
-ggplot.results = function(Xs="Xs", Y="Y", method="method", df, xl){
+ggplot.results = function(Xs="Xs", Y="Y", method, df, xl){
   dev.new()
   
   yl = if(i == 0) "Precisão (%)" else if (i == 1) "Abrangência (%)" else "F1"
