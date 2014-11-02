@@ -238,7 +238,7 @@ plot.N.old = function(){
   for(Y in list(precision, recall, F1)){
     yl = if(i == 0) "Precisão (%)" else if (i == 1) "Abrangência (%)" else "F1"
     fl = if(i == 0) "precision_" else if (i == 1) "recall_" else "F1_"
-    filename = paste("tese/img_temp/",fl,".png",sep="")
+    filename = paste("tese/img_temp/",fl,xl,".png",sep="")
     
     p = ggplot(df, aes(Ns, Y, colour=method)) + 
       geom_line() + 
