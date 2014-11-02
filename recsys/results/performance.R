@@ -182,20 +182,15 @@ plot.results = function(Xs, xl){
   }
   
   
-  ggplot.results(Xs, precision, aes(x=Xs, y=precision, colour=method), df, xl)
-  ggplot.results(Xs, recall, aes(x=Xs, y=recall, colour=method), df, xl)
-  ggplot.results(Xs, F1, aes(x=Xs, y=F1, colour=method), df, xl)
-  
-  #for(Y in list(precision, recall, F1)){    
-  #  aes.f = aes(x=Xs, y=Y, colour=method)
-  #  ggplot.results(Xs, Y, aes.f, df, xl)
-  #  i = i+1
-  #}
+  ggplot.results(Xs, precision, aes(x=Xs, y=precision, colour=method), df, xl, 
+                 "precision_", "Precisão (%)")
+  ggplot.results(Xs, recall, aes(x=Xs, y=recall, colour=method), df, xl,
+                 "recall_", "Abrangência (%)")
+  ggplot.results(Xs, F1, aes(x=Xs, y=F1, colour=method), df, xl,
+                 "F1_", "F1 (%)")
 }
 
-ggplot.results = function(Xs, Y, aes.f, df, xl){
-  yl = if(i == 0) "Precisão (%)" else if (i == 1) "Abrangência (%)" else "F1"
-  fl = if(i == 0) "precision_" else if (i == 1) "recall_" else "F1_"
+ggplot.results = function(Xs, Y, aes.f, df, xl, fl, yl){
   filename = paste("tese/img_temp/",fl,xl,".png",sep="")
   
   p = ggplot(df, aes.f) + 
@@ -206,7 +201,9 @@ ggplot.results = function(Xs, Y, aes.f, df, xl){
     labs(colour="Método") +
     xlab(xl) +
     ylab(yl)
-  ggsave(p, file=filename)  
+  width = 10
+  height = (9/16) * width
+  ggsave(p, file=filename, width = width, height = height)  
 }
 
 plot.N.old = function(){
