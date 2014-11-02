@@ -190,6 +190,7 @@ plot.results = function(Xs, xl){
 
 ggplot.results = function(Xs="Xs", Y="Y", df, xl){
   dev.new()
+  
   yl = if(i == 0) "Precisão (%)" else if (i == 1) "Abrangência (%)" else "F1"
   fl = if(i == 0) "precision_" else if (i == 1) "recall_" else "F1_"
   filename = paste("tese/img_temp/",fl,xl,".png",sep="")
