@@ -179,17 +179,26 @@ get_sij = function(W, d, debug, generic){
 }
 
 fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
+  print("Utrain.Utest")
   Utrain = Utrain.Utest[[1]]
   Utest = Utrain.Utest[[2]]
   
+  print("rtrain.rtest")
   rtrain = rtrain.rtest[Utrain,]
   rtest = rtrain.rtest[Utest,]
   
+  print("get_U")
   U = get_U(rtrain, debug)
+  print("setup_eij")
   e = setup_eij(rtrain.rtest, M, debug)
+  print("setup_dfij")
   d = setup_dfij(a, rtrain.rtest, debug)
+  print("get_W")
   W = get_W(d, e, rtrain.rtest, debug)
+  print("get_sij")
   s = get_sij(W, d, debug)
+  print("get_iu_fw")
   iu = get_iu_fw(rtrain.rtest, s, Utest, M, N, debug)
+  print("iu")
   iu
 }  
