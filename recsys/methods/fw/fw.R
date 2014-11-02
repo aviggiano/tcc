@@ -1,5 +1,6 @@
 ## SETUP OF E_IxJ
 source('recsys/setup/functions.R')
+library('MatrixModels')
 
 setup_eij = function(r, M, debug) {
   e = b(t(r),M) %*% b(r,M)
@@ -133,7 +134,6 @@ get_W = function(d, e, r, debug, generic=TRUE){
     
     # removing elements i=j
     e.nrow = dim(e)[1]
-    e.ncol = dim(e)[2]
     IequalsJ = sapply(1:e.nrow, function(x) (x-1)*e.nrow+x)
       
     #  which(is.na(d))
@@ -141,23 +141,25 @@ get_W = function(d, e, r, debug, generic=TRUE){
     #E = cbind(as.vector(e))
     #E=cbind(E[-IequalsJ])
     
-    dim(e) = c(e.nrow*e.ncol,1)
+    e = as.vector(e)
     e = e[-IequalsJ]
     d = d[-IequalsJ,]
     
     # cleaning memory
     rm(IequalsJ)
     rm(e.nrow)
-    rm(e.ncol)
     gc()
     
     # linear fit E ~ w0 + w D
-    lm.W = lm(e ~ d, x=FALSE, y=FALSE, model=FALSE, qr=FALSE) # free some space
-    W = as.vector(lm.W$coefficients)
+    #lm.W = lm(e ~ d, x=FALSE, y=FALSE, model=FALSE, qr=FALSE) # free some space
+    #W = as.vector(lm.W$coefficients)
+    #rm(lm.W)
+    #gc()
     
-    rm(lm.W)
-    gc()
-    
+    # using sparse matrix
+    d=as(d,"sparseMatrix")
+    W = MatrixModels:::lm.fit.sparse(t(e),D)
+
     W
   }
   
