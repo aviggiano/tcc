@@ -179,15 +179,14 @@ plot.results = function(Xs, xl){
     df$Xs[(1+ i*Xs.length):((i+1)*Xs.length)] = Xs
     df$method[(1+ i*Xs.length):((i+1)*Xs.length)] = method
     i = i+1
+    
+    ggplot.results(Xs, precision, aes(x=Xs, y=precision, colour=method), df, xl, method,
+                   "_precision_", "Precisão (%)")
+    ggplot.results(Xs, recall, aes(x=Xs, y=recall, colour=method), df, xl, method,
+                   "_recall_", "Abrangência (%)")
+    ggplot.results(Xs, F1, aes(x=Xs, y=F1, colour=method), df, xl, method,
+                   "_F1_", "F1 (%)")
   }
-  
-  
-  ggplot.results(Xs, precision, aes(x=Xs, y=precision, colour=method), df, xl, method,
-                 "_precision_", "Precisão (%)")
-  ggplot.results(Xs, recall, aes(x=Xs, y=recall, colour=method), df, xl, method,
-                 "_recall_", "Abrangência (%)")
-  ggplot.results(Xs, F1, aes(x=Xs, y=F1, colour=method), df, xl, method,
-                 "_F1_", "F1 (%)")
 }
 
 ggplot.results = function(Xs, Y, aes.f, df, xl, method, fl, yl){
