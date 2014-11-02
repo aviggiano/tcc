@@ -182,24 +182,27 @@ plot.results = function(Xs, xl){
   }
   
   i = 0
-  for(Y in list(precision, recall, F1)){
-    yl = if(i == 0) "Precisão (%)" else if (i == 1) "Abrangência (%)" else "F1"
-    fl = if(i == 0) "precision_" else if (i == 1) "recall_" else "F1_"
-    filename = paste("tese/img_temp/",fl,xl,".png",sep="")
-    
-    p = ggplot(df, aes(Xs, Y, colour=method)) + 
-      geom_line() + 
-      geom_point( size=4, shape=21, fill="white") +
-      scale_x_continuous(breaks=Xs) +
-      #scale_y_continuous(breaks=Y) +
-      labs(colour="Método") +
-      xlab(xl) +
-      ylab(yl)
-    p
-    ggsave(p, file=filename)  
-    
+  for(Y in list(precision, recall, F1)){    
+    ggplot.results(Xs, Y, df, xl)
     i = i+1
   }
+}
+
+ggplot.results = function(Xs="Xs", Y="Y", df, xl){
+  dev.new()
+  yl = if(i == 0) "Precisão (%)" else if (i == 1) "Abrangência (%)" else "F1"
+  fl = if(i == 0) "precision_" else if (i == 1) "recall_" else "F1_"
+  filename = paste("tese/img_temp/",fl,xl,".png",sep="")
+  
+  p = ggplot(df, aes_string(x=Xs, y=Y, colour=method)) + 
+    geom_line() + 
+    geom_point( size=4, shape=21, fill="white") +
+    scale_x_continuous(breaks=Xs) +
+    #scale_y_continuous(breaks=Y) +
+    labs(colour="Método") +
+    xlab(xl) +
+    ylab(yl)
+  ggsave(p, file=filename)  
 }
 
 plot.N.old = function(){
