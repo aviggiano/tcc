@@ -129,7 +129,7 @@ get_W = function(d, e, r, debug, generic=TRUE){
     #  diag(d[,,f]) = NA
     #  D[,f] = as.vector(d[,,f])
     #}
-    d = dim(length(d[,,1]), length(d[1,1,]))
+    dim(d) = c(length(d[,,1]), length(d[1,1,]))
     
     # removing elements i=j
     e.nrow = dim(e)[1]
@@ -146,6 +146,9 @@ get_W = function(d, e, r, debug, generic=TRUE){
     d = d[-IequalsJ,]
     
     # cleaning memory
+    rm(IequalsJ)
+    rm(e.nrow)
+    rm(e.ncol)
     gc()
     
     # linear fit E ~ w0 + w D
