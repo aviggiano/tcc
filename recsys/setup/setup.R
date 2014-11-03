@@ -14,7 +14,7 @@ history = read.csv(history_filename, as.is=TRUE, sep="\t", header=FALSE)
 item = read.csv(item_filename, as.is=TRUE, sep="|", header=FALSE)
 user = read.csv(user_filename, as.is=TRUE, sep="|", header=FALSE)
 
-colnames(history)=c("user_id", "item_id", "rating", "timestamp")
+colnames(history)=c("user_id", "item_id", "rating", "elapsedstamp")
 colnames(item)=c("id", "title", "release_date", "video_release_date", "IMDB_URL", 
                  "unknown", "Action", "Adventure", "Animation", "Children's", "Comedy", "Crime", "Documentary", "Drama", "Fantasy",
                  "Film_Noir", "Horror", "Musical", "Mystery", "Romance", "Sci_Fi", "Thriller", "War", "Western")
@@ -22,17 +22,17 @@ colnames(user)=c("id", "age", "gender", "occupation", "zip_code")
 
 ## GET MORE DATA
 source('recsys/results/benchmark2.R')
-time("Got more data after")
+elapsed("Got more data after")
 
 ## CREATE RATING MATRIX
 r = matrix(0,length(unique(history$user_id)),length(unique(history$item_id)))
-time("Initialized rating matrix after")
+elapsed("Initialized rating matrix after")
 
 for(i in 1:size(history)) {
   hi = history[i,1:3]
   r[hi$user_id, hi$item_id] = hi$rating
 }
-time("Created rating matrix after")
+elapsed("Created rating matrix after")
 
 ## TRANSFORM ITEM MATRIX
 item$release_date = as.numeric(as.Date(as.character(item$release_date), "%d-%b-%Y"))
@@ -57,4 +57,4 @@ gc()
 #I = item$id
 
 ## FINISHED
-time("Setup finished after")
+elapsed("Setup finished after")

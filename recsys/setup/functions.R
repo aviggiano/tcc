@@ -1,4 +1,4 @@
-time = function(str){
+elapsed = function(str){
   print(paste(str, format(round(Sys.time()-t0, 2), nsmall = 2)))
 }
 

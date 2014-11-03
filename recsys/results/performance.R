@@ -32,7 +32,6 @@ divide.train.test = function(r, TRAIN){
 performance = function(a, r, M=2, k=10, N=20, debug=FALSE, 
                        norm=TRUE, remove=c(1,21), method="up", 
                        TRAIN=0.75, HIDDEN=0.75){
-  timer <<- Sys.time()
   Utrain.Utest = divide.train.test(r, TRAIN)
   rtrain.rtest = hide.data(r, Utrain.Utest, HIDDEN, has.na=FALSE)
   
@@ -84,6 +83,7 @@ get.precision.recall.F1 = function(iu, r, rtrain.rtest, Utrain.Utest, M, N, debu
   precision = TP/P
   recall = TP/R
   F1 = 2 * (precision * recall) / (precision + recall)
+  time = Sys.time() - timer
   
   if(debug||TRUE){
     print("precision")
@@ -92,8 +92,10 @@ get.precision.recall.F1 = function(iu, r, rtrain.rtest, Utrain.Utest, M, N, debu
     print(recall)
     print("F1")
     print(F1)
+    print("time")
+    print(time)
   }
-  list(precision, recall, F1)
+  list(precision, recall, F1, time)
 }
 
 performance.up = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
@@ -142,6 +144,7 @@ plot.N = function(){
 }
 
 get.results = function(Xs, xl, a, r, method){
+  timer <<- Sys.time()
   
   sapply(Xs, 
          function(y){
@@ -156,13 +159,14 @@ get.results = function(Xs, xl, a, r, method){
 }
 
 plot.results = function(Xs, xl){
-  methods = c("UP","UI","FW")
+  methods = c("UI")#c("UP","UI","FW")
   
   methods.length = length(methods)
   Xs.length = length(Xs)
   df = data.frame(precision = numeric(Xs.length*methods.length), 
                   recall = numeric(Xs.length*methods.length), 
                   F1 = numeric(Xs.length*methods.length), 
+                  time = numeric(Xs.length*methods.length), 
                   Xs = integer(Xs.length*methods.length), 
                   method = character(Xs.length*methods.length), 
                   stringsAsFactors = FALSE)
@@ -172,10 +176,12 @@ plot.results = function(Xs, xl){
     precision = 100*unlist(results[1,])
     recall = 100*unlist(results[2,])
     F1 = 100*unlist(results[3,])
+    time = unlist(results[4,])
     
     df$precision[(1+ i*Xs.length):((i+1)*Xs.length)] = precision
     df$recall[(1+ i*Xs.length):((i+1)*Xs.length)] = recall
     df$F1[(1+ i*Xs.length):((i+1)*Xs.length)] = F1
+    df$time[(1+ i*Xs.length):((i+1)*Xs.length)] = time
     df$Xs[(1+ i*Xs.length):((i+1)*Xs.length)] = Xs
     df$method[(1+ i*Xs.length):((i+1)*Xs.length)] = method
     i = i+1
@@ -186,6 +192,8 @@ plot.results = function(Xs, xl){
                  "recall_", "Abrangencia (%)")
   ggplot.results(Xs, F1, aes(x=Xs, y=F1, colour=method), df, xl, 
                  "F1_", "F1 (%)")
+  ggplot.results(Xs, F1, aes(x=Xs, y=time, colour=method), df, xl, 
+                 "time_", "Tempo (s)")
 }
 
 ggplot.results = function(Xs, Y, aes.f, df, xl, fl, yl){
