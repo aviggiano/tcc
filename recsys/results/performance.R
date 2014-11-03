@@ -156,7 +156,7 @@ get.results = function(Xs, xl, a, r, method){
 }
 
 plot.results = function(Xs, xl){
-  methods = c("UP","UI","FW")
+  methods = c("FW")#c("UP","UI","FW")
   
   methods.length = length(methods)
   Xs.length = length(Xs)
@@ -202,57 +202,4 @@ ggplot.results = function(Xs, Y, aes.f, df, xl, fl, yl){
   width = 10
   height = (9/16) * width
   ggsave(p, file=filename, width = width, height = height)  
-}
-
-plot.N.old = function(){
-  methods = c("UP")#,"UI")
-  Ns = c(1,10)#,20,30,40,50,60,70,80,90,100)0
-  
-  methods.length = length(methods)
-  Ns.length = length(Ns)
-  df = data.frame(precision = numeric(Ns.length*methods.length), 
-                  recall = numeric(Ns.length*methods.length), 
-                  F1 = numeric(Ns.length*methods.length), 
-                  Ns = integer(Ns.length*methods.length), 
-                  method = character(Ns.length*methods.length), 
-                  stringsAsFactors = FALSE)
-
-  i = 0
-  for(m in methods){
-    results = sapply(Ns, 
-                     function(n){
-                       performance(a,r,N=n,remove=FALSE,method=tolower(m))                 
-                     })
-    precision = 100*unlist(results[1,])
-    recall = 100*unlist(results[2,])
-    F1 = 100*unlist(results[3,])
-    
-    df$precision[(1+ i*Ns.length):((i+1)*Ns.length)] = precision
-    df$recall[(1+ i*Ns.length):((i+1)*Ns.length)] = recall
-    df$F1[(1+ i*Ns.length):((i+1)*Ns.length)] = F1
-    df$Ns[(1+ i*Ns.length):((i+1)*Ns.length)] = Ns
-    df$method[(1+ i*Ns.length):((i+1)*Ns.length)] = m
-    i = i+1
-  }
-
-  i = 0
-  xl = "N"
-  for(Y in list(precision, recall, F1)){
-    yl = if(i == 0) "Precisão (%)" else if (i == 1) "Abrangência (%)" else "F1"
-    fl = if(i == 0) "precision_" else if (i == 1) "recall_" else "F1_"
-    filename = paste("tese/img_temp/",fl,xl,".png",sep="")
-    
-    p = ggplot(df, aes(Ns, Y, colour=method)) + 
-      geom_line() + 
-      geom_point( size=4, shape=21, fill="white") +
-      scale_x_continuous(breaks=Ns) +
-      #scale_y_continuous(breaks=Y) +
-      labs(colour="Método") +
-      xlab(xl) +
-      ylab(yl)
-    p
-    ggsave(p, file=filename)  
-    
-    i = i+1
-  }
 }
