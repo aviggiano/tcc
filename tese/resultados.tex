@@ -66,19 +66,202 @@ O método UP supera os dois outros algoritmos para todos os valores de $N$, tant
     \caption{Tempo de execução em função do tamanho da lista de recomendações $N$}
 \end{figure}
 
-
 Contrariamente ao esperado, a qualidade de recomendação do algoritmo UI é sensivelmente inferior à do algoritmo UP. Isso se deve ao fato de a correlação usuário-item daquele método colocar ênfase no valor do atributo $a_{if}$, mesmo que esses atributos não sejam diretamente proporcionais à preferência do usuário. Esse cálculo é incoerente, por exemplo, para atributos $f=\mathrm{data}$: mesmo que o usuário tenha um elevado interesse $w_{uf}$ por filmes antigos, o valor de $a_{if}$ não leva em conta se sua preferência é por filmes da década de 1970 ou 1990. Nesse caso, o algoritmo indicaria incorretamente que filmes mais recentes são mais adequados para aquele usuário, porque possuem maior $a_{if}$.
 
 A fim de corrigir essa falha no algoritmo UI, seria necessário, por exemplo, aplicar nos atributos $a_{if}$ uma função $g_f$ que crescesse no mesmo sentido do interesse do usuário por aquela \textit{feature}. Dessa forma, o cálculo $\sum_f w_{uf}~g_f\left(a_{if}\right)$ significaria de fato a similaridade entre o usuário $u$ e o item $i$ medida através de seu interesse $g\left(a_{if}\right)$ pelas \textit{features} $f$.
 
-Apesar de alta qualidade das recomendações do método UP, este possui também a maior complexidade computacional. Seu tempo de execução é 1.9 vezes maior que o do método FW e 13.9 vezes maior que o do método UI. Todavia, nenhum desses tempos de execução é crítico, tendo em vista que o sistema não seria colocado diretamente à disposição dos clientes, mas que as recomendações seriam enviadas via email, por exemplo. 
+Apesar de alta qualidade das recomendações do método UP, este possui também a maior complexidade computacional. Seu tempo de execução é 2 vezes maior que o do método FW e 4 vezes maior que o do método UI. Todavia, nenhum desses tempos de execução é crítico, tendo em vista que o sistema não seria colocado diretamente à disposição dos clientes, mas que as recomendações seriam enviadas via email, por exemplo. 
 
-Apenas o método UI, para valores de N inferiores ou iguais a 10, atendem ao requisito de \textit{throughput} mínimo de 28 recomendações para cada usuário por segundo. Dado que a base de testes possui $25\%$ do total de usuários, correspondente a 236 clientes para o banco 100k, o tempo de execução máximo dos métodos deveria ser de $0.15$ min. A fim de melhorar a velocidade das recomendações, a solução mais eficiente é a mudança da linguagem de programação. O uso de linguagens C, C++ ou Python pode melhorar o desempenho computacional em até 500 vezes \cite{benchmarkingR}. 
+Apenas o método UI atende ao requisito de \textit{throughput} mínimo de 28 recomendações para cada usuário por segundo. Dado que a base de testes possui $25\%$ do total de usuários, correspondente a 236 clientes para o banco 100k, o tempo de execução máximo dos métodos deveria ser de $0.15$ min. A fim de melhorar a velocidade das recomendações, a solução mais eficiente é a mudança da linguagem de programação. O uso de linguagens C, C++ ou Python pode melhorar o desempenho computacional em até 500 vezes \cite{benchmarkingR}. 
 
 \section{Percentual da base de aprendizado $T$} % (fold)
 \label{sec:percentual_da_base_de_aprendizado_}
 
-% section percentual_da_base_de_aprendizado_ (end)
+A medida que o percentual da base de aprendizados aumenta, a precisão de todos os métodos cresce. Essa observação é consequência direta do caráter colaborativo dos algoritmos, já que a qualidade da recomendação
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/precision_T}
+    \end{center}
+    \label{fig:precision_T}
+    \caption{Precisão em função do percentual da base de aprendizado $T$}
+\end{figure}
+
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/recall_T}
+    \end{center}
+    \label{fig:recall_T}
+    \caption{Abrangência em função do percentual da base de aprendizado $T$}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/F1_T}
+    \end{center}
+    \label{fig:F1_T}
+    \caption{Medida $F_1$ em função do percentual da base de aprendizado $T$}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/time_T}
+    \end{center}
+    \label{fig:time_T}
+    \caption{Tempo de execução em função do percentual da base de aprendizado $T$}
+\end{figure}
+
+
+\section{Percentual de avaliações ``escondidas'' dos usuários-teste na validação cruzada $H$} % (fold)
+\label{sec:percentual_de_avalia_es_dos_usu_rios_teste_na_valida_o_cruzada}
+
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/precision_H}
+    \end{center}
+    \label{fig:precision_H}
+    \caption{Precisão em função do percentual de avaliações ``escondidas'' $H$}
+\end{figure}
+
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/recall_H}
+    \end{center}
+    \label{fig:recall_H}
+    \caption{Abrangência em função do percentual de avaliações ``escondidas'' $H$}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/F1_H}
+    \end{center}
+    \label{fig:F1_H}
+    \caption{Medida $F_1$ em função do percentual de avaliações ``escondidas'' $H$}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/time_H}
+    \end{center}
+    \label{fig:time_H}
+    \caption{Tempo de execução em função do percentual de avaliações ``escondidas'' $H$}
+\end{figure}
+
+
+\section{Valor mínimo para avaliações positivas $M$} % (fold)
+\label{sec:valor_m_nimo_para_avalia_es_positivas_}
+
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/precision_M}
+    \end{center}
+    \label{fig:precision_M}
+    \caption{Precisão em função do valor mínimo para avaliações positivas $M$}
+\end{figure}
+
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/recall_M}
+    \end{center}
+    \label{fig:recall_M}
+    \caption{Abrangência em função do valor mínimo para avaliações positivas $M$}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/F1_M}
+    \end{center}
+    \label{fig:F1_M}
+    \caption{Medida $F_1$ em função do valor mínimo para avaliações positivas $M$}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/time_M}
+    \end{center}
+    \label{fig:time_M}
+    \caption{Tempo de execução em função do valor mínimo para avaliações positivas $M$}
+\end{figure}
+
+\section{Número de vizinhos mais próximos $k$} % (fold)
+\label{sec:n_mero_de_vizinhos_mais_pr_ximos_}
+
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/precision_k}
+    \end{center}
+    \label{fig:precision_k}
+    \caption{Precisão em função do número de vizinhos mais próximos $k$}
+\end{figure}
+
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/recall_k}
+    \end{center}
+    \label{fig:recall_k}
+    \caption{Abrangência em função do número de vizinhos mais próximos $k$}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/F1_k}
+    \end{center}
+    \label{fig:F1_k}
+    \caption{Medida $F_1$ em função do número de vizinhos mais próximos $k$}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/time_k}
+    \end{center}
+    \label{fig:time_k}
+    \caption{Tempo de execução em função do número de vizinhos mais próximos $k$}
+\end{figure}
+
+\section{Conjunto de atributos dos itens
+ $\mathcal{F}$} % (fold)
+\label{sec:conjunto_de_atributos_dos_itens_}
+
+
+\section{Medida de distância entre atributos $d^f$} % (fold)
+\label{sec:medida_de_dist_ncia_entre_atributos_}
+
+
+\section{Pesos dos atributos $w_f$} % (fold)
+\label{sec:pesos_dos_atributos_}
+
+% section pesos_dos_atributos_ (end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \chapter[old]{old}
 \label{chap:old}
