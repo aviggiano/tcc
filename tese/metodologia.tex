@@ -44,6 +44,31 @@ Os métodos escolhidos foram codificados em R e testados com inicialmente com o 
 \section{Validação Cruzada} % (fold)
 \label{sec:prot_tipos_testes}
 
+A fim de realizar um estudo comparativo (\textit{benchmarking}) com os artigos de referência, mantivemos a mesma metodologia de avaliação de qualidade do artigo \citeonline{symeonidis2007feature}.
+
+Em particular, implementamos uma validação cruzada considerando-se $T=75\%$ do banco de dados como base de treinamento ou aprendizado e os $25\%$ restantes como usuários-teste. Em seguida, foram mascarados $H=75\%$ das avaliações dos usuários-teste, de modo a medir a qualidade do sistema de recomendação em prever os itens que haviam sido positivamente avaliados. 
+
+
+
+
 reescrever
 
 A realização de testes será feita com os bancos de dados de centenas de milhares de itens ou de avaliações. Visto que será feita uma validação cruzada, será necessário descartar os dados e reformular a solução caso as recomendações não atinjam os requisitos funcionais. Isso evita que o sistema seja moldado para operar somente com aquele banco de dados específico.
+
+
+
+
+
+
+NAME="Amazon Linux AMI"
+VERSION="2014.09"
+ID="amzn"
+ID_LIKE="rhel fedora"
+VERSION_ID="2014.09"
+PRETTY_NAME="Amazon Linux AMI 2014.09"
+ANSI_COLOR="0;33"
+CPE_NAME="cpe:/o:amazon:linux:2014.09:ga"
+HOME_URL="http://aws.amazon.com/amazon-linux-ami/"
+Amazon Linux AMI release 2014.09
+
+Linux 3.14.20-20.44.amzn1.x86_64 x86_64
