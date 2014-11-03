@@ -157,11 +157,11 @@ plot.N = function(){
   plot.results(Ns, "N")
 }
 
-get.results = function(Xs, xl, a, r, method){
-  timer <<- Sys.time()
-  
+get.results = function(Xs, xl, a, r, method){  
   sapply(Xs, 
          function(y){
+           timer <<- Sys.time()
+           
            if(xl == "N") performance(a,r,N=y,remove=FALSE,method=tolower(method))                 
            else if(xl == "T") performance(a,r,TRAIN=y,remove=FALSE,method=tolower(method))                 
            else if(xl == "H") performance(a,r,HIDDEN=y,remove=FALSE,method=tolower(method))
