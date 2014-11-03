@@ -221,6 +221,7 @@ Para o algoritmo UI, tanto a precisão quanto a abrangência são nulas para $M=
 \section{Número de vizinhos mais próximos $k$} % (fold)
 \label{sec:n_mero_de_vizinhos_mais_pr_ximos_}
 
+O único método que recomenda itens com base nos vizinhos mais próximos é o UP. Percebe-se que com o aumento de $k$, a precisão e a abrangência caem, pois a vizinhança se torna excessivamente grande e repleta de usuários sem muita similaridade com o usuário-teste. Pode-se observar que o valor máximo de precisão e acurácia ocorre para $k=20$ (Figura \ref{fig:F1_k}).
 
 \begin{figure}[htp]
     \begin{center}
@@ -247,13 +248,13 @@ Para o algoritmo UI, tanto a precisão quanto a abrangência são nulas para $M=
     \caption{Medida $F_1$ em função do número de vizinhos mais próximos $k$}
 \end{figure}
 
-\begin{figure}[htp]
-    \begin{center}
-    \includegraphics[width=1\textwidth]{img/time_k}
-    \end{center}
-    \label{fig:time_k}
-    \caption{Tempo de execução em função do número de vizinhos mais próximos $k$}
-\end{figure}
+%\begin{figure}[htp]
+    %\begin{center}
+   % \includegraphics[width=1\textwidth]{img/time_k}
+  %  \end{center}
+ %   \label{fig:time_k}
+%    \caption{Tempo de execução em função do número de vizinhos mais próximos $k$}
+%\end{figure}
 
 \section{Conjunto de atributos dos itens
  $\mathcal{F}$} % (fold)
