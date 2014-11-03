@@ -159,7 +159,7 @@ get.results = function(Xs, xl, a, r, method){
 }
 
 plot.results = function(Xs, xl){
-  methods = c("UI")#c("UP","UI","FW")
+  methods = c("UP","UI","FW")
   
   methods.length = length(methods)
   Xs.length = length(Xs)
