@@ -83,7 +83,7 @@ get.precision.recall.F1 = function(iu, r, rtrain.rtest, Utrain.Utest, M, N, debu
   precision = TP/P
   recall = TP/R
   F1 = 2 * (precision * recall) / (precision + recall)
-  time = Sys.time() - timer
+  time = difftime(Sys.time(), timer, units='mins')
   
   if(debug||TRUE){
     print("precision")
