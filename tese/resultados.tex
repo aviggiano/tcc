@@ -55,14 +55,25 @@ O método UP supera os dois outros algoritmos para todos os valores de $N$, tant
     \includegraphics[width=1\textwidth]{img/F1_N}
     \end{center}
     \label{fig:F1_N}
-    \caption{Abrangência em função do tamanho da lista de recomendações $N$}
+    \caption{Medida $F_1$ em função do tamanho da lista de recomendações $N$}
 \end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/time_N}
+    \end{center}
+    \label{fig:time_N}
+    \caption{Tempo de execução em função do tamanho da lista de recomendações $N$}
+\end{figure}
+
 
 Contrariamente ao esperado, a qualidade de recomendação do algoritmo UI é sensivelmente inferior à do algoritmo UP. Isso se deve ao fato de a correlação usuário-item daquele método colocar ênfase no valor do atributo $a_{if}$, mesmo que esses atributos não sejam diretamente proporcionais à preferência do usuário. Esse cálculo é incoerente, por exemplo, para atributos $f=\mathrm{data}$: mesmo que o usuário tenha um elevado interesse $w_{uf}$ por filmes antigos, o valor de $a_{if}$ não leva em conta se sua preferência é por filmes da década de 1970 ou 1990. Nesse caso, o algoritmo indicaria incorretamente que filmes mais recentes são mais adequados para aquele usuário, porque possuem maior $a_{if}$.
 
 A fim de corrigir essa falha no algoritmo UI, seria necessário, por exemplo, aplicar nos atributos $a_{if}$ uma função $g_f$ que crescesse no mesmo sentido do interesse do usuário por aquela \textit{feature}. Dessa forma, o cálculo $\sum_f w_{uf}~g_f\left(a_{if}\right)$ significaria de fato a similaridade entre o usuário $u$ e o item $i$ medida através de seu interesse $g\left(a_{if}\right)$ pelas \textit{features} $f$.
 
+Apesar de alta qualidade das recomendações do método UP, este possui também a maior complexidade computacional. Seu tempo de execução é 1.9 vezes maior que o do método FW e 13.9 vezes maior que o do método UI. Todavia, nenhum desses tempos de execução é crítico, tendo em vista que o sistema não seria colocado diretamente à disposição dos clientes, mas que as recomendações seriam enviadas via email, por exemplo. 
 
+Apenas o método UI, para valores de N inferiores ou iguais a 10, atendem ao requisito de \textit{throughput} mínimo de 28 recomendações para cada usuário por segundo. Dado que a base de testes possui $25\%$ do total de usuários, correspondente a 236 clientes para o banco 100k, o tempo de execução deveria ser inferior a $0.15$ min. A fim de melhorar a velocidade das recomendações, a solução mais eficiente é a mudança da linguagem de programação. O uso das linguagens C, C++ ou Python, podem melhorar o desempenho computacional até 500 vezes \cite{benchmarkingR}. 
 
 \section{Percentual da base de aprendizado $T$} % (fold)
 \label{sec:percentual_da_base_de_aprendizado_}

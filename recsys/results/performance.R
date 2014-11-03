@@ -133,7 +133,7 @@ cross.validate = function(r, a, U, M=2, k=2, N=10, K=10, debug=FALSE){
 }
 
 plot.T = function(){
-  Ts = c(0,1,10,20,30,40,50,60,70,75,80,90,100)/100
+  Ts = c(10,20,30,40,50,60,70,75,80,90)/100
   #Ts = c(1,75)/100
   plot.results(Ts, "T")
 }
@@ -186,6 +186,8 @@ plot.results = function(Xs, xl){
     df$method[(1+ i*Xs.length):((i+1)*Xs.length)] = method
     i = i+1
   }
+  if(xl == "T") Xs = 100*Xs
+  
   ggplot.results(Xs, precision, aes(x=Xs, y=precision, colour=method), df, xl, 
                  "precision_", "Precisao (%)")
   ggplot.results(Xs, recall, aes(x=Xs, y=recall, colour=method), df, xl, 
