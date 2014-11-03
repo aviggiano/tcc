@@ -200,7 +200,6 @@ plot.results = function(Xs, xl){
     df$method[(1+ i*Xs.length):((i+1)*Xs.length)] = method
     i = i+1
   }
-  if(xl == "T") Xs = 100*Xs
   
   ggplot.results(Xs, precision, aes(x=Xs, y=precision, colour=method), df, xl, 
                  "precision_", "Precisao (%)")
