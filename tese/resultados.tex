@@ -126,6 +126,10 @@ Ao passo que a precisão dos métodos aumenta com $H$, a abrangência diminui. V
 
 O resultado de uma precisão crescente em função de $H$ e uma acurácia decrescente é que a medida $F_1$ possui um ponto de máximo. Para todos os métodos, o valor máximo é tal que $H=50\%$.
 
+Quanto ao tempo de execução, a influência é a mesma do parâmetro $T$: 
+para o método FW, a etapa de maior custo computacional (Equação \ref{eq:determinacao-wf}) é linearmente dependente da quantidade de itens $\left|\mathcal{I}\right|$. Quanto menos avaliações de itens dos usuários-teste, mais veloz é o algoritmo.
+
+
 \begin{figure}[htp]
     \begin{center}
     \includegraphics[width=1\textwidth]{img/precision_H}
@@ -163,6 +167,14 @@ O resultado de uma precisão crescente em função de $H$ e uma acurácia decres
 \section{Valor mínimo para avaliações positivas $M$} % (fold)
 \label{sec:valor_m_nimo_para_avalia_es_positivas_}
 
+Contrariamente ao que esperávamos, tornar o algoritmo mais ``seletivo'' não melhora sua precisão. Apesar de o valor mínimo $M$ estar intimamente ligado com a noção de ``avaliação positiva'' e de entrar no cálculo de parâmetros importantes dos métodos (Equações \ref{eq:determinacao-eij} e \ref{eq:tf}), esse parâmetro pouco influencia a precisão para $0 \leq M \leq 2$. 
+
+Esse resultado pode ser explicado pelo fato de que a maioria das avaliações são positivas (Figura \ref{fig:percentual_M}), e portanto $\mathrm{b}_M$ tem quase o mesmo efeito de $\mathrm{b}_0$. Isso não ocorre somente pelo fato de os clientes comprarem itens similares a seus gostos, e portanto de raramente se decepcionarem, mas também pelo fato de que os usuários tem menos disposição para darem avaliações negativas. Esse fenômeno se chama \textit{hidden feedback}, e se caracteriza pelo fato de que os itens avaliados não são escolhidos ao acaso, mas sim por despertarem aspectos de interesse das preferências do usuário, indo além dos valores numéricos das avaliações \cite{lops2011content-chap5}.
+
+Ao se analisar a abrangência dos métodos, a seletividade influencia na recomendação. Quanto maior $M$, menor é a quantidade de itens muito bem avaliados. Estes possuem elevada similaridade/correlação e são facilmente escolhidos pelos algoritmos. Por esse motivo, melhor é o desempenho do sistema.
+
+Um detalhe a se observar é que a precisão é nula e a abrangência é inexistente para $M=5$, já que todas as avaliações $r_{ui}$ pertencem ao conjunto $\left\{1,2,3,4,5\right\}$. 
+Para o algoritmo UI, tanto a precisão quanto a abrangência são nulas para $M=4$.
 
 \begin{figure}[htp]
     \begin{center}
@@ -172,6 +184,13 @@ O resultado de uma precisão crescente em função de $H$ e uma acurácia decres
     \caption{Precisão em função do valor mínimo para avaliações positivas $M$}
 \end{figure}
 
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/percentual_M}
+    \end{center}
+    \label{fig:percentual_M}
+    \caption{Percentual de avaliações por valor de $M$}
+\end{figure}
 
 \begin{figure}[htp]
     \begin{center}
