@@ -179,18 +179,17 @@ plot.results = function(Xs, xl){
     df$Xs[(1+ i*Xs.length):((i+1)*Xs.length)] = Xs
     df$method[(1+ i*Xs.length):((i+1)*Xs.length)] = method
     i = i+1
-    
-    ggplot.results(Xs, precision, aes(x=Xs, y=precision, colour=method), df, xl, method,
-                   "_precision_", "Precisao (%)")
-    ggplot.results(Xs, recall, aes(x=Xs, y=recall, colour=method), df, xl, method,
-                   "_recall_", "Abrangencia (%)")
-    ggplot.results(Xs, F1, aes(x=Xs, y=F1, colour=method), df, xl, method,
-                   "_F1_", "F1 (%)")
   }
+  ggplot.results(Xs, precision, aes(x=Xs, y=precision, colour=method), df, xl, 
+                 "precision_", "Precisao (%)")
+  ggplot.results(Xs, recall, aes(x=Xs, y=recall, colour=method), df, xl, 
+                 "recall_", "Abrangencia (%)")
+  ggplot.results(Xs, F1, aes(x=Xs, y=F1, colour=method), df, xl, 
+                 "F1_", "F1 (%)")
 }
 
-ggplot.results = function(Xs, Y, aes.f, df, xl, method, fl, yl){
-  filename = paste("tese/img_temp/",method,fl,xl,".png",sep="")
+ggplot.results = function(Xs, Y, aes.f, df, xl, fl, yl){
+  filename = paste("tese/img_temp/",fl,xl,".png",sep="")
   
   p = ggplot(df, aes.f) + 
     geom_line() + 

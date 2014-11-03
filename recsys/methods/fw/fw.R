@@ -151,14 +151,14 @@ get_W = function(d, e, r, debug, generic=TRUE){
     gc()
     
     # linear fit E ~ w0 + w D
-    #lm.W = lm(e ~ d, x=FALSE, y=FALSE, model=FALSE, qr=FALSE) # free some space
-    #W = as.vector(lm.W$coefficients)
+    lm.W = lm(e ~ d, x=FALSE, y=FALSE, model=FALSE, qr=FALSE) # free some space
+    W = as.vector(lm.W$coefficients)
     #rm(lm.W)
     #gc()
     
     # using sparse matrix
-    d=as(d,"sparseMatrix")
-    W = MatrixModels:::lm.fit.sparse(d,e)
+    #d=as(d,"sparseMatrix")
+    #W = MatrixModels:::lm.fit.sparse(d,e)
 
     W
   }
