@@ -29,7 +29,7 @@ Além disso, as metodologias de solução de cada um dos sistemas serão debatid
 \section{Tamanho da lista de recomendações $N$} % (fold)
 \label{sec:tamanho_da_lista_de_recomenda_es_}
 
-Assim como mostra a literatura, a medida que o tamanho da lista de recomendações aumenta, a precisão cai e a abrangência cresce (Figuras \ref{fig:precision_N}). 
+Assim como mostra a literatura, a medida que o tamanho da lista de recomendações aumenta, a precisão cai e a abrangência cresce (Figuras \ref{fig:precision_N}). A primeira decresce com $N$ porque a quantidade de itens sugeridos se torna excessivamente maior que a quantidade de itens positivamente avaliados pelos usuários-teste. A segunda, por sua vez, cresce com $N$ porque a probabilidade de sugerirmos itens relevantes para o usuário aumenta quando sugerimos mais itens. Para $N=\left|\mathcal{I}\right|$, a abrangência atinge $100\%$, pois todos os itens teriam sido recomendados.
 
 O método UP supera os dois outros algoritmos para todos os valores de $N$, tanto em precisão quanto em abrangência, como se observa pelo gráfico das medidas $F_1$.
 
@@ -77,7 +77,9 @@ Apenas o método UI atende ao requisito de \textit{throughput} mínimo de 28 rec
 \section{Percentual da base de aprendizado $T$} % (fold)
 \label{sec:percentual_da_base_de_aprendizado_}
 
-A medida que o percentual da base de aprendizados aumenta, a precisão de todos os métodos cresce. Essa observação é consequência direta do caráter colaborativo dos algoritmos, já que a qualidade da recomendação
+A medida que o percentual da base de aprendizados aumenta, a precisão de todos os métodos cresce ligeiramente. Isso é consequência do caráter colaborativo dos algoritmos, já que a qualidade da recomendação depende da quantidade total de dados. Entretanto, pode-se observar que a abrangência e a medida $F_1$ são praticamente constantes para valores crescentes de $T$ de modo que esse parâmetro não tem grande relevância para o sucesso do sistema de recomendação.
+
+O parâmetro $T$ não exerce nenhuma influência sobre o tempo de execução dos métodos UP e UI, mas apenas sobre o método FW. Isso ocorre porque a etapa de maior custo computacional (Equação \ref{eq:determinacao-wf}) é linearmente dependente da quantidade de usuários $\left|\mathcal{U}\right|$. Quanto menos usuários-teste, mais veloz é o algoritmo.
 
 \begin{figure}[htp]
     \begin{center}
@@ -116,6 +118,13 @@ A medida que o percentual da base de aprendizados aumenta, a precisão de todos 
 \section{Percentual de avaliações ``escondidas'' dos usuários-teste na validação cruzada $H$} % (fold)
 \label{sec:percentual_de_avalia_es_dos_usu_rios_teste_na_valida_o_cruzada}
 
+Quanto maior o número de avaliações ``escondidas'', mais fácil é acertar os itens dos usuários-teste, pois a lista de recomendação é pequena em relação ao total de itens positivamente avaliados pelo usuário. Por esse motivo, a precisão cresce com $H$ para todos os métodos. 
+
+Para o algoritmo FW, a precisão atinge seu máximo em $H=75\%$ e depois decresce ligeiramente. Isso ocorre porque o cálculo dos pesos $w_f$ depende da quantidade de avaliações $r_{ui}$. Existe, pois, um compromisso (\textit{tradeoff}) entre facilidade de se acertar itens avaliados quando há muitas avaliações escondidas e a dificuldade de se estimar $w_f$ quando não há muitos dados de avaliações.  
+
+Ao passo que a precisão dos métodos aumenta com $H$, a abrangência diminui. Visto que a quantidade de itens da lista \textit{top-}$N$ é fixa, quanto maior o número de itens ``escondidos'', mais difícil é de se retornar todos os itens relevantes.
+
+O resultado de uma precisão crescente em função de $H$ e uma acurácia decrescente é que a medida $F_1$ possui um ponto de máximo. Para todos os métodos, o valor máximo é tal que $H=50\%$.
 
 \begin{figure}[htp]
     \begin{center}
