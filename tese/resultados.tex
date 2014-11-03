@@ -73,7 +73,7 @@ A fim de corrigir essa falha no algoritmo UI, seria necessário, por exemplo, ap
 
 Apesar de alta qualidade das recomendações do método UP, este possui também a maior complexidade computacional. Seu tempo de execução é 1.9 vezes maior que o do método FW e 13.9 vezes maior que o do método UI. Todavia, nenhum desses tempos de execução é crítico, tendo em vista que o sistema não seria colocado diretamente à disposição dos clientes, mas que as recomendações seriam enviadas via email, por exemplo. 
 
-Apenas o método UI, para valores de N inferiores ou iguais a 10, atendem ao requisito de \textit{throughput} mínimo de 28 recomendações para cada usuário por segundo. Dado que a base de testes possui $25\%$ do total de usuários, correspondente a 236 clientes para o banco 100k, o tempo de execução deveria ser inferior a $0.15$ min. A fim de melhorar a velocidade das recomendações, a solução mais eficiente é a mudança da linguagem de programação. O uso das linguagens C, C++ ou Python, podem melhorar o desempenho computacional até 500 vezes \cite{benchmarkingR}. 
+Apenas o método UI, para valores de N inferiores ou iguais a 10, atendem ao requisito de \textit{throughput} mínimo de 28 recomendações para cada usuário por segundo. Dado que a base de testes possui $25\%$ do total de usuários, correspondente a 236 clientes para o banco 100k, o tempo de execução máximo dos métodos deveria ser de $0.15$ min. A fim de melhorar a velocidade das recomendações, a solução mais eficiente é a mudança da linguagem de programação. O uso de linguagens C, C++ ou Python pode melhorar o desempenho computacional em até 500 vezes \cite{benchmarkingR}. 
 
 \section{Percentual da base de aprendizado $T$} % (fold)
 \label{sec:percentual_da_base_de_aprendizado_}
