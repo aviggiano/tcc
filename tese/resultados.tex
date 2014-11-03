@@ -171,7 +171,9 @@ Contrariamente ao que esperávamos, tornar o algoritmo mais ``seletivo'' não me
 
 Esse resultado pode ser explicado pelo fato de que a maioria das avaliações são positivas (Figura \ref{fig:percentual_M}), e portanto $\mathrm{b}_M$ tem quase o mesmo efeito de $\mathrm{b}_0$. Isso não ocorre somente pelo fato de os clientes comprarem itens similares a seus gostos, e portanto de raramente se decepcionarem, mas também pelo fato de que os usuários tem menos disposição para darem avaliações negativas. Esse fenômeno se chama \textit{hidden feedback}, e se caracteriza pelo fato de que os itens avaliados não são escolhidos ao acaso, mas sim por despertarem aspectos de interesse das preferências do usuário, indo além dos valores numéricos das avaliações \cite{lops2011content-chap5}.
 
-Ao se analisar a abrangência dos métodos, a seletividade influencia na recomendação. Quanto maior $M$, menor é a quantidade de itens muito bem avaliados. Estes possuem elevada similaridade/correlação e são facilmente escolhidos pelos algoritmos. Por esse motivo, melhor é o desempenho do sistema.
+Ao se analisar a abrangência dos métodos, a seletividade influencia na recomendação. Quanto maior $M$, menor é a quantidade de itens muito bem avaliados. Estes possuem elevada similaridade-correlação e são facilmente escolhidos pelos algoritmos. Por esse motivo, melhor é o desempenho do sistema.
+
+A complexidade computacional dos algoritmos também depende de $M$, já que mais ou menos parâmetros são analisados no cálculo da TF-IDF (métodos UI e UP) e dos pesos dos atributos (método FW).
 
 Um detalhe a se observar é que a precisão é nula e a abrangência é inexistente para $M=5$, já que todas as avaliações $r_{ui}$ pertencem ao conjunto $\left\{1,2,3,4,5\right\}$. 
 Para o algoritmo UI, tanto a precisão quanto a abrangência são nulas para $M=4$.
