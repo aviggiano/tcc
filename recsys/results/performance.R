@@ -148,7 +148,7 @@ plot.M = function(){
 }
 
 plot.k = function(){
-  ks = c(0,1,2,3,4,5)
+  ks = c(10,20,30,40,50,60,70,80,90,100)
   plot.results(ks, "k")
 }
 
