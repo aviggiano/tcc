@@ -74,10 +74,13 @@ Ainda na etapa de implementação, confirmamos a validade de cada um dos método
 
 A fim de realizar um estudo comparativo (\textit{benchmarking}) com os artigos de referência, mantivemos a mesma metodologia de avaliação de qualidade do artigo \citeonline{symeonidis2007feature}.
 
-Em particular, implementamos uma validação cruzada considerando $T=75\%$ do banco de dados como base de treinamento ou aprendizado e os $25\%$ restantes como base de testes. Em seguida, mascaramos $H=75\%$ das avaliações dos usuários-teste, de modo a medir a qualidade do sistema de recomendação em prever os itens positivamente avaliados. 
+Em particular, implementamos uma validação cruzada considerando $T=75\%$ do banco de dados como base de treinamento ou aprendizado e os $25\%$ restantes como base de testes. Em seguida, mascaramos $H=75\%$ das avaliações dos usuários-teste, de modo a medir a qualidade do sistema de recomendação em prever os itens positivamente avaliados. Cerca de uma dezena de parâmetros de interesse foram avaliados para cada um dos métodos (Tabela \ref{tab:variaveis}). 
 
-Cerca de uma dezena de parâmetros de interesse foram avaliados para cada um dos métodos (Tabela \ref{tab:variaveis}). Como a complexidade dos algoritmos excedia o limite dos computadores pessoais da dupla, foi necessário contratar o serviço de computação nas nuvens Amazon Web Services.
+Com foco na reprodutibilidade do trabalho, realizamos todas as amostragens em R utilizando o número 2 como semente aleatória (\textit{state seed}). Além disso, não fizemos distinção entre valores não observados (\textit{NA value/NULL value}) e avaliações nulas ($r_{ui}=0$), pois na maioria dos casos essa simplificação é válida. 
 
-Alugamos duas máquinas virtuais do tipo \texttt{r3.large}, otimizadas para memória, visto que as matrizes e os objetos da linguagem R requerem uma grande quantidade de memória virtual. As máquinas possuem 2 vCPU, 15 GB de memória RAM e custam USD 0,175 por hora de uso. O sistema operacional é Amazon Linux AMI release 2014.09 x86\_64, baseado em RHEL Fedora. 
+Sabe-se que a extração de um modelo por meio de uma validação cruzada sobre uma mesma base de dados pode gerar \textit{overfitting} (Referência \citeonline{ng1997preventing}). Para não cair nesse erro, utilizamos dois bancos de dados, sendo um deles para avaliação da qualidade das recomendações mediante a mudanças em parâmetros do problema e o outro para avaliação dos algoritmos em uma base totalmente diferente, sem modelagem \textit{a priori}.
 
-Todos os testes foram realizados em aproximadamente 12 horas, custando apenas USD 4,20 (menos de R\$ 12,00).
+
+Como a complexidade dos algoritmos excedia o limite dos computadores pessoais da dupla, foi necessário contratar o serviço de computação nas nuvens Amazon Web Services.
+
+Alugamos duas máquinas virtuais do tipo \texttt{r3.large}, otimizadas para memória, visto que as matrizes e os objetos da linguagem R requerem uma grande quantidade de memória virtual. As máquinas, de especificação 2 vCPU, 15 GB de memória RAM e sistema operacional Amazon Linux AMI release 2014.09 x86\_64, baseado em RHEL Fedora, custaram USD 0,175 por hora de uso. Todos os testes foram realizados em aproximadamente 12 horas, custando apenas USD 4,20 (menos de R\$ 12,00).
