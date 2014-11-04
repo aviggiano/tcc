@@ -260,6 +260,33 @@ O único método que recomenda itens com base nos vizinhos mais próximos é o U
  $\mathcal{F}$} % (fold)
 \label{sec:conjunto_de_atributos_dos_itens_}
 
+Para o banco de dados 100k-IMDB, o conjunto de atributos dos itens é $\mathcal{F}=$\{{data de lançamento, gênero, duração, orçamento, avaliação, votos\}. 
+
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/precision_N_F}
+    \end{center}
+    \label{fig:precision_N_F}
+    \caption{Precisão em função do tamanho da lista de recomendações $N$}
+\end{figure}
+
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/recall_N_F}
+    \end{center}
+    \label{fig:recall_N_F}
+    \caption{Abrangência em função do tamanho da lista de recomendações $N$}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/F1_N_F}
+    \end{center}
+    \label{fig:F1_N_F}
+    \caption{Medida $F_1$ em função do tamanho da lista de recomendações $N$}
+\end{figure}
 
 \section{Medida de distância entre atributos $d^f$} % (fold)
 \label{sec:medida_de_dist_ncia_entre_atributos_}

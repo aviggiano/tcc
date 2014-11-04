@@ -151,13 +151,17 @@ get_W = function(d, e, r, debug, generic=TRUE){
   
 }
 
-get_sij = function(W, d, debug, generic){
+get_sij = function(W, d, debug, generic, only.top=FALSE){
   # SIMILARITY MATRIX
   W[which(is.na(W))] = 0
   s = matrix(0, length(d[,1,1]), length(d[,1,1]))
-  for(f in 2:length(W)){
+  
+  set.F = 2:length(W)
+  if(only.top) set.F = index.top.N(W, N=only.top, ys.remove=1)
+  
+  for(f in set.F){
     if(W[f] > 0) s = s + W[f] * (1-d[,,f-1])
-  }
+  }  
   
   # NORMALIZED SIMILARITY
   s = s / max(abs(s), na.rm=TRUE)
@@ -168,7 +172,7 @@ get_sij = function(W, d, debug, generic){
   s 
 }
 
-fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
+fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, WW){
   print("Utrain.Utest")
   Utrain = Utrain.Utest[[1]]
   Utest = Utrain.Utest[[2]]
@@ -186,7 +190,7 @@ fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
   print("get_W")
   W = get_W(d, e, rtrain.rtest, debug)
   print("get_sij")
-  s = get_sij(W, d, debug)
+  s = get_sij(W, d, debug, only.top=WW)
   print("get_iu_fw")
   iu = get_iu_fw(rtrain.rtest, s, Utest, M, N, debug)
   print("iu")
