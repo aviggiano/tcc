@@ -31,7 +31,7 @@ divide.train.test = function(r, TRAIN){
 
 performance = function(a, r, M=2, k=10, N=20, debug=FALSE, 
                        norm=TRUE, remove=c(1,21), method="up", 
-                       TRAIN=0.75, HIDDEN=0.75){
+                       TRAIN=0.75, HIDDEN=0.75, W=FALSE){
   Utrain.Utest = divide.train.test(r, TRAIN)
   rtrain.rtest = hide.data(r, Utrain.Utest, HIDDEN, has.na=FALSE)
   
@@ -42,7 +42,7 @@ performance = function(a, r, M=2, k=10, N=20, debug=FALSE,
   }
   if("up" == method) performance.up(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
   else if("ui" == method) performance.ui(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
-  else if("fw" == method) performance.fw(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
+  else if("fw" == method) performance.fw(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, W)
 }
 
 get.TP = function(iu, r, rtrain.rtest, Utest, M){
@@ -110,9 +110,9 @@ performance.ui =  function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
   get.precision.recall.F1(iu, r, rtrain.rtest, Utrain.Utest, M, N, debug)
 }
 
-performance.fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
+performance.fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, W){
   cat("FW\n")
-  iu = fw(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
+  iu = fw(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, W)
   get.precision.recall.F1(iu, r, rtrain.rtest, Utrain.Utest, M, N, debug)
 }
 
@@ -157,6 +157,11 @@ plot.N = function(){
   plot.results(Ns, "N")
 }
 
+plot.W = function(){
+  Ws = 1:25
+  plot.results(Ws, "W")
+}
+
 get.results = function(Xs, xl, a, r, method){  
   sapply(Xs, 
          function(y){
@@ -167,13 +172,14 @@ get.results = function(Xs, xl, a, r, method){
            else if(xl == "H") performance(a,r,HIDDEN=y,remove=FALSE,method=tolower(method))
            else if(xl == "M") performance(a,r,M=y,remove=FALSE,method=tolower(method))
            else if(xl == "k") performance(a,r,k=y,remove=FALSE,method=tolower(method))
+           else if(xl == "W") performance(a,r,W=y,remove=FALSE,method=tolower(method))
            else -1
          })
   
 }
 
 plot.results = function(Xs, xl){
-  methods = c("UP","UI","FW")
+  methods = c("FW")#c("UP","UI","FW")
   
   methods.length = length(methods)
   Xs.length = length(Xs)
