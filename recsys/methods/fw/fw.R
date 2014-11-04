@@ -1,6 +1,6 @@
 ## SETUP OF E_IxJ
 source('recsys/setup/functions.R')
-library('MatrixModels')
+#library('MatrixModels')
 
 setup_eij = function(r, M, debug) {
   e = b(t(r),M) %*% b(r,M)
