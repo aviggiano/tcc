@@ -162,7 +162,7 @@ get.results = function(Xs, xl, a, r, method){
          function(y){
            timer <<- Sys.time()
            
-           if(xl == "N") performance(a,r,N=y,remove=FALSE,method=tolower(method))                 
+           if(xl == "N") performance(a,r,N=y,method=tolower(method))                 
            else if(xl == "T") performance(a,r,TRAIN=y,remove=FALSE,method=tolower(method))                 
            else if(xl == "H") performance(a,r,HIDDEN=y,remove=FALSE,method=tolower(method))
            else if(xl == "M") performance(a,r,M=y,remove=FALSE,method=tolower(method))
