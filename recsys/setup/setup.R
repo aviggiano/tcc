@@ -1,23 +1,32 @@
 t0 <<- Sys.time()
 print("Setup started")
 
+directory = 'recsys/db/ml-100k/'
+history.colnames = c("user_id", "item_id", "rating", "elapsedstamp")
+item.colnames = c("id", "title", "release_date", "video_release_date", "IMDB_URL", 
+                  "unknown", "Action", "Adventure", "Animation", "Children's", "Comedy", "Crime", "Documentary", "Drama", "Fantasy",
+                  "Film_Noir", "Horror", "Musical", "Mystery", "Romance", "Sci_Fi", "Thriller", "War", "Western")
+
+read.history = function(filename=paste(directory,"u.data",sep=""), separator="\t", header=FALSE, col.names=history.colnames){
+  print(col.names)
+  history = read.csv(filename, as.is=TRUE, sep=separator, header=header)
+  if(col.names != NULL) colnames(history) = col.names
+}
+
+read.history()
+
 ## READ AUXILIARY FUNCTIONS
 source('recsys/setup/functions.R')
 
 ## READ INPUT DATA
-directory = 'recsys/db/ml-100k'
 history_filename = paste(directory,"u.data",sep='/')
 item_filename = paste(directory,"u.item",sep='/')
 user_filename = paste(directory,"u.user",sep='/')
 
-history = read.csv(history_filename, as.is=TRUE, sep="\t", header=FALSE)
 item = read.csv(item_filename, as.is=TRUE, sep="|", header=FALSE)
 user = read.csv(user_filename, as.is=TRUE, sep="|", header=FALSE)
 
 colnames(history)=c("user_id", "item_id", "rating", "elapsedstamp")
-colnames(item)=c("id", "title", "release_date", "video_release_date", "IMDB_URL", 
-                 "unknown", "Action", "Adventure", "Animation", "Children's", "Comedy", "Crime", "Documentary", "Drama", "Fantasy",
-                 "Film_Noir", "Horror", "Musical", "Mystery", "Romance", "Sci_Fi", "Thriller", "War", "Western")
 colnames(user)=c("id", "age", "gender", "occupation", "zip_code")
 
 ## GET MORE DATA
