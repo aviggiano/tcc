@@ -63,6 +63,35 @@ As principais funções da biblioteca estão descritas na documentação do Apê
 \subsection{Algoritmo baseado na ponderação de atributos (FW)} % (fold)
 \label{sub:algoritmo_baseado_na_pondera_o_de_atributos_fw_}
 
+O algoritmo de ponderação de atributos possui cinco etapas: 
+
+\begin{enumerate}
+	\item Determinação de $e_{ij}$
+	\item Determinação de $d_{ij}^f$
+	\item Determinação de $w_f$
+	\item Determinação de  $s_{ij}$
+	\item Determinação de $\hat{i}_u$
+\end{enumerate}
+
+\subsubsection{Determinação de $e_{ij}$} % (fold)
+\label{ssub:determinacao_eij}
+
+\lstset{language=python}
+
+\begin{lstlisting}
+e = b(t(r),M) %*% b(r,M)
+\end{lstlisting}
+
+
+
+
+  %e = setup_eij(rtrain.rtest, M, debug)
+  %d = setup_dfij(a, rtrain.rtest, debug)
+  %W = get_W(d, e, rtrain.rtest, debug)
+  %s = get_sij(W, d, debug, only.top=WW)
+  %iu = get_iu_fw(rtrain.rtest, s, Utest, M, N, debug)
+
+
 
 
 \subsection{Algoritmo baseado no perfil de usuários (UP)} % (fold)
