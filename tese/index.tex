@@ -63,9 +63,33 @@
 %força tabelas a nao reposicionarem		
 \usepackage{placeins}
 
+
+% apendice
+%\usepackage[titletoc]{appendix}
+%\renewcommand\cftappendixname{\appendixname~}
+%\AtBeginDocument{\renewcommand\appendixname{New Name}}
+
 %%%CODE
 \usepackage{listings}
-\usepackage{color}
+\usepackage{caption}
+
+
+\lstset{literate=
+  {á}{{\'a~}}1 {é}{{\'e~}}1 {í}{{\'i~}}1 {ó}{{\'o~}}1 {ú}{{\'u~}}1
+  {ã}{{\~a~}}1 {ẽ}{{\~e~}}1 {ĩ}{{\~i~}}1 {õ}{{\~o~}}1 {ũ}{{\~u~}}1
+  {Á}{{\'A~}}1 {É}{{\'E~}}1 {Í}{{\'I~}}1 {Ó}{{\'O~}}1 {Ú}{{\'U~}}1
+  {à}{{\`a~}}1 {è}{{\`e~}}1 {ì}{{\`i~}}1 {ò}{{\`o~}}1 {ù}{{\`u~}}1
+  {À}{{\`A~}}1 {È}{{\'E~}}1 {Ì}{{\`I~}}1 {Ò}{{\`O~}}1 {Ù}{{\`U~}}1
+  {ä}{{\"a~}}1 {ë}{{\"e~}}1 {ï}{{\"i~}}1 {ö}{{\"o~}}1 {ü}{{\"u~}}1
+  {Ä}{{\"A~}}1 {Ë}{{\"E~}}1 {Ï}{{\"I~}}1 {Ö}{{\"O~}}1 {Ü}{{\"U~}}1
+  {â}{{\^a~}}1 {ê}{{\^e~}}1 {î}{{\^i~}}1 {ô}{{\^o~}}1 {û}{{\^u~}}1
+  {Â}{{\^A~}}1 {Ê}{{\^E~}}1 {Î}{{\^I~}}1 {Ô}{{\^O~}}1 {Û}{{\^U~}}1
+  {œ}{{\oe~}}1 {Œ}{{\OE~}}1 {æ}{{\ae~}}1 {Æ}{{\AE~}}1 {ß}{{\ss~}}1
+  {ç}{{\c c~}}1 {Ç}{{\c C~}}1 {ø}{{\o~}}1 {å}{{\r a~}}1 {Å}{{\r A~}}1
+  {€}{{\EUR~}}1 {£}{{\pounds~}}1
+}
+
+
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -87,6 +111,10 @@
   breakatwhitespace=true,    % added this
   tabsize=3
 }
+%\DeclareCaptionFormat{listing}{\rule{\dimexpr\textwidth+17pt\relax}{0.4pt}\par\vskip1pt#1#2#3}
+%\captionsetup[lstlisting]{format=listing,singlelinecheck=false, margin=0pt, font={sf},labelsep=space,labelfont=bf}
+
+\renewcommand{\lstlistingname}{Código}
 
 
 
@@ -127,6 +155,8 @@
 		Citado #1 vezes nas páginas #2.%
 	\fi}%
 % ---
+
+
 
 % ---
 % Informações de dados para CAPA e FOLHA DE ROSTO
@@ -279,15 +309,14 @@
 \input{resultados}
 %\pagebreak
 \input{conclusao}
-\pagebreak
 %\input{cronograma}
 %\pagebreak
 %\input{andamento-do-projeto}
 %\pagebreak
-%\appendix
-%\input{referencias-bibliograficas-finais}
+\appendix
+\input{documentacao}
 %\pagebreak
-\input{sumario-final}
+%\input{sumario-final}
 % ----------------------------------------------------------
 % ELEMENTOS PÓS-TEXTUAIS
 % ----------------------------------------------------------

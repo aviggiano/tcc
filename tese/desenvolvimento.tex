@@ -21,7 +21,7 @@ Por fim, o curso de doze semanas de duração ``Engenharia de Startup'' (Startup
 \section{Ferramentas utilizadas} % (fold)
 \label{sec:ferramentas_utilizadas}
 
-A programação da biblioteca computacional se deu por meio do ambiente de desenvolvimento integrado RStudio versão 0.98.953 (\url{http://www.rstudio.com/}). Esse IDE inclui um console, um editor de texto e um corretor de sintaxe que suporta a execução de código direta, bem como ferramentas para traçar gráficos, histórico de comandos, depuração de erros e gerenciamento de espaço de trabalho. Além disso, o RStudio está disponível via licença de código aberto AGPLv3 (Affero General Public License version 3) para os principais sistemas operacionais (Windows, Mac e Linux).
+A programação da biblioteca computacional se deu por meio do ambiente de desenvolvimento integrado RStudio versão 0.98.953 (\url{http://www.rstudio.com/}). Esse IDE inclui console, editor de texto e corretor de sintaxe que suporta a execução de código direta, bem como ferramentas para traçar gráficos, histórico de comandos, depuração de erros e gerenciamento de espaço de trabalho. Além disso, o RStudio está disponível via licença de código aberto AGPLv3 (Affero General Public License version 3) para os principais sistemas operacionais (Windows, Mac e Linux).
 
 \section{Métodos computacionais} % (fold)
 \label{sec:m_todos_computacionais}
@@ -29,7 +29,7 @@ A programação da biblioteca computacional se deu por meio do ambiente de desen
 \subsection{Estrutura da biblioteca} % (fold)
 \label{sub:estrutura_da_biblioteca}
 
-A biblioteca está estruturada em quatro seções principais: \texttt{db}, onde está o banco de dados MovieLens 100k, \texttt{methods}, onde estão os algoritmos de recomendação, \texttt{results}, onde estão os métodos de avaliação de qualidade e \texttt{setup}, onde estão codificadas diversas funções, tais como leitura de banco de dados ou medidas de distância.
+A biblioteca está estruturada em quatro seções principais: \texttt{db}, onde está o banco de dados MovieLens 100k, \texttt{methods}, onde estão os algoritmos de recomendação, \texttt{results}, onde estão os métodos de avaliação de qualidade e \texttt{setup}, onde estão codificadas funções diversas, tais como leitura de banco de dados e cálculo de medidas de distância.
 
 \begin{lstlisting}
 recsys/
@@ -54,7 +54,7 @@ recsys/
     `-- setup.R
 \end{lstlisting}
 
-
+As principais funções da biblioteca estão descritas na documentação no Apêndice .
 
 % subsection estrutura_da_biblioteca (end)
 
@@ -145,7 +145,7 @@ Após o cadastro na AWS, deve-se seguir os seguintes passos para a criação de 
 
 Uma vez criada a máquina, deve-se utilizar a chave privada para realizar um \textit{secure shell} e conectar-se remotamente ao EC2. A partir de um computador pessoal dotado de um interpretador de comandos \texttt{bash}, utilizamos a seguinte instrução:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Secure shell para conexão com a máquina virtual EC2]
 ssh -i ~/Downloads/key_name.pem ec2-user@ec2-54-88-186-106.compute-1.amazonaws.com
 \end{lstlisting}
 
@@ -162,7 +162,7 @@ cat ~/.ssh/id_rsa.pub	# imprime a chave publica, que deve ser adicionada nas con
 
 A saída do \textit{script} é uma chave no seguinte formato:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Chave pública]
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/bxcszoyHzwyqtTXp4fl1Q3OT58Lsb7QLx+7nQ6
 y0OIoWhK+r5ynSVi0BpTC+2hMrlg1rZTC1ED7Nb+SI9bRvf+1UYWOiVUXtwAVColMNBdIfE7QCWbJm
 TmmBLcv9PIoCAvCfrxBh+flW3hXG388/LIEjZJckPYogho0jPAnFv3IXAGtVniV6cBcTTfKPUnX+np
@@ -183,8 +183,8 @@ Após a obtenção da chave, deve-se cadastrá-la na página correspondente do G
 
 Uma vez tendo habilitado a máquina virtual da AWS para manipulação do repositório da biblioteca, pode-se descarregar o código e executar o \textit{script} de testes de qualidade:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Script de execução dos testes de qualidade]
 #!/usr/bin/env bash
 git clone git@github.com:aviggiano/tcc	# clona o repositorio
-cd tcc && Rscript recsys/performance/run_tests.R 		# executa o script de testes
+cd tcc && Rscript recsys/results/run_tests.R 		# executa o script de testes
 \end{lstlisting}

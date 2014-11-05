@@ -1,0 +1,111 @@
+%!TEX root = index.tex
+\chapter{Documentação da biblioteca} % (fold)
+\label{cha:documenta_o_da_biblioteca}
+
+% chapter documenta_o_da_biblioteca (end)
+
+\begin{lstlisting}[caption=\texttt{setup}.R]
+read.history 
+	input				filename, separator, header, col.names
+	output			history
+	description		Lê o arquivo de histórico de compras e retorna uma matriz correspondente. Os parametros separator e header indicam a formatação do arquivo e são opcionais. Caso header seja FALSE, col.names deve conter um arranjo de palavras indicando os nomes das colunas da matriz.
+
+read.item
+	input				filename, separator, header, col.names
+	output			item
+	description		Lê o arquivo de descrição dos itens e retorna uma matriz correspondente. Os parametros separator e header indicam a formatação do arquivo e são opcionais. Caso header seja FALSE, col.names deve conter um arranjo de palavras indicando os nomes das colunas da matriz.
+
+read.user
+	input				filename, separator, header, col.names
+	output			user
+	description		Lê o arquivo de descrição dos usuários e retorna uma matriz correspondente. Os parametros separator e header indicam a formatação do arquivo e são opcionais. Caso header seja FALSE, col.names deve conter um arranjo de palavras indicando os nomes das colunas da matriz.
+
+get.r
+	input				history
+	output			r
+	description		Le a matriz de histórico de compras e retorna a matriz de avaliação r_ui
+
+get.a
+	input				item
+	output			a
+	description		Le a matriz de descrição de itens e retorna a matriz de atributos dos itens a_if
+\end{lstlisting}
+
+
+
+\begin{lstlisting}[caption=\texttt{performance}.R]
+hide.data
+	input				r, Utrain.Utest, HIDDEN, random=FALSE, has.na=TRUE 
+	output			matriz r com dados mascarados
+	description		mascara os dados da matriz r para os usuários de teste da lista Utrain.Utest. HIDDEN é o percentual de avaliações a serem mascaradas. random é o modo de operação; caso seja TRUE, os dados são mascarados aleatoriamente para os usuários-teste. has.na indica se os itens não avaliados em r são indicados como NA ou como 0.
+
+divide.train.test
+	input				r, TRAIN
+	output			lista contendo U.train e U.test
+	description		divide os usuários em duas bases, uma de treinamento de uma de testes, segundo a proporção TRAIN
+
+performance
+	input				a, r, M=2, k=10, N=20, norm=TRUE, remove=FALSE, method, TRAIN=0.75, HIDDEN=0.75, W=FALSE
+	output			lista contendo precisão, abrangência, medida F1 e tempo de execução do método
+	description		norm indica se a matriz de avaliações deve ser normalizada. W, caso diferente de FALSE, indica a quantidade de pesos de atributos a serem utilizados no método FW
+\end{lstlisting}
+
+\begin{lstlisting}[caption=\texttt{fw}.R]
+fw
+	input				a, r, rtrain.rtest, Utrain.Utest, M, k, N, W
+	output			iu
+	description		Retorna uma lista de recomendação para todos os usuários Utest, após obter o modelo a partir dos usuários Utrain
+\end{lstlisting}
+
+\begin{lstlisting}[caption=\texttt{ui}.R]
+ui
+	input				a, r, rtrain.rtest, Utrain.Utest, M, k, N
+	output			iu
+	description		Retorna uma lista de recomendação para todos os usuários Utest, após obter o modelo a partir dos usuários Utrain
+\end{lstlisting}
+
+\begin{lstlisting}[caption=\texttt{up}.R]
+up
+	input				a, r, rtrain.rtest, Utrain.Utest, M, k, N
+	output			iu
+	description		Retorna uma lista de recomendação para todos os usuários Utest, após obter o modelo a partir dos usuários Utrain
+\end{lstlisting}
+
+
+
+\begin{lstlisting}[caption=\texttt{functions}.R]
+b
+	input				x, y
+	output			1 se x > y ou 0 se x <= y
+	description		A definição da função b_M é diferente da do artigo de referência, em que b_Pt(x) é  tal que x >= Pt
+
+delta
+	input				m, n
+	output			1 se m == n ou 0 se m != n
+	description		Delta de Kronecker
+
+jaccard
+	input				xs, ys
+	output			número entre 0 e 1
+	description		Índice Jaccard entre os conjuntos xs e ys	
+
+h
+	input				matrix, N=6
+	output			imprime as primeiras N linhas e N colunas da matriz
+	description		Caso a entrada seja um vetor, imprime os N primeiros elementos. 
+
+top.N
+	input				xs, N=10
+	output			N maiores elementos da lista xs
+	description		Usado na construção da lista de itens top-N 
+
+index.top.N
+	input				xs, N=10, ys.remove=NULL
+	output			Índice dos N maiores elementos da lista xs
+	description		ys.remove é uma lista em que se deseja excluir os elementos da lista top.N
+
+normalize
+	input				matrix, columns=FALSE
+	output			matriz normalizada
+	description		Caso columns seja TRUE, as colunas da são normalizadas dependendo do maior valor absoluto de cada uma delas
+\end{lstlisting}
