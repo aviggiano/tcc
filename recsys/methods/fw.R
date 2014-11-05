@@ -73,22 +73,12 @@ get_iu_fw = function(r, s, Utest, M, N, debug){
 }
 
 get_W = function(d, e, r, debug){
-  #D = matrix(0, length(d[,,1]), length(d[1,1,]))
-  #for(f in 1:length(d[1,1,])){
-  #  diag(d[,,f]) = NA
-  #  D[,f] = as.vector(d[,,f])
-  #}
   dim(d) = c(length(d[,,1]), length(d[1,1,]))
   
   # removing elements i=j
   e.nrow = dim(e)[1]
   IequalsJ = sapply(1:e.nrow, function(x) (x-1)*e.nrow+x)
     
-  #  which(is.na(d))
-  #D=D[-IequalsJ,]
-  #E = cbind(as.vector(e))
-  #E=cbind(E[-IequalsJ])
-  
   e = as.vector(e)
   e = e[-IequalsJ]
   d = d[-IequalsJ,]
@@ -99,7 +89,7 @@ get_W = function(d, e, r, debug){
   gc()
   
   # linear fit E ~ w0 + w D
-  lm.W = lm(e ~ d, x=FALSE, y=FALSE, model=FALSE, qr=FALSE) # free some space
+  lm.W = lm(e ~ (1-d), x=FALSE, y=FALSE, model=FALSE, qr=FALSE) # free some space
   W = as.vector(lm.W$coefficients)
   #rm(lm.W)
   #gc()
