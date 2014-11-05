@@ -34,8 +34,7 @@ delta = function(m, n){
 jaccard = function(xs, ys){
   inters = sum(xs * ys)
   union = sum(b0(xs+ys))
-  jacc = inters/union
-  if(union == 0) jacc = 0
+  jacc = if(union == 0) 0 else inters/union
   jacc
 }
 
