@@ -1,0 +1,19 @@
+setup.R 
+
+read.history 
+	input		filename, separator, header, col.names
+	output		history
+	description	Lê o arquivo de histórico de compras e retorna uma matriz correspondente. Os parametros separator e header indicam a formatação do arquivo e são opcionais. Caso header seja FALSE, col.names deve conter um arranjo de palavras indicando os nomes das colunas da matriz.
+
+read.item
+	input		filename, separator, header, col.names
+	output		item
+	description	Lê o arquivo de descrição dos itens e retorna uma matriz correspondente. Os parametros separator e header indicam a formatação do arquivo e são opcionais. Caso header seja FALSE, col.names deve conter um arranjo de palavras indicando os nomes das colunas da matriz.
+
+read.user
+	input		filename, separator, header, col.names
+	output		user
+	description	Lê o arquivo de descrição dos usuários e retorna uma matriz correspondente. Os parametros separator e header indicam a formatação do arquivo e são opcionais. Caso header seja FALSE, col.names deve conter um arranjo de palavras indicando os nomes das colunas da matriz.
+
+
+
