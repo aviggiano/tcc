@@ -81,6 +81,11 @@ delta
 	output		1 se m == n ou 0 se m != n
 	description	delta de Kronecker
 
+jaccard
+	input		xs, ys
+	output		número entre 0 e 1
+	description	índice Jaccard entre os conjuntos xs e ys	
+
 h
 	input		matrix, N=6
 	output		imprime as primeiras N linhas e N colunas da matriz
