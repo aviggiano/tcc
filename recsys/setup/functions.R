@@ -114,12 +114,12 @@ list.length = function(l){
   sum(sapply(1:length(l), function(x) length(l[[x]])))
 }
 
-normalize = function(x, columns=FALSE){
-  x[which(is.na(x))]=0
+normalize = function(matrix, columns=FALSE){
+  matrix[which(is.na(matrix))]=0
   if(columns)
-    apply(a,2,function(x) x/max(abs(x), na.rm=TRUE))
+    apply(a,2,function(matrix) matrix/max(abs(matrix), na.rm=TRUE))
   else
-    x/max(abs(x), na.rm=TRUE)
+    matrix/max(abs(matrix), na.rm=TRUE)
 }
 
 get_U = function(r, debug){

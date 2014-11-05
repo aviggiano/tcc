@@ -1,8 +1,6 @@
 source('recsys/methods/up/up.R')
 source('recsys/methods/up/ui.R')
 source('recsys/methods/fw/fw.R')
-library(ggplot2) 
-library(reshape2)
 options(digits=3)
 SEED = 2
 
@@ -30,7 +28,7 @@ divide.train.test = function(r, TRAIN){
 }
 
 performance = function(a, r, M=2, k=10, N=20, debug=FALSE, 
-                       norm=TRUE, remove=c(1,21), method="up", 
+                       norm=TRUE, remove=FALSE, method, 
                        TRAIN=0.75, HIDDEN=0.75, W=FALSE){
   Utrain.Utest = divide.train.test(r, TRAIN)
   rtrain.rtest = hide.data(r, Utrain.Utest, HIDDEN, has.na=FALSE)

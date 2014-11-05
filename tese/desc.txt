@@ -1,4 +1,48 @@
-setup.R 
+Estrutura da biblioteca
+recsys/
+|-- db
+|   `-- ml-100k
+|       |-- README
+|       |-- allbut.pl
+|       |-- mku.sh
+|       |-- u.data
+|       |-- u.genre
+|       |-- u.info
+|       |-- u.item
+|       |-- u.occupation
+|       |-- u.user
+|       |-- u1.base
+|       |-- u1.test
+|       |-- u2.base
+|       |-- u2.test
+|       |-- u3.base
+|       |-- u3.test
+|       |-- u4.base
+|       |-- u4.test
+|       |-- u5.base
+|       |-- u5.test
+|       |-- ua.base
+|       |-- ua.test
+|       |-- ub.base
+|       `-- ub.test
+|-- methods
+|   |-- fw
+|   |   `-- fw.R
+|   `-- up
+|       |-- ui.R
+|       |-- up.R
+|       `-- up_ui_w.R
+|-- results
+|   |-- benchmark.R
+|   |-- performance.R
+|   `-- results.R
+`-- setup
+    |-- functions.R
+    `-- setup.R
+
+
+
+setup.R
 
 read.history 
 	input		filename, separator, header, col.names
@@ -25,3 +69,73 @@ get.a
 	output		a
 	description	Le a matriz de descrição de itens e retorna a matriz de atributos dos itens a_if
 
+functions.R
+
+b
+	input		x, y
+	output		1 se x > y ou 0 se x <= y
+	description	a definição da função b_M é diferente da do artigo de referência, em que b_Pt(x) é tal que x >= Pt
+
+delta
+	input		m, n
+	output		1 se m == n ou 0 se m != n
+	description	delta de Kronecker
+
+h
+	input		matrix, N=6
+	output		imprime as primeiras N linhas e N colunas da matriz
+	description	caso a entrada seja um vetor, imprime os N primeiros elementos. 
+
+top.N
+	input		xs, N=10
+	output		N maiores elementos da lista xs
+	description	Usado na construção da lista de itens top-N 
+
+index.top.N
+	input		xs, N=10, ys.remove=NULL
+	output		indice dos N maiores elementos da lista xs
+	description	ys.remove é uma lista em que se deseja excluir os elementos da lista top.N
+
+normalize
+	input		matrix, columns=FALSE
+	output		matriz normalizada
+	description	caso columns seja TRUE, as colunas da são normalizadas dependendo do maior valor absoluto de cada uma delas
+
+performance.R
+
+hide.data
+	input		r, Utrain.Utest, HIDDEN, random=FALSE, has.na=TRUE 
+	output		matriz r com dados mascarados
+	description	mascara os dados da matriz r para os usuários de teste da lista Utrain.Utest. HIDDEN é o percentual de avaliações a serem mascaradas. random é o modo de operação; caso seja TRUE, os dados são mascarados aleatoriamente para os usuários-teste. has.na indica se os itens não avaliados em r são indicados como NA ou como 0.
+
+divide.train.test
+	input		r, TRAIN
+	output		lista contendo U.train e U.test
+	description	divide os usuários em duas bases, uma de treinamento de uma de testes, segundo a proporção TRAIN
+
+performance
+	input		a, r, M=2, k=10, N=20, norm=TRUE, remove=FALSE, method, TRAIN=0.75, HIDDEN=0.75, W=FALSE
+	output		lista contendo precisão, abrangência, medida F1 e tempo de execução do método
+	description	norm indica se a matriz de avaliações deve ser normalizada. W, caso diferente de FALSE, indica a quantidade de pesos de atributos a serem utilizados no método FW
+
+
+fw.R
+
+fw
+	input		a, r, rtrain.rtest, Utrain.Utest, M, k, N, W
+	output		iu
+	description	retorna uma lista de recomendação para todos os usuários Utest, após obter o modelo a partir dos usuários Utrain
+
+ui.R
+
+ui
+	input		a, r, rtrain.rtest, Utrain.Utest, M, k, N
+	output		iu
+	description	retorna uma lista de recomendação para todos os usuários Utest, após obter o modelo a partir dos usuários Utrain
+
+up.R
+
+up
+	input		a, r, rtrain.rtest, Utrain.Utest, M, k, N
+	output		iu
+	description	retorna uma lista de recomendação para todos os usuários Utest, após obter o modelo a partir dos usuários Utrain
