@@ -25,21 +25,18 @@ Por fim, o sistema de recomendação deverá ser escalável e flexível no senti
 
 Apesar serem importantes parâmetros de um sistema de recomendação, a taxa de recomendações por período de tempo e a escalabilidade estão intimamente relacionados ao orçamento do projeto. Pode-se obter virtualmente qualquer \textit{throughput} desejado, contanto que haja investimento equivalente em infra-estrutura computacional. O mesmo não é válido para os parâmetros de qualidade da recomendação, que dependem tão somente dos algoritmos de sugestão. Neste trabalho, assumimos que o sistema de operará em microcomputadores pessoais, e por isso o requisito funcional \textit{throughput} se faz necessário.
 
-Com os requisitos do sistema de recomendação definidos, devemos estruturar o seu relacionamento com o administrador do sistema. Para isto determinamos as ações que o administrador pode realizar com este sistema. Cada uma destas ações é um caso de uso, e ao total foram criados nove casos de uso para este sistema.
+Com os requisitos do sistema de recomendação definidos, devemos estruturar o seu relacionamento com o administrador do sistema. Para isto determinamos seus casos de uso, classes e atividades.
 
-O primeiro caso de uso é o caso \textit{Selecionar Método}, onde o administrador do sistema pode selecionar entre qual método de recomendação será utilizado para gerar as recomendações do sistema.
+\section{Diagrama de Casos de Uso} % (fold)
+\label{sec:Diagrama de Casos de Uso}
 
-O segundo caso é o \textit{Selecionar Banco de Dados}, pelo qual é permitido ao administrador selecionar o banco de dados para o qual serão geradas as recomendações.
+Os casos de uso se dividem em \textit{Avaliar Performance}, \textit{Configurar Banco de Dados}, \textit{Recomendar UI}, \textit{Recomendar UP}, \textit{Recomendar FW}.
 
-O terceiro caso \textit{Gerar Recomendações} é o caso onde o dá ínicio aos cálculos das recomendações com o método e o banco de dados préviamente escolhidos, o que caracteriza dependência indicada na figura.
+O caso de Uso \textit{Avaliar Performance}, para avaliar a performance do sistema de recomendação. \textit{Avaliar Performance} se relaciona com outros 3 casos de uso. O primeiro deles, \textit{Mascarar Dados}, serve para mascarar dados de alguns usuários-teste na matriz de avaliações. Para, após, compará-los às recomendações calculadas pelo sistema. O segundo caso, \textit{Dividir Banco de Treino}, tem o objetivo de dividir o banco de dados em dois, um para o aprendizado do sistema e o segundo para testes. O terceiro caso, \textit{Devolver Indicadores}, torna os indicadores de performance acessíveis ao administrador do sistema.
 
-O quarto caso de uso, \textit{Escolher Cliente}, permite ao administrador selecionar o cliente para o qual quer ter acesso às recomendações. Isto que nos leva ao quinto caso de uso, \textit{Ranquear Itens Para Cliente},o qual ordenas os itens do banco de dados de forma decrescente de acordo com o valor da recomendação para o cliente escolhido.
+O caso de uso \textit{Configurar Banco de Dados} tem a utilidade de converter o banco de dados de entrada em matrizes. O caso \textit{Ler Itens}, é o encarregado de ler o arquivo de itens fornecido pelo banco de dados, assim como \textit{Ler Usuários} e \textit{Ler Histórico} são para usuários e histórico. Os casos de uso \textit{Gerar Matriz de Atributos} e \textit{Gerar Matriz de Avaliação} constroem as matrizes de acordo com dados lidos pelos casos de uso de leitura.
 
- O sexto caso, \textit{Avaliar Recomendações}, permite ao usuário avaliar a precisão de a acurácia do sistema. Este, em conjunto com o \textit{Fazer Validação Cruzada}, servirá para avaliar se o método utilizado para gerar as recomendações é indicado para ser implementado no sistema de vendas do e-commerce.
-
- O caso de uso \textit{Devolver Banco de Recomendações}, é o principal output do sistema, onde se devolve um banco de dados com todas as precisões de avaliações de cada um dos itens por cada um dos usuários.
-
- O último caso de uso, \textit{Devolver Pesos dos Atributos}, retornará o peso que cada atributo dos itens tem. Assim definindo quais atributos são mais importantes para cada usuário.
+Já os casos de uso \textit{Recomendar UI}, \textit{Recomendar UP} e \textit{Recomendar FW}, são os cacsos de uso em que se geram as recomendações pelos métodos baseados na correlação usuário-item, no perfil de usuários e na ponderação de atributos respectivamente. O método de recomendação baseado na ponderação de atributos necessita de outros 3 casos de uso, o \textit{Normalizar Matriz}, onde se normaliza as colunas da matriz de distância entre atributos. Esta distância entre atributos é calculada pelos dois outros casos de uso, \textit{Fazer Delta de Kronecker} e \textit{Fazer Indice Jaccard}.
 
  Estes casos de uso foram representados no diagrama de casos de uso abaixo.
 
@@ -48,5 +45,5 @@ O quarto caso de uso, \textit{Escolher Cliente}, permite ao administrador seleci
     \includegraphics[width=1\textwidth]{img/CasosDeUso}
     \end{center}
     \label{fig:Diagrama de Casos de Uso}
-    \caption{Diagrama de casos de uso representando os relacionamentos entre o administrador e o sistema.}
+    \caption{Diagrama de casos de uso representando os relacionamentos entre o administrador e o sistema de recomendações.}
 \end{figure}
