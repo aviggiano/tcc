@@ -33,7 +33,7 @@ A programação da biblioteca computacional se deu por meio do ambiente de desen
 
 A biblioteca está estruturada em quatro seções principais: \texttt{db}, onde está o banco de dados MovieLens 100k, \texttt{methods}, onde estão os algoritmos de recomendação, \texttt{results}, onde estão os métodos de avaliação de qualidade e \texttt{setup}, onde estão codificadas funções diversas, tais como leitura de banco de dados e cálculo de medidas de distância.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Estrutura da biblioteca]
 recsys/
 |-- db
 |   `-- ml-100k
@@ -62,6 +62,9 @@ As principais funções da biblioteca estão descritas na documentação do Apê
 
 \subsection{Algoritmo baseado na ponderação de atributos (FW)} % (fold)
 \label{sub:algoritmo_baseado_na_pondera_o_de_atributos_fw_}
+
+
+
 \subsection{Algoritmo baseado no perfil de usuários (UP)} % (fold)
 \label{sub:algoritmo_baseado_no_perfil_de_usu_rios_up_}
 \subsection{Algoritmo baseado na correlação usuário-item (UI)} % (fold)
@@ -153,7 +156,7 @@ ssh -i ~/Downloads/key_name.pem ec2-user@ec2-54-88-186-106.compute-1.amazonaws.c
 
 Em seguida, para a automatização do ambiente de testes e rápida configuração de novas máquinas, criamos um arquivo \texttt{script.sh} na linguagem de programação \texttt{bash}. Esse \textit{script} instala os pacotes \texttt{R} e \texttt{git} e cria a chave pública necessária para acessar o servidor onde o código da biblioteca está hospedado. Em virtude de sua popularidade, utilizamos o serviço de hospedagem de códigos abertos GitHub (\url{https://github.com/aviggiano/tcc}). 
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=\textit{Script} de configuração do ambiente de testes]
 #!/usr/bin/env bash
 sudo su						# login como administrador. necessario para instalar pacotes no sistema operacional
 yes | yum install R		# instala o pacote R no linux
