@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+sudo su
 yum install R 				# instala o pacote R no linux
 yum install git 			# instala o git para carregar os métodos de recomendação
 ssh-keygen -t rsa 		# gera a chave publica para se poder carregar o repositorio do sistema
