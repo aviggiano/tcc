@@ -88,8 +88,9 @@ get_W = function(d, e, r, debug){
   rm(e.nrow)
   gc()
   
-  # linear fit E ~ w0 + w D
-  lm.W = lm(e ~ (1-d), x=FALSE, y=FALSE, model=FALSE, qr=FALSE) # free some space
+  # linear fit e ~ w0 + w (1-d)
+  D = 1-d
+  lm.W = lm(e ~ D, x=FALSE, y=FALSE, model=FALSE, qr=FALSE) # free some space
   W = as.vector(lm.W$coefficients)
   #rm(lm.W)
   #gc()
