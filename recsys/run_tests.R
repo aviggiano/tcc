@@ -1,0 +1,10 @@
+load('r.RData')
+load('a.RData')
+source('recsys/results/performance.R')
+
+plot.N()
+plot.T()
+plot.H()
+plot.M()
+plot.k()
+plot.W()
