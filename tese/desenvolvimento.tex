@@ -14,7 +14,7 @@ Outro curso que influenciou diretamente o nosso Trabalho de Conclusão de Curso 
 
 Aliado a essas aulas, aprendemos também o paradigma funcional, amplamente utilizado em R, durante as sete semanas de ``Princípios de Programação Funcional em Scala'' (Functional Programming Principles in Scala -- \url{https://www.coursera.org/course/progfun}).
 
-Por fim, o curso de doze semanas de duração ``Engenharia de Startup'' (Startup Engineering -- \url{https://www.coursera.org/course/startup}) nos ensinou a trabalhar com diversas ferramentas de software necessárias para a realização dos testes de desempenho dos algoritmos. Utilizamos máquinas virtuais, linha de comando Unix, editores de texto sem interface gráfica (tais como vi e Emacs). Além disso, o \textit{setup} de máquinas virtuais na Amazon Web Services também era abordada no curso, facilitando a configuração do ambiente de testes e a automatização desse processo. Visto que o serviço é cobrado por hora-máquina, desenvolvemos um \textit{script} de configuração em \texttt{bash}, que descarregava os pacotes necessários para a realização imediata dos testes, permitindo assim reduzir os custos da análise.   
+Por fim, o curso de doze semanas de duração ``Engenharia de Startup'' (Startup Engineering -- \url{https://www.coursera.org/course/startup}) nos ensinou a trabalhar com diversas ferramentas de software necessárias para a realização dos testes de desempenho dos algoritmos. Utilizamos máquinas virtuais, linha de comando Unix, versionamento de código em \texttt{git} e editores de texto sem interface gráfica (tais como vi e Emacs). Além disso, o \textit{setup} de máquinas virtuais na Amazon Web Services também era abordada no curso, facilitando a configuração do ambiente de testes e a automatização desse processo. 
 
 \section{Ferramentas utilizadas} % (fold)
 \label{sec:ferramentas_utilizadas}
@@ -26,6 +26,8 @@ A programação da biblioteca computacional se deu por meio do ambiente de desen
 
 \subsection{Estrutura da biblioteca} % (fold)
 \label{sub:estrutura_da_biblioteca}
+
+A biblioteca está estruturada em quatro principais 
 
 % subsection estrutura_da_biblioteca (end)
 
@@ -45,7 +47,13 @@ A programação da biblioteca computacional se deu por meio do ambiente de desen
 \section{Ambiente de testes} % (fold)
 \label{sec:ambiente_de_testes}
 
-As etapas de configuração do ambiente de testes envolvem o cadastro na Amazon Web Services, a criação de uma máquina virtual, a instalação das ferramentas de programação necessárias e o descarregamento do código de testes.
+Inicialmente, realizamos os testes de qualidade nos nossos próprios computadores pessoais. Todavia, a execução de testes sucessivos exigia muita capacidade computacional, principalmente quanto a memória virtual.
+
+A alocação de objetos e matrizes na memória RAM é muito custosa, principalmente na etapa de determinação de medidas de distância $d_{ij}^f$ para o algoritmo FW (Equação \ref{eq:sij}). Uma matriz de dimensão $\left|\mathcal{I}\right| \times\left|\mathcal{I}\right| \times\left|\mathcal{F}\right|$ possui $1682 \times 1682 \times 25$ elementos (cerca de 71 milhões), e ocupa aproximadamente 500 MB de memória. No total, 4 GB de memória RAM são utilizadas durante todos os testes, fazendo-se necessário o uso máquinas dedicadas.
+
+Por essa razão, realizamos todas as etapas de recomendação e avaliação de qualidade em máquinas \textit{memory-optimized} nos servidores da Amazon Web Services (\url{http://aws.amazon.com/}). Visto que o serviço é cobrado por hora-máquina, desenvolvemos um \textit{script} de inicialização para instalar todos os pacotes de programação e execução imediata dos testes, permitindo assim reduzir os custos da análise.   
+
+As etapas de configuração do ambiente de testes envolvem o cadastro na Amazon Web Services, a criação de uma máquina virtual, a instalação das ferramentas de programação e o descarregamento do código de testes.
 
 Após o cadastro na AWS, deve-se seguir os seguintes passos para a criação de uma máquina virtual:
 
@@ -114,15 +122,15 @@ Uma vez criada a máquina, deve-se utilizar a chave privada para realizar um \te
 ssh -i ~/Downloads/key_name.pem ec2-user@ec2-54-88-186-106.compute-1.amazonaws.com
 \end{lstlisting}
 
-Em seguida, para a automatização do ambiente de testes, criamos um arquivo \texttt{script.sh} na linguagem de programação \texttt{bash} para a rápida configuração de novas máquinas. Esse \textit{script} instala os pacotes \texttt{R} e \texttt{git} e cria a chave pública necessária para acessar o servidor onde o código da biblioteca está hospedado (\url{https://github.com/aviggiano/tcc}). 
+Em seguida, para a automatização do ambiente de testes e rápida configuração de novas máquinas, criamos um arquivo \texttt{script.sh} na linguagem de programação \texttt{bash}. Esse \textit{script} instala os pacotes \texttt{R} e \texttt{git} e cria a chave pública necessária para acessar o servidor onde o código da biblioteca está hospedado. Em virtude de sua popularidade, utilizamos o serviço de hospedagem de códigos abertos GitHub (\url{https://github.com/aviggiano/tcc}). 
 
 \begin{lstlisting}
 #!/usr/bin/env bash
 sudo su						# login como administrador. necessario para instalar pacotes no sistema operacional
-yes | yum install R				# instala o pacote R no linux
-yes | yum install git 			# instala o git para carregar os metodos de recomendacao
-ssh-keygen -t rsa 		# gera a chave para conectar-se ao Github
-cat ~/.ssh/id_rsa.pub	# imprime a chave pública, que deve ser adicionada nas configuracoes do Github
+yes | yum install R		# instala o pacote R no linux
+yes | yum install git	# instala o git para descarregar os metodos de recomendacao
+ssh-keygen -t rsa			# gera a chave para conectar-se ao GitHub
+cat ~/.ssh/id_rsa.pub	# imprime a chave publica, que deve ser adicionada nas configuracoes do GitHub
 \end{lstlisting}
 
 A saída do \textit{script} é uma chave no seguinte formato:
@@ -136,10 +144,20 @@ TmmBLcv9PIoCAvCfrxBh+flW3hXG388/LIEjZJckPYogho0jPAnFv3IXAGtVniV6cBcTTfKPUnX+np
 ip-10-168-40-38
 \end{lstlisting}
 
-Após a obtenção da chave, deve-se cadastrá-la na página correspondente do Github (\url{https://github.com/settings/ssh})
+Após a obtenção da chave, deve-se cadastrá-la na página correspondente do GitHub (\url{https://github.com/settings/ssh}), como mostra a Figura \ref{fig:github_key}.
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/github_key}
+    \end{center}
+    \caption{Cadastro da chave pública no GitHub}
+    \label{fig:github_key}
+\end{figure}
+
+Uma vez tendo habilitado a máquina virtual da AWS para manipulação do repositório da biblioteca, pode-se descarregar o código e executar o \textit{script} de testes de qualidade:
 
 \begin{lstlisting}
 #!/usr/bin/env bash
 git clone git@github.com:aviggiano/tcc	# clona o repositorio
-cd tcc && Rscript recsys/run_tests.R 		# executa o script de avaliacao
+cd tcc && Rscript recsys/run_tests.R 		# executa o script de testes
 \end{lstlisting}
