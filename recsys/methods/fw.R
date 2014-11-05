@@ -16,13 +16,11 @@ setup_eij = function(r, M, debug) {
 setup_dfij = function(a, r, debug, generic=TRUE){
   if(generic) {
     d = array(0,c(length(r[1,]), length(r[1,]), length(a[1,])))
-    #for(f in 1:length(d[1,1,])) {
     for(i in 1:length(d[1,,1])){
       for(j in 1:length(d[,1,1])){
         d[i,j,] = abs(a[i,]-a[j,])#1-delta(a[i,],a[j,])
       } 
     }
-    #}
     d
   }
   else {
@@ -31,13 +29,13 @@ setup_dfij = function(a, r, debug, generic=TRUE){
 
     for(i in 1:length(d[1,,1])){
       for(j in 1:length(d[,1,1])){
-        for(f in c(1,3,4,5,6)){
-          d[i,j,f] = abs(a[i,f]-a[j,f])  
-        }
-        
-        aif = a[i,2:20]
-        ajf = a[j,2:20]
-        d[i,j,2] = 1-jaccard(aif,ajf)
+        d[i,j,1] = abs(a[i,21]-a[j,21])  
+        d[i,j,2] = abs(a[i,22]-a[j,22])  
+        d[i,j,3] = abs(a[i,23]-a[j,23])  
+        d[i,j,4] = abs(a[i,24]-a[j,24])  
+        d[i,j,5] = abs(a[i,25]-a[j,25])  
+        d[i,j,6] = abs(a[i,1]-a[j,1])    
+        d[i,j,7] = 1-jaccard(a[i,2:20],a[j,2:20])
       } 
     }
     d
@@ -74,75 +72,43 @@ get_iu_fw = function(r, s, Utest, M, N, debug){
   iu
 }
 
-get_W = function(d, e, r, debug, generic=TRUE){
-  if(!generic){
-    ones = matrix(1,length(r[1,]), length(r[1,]))
-    # best fit to W = [w0, w_release_date, w_gender]'
-    # Y = A X
-    # Y = as.vector(e)
-    # A = ONES D1 D2
+get_W = function(d, e, r, debug){
+  #D = matrix(0, length(d[,,1]), length(d[1,1,]))
+  #for(f in 1:length(d[1,1,])){
+  #  diag(d[,,f]) = NA
+  #  D[,f] = as.vector(d[,,f])
+  #}
+  dim(d) = c(length(d[,,1]), length(d[1,1,]))
+  
+  # removing elements i=j
+  e.nrow = dim(e)[1]
+  IequalsJ = sapply(1:e.nrow, function(x) (x-1)*e.nrow+x)
     
-    # equation not valid for i=j
-    diag(d1) = NA
-    diag(d2) = NA
-    diag(ones) = NA
-    D1 = cbind(as.vector(1-d1))
-    D2 = cbind(as.vector(1-d2))
-    ONES = cbind(as.vector(ones))
-    Y = cbind(as.vector(e))
-    
-    A = cbind(ONES, D1, D2, deparse.level = 0)
-    # removing elements i=j
-    IequalsJ = which(is.na(A))
-    A=A[-IequalsJ,]
-    Y=cbind(Y[-IequalsJ])
-    
-    # resolve o sistema de equações
-    W = solve(t(A) %*% A) %*% t(A) %*% Y
-    if(debug){
-      print("W")
-      print(W)
-    }
-    W
-  }
-  else {
-    #D = matrix(0, length(d[,,1]), length(d[1,1,]))
-    #for(f in 1:length(d[1,1,])){
-    #  diag(d[,,f]) = NA
-    #  D[,f] = as.vector(d[,,f])
-    #}
-    dim(d) = c(length(d[,,1]), length(d[1,1,]))
-    
-    # removing elements i=j
-    e.nrow = dim(e)[1]
-    IequalsJ = sapply(1:e.nrow, function(x) (x-1)*e.nrow+x)
-      
-    #  which(is.na(d))
-    #D=D[-IequalsJ,]
-    #E = cbind(as.vector(e))
-    #E=cbind(E[-IequalsJ])
-    
-    e = as.vector(e)
-    e = e[-IequalsJ]
-    d = d[-IequalsJ,]
-    
-    # cleaning memory
-    rm(IequalsJ)
-    rm(e.nrow)
-    gc()
-    
-    # linear fit E ~ w0 + w D
-    lm.W = lm(e ~ d, x=FALSE, y=FALSE, model=FALSE, qr=FALSE) # free some space
-    W = as.vector(lm.W$coefficients)
-    #rm(lm.W)
-    #gc()
-    
-    # using sparse matrix
-    #d=as(d,"sparseMatrix")
-    #W = MatrixModels:::lm.fit.sparse(d,e)
+  #  which(is.na(d))
+  #D=D[-IequalsJ,]
+  #E = cbind(as.vector(e))
+  #E=cbind(E[-IequalsJ])
+  
+  e = as.vector(e)
+  e = e[-IequalsJ]
+  d = d[-IequalsJ,]
+  
+  # cleaning memory
+  rm(IequalsJ)
+  rm(e.nrow)
+  gc()
+  
+  # linear fit E ~ w0 + w D
+  lm.W = lm(e ~ d, x=FALSE, y=FALSE, model=FALSE, qr=FALSE) # free some space
+  W = as.vector(lm.W$coefficients)
+  #rm(lm.W)
+  #gc()
+  
+  # using sparse matrix
+  #d=as(d,"sparseMatrix")
+  #W = MatrixModels:::lm.fit.sparse(d,e)
 
-    W
-  }
+  W
   
 }
 

@@ -65,26 +65,68 @@ As principais funções da biblioteca estão descritas na documentação do Apê
 
 O algoritmo de ponderação de atributos possui cinco etapas: 
 
-\begin{enumerate}
-	\item Determinação de $e_{ij}$
-	\item Determinação de $d_{ij}^f$
-	\item Determinação de $w_f$
-	\item Determinação de  $s_{ij}$
-	\item Determinação de $\hat{i}_u$
-\end{enumerate}
-
 \subsubsection{Determinação de $e_{ij}$} % (fold)
-\label{ssub:determinacao_eij}
+\label{ssub:determina_o_de_e__ij_}
 
-\lstset{language=python}
+Em forma matricial, a Equação \ref{eq:determinacao-eij} pode ser descrita da forma \ref{eq:eij_matricial}.
 
-\begin{lstlisting}
+\begin{equation}
+\label{eq:eij_matricial}
+\mathbf{E} = \mathrm{b}_M\left(\mathbf{R}^T\right) \mathrm{b}_M\big(\mathbf{R}\big)
+\end{equation}
+
+Em R, isso se traduz por uma simples instrução:
+
+\begin{lstlisting}[caption=Determinação de $e_{ij}$]
 e = b(t(r),M) %*% b(r,M)
 \end{lstlisting}
 
+%\begin{enumerate}
+	%\item Determinação de $e_{ij}$
+	%\item Determinação de $d_{ij}^f$
+	%\item Determinação de $w_f$
+	%\item Determinação de  $s_{ij}$
+	%\item Determinação de $\hat{i}_u$
+%\end{enumerate}
+
+\subsubsection{Determinação de $d_{ij}^f$} % (fold)
+\label{ssub:determina_o_de_d__ij_f_}
+
+Para o cálculo genérico de FW, a medida de distância padrão utilizada é a distância $L_1$ entre as duas \textit{features} (Equação \ref{eq:dijf2}, Código \ref{lst:dijf2}). Para o cálculo específico do banco de dados 100k-IMDB, as medidas de distância (Equação \ref{eq:dijf_especifico}, Código \ref{lst:dijf_especifico}) são determinadas segundo a Tabela TODO. 
+
+\begin{equation}
+\label{eq:dijf2}
+d_{ij}^f = \left|a_{if} - a_{jf}\right|
+\end{equation}
+
+\begin{lstlisting}[caption=Determinação de $d_{ij}$ genérico,label=lst:dijf2]
+d[i,j,] = abs(a[i,]-a[j,])
+\end{lstlisting}
+
+\begin{equation}
+\label{eq:dijf_especifico}
+\begin{split}
+d_{ij}^f &= \left|a_{if} - a_{jf}\right|,~f \in \left\{1,21,23,24,25\right\} \\
+d_{ij}^f &= J(a_{if},a_{jf}),~f = 2, \cdots, 20
+\end{split}
+\end{equation}
 
 
+\begin{lstlisting}[caption=Determinação de $d_{ij}$ específico,label=lst:dijf_especifico]
+d[i,j,1] = abs(a[i,21]-a[j,21])  
+d[i,j,2] = abs(a[i,22]-a[j,22])  
+d[i,j,3] = abs(a[i,23]-a[j,23])  
+d[i,j,4] = abs(a[i,24]-a[j,24])  
+d[i,j,5] = abs(a[i,25]-a[j,25])  
+d[i,j,6] = abs(a[i,1]-a[j,1])    
+d[i,j,7] = 1-jaccard(a[i,2:20],a[j,2:20])
+\end{lstlisting}
 
+\subsubsection{Determinação de $w_f$} % (fold)
+\label{ssub:determina_o_de_w_f_}
+
+
+% subsubsection determina_o_de_w_f_ (end)
   %e = setup_eij(rtrain.rtest, M, debug)
   %d = setup_dfij(a, rtrain.rtest, debug)
   %W = get_W(d, e, rtrain.rtest, debug)
