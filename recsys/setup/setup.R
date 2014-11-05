@@ -11,7 +11,7 @@ user.colnames = c("id", "age", "gender", "occupation", "zip_code")
 
 read.data = function(filename, separator, header, col.names) {
   data = read.csv(filename, as.is=TRUE, sep=separator, header=header)
-  if(typeof(col.names)=="character") colnames(data) = col.names
+  if(header == FALSE) colnames(data) = col.names
   data
 }
 

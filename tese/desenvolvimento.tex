@@ -5,14 +5,16 @@
 \section{Recursos acadêmicos} % (fold)
 \label{sec:recursos_acad_micos}
 
-Diversos recursos extra-curriculares foram de fundamental importância para o sucesso deste trabalho. Foram aplicados ensinamentos práticos de quatro cursos da plataforma online de \textit{e-learning} Coursera (\url{https://www.coursera.org/}), seja relacionados a teoria dos sistemas de recomendação, seja relacionados a configuração de máquinas virtuais dos servidores da Amazon Web Services.
+A principal contribuição da Escola Politécnica para o projeto veio das disciplinas de programação para automação (PMR2300 -- Computação para Automação e PMR2440 -- Programação para Automação) e de banco de dados (PMR2490 -- Sistemas de Informação). Além disso, a disciplina optativa PMR2728 -- Teoria de Probabilidades em Inteligência Artificial e Robótica abordou a temática do aprendizado de máquina e dos sistemas de recomendação.
+
+Além das disciplinas do curso de Engenharia Mecatrônica, diversos recursos extra-curriculares foram de fundamental importância para o sucesso deste trabalho. Foram aplicados aprendizados práticos de quatro cursos da plataforma online Coursera (\url{https://www.coursera.org/}), sejam relacionados a teoria dos sistemas de recomendação, sejam relacionados a configuração de servidores na Amazon Web Services.
 
 O curso ``Redes: Amigos, Dinheiro e Bytes'' (Networks: Friends, Money, and Bytes -- \url{https://www.coursera.org/course/friendsmoneybytes}), teve papel importante na introdução a temas ligados à rede mundial de computadores. Mais especificadamente, a aula 4 aborda, de maneira simples mas repleta de exemplos, a temática de sugestão de itens através da pergunta ``Como o Netflix recomenda filmes?''. Essa aula ajudou-nos a compreender a teoria por trás do algoritmo de recomendação do Netflix detalhado na Referência \citeonline{lops2011content-chap5}.
 
 
-Outro curso que influenciou diretamente o nosso Trabalho de Conclusão de Curso foi ``Computação para Análise de Dados'' (Computing for Data Analysis -- \url{https://www.coursera.org/course/compdata}). As quatro semanas de aula ensinaram a leitura de dados formatados em R, o tratamento de dados, a definição de métodos estatísticos, como por exemplo de regressão linear, a aplicação de cálculos vetorizados e a construção de gráficos e tabelas. 
+Outro curso que influenciou diretamente o nosso Trabalho de Conclusão de Curso foi ``Computação para Análise de Dados'' (Computing for Data Analysis -- \url{https://www.coursera.org/course/compdata}). As quatro semanas de aula ensinaram a leitura de dados formatados em R, o tratamento de dados, o uso de modelos estatísticos, como por exemplo métodos de regressão linear e polinomial, a aplicação de cálculos vetorizados e a construção de gráficos e tabelas. 
 
-Aliado a essas aulas, aprendemos também o paradigma funcional, amplamente utilizado em R, durante as sete semanas de ``Princípios de Programação Funcional em Scala'' (Functional Programming Principles in Scala -- \url{https://www.coursera.org/course/progfun}).
+Aliado a essas aulas, aprendemos também o paradigma funcional, amplamente utilizado em R, durante as sete semanas de ``Princípios de Programação Funcional em Scala'' (Functional Programming Principles in Scala -- \url{https://www.coursera.org/course/progfun}). Todo o pacote foi construído em torno desse padrão de programação, visto que usuários de bibliotecas desejam utilizar métodos e funções genéricas para construção de resultados específicos.
 
 Por fim, o curso de doze semanas de duração ``Engenharia de Startup'' (Startup Engineering -- \url{https://www.coursera.org/course/startup}) nos ensinou a trabalhar com diversas ferramentas de software necessárias para a realização dos testes de desempenho dos algoritmos. Utilizamos máquinas virtuais, linha de comando Unix, versionamento de código em \texttt{git} e editores de texto sem interface gráfica (tais como vi e Emacs). Além disso, o \textit{setup} de máquinas virtuais na Amazon Web Services também era abordada no curso, facilitando a configuração do ambiente de testes e a automatização desse processo. 
 
@@ -46,7 +48,6 @@ recsys/
 |-- results
 |   |-- benchmark.R
 |   |-- performance.R
-|   |-- results.R
 |   `-- run_tests.R
 `-- setup
     |-- functions.R
