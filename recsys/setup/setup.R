@@ -53,7 +53,7 @@ read.IMDB = function(item){
   item
 }
 
-create.r = function(history){
+get.r = function(history){
   r = matrix(0,length(unique(history$user_id)),length(unique(history$item_id)))
   
   for(i in 1:size(history)) {
@@ -63,7 +63,7 @@ create.r = function(history){
   r
 }
 
-create.a = function(item){
+get.a = function(item){
   item$release_date = as.numeric(as.Date(as.character(item$release_date), "%d-%b-%Y"))
   drops = c("id","title", "video_release_date", "IMDB_URL")
   a_temp = item[,!(names(item) %in% drops)]
@@ -81,8 +81,8 @@ user = read.user()
 ## GET IMDB
 item = read.IMDB(item) 
 ## GET r_ui and a_if
-r = create.r(history)
-a = create.a(item)
+r = get.r(history)
+a = get.a(item)
   
 rm(item)
 rm(history)

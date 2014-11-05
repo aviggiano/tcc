@@ -15,5 +15,13 @@ read.user
 	output		user
 	description	Lê o arquivo de descrição dos usuários e retorna uma matriz correspondente. Os parametros separator e header indicam a formatação do arquivo e são opcionais. Caso header seja FALSE, col.names deve conter um arranjo de palavras indicando os nomes das colunas da matriz.
 
+get.r
+	input		history
+	output		r
+	description	Le a matriz de histórico de compras e retorna a matriz de avaliação r_ui
 
+get.a
+	input		item
+	output		a
+	description	Le a matriz de descrição de itens e retorna a matriz de atributos dos itens a_if
 
