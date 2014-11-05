@@ -29,7 +29,7 @@ Além disso, as metodologias de solução de cada um dos sistemas serão debatid
 \section{Tamanho da lista de recomendações $N$} % (fold)
 \label{sec:tamanho_da_lista_de_recomenda_es_}
 
-Assim como mostra a literatura, a medida que o tamanho da lista de recomendações aumenta, a precisão cai e a abrangência cresce (Figuras \ref{fig:precision_N}). A primeira decresce com $N$ porque a quantidade de itens sugeridos se torna excessivamente maior que a quantidade de itens positivamente avaliados pelos usuários-teste. A segunda, por sua vez, cresce com $N$ porque a probabilidade de sugerirmos itens relevantes para o usuário aumenta quando sugerimos mais itens. Para $N=\left|\mathcal{I}\right|$, a abrangência atinge $100\%$, pois todos os itens teriam sido recomendados.
+Assim como mostra a literatura, a medida que o tamanho da lista de recomendações aumenta, a precisão cai e a abrangência cresce (Figuras \ref{fig:precision_N} e \ref{fig:recall_N}). A primeira decresce com $N$ porque a quantidade de itens sugeridos se torna excessivamente maior que a quantidade de itens positivamente avaliados pelos usuários-teste. A segunda, por sua vez, cresce com $N$ porque a probabilidade de sugerirmos itens relevantes para o usuário aumenta quando sugerimos mais itens. Para $N=\left|\mathcal{I}\right|$, a abrangência atinge $100\%$, pois todos os itens teriam sido recomendados.
 
 O método UP supera os dois outros algoritmos para todos os valores de $N$, tanto em precisão quanto em abrangência, como se observa pelo gráfico das medidas $F_1$.
 
@@ -37,8 +37,8 @@ O método UP supera os dois outros algoritmos para todos os valores de $N$, tant
     \begin{center}
     \includegraphics[width=1\textwidth]{img/precision_N}
     \end{center}
-    \label{fig:precision_N}
     \caption{Precisão em função do tamanho da lista de recomendações $N$}
+    \label{fig:precision_N}
 \end{figure}
 
 
@@ -46,24 +46,24 @@ O método UP supera os dois outros algoritmos para todos os valores de $N$, tant
     \begin{center}
     \includegraphics[width=1\textwidth]{img/recall_N}
     \end{center}
-    \label{fig:recall_N}
     \caption{Abrangência em função do tamanho da lista de recomendações $N$}
+    \label{fig:recall_N}
 \end{figure}
 
 \begin{figure}[htp]
     \begin{center}
     \includegraphics[width=1\textwidth]{img/F1_N}
     \end{center}
-    \label{fig:F1_N}
     \caption{Medida $F_1$ em função do tamanho da lista de recomendações $N$}
+    \label{fig:F1_N}
 \end{figure}
 
 \begin{figure}[htp]
     \begin{center}
     \includegraphics[width=1\textwidth]{img/time_N}
     \end{center}
-    \label{fig:time_N}
     \caption{Tempo de execução em função do tamanho da lista de recomendações $N$}
+    \label{fig:time_N}
 \end{figure}
 
 Contrariamente ao esperado, a qualidade de recomendação do algoritmo UI é sensivelmente inferior à do algoritmo UP. Isso se deve ao fato de a correlação usuário-item daquele método colocar ênfase no valor do atributo $a_{if}$, mesmo que esses atributos não sejam diretamente proporcionais à preferência do usuário. Esse cálculo é incoerente, por exemplo, para atributos $f=\mathrm{data}$: mesmo que o usuário tenha um elevado interesse $w_{uf}$ por filmes antigos, o valor de $a_{if}$ não leva em conta se sua preferência é por filmes da década de 1970 ou 1990. Nesse caso, o algoritmo indicaria incorretamente que filmes mais recentes são mais adequados para aquele usuário, porque possuem maior $a_{if}$.
@@ -85,8 +85,8 @@ O parâmetro $T$ não exerce nenhuma influência sobre o tempo de execução dos
     \begin{center}
     \includegraphics[width=1\textwidth]{img/precision_T}
     \end{center}
-    \label{fig:precision_T}
     \caption{Precisão em função do percentual da base de aprendizado $T$}
+    \label{fig:precision_T}
 \end{figure}
 
 
@@ -94,24 +94,24 @@ O parâmetro $T$ não exerce nenhuma influência sobre o tempo de execução dos
     \begin{center}
     \includegraphics[width=1\textwidth]{img/recall_T}
     \end{center}
-    \label{fig:recall_T}
     \caption{Abrangência em função do percentual da base de aprendizado $T$}
+    \label{fig:recall_T}
 \end{figure}
 
 \begin{figure}[htp]
     \begin{center}
     \includegraphics[width=1\textwidth]{img/F1_T}
     \end{center}
-    \label{fig:F1_T}
     \caption{Medida $F_1$ em função do percentual da base de aprendizado $T$}
+    \label{fig:F1_T}
 \end{figure}
 
 \begin{figure}[htp]
     \begin{center}
     \includegraphics[width=1\textwidth]{img/time_T}
     \end{center}
-    \label{fig:time_T}
     \caption{Tempo de execução em função do percentual da base de aprendizado $T$}
+    \label{fig:time_T}
 \end{figure}
 
 
@@ -120,7 +120,7 @@ O parâmetro $T$ não exerce nenhuma influência sobre o tempo de execução dos
 
 Quanto maior o número de avaliações ``escondidas'', mais fácil é acertar os itens dos usuários-teste, pois a lista de recomendação é pequena em relação ao total de itens positivamente avaliados pelo usuário. Por esse motivo, a precisão cresce com $H$ para todos os métodos. 
 
-Para o algoritmo FW, a precisão atinge seu máximo em $H=75\%$ e depois decresce ligeiramente. Isso ocorre porque o cálculo dos pesos $w_f$ depende da quantidade de avaliações $r_{ui}$. Existe, pois, um compromisso (\textit{tradeoff}) entre facilidade de se acertar itens avaliados quando há muitas avaliações escondidas e a dificuldade de se estimar $w_f$ quando não há muitos dados de avaliações.  
+Para o algoritmo FW, a precisão atinge seu máximo em $H=75\%$ e depois decresce ligeiramente (Figura \ref{fig:precision_H}). Isso ocorre porque o cálculo dos pesos $w_f$ depende da quantidade de avaliações $r_{ui}$. Existe, pois, um compromisso (\textit{tradeoff}) entre facilidade de se acertar itens avaliados quando há muitas avaliações escondidas e a dificuldade de se estimar $w_f$ quando não há muitos dados de avaliações.  
 
 Ao passo que a precisão dos métodos aumenta com $H$, a abrangência diminui. Visto que a quantidade de itens da lista \textit{top-}$N$ é fixa, quanto maior o número de itens ``escondidos'', mais difícil é de se retornar todos os itens relevantes.
 
@@ -134,8 +134,8 @@ para o método FW, a etapa de maior custo computacional (Equação \ref{eq:deter
     \begin{center}
     \includegraphics[width=1\textwidth]{img/precision_H}
     \end{center}
-    \label{fig:precision_H}
     \caption{Precisão em função do percentual de avaliações ``escondidas'' $H$}
+    \label{fig:precision_H}
 \end{figure}
 
 
@@ -143,24 +143,24 @@ para o método FW, a etapa de maior custo computacional (Equação \ref{eq:deter
     \begin{center}
     \includegraphics[width=1\textwidth]{img/recall_H}
     \end{center}
-    \label{fig:recall_H}
     \caption{Abrangência em função do percentual de avaliações ``escondidas'' $H$}
+    \label{fig:recall_H}
 \end{figure}
 
 \begin{figure}[htp]
     \begin{center}
     \includegraphics[width=1\textwidth]{img/F1_H}
     \end{center}
-    \label{fig:F1_H}
     \caption{Medida $F_1$ em função do percentual de avaliações ``escondidas'' $H$}
+    \label{fig:F1_H}
 \end{figure}
 
 \begin{figure}[htp]
     \begin{center}
     \includegraphics[width=1\textwidth]{img/time_H}
     \end{center}
-    \label{fig:time_H}
     \caption{Tempo de execução em função do percentual de avaliações ``escondidas'' $H$}
+    \label{fig:time_H}
 \end{figure}
 
 
@@ -182,40 +182,40 @@ Para o algoritmo UI, tanto a precisão quanto a abrangência são nulas para $M=
     \begin{center}
     \includegraphics[width=1\textwidth]{img/precision_M}
     \end{center}
-    \label{fig:precision_M}
     \caption{Precisão em função do valor mínimo para avaliações positivas $M$}
+    \label{fig:precision_M}
 \end{figure}
 
 \begin{figure}[htp]
     \begin{center}
     \includegraphics[width=1\textwidth]{img/percentual_M}
     \end{center}
-    \label{fig:percentual_M}
     \caption{Percentual de avaliações por valor de $M$}
+    \label{fig:percentual_M}
 \end{figure}
 
 \begin{figure}[htp]
     \begin{center}
     \includegraphics[width=1\textwidth]{img/recall_M}
     \end{center}
-    \label{fig:recall_M}
     \caption{Abrangência em função do valor mínimo para avaliações positivas $M$}
+    \label{fig:recall_M}
 \end{figure}
 
 \begin{figure}[htp]
     \begin{center}
     \includegraphics[width=1\textwidth]{img/F1_M}
     \end{center}
-    \label{fig:F1_M}
     \caption{Medida $F_1$ em função do valor mínimo para avaliações positivas $M$}
+    \label{fig:F1_M}
 \end{figure}
 
 \begin{figure}[htp]
     \begin{center}
     \includegraphics[width=1\textwidth]{img/time_M}
     \end{center}
-    \label{fig:time_M}
     \caption{Tempo de execução em função do valor mínimo para avaliações positivas $M$}
+    \label{fig:time_M}
 \end{figure}
 
 \section{Número de vizinhos mais próximos $k$} % (fold)
@@ -227,8 +227,8 @@ O único método que recomenda itens com base nos vizinhos mais próximos é o U
     \begin{center}
     \includegraphics[width=1\textwidth]{img/precision_k}
     \end{center}
-    \label{fig:precision_k}
     \caption{Precisão em função do número de vizinhos mais próximos $k$}
+    \label{fig:precision_k}
 \end{figure}
 
 
@@ -236,16 +236,16 @@ O único método que recomenda itens com base nos vizinhos mais próximos é o U
     \begin{center}
     \includegraphics[width=1\textwidth]{img/recall_k}
     \end{center}
-    \label{fig:recall_k}
     \caption{Abrangência em função do número de vizinhos mais próximos $k$}
+    \label{fig:recall_k}
 \end{figure}
 
 \begin{figure}[htp]
     \begin{center}
     \includegraphics[width=1\textwidth]{img/F1_k}
     \end{center}
-    \label{fig:F1_k}
     \caption{Medida $F_1$ em função do número de vizinhos mais próximos $k$}
+    \label{fig:F1_k}
 \end{figure}
 
 %\begin{figure}[htp]
@@ -267,8 +267,8 @@ Para o banco de dados 100k-IMDB, o conjunto de atributos dos itens é $\mathcal{
     \begin{center}
     \includegraphics[width=1\textwidth]{img/precision_N_F}
     \end{center}
-    \label{fig:precision_N_F}
     \caption{Precisão em função do tamanho da lista de recomendações $N$}
+    \label{fig:precision_N_F}
 \end{figure}
 
 
@@ -276,16 +276,16 @@ Para o banco de dados 100k-IMDB, o conjunto de atributos dos itens é $\mathcal{
     \begin{center}
     \includegraphics[width=1\textwidth]{img/recall_N_F}
     \end{center}
-    \label{fig:recall_N_F}
     \caption{Abrangência em função do tamanho da lista de recomendações $N$}
+    \label{fig:recall_N_F}
 \end{figure}
 
 \begin{figure}[htp]
     \begin{center}
     \includegraphics[width=1\textwidth]{img/F1_N_F}
     \end{center}
-    \label{fig:F1_N_F}
     \caption{Medida $F_1$ em função do tamanho da lista de recomendações $N$}
+    \label{fig:F1_N_F}
 \end{figure}
 
 \section{Medida de distância entre atributos $d^f$} % (fold)

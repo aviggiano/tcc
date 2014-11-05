@@ -21,32 +21,107 @@ Por fim, o curso de doze semanas de duração ``Engenharia de Startup'' (Startup
 
 A programação da biblioteca computacional se deu por meio do ambiente de desenvolvimento integrado RStudio versão 0.98.953 (\url{http://www.rstudio.com/}). Esse IDE inclui um console, um editor de texto e um corretor de sintaxe que suporta a execução de código direta, bem como ferramentas para traçar gráficos, histórico de comandos, depuração de erros e gerenciamento de espaço de trabalho. Além disso, o RStudio está disponível via licença de código aberto AGPLv3 (Affero General Public License version 3) para os principais sistemas operacionais (Windows, Mac e Linux).
 
-Para a automatização do ambiente de testes, criamos um arquivo \texttt{script.sh} na linguagem de programação \texttt{bash} para a rápida configuração de novas máquinas.
+\section{Métodos computacionais} % (fold)
+\label{sec:m_todos_computacionais}
 
-\begin{lstlisting}
-#!/usr/bin/env bash
-sudo su						# torna-se administrador. necessario para instalar pacotes no sistema operacional
-yum install R 				# instala o pacote R no linux
-yum install git 			# instala o git para carregar os métodos de recomendação
-ssh-keygen -t rsa 		# gera a chave publica para conectar-se ao Github
-cat ~/.ssh/id_rsa.pub	# depois, deve-se adicionar essa chave publica nas configuracoes do Github
-git clone git@github.com:aviggiano/tcc	# clona o repositorio
-cd tcc && Rscript recsys/run_tests.R 		# executa o script de avaliacao
-\end{lstlisting}
+TODO falta escrever
 
-TODO escrever como criar máquinas na AWS
+\subsection{Algoritmo baseado na ponderação de atributos (FW)} % (fold)
+\label{sub:algoritmo_baseado_na_pondera_o_de_atributos_fw_}
+\subsection{Algoritmo baseado no perfil de usuários (UP)} % (fold)
+\label{sub:algoritmo_baseado_no_perfil_de_usu_rios_up_}
+\subsection{Algoritmo baseado na correlação usuário-item (UI)} % (fold)
+\label{sub:algoritmo_baseado_na_correla_o_usu_rio_item_ui_}
+
+% subsection algoritmo_baseado_na_correla_o_usu_rio_item_ui_ (end)
+
+% subsection algoritmo_baseado_no_perfil_de_usu_rios_up_ (end)
+
+% subsection algoritmo_baseado_na_pondera_o_de_atributos_fw_ (end)
+
+\section{Ambiente de testes} % (fold)
+\label{sec:ambiente_de_testes}
+
+As etapas de configuração do ambiente de testes envolvem o cadastro na Amazon Web Services, a criação de uma máquina virtual e a instalação de todas as ferramentas necessárias na máquina.
+
+Após o cadastro na AWS, deve-se seguir os seguintes passos para a criação de uma máquina virtual:
+
+
+\begin{enumerate}
+\item Login na plataforma (Figura \ref{fig:aws_servicos})
+\item Acesso ao serviço de máquinas virtuais Elastic Compute Cloud ou EC2 (Figura \ref{fig:aws_ec2})
+\item Escolha do tipo de configuração do software da máquina, como sistema operacional (Figura \ref{fig:aws_setup_ec2})
+\item Escolha do tipo de máquina. No nosso caso, escolhemos uma máquina otimizada para memória RAM (Figura \ref{fig:aws_setup_ec2_maquina})
+\item Criação da chave privada a ser utilizada para conexão com a máquina (Figura \ref{fig:aws_setup_keypair})
+\item Criação da máquina e do DNS público. Esse é o endereço de conexão com a máquina (Figura \ref{fig:aws_setup_dns})
+\end{enumerate}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/aws_servicos}
+    \end{center}
+    \caption{Serviços da Amazon Web Services}
+    \label{fig:aws_servicos}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/aws_ec2}
+    \end{center}
+    \caption{Serviços de Elastic Compute Cloud (EC2)}
+    \label{fig:aws_ec2}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/aws_setup_ec2}
+    \end{center}
+    \caption{Escolha do tipo de configuração do software da máquina}
+    \label{fig:aws_setup_ec2}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/aws_setup_ec2_maquina}
+    \end{center}
+    \caption{Escolha do tipo máquina}
+    \label{fig:aws_setup_ec2_maquina}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/aws_setup_keypair}
+    \end{center}
+    \caption{Criação da chave privada}
+    \label{fig:aws_setup_keypair}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/aws_setup_dns}
+    \end{center}
+    \caption{Criação da máquina e do DNS público (Public DNS)}
+    \label{fig:aws_setup_dns}
+\end{figure}
+
+
+
+Uma vez criada a máquina, deve-se utilizar a chave privada para realizar um \textit{secure shell} e se conectar remotamente ao computador
 
 \begin{lstlisting}
 ssh -i ~/Downloads/key_name.pem ec2-user@ec2-54-88-186-106.compute-1.amazonaws.com
 \end{lstlisting}
 
+Em seguida, para a automatização do ambiente de testes, criamos um arquivo \texttt{script.sh} na linguagem de programação \texttt{bash} para a rápida configuração de novas máquinas.
 
-\section{Métodos computacionais} % (fold)
-\label{sec:m_todos_computacionais}
+\begin{lstlisting}
+#!/usr/bin/env bash
+sudo su						# torna-se administrador. necessario para instalar pacotes no sistema operacional
+yum install R				# instala o pacote R no linux
+yum install git 			# instala o git para carregar os metodos de recomendacao
+ssh-keygen -t rsa 		# gera a chave privada para conectar-se ao Github
+cat ~/.ssh/id_rsa.pub	# depois, deve-se adicionar essa chave privada nas configuracoes do Github
+git clone git@github.com:aviggiano/tcc	# clona o repositorio
+cd tcc && Rscript recsys/run_tests.R 		# executa o script de avaliacao
+\end{lstlisting}
 
-% section m_todos_computacionais (end)
-
-\section{Ambiente de testes} % (fold)
-\label{sec:ambiente_de_testes}
-
-% section ambiente_de_testes (end)
