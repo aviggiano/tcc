@@ -37,12 +37,7 @@ setup_dfij = function(a, r, debug, generic=TRUE){
         
         aif = a[i,2:20]
         ajf = a[j,2:20]
-        inters = sum(aif * ajf)
-        union = sum(b0(aif+ajf))
-        jaccard = inters/union
-        if(union == 0) jaccard = 0
-        
-        d[i,j,2] = 1-jaccard
+        d[i,j,2] = 1-jaccard(aif,ajf)
       } 
     }
     d

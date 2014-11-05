@@ -31,6 +31,14 @@ delta = function(m, n){
   1*(m == n)
 }
 
+jaccard = function(xs, ys){
+  inters = sum(xs * ys)
+  union = sum(b0(xs+ys))
+  jacc = inters/union
+  if(union == 0) jacc = 0
+  jacc
+}
+
 delta_vector <- function(xs, ys){
     ans <- 0
     for(i in 1:length(xs)){
