@@ -1,5 +1,5 @@
 ## get W_UF
-source('recsys/methods/up/up_ui_w.R')
+source('recsys/methods/common/up_ui_w.R')
 
 get_omega_ui = function(w, a, debug){
   omega = w %*% t(a)  

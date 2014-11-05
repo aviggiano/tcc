@@ -1,5 +1,5 @@
 ## get W_UF
-source('recsys/methods/up/up_ui_w.R')
+source('recsys/methods/common/up_ui_w.R')
 
 # s deve ser calculada tambem entre usuarios de teste??? 
 get_s = function(w, TF, U, debug){

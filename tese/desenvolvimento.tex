@@ -27,7 +27,33 @@ A programação da biblioteca computacional se deu por meio do ambiente de desen
 \subsection{Estrutura da biblioteca} % (fold)
 \label{sub:estrutura_da_biblioteca}
 
-A biblioteca está estruturada em quatro principais 
+A biblioteca está estruturada em quatro seções principais: \texttt{db}, onde está o banco de dados MovieLens 100k, \texttt{methods}, onde estão os algoritmos de recomendação, \texttt{results}, onde estão os métodos de avaliação de qualidade e \texttt{setup}, onde estão codificadas diversas funções, tais como leitura de banco de dados ou medidas de distância.
+
+\begin{lstlisting}
+recsys/
+|-- db
+|   `-- ml-100k
+|       |-- u.data
+|       |-- u.item
+|       |-- u.user
+|       |-- ...
+|-- methods
+|   |-- common
+|   |   `-- up_ui_w.R
+|   |-- fw.R
+|   |-- ui.R
+|   `-- up.R
+|-- results
+|   |-- benchmark.R
+|   |-- performance.R
+|   |-- results.R
+|   `-- run_tests.R
+`-- setup
+    |-- functions.R
+    `-- setup.R
+\end{lstlisting}
+
+
 
 % subsection estrutura_da_biblioteca (end)
 
@@ -159,5 +185,5 @@ Uma vez tendo habilitado a máquina virtual da AWS para manipulação do reposit
 \begin{lstlisting}
 #!/usr/bin/env bash
 git clone git@github.com:aviggiano/tcc	# clona o repositorio
-cd tcc && Rscript recsys/run_tests.R 		# executa o script de testes
+cd tcc && Rscript recsys/performance/run_tests.R 		# executa o script de testes
 \end{lstlisting}

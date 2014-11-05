@@ -1,6 +1,6 @@
-source('recsys/methods/up/up.R')
-source('recsys/methods/up/ui.R')
-source('recsys/methods/fw/fw.R')
+source('recsys/methods/up.R')
+source('recsys/methods/ui.R')
+source('recsys/methods/fw.R')
 options(digits=3)
 SEED = 2
 
