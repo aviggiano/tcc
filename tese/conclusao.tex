@@ -23,6 +23,8 @@ Avaliamos também diferentes medidas de distância entre os atributos (impacto d
 
 Por fim, avaliamos também a quantidade de pesos dos atributos no método FW (impacto de $W$). Vimos que a quantidade de $w_f>0$ não tem grande impacto na recomendação, visto que o valor dos pesos, em si, já é suficiente para alterar a qualidade das sugestões.
 
+Apenas o método UP atingiu os requisitos funcionais em termos de precisão e abrangência, para uma combinação específica de parâmetros, como valores pequenos de $N$. Tanto para esse algoritmo quanto para o método FW, o desempenho é sensivelmente inferior ao relatado nos artigos de referência. O motivo por trás disso é a dissimilaridade entre os bancos de dados. Assim como foi confirmado, o emprego de bases com mais recomendações $r_{ui}$ influencia grandemente na qualidade das recomendações. Para se obter um \textit{benchmarking} mais fiel, seria necessário utilizar o banco de dados dos autores de referência.  
+
 \section{Trabalhos futuros} % (fold)
 \label{sec:trabalhos_futuros}
 
@@ -33,5 +35,7 @@ Desejamos eliminar as restrições quanto a entrada e saída de dados, de forma 
 É possível explorar também a construção de um \textit{driver} que possibilite a conexão entre o sistema de recomendação e um banco de dados SQL, sem que seja necessária a etapa intermediária de arquivos \texttt{csv} para aquisição de dados. Em seguida, é importante elaborar um \textit{website} para o sistema de recomendação e exportar toda a lógica para um servidor dedicado. 
 
 Outra melhoria desejada é a reconstrução dos métodos na linguagem de programação C, a fim de melhorar a performance computacional. Dessa forma, o serviço de ``sistema de recomendação nas nuvens'' estaria completo e poderia ser utilizado por e-commerces reais.
+
+Também seria desejável, para uma avaliação mais completa do trabalho, o emprego dos métodos computacionais em um banco de dados de um e-commerce real. Apesar de termos contatado diversas lojas de comércio online, devido a impedimentos administrativos, não obtivemos sucesso em firmar uma parceria com essas lojas. 
 
 No campo acadêmico, há muito espaço para melhorias nos algoritmos de recomendação. As metodologias de solução de cada um dos sistemas deveriam ser debatidas ao máximo, de modo a explorar casos de uso particulares e a propor mudanças e otimizações. Faz-se necessário responder a perguntas como ``O que acontece com itens ou usuários sem nenhuma avaliação?'' e ``Qual o desempenho dos métodos para outros bancos de dados?''. 
