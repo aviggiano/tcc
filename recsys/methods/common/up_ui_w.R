@@ -29,10 +29,10 @@ get_IDF = function(TF, U, debug){
   IDF
 }
 
-get_w = function(TF, q, debug){
-  w = matrix(0, length(TF[,1]), length(q))
+get_w = function(TF, IDF, debug){
+  w = matrix(0, length(TF[,1]), length(IDF))
   for(u in 1:length(TF[,1])){
-    w[u,] = TF[u,]*q
+    w[u,] = TF[u,]*IDF
   }
   if(debug) {
     print("w")

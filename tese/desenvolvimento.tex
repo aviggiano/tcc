@@ -156,7 +156,7 @@ O algoritmo baseado no perfil de usuários atributos possui quatro etapas princi
 \subsubsection{Determinação de $w_{uf}$} % (fold)
 \label{ssub:determina_o_de_}
 
-O cálculo de $w_{uf}$ é dado pela TF-IDF de Equação \ref{eq:w-tfidf}. Pode-se obter $\mathrm{TF}_{uf}$ a partir do Código \ref{lst:tf}, e $\mathrm{IDF}_{f}$ a partir do Código \ref{lst:idf}.
+O cálculo de $w_{uf}$ é dado pela TF-IDF de Equação \ref{eq:w-tfidf}. Pode-se obter $\mathrm{TF}_{uf}$ a partir do Código \ref{lst:tf}, e $\mathrm{IDF}_{f}$ a partir do Código \ref{lst:idf}. Finalmente, a multiplicação desses dois elementos resulta na correlação usuário-atributo (Código \ref{lst:wuf}).
 
 
 \begin{lstlisting}[caption=Determinação de $\mathrm{TF}_{uf}$,label=lst:tf]
@@ -171,9 +171,28 @@ IDFbar = sapply(1:length(TF[1,]), function(f) sum(b0(TF[,f])))
 IDF = log(length(U)/IDFbar, 10)
 \end{lstlisting}
 
+\begin{lstlisting}[caption=Determinação de $w_{uf}$,label=lst:wuf]
+w[u,] = TF[u,]*IDF
+\end{lstlisting}
+
 \subsubsection{Determinação de $s_{uv}$} % (fold)
 \label{ssub:determina_o_de_}
 
+Para obter a matriz de similaridade intra-usuários, basta aplicar a Equação \ref{eq:suv}.
+
+\begin{lstlisting}[caption=Determinação de $s_{uv}$]
+Fu = which(TF[u,]>0)
+Fv = which(TF[v,]>0)
+Fuv = intersect(Fu, Fv)
+
+s[u,v] = 	if(length(Fuv) == 0) 
+					0 
+				else 
+					sum((w[u,]*w[v,])[Fuv], na.rm=TRUE) / 
+					(	sqrt(sum((w[u,]*w[u,])[Fuv], na.rm=TRUE)) * 
+						sqrt(sum((w[v,]*w[v,])[Fuv], na.rm=TRUE))	)
+
+\end{lstlisting}
 
 \subsubsection{Determinação de $\omega_{ui}$} % (fold)
 \label{ssub:determina_o_de_}
