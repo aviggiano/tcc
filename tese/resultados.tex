@@ -20,7 +20,7 @@ Além disso, as metodologias de solução de cada um dos sistemas serão debatid
     $k$ & Número de vizinhos mais próximos & $10$ \\ \hline
     $\mathcal{F}$ & Conjunto de atributos dos itens & Todos atributos \\ \hline
     $d^f$ & Medida de distância entre atributos & Distância $L_1$~$\left|\left|\cdot\right|\right|^f$ \\ \hline
-    $w_f$ & Pesos dos atributos & $w_f>0$ \\ \hline
+    $W$ & Quantidade de pesos dos atributos & Todo $w_f>0$ \\ \hline
     \end{tabular}
 \end{center}
 \end{table}
@@ -295,8 +295,43 @@ A conclusão desse experimento é que aumentar a quantidade de atributos dos ite
 \label{sec:medida_de_dist_ncia_entre_atributos_}
 
 
+
 \section{Pesos dos atributos $w_f$} % (fold)
 \label{sec:pesos_dos_atributos_}
 
-% section pesos_dos_atributos_ (end)
+A fim de avaliar a influência da quantidade de pesos utilizados na recomendação do método FW, realizamos os testes selecionando apenas os $W$ maiores elementos $w_f>0$.
 
+Observa-se que a qualidade da recomendação, tanto em termos de precisão, abrangência e tempo de execução, são aproximadamente independentes da quantidade de pesos $W$. Para $W>12$, as medidas de desempenho se tornam constantes.
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/precision_W}
+    \end{center}
+    \caption{Precisão em função da quantidade de pesos $W$}
+    \label{fig:precision_W}
+\end{figure}
+
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/recall_W}
+    \end{center}
+    \caption{Abrangência em função da quantidade de pesos $W$}
+    \label{fig:recall_W}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/F1_W}
+    \end{center}
+    \caption{Medida $F_1$ em função da quantidade de pesos $W$}
+    \label{fig:F1_W}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/time_W}
+    \end{center}
+    \caption{Tempo de execução em função da quantidade de pesos $W$}
+    \label{fig:time_W}
+\end{figure}
