@@ -42,8 +42,9 @@ setup_dfij = function(a, r, debug, generic=TRUE){
   }
 }
 
-get_iu_fw = function(r, s, Utest, M, N, debug){
+get_iu_fw = function(r, s, Utest, M, N, debug, repick){
   diag(s) = NA
+  I.length = 1:length(r[1,])
   iu = lapply(Utest, function(u){
     positive = which(r[u,] > M)
     ans = c() # ans funciona como um conjunto de itens
@@ -51,7 +52,7 @@ get_iu_fw = function(r, s, Utest, M, N, debug){
       # which(is.na(r[u,])) sao os itens ainda nao avaliados por u
       # index.top.N(s[i,], N) sao os melhores itens para u
       # a interseccao da os itens recomendados para u
-      not.yet.chosen = union(which(is.na(r[u,])), which(r[u,]==0))
+      not.yet.chosen = if(repick) I.length else union(which(is.na(r[u,])), which(r[u,]==0))
       ans = union(ans, intersect(not.yet.chosen, index.top.N(s[i,], N)))
     }
     
@@ -124,7 +125,7 @@ get_sij = function(W, d, debug, generic, only.top=FALSE){
   s 
 }
 
-fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, WW){
+fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, WW, repick){
   print("Utrain.Utest")
   Utrain = Utrain.Utest[[1]]
   Utest = Utrain.Utest[[2]]
@@ -144,7 +145,7 @@ fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, WW){
   print("get_sij")
   s = get_sij(W, d, debug, only.top=WW)
   print("get_iu_fw")
-  iu = get_iu_fw(rtrain.rtest, s, Utest, M, N, debug)
+  iu = get_iu_fw(rtrain.rtest, s, Utest, M, N, debug, repick)
   print("iu")
   iu
 }  

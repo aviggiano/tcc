@@ -29,7 +29,7 @@ divide.train.test = function(r, TRAIN){
 
 performance = function(a, r, M=2, k=10, N=20, debug=FALSE, 
                        norm=TRUE, remove=FALSE, method, 
-                       TRAIN=0.75, HIDDEN=0.75, W=FALSE){
+                       TRAIN=0.75, HIDDEN=0.75, W=FALSE, repick=FALSE){
   Utrain.Utest = divide.train.test(r, TRAIN)
   rtrain.rtest = hide.data(r, Utrain.Utest, HIDDEN, has.na=FALSE)
   
@@ -40,7 +40,7 @@ performance = function(a, r, M=2, k=10, N=20, debug=FALSE,
   }
   if("up" == method) performance.up(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
   else if("ui" == method) performance.ui(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
-  else if("fw" == method) performance.fw(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, W)
+  else if("fw" == method) performance.fw(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, W, repick)
 }
 
 get.TP = function(iu, r, rtrain.rtest, Utest, M){

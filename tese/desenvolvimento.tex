@@ -81,13 +81,6 @@ Em R, isso se traduz por uma simples instrução:
 e = b(t(r),M) %*% b(r,M)
 \end{lstlisting}
 
-%\begin{enumerate}
-	%\item Determinação de $e_{ij}$
-	%\item Determinação de $d_{ij}^f$
-	%\item Determinação de $w_f$
-	%\item Determinação de  $s_{ij}$
-	%\item Determinação de $\hat{i}_u$
-%\end{enumerate}
 
 \subsubsection{Determinação de $d_{ij}^f$} % (fold)
 \label{ssub:determina_o_de_d__ij_f_}
@@ -125,17 +118,33 @@ d[i,j,7] = 1-jaccard(a[i,2:20],a[j,2:20])
 \subsubsection{Determinação de $w_f$} % (fold)
 \label{ssub:determina_o_de_w_f_}
 
-O vetor $\mathbf{w}$ contém os pesos de cada um dos atributos $f$, e é obtido através da regressão linear de Equação \ref{eq:determinacao-wf}.
-
-% subsubsection determina_o_de_w_f_ (end)
-  %e = setup_eij(rtrain.rtest, M, debug)
-  %d = setup_dfij(a, rtrain.rtest, debug)
-  %W = get_W(d, e, rtrain.rtest, debug)
-  %s = get_sij(W, d, debug, only.top=WW)
-  %iu = get_iu_fw(rtrain.rtest, s, Utest, M, N, debug)
+O vetor $\mathbf{w}$ é obtido através da regressão linear de Equação \ref{eq:determinacao-wf}. Na linguagem R, basta aplicar o método \texttt{lm}, conforme mostra o Código \ref{lst:wf}.
 
 
+\begin{lstlisting}[caption=Determinação de $w_f$,label=lst:wf]
+# linear fit e ~ w0 + w (1-d)
+D = 1-d
+lm.W = lm(e ~ D, x=FALSE, y=FALSE, model=FALSE, qr=FALSE)
+W = as.vector(lm.W$coefficients)
+\end{lstlisting}
 
+\subsubsection{Determinação de  $s_{ij}$} % (fold)
+\label{ssub:determina_o_de_s__ij_}
+
+Para o cálculo da matriz de similaridade, escolhemos os pesos $w_f>0$ e aplicamos a Equação \ref{eq:sij}, para todo $f>0$.
+
+\begin{lstlisting}[caption=Determinação de $s_{ij}$]
+if(W[f] > 0) s = s + W[f] * (1-d[,,f-1])
+\end{lstlisting}
+
+
+%\begin{enumerate}
+	%\item Determinação de $e_{ij}$
+	%\item Determinação de $d_{ij}^f$
+	%\item Determinação de $w_f$
+	%\item Determinação de  $s_{ij}$
+	%\item Determinação de $\hat{i}_u$
+%\end{enumerate}
 
 \subsection{Algoritmo baseado no perfil de usuários (UP)} % (fold)
 \label{sub:algoritmo_baseado_no_perfil_de_usu_rios_up_}
