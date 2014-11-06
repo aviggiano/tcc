@@ -72,7 +72,7 @@ A fim de corrigir essa falha no algoritmo UI, seria necessário, por exemplo, ap
 
 Apesar de alta qualidade das recomendações do método UP, este possui também a maior complexidade computacional. Seu tempo de execução é 2 vezes maior que o do método FW e 4 vezes maior que o do método UI. Todavia, nenhum desses tempos de execução é crítico, tendo em vista que o sistema não seria colocado diretamente à disposição dos clientes, mas que as recomendações seriam enviadas via email, por exemplo. 
 
-Apenas o método UI atende ao requisito de \textit{throughput} mínimo de 28 recomendações para cada usuário por segundo. Dado que a base de testes possui $25\%$ do total de usuários, correspondente a 236 clientes para o banco 100k, o tempo de execução máximo dos métodos deveria ser de $0.15$ min. A fim de melhorar a velocidade das recomendações, a solução mais eficiente é a mudança da linguagem de programação. O uso de linguagens C, C++ ou Python pode melhorar o desempenho computacional em até 500 vezes \cite{benchmarkingR}. 
+A fim de melhorar a velocidade das recomendações, a solução mais eficiente é a mudança da linguagem de programação. O uso de linguagens C, C++ ou Python pode melhorar o desempenho computacional em até 500 vezes \cite{benchmarkingR}. 
 
 \section{Percentual da base de aprendizado $T$} % (fold)
 \label{sec:percentual_da_base_de_aprendizado_}
@@ -124,7 +124,7 @@ Para o algoritmo FW, a precisão atinge seu máximo em $H=75\%$ e depois decresc
 
 Ao passo que a precisão dos métodos aumenta com $H$, a abrangência diminui. Visto que a quantidade de itens da lista \textit{top-}$N$ é fixa, quanto maior o número de itens ``escondidos'', mais difícil é de se retornar todos os itens relevantes.
 
-O resultado de uma precisão crescente em função de $H$ e uma acurácia decrescente é que a medida $F_1$ possui um ponto de máximo. Para todos os métodos, o valor máximo é tal que $H=50\%$.
+O resultado de uma precisão crescente em função de $H$ e uma abrangência decrescente é que a medida $F_1$ possui um ponto de máximo. Para todos os métodos, o valor máximo é tal que $H=50\%$ (Figura \ref{fig:F1_H}).
 
 Quanto ao tempo de execução, a influência é a mesma do parâmetro $T$: 
 para o método FW, a etapa de maior custo computacional (Equação \ref{eq:determinacao-wf}) é linearmente dependente da quantidade de itens $\left|\mathcal{I}\right|$. Quanto menos avaliações de itens dos usuários-teste, mais veloz é o algoritmo.
@@ -169,9 +169,9 @@ para o método FW, a etapa de maior custo computacional (Equação \ref{eq:deter
 
 Contrariamente ao que esperávamos, tornar o algoritmo mais ``seletivo'' não melhora sua precisão. Apesar de o valor mínimo $M$ estar intimamente ligado com a noção de ``avaliação positiva'' e de entrar no cálculo de parâmetros importantes dos métodos (Equações \ref{eq:determinacao-eij} e \ref{eq:tf}), esse parâmetro pouco influencia a precisão para $0 \leq M \leq 2$. 
 
-Esse resultado pode ser explicado pelo fato de que a maioria das avaliações são positivas (Figura \ref{fig:percentual_M}), e portanto $\mathrm{b}_M$ tem quase o mesmo efeito de $\mathrm{b}_0$. Isso não ocorre somente pelo fato de os clientes comprarem itens similares a seus gostos, e portanto de raramente se decepcionarem, mas também pelo fato de que os usuários tem menos disposição para darem avaliações negativas. Esse fenômeno se chama \textit{hidden feedback}, e se caracteriza pelo fato de que os itens avaliados não são escolhidos ao acaso, mas sim por despertarem aspectos de interesse das preferências do usuário, indo além dos valores numéricos das avaliações \cite{lops2011content-chap5}.
+Esse resultado pode ser explicado porque a maioria das avaliações são positivas (Figura \ref{fig:percentual_M}), e portanto $\mathrm{b}_M$ tem quase o mesmo efeito de $\mathrm{b}_0$. Isso não ocorre somente pelo fato de os clientes comprarem itens similares a seus gostos, e portanto de raramente se decepcionarem, mas também pelo fato de os usuários terem menos disposição para dar avaliações negativas. Esse fenômeno se chama \textit{hidden feedback}, e se caracteriza pelo fato de que os itens avaliados não são escolhidos ao acaso, mas sim por despertarem aspectos de interesse das preferências do usuário, indo além dos valores numéricos das avaliações \cite{lops2011content-chap5}.
 
-Ao se analisar a abrangência dos métodos, a seletividade influencia na recomendação. Quanto maior $M$, menor é a quantidade de itens muito bem avaliados. Estes possuem elevada similaridade-correlação e são facilmente escolhidos pelos algoritmos. Por esse motivo, melhor é o desempenho do sistema.
+Ao se analisar a abrangência dos métodos, a seletividade influencia na recomendação. Quanto maior $M$, menor é a quantidade de itens muito bem avaliados. Estes possuem elevada correlação usuário-item e são facilmente escolhidos pelos algoritmos. Por esse motivo, melhor é o desempenho do sistema.
 
 A complexidade computacional dos algoritmos também depende de $M$, já que mais ou menos parâmetros são analisados no cálculo da TF-IDF (métodos UI e UP) e dos pesos dos atributos (método FW).
 
@@ -221,7 +221,7 @@ Para o algoritmo UI, tanto a precisão quanto a abrangência são nulas para $M=
 \section{Número de vizinhos mais próximos $k$} % (fold)
 \label{sec:n_mero_de_vizinhos_mais_pr_ximos_}
 
-O único método que recomenda itens com base nos vizinhos mais próximos é o UP. Percebe-se que com o aumento de $k$, a precisão e a abrangência caem, pois a vizinhança se torna excessivamente grande e repleta de usuários sem muita similaridade com o usuário-teste. Pode-se observar que o valor máximo de precisão e acurácia ocorre para $k=20$ (Figura \ref{fig:F1_k}).
+O único método que recomenda itens com base nos vizinhos mais próximos é o UP. Percebe-se que com o aumento de $k$, a precisão e a abrangência caem, pois a vizinhança se torna excessivamente grande e repleta de usuários sem muita similaridade com o usuário-teste. Pode-se observar que o valor máximo de precisão e abrangência ocorre para $k=20$ (Figura \ref{fig:F1_k}).
 
 \begin{figure}[htp]
     \begin{center}

@@ -11,7 +11,7 @@ A metodologia de execução do projeto, assim como a de avaliação dos resultad
 
 % section defini_o_da_necessidade (end)
 
-Com o crescente número de lojas de comércio online, tornou-se necessário a criação de sistemas que pudessem entender e prever o comportamento de consumidores, a fim de oferecer produtos específicos para cada um deles, aumentando o número de vendas e a satisfação do cliente. Observa-se atualmente que o número de sistemas de recomendação gratuitos, de fácil integração e de código aberto (\textit{open source}) são limitados e não correspondem às necessidades do mercado. Existe, pois, a necessidade da criação de um sistema que possa ser utilizado por e-commerces que desejem estabelecer seu próprio sistema de recomendação ou mesmo por indivíduos interessados na temática da recomendação de itens.
+Com o crescente número de lojas de comércio online, tornou-se necessário a criação de sistemas que pudessem entender e prever o comportamento de consumidores, a fim de oferecer produtos específicos para cada um deles, aumentando o número de vendas e a satisfação do cliente. Observa-se atualmente que o número de sistemas de recomendação gratuitos, de fácil integração e de código aberto (\textit{open source}) são limitados e não correspondem às necessidades do mercado. Existe, pois, a necessidade da criação de uma biblioteca que possa ser utilizada por e-commerces que desejem estabelecer seu próprio sistema de recomendação ou mesmo por indivíduos interessados na temática da recomendação de itens.
 
 \section{Definição dos Parâmetros de Sucesso} % (fold)
 \label{sec:defini_o_dos_par_metros_de_sucesso}
@@ -32,7 +32,7 @@ Nesta fase do projeto, foram propostas possíveis soluções para o desafio da r
 
 % section detalhamento_da_solu_o (end)
 
-Após a escolha dos métodos de recomendação, as soluções foram detalhadas matematicamente segundo uma mesma notação, e a estrutura dos algoritmos foi descrita e exemplificada. Neste ponto, escolheu-se também a linguagem de programação (R) e a forma de entrada e saída de dados (arquivos \texttt{.csv}).
+Após a escolha dos métodos de recomendação, as soluções foram detalhadas matematicamente segundo uma mesma notação, e a estrutura dos algoritmos foi descrita e exemplificada. Neste ponto, escolheu-se também a linguagem de programação R e a forma de entrada e saída de dados, por meio de arquivos \texttt{.csv}.
 
 A fim de facilitar o pré-processamento dos dados, estabelecemos que seriam necessários dois arquivos. Um deles deve conter a matriz de atributos $\mathbf{A}$ e o outro, a matriz de avaliações  $\mathbf{R}$. 
 
@@ -57,15 +57,21 @@ A fim de facilitar o pré-processamento dos dados, estabelecemos que seriam nece
 \end{bmatrix}
 \end{equation}
 
-\section{Modelamento e Simulação} % (fold)
+\section{Estruturação do Banco de Dados} % (fold)
 \label{sec:modelamento_e_simula_o}
 
 % section modelamento_e_simula_o (end)
 
 
-Uma vez determinada a forma de entrada de informações, definiram-se os conjuntos de dados a serem utilizados. O primeiro conjunto de dados abertos é proveniente do sistema de recomendações de filmes MovieLens (\url{http://movielens.umn.edu}). Nessa base de dados, o catálogo de filme faz o papel de catálogo de produtos, e o histórico de compras se refere à avaliação dos filmes feita por cada usuário. Outro conjunto de dados abertos é do website Internet Movie Database (IMDB). Na nossa análise, esses dois bancos foram utilizados complementarmente. TODO falar como juntamos
+Uma vez determinada a forma de entrada de informações, definiram-se os conjuntos de dados a serem utilizados. 
 
-Os métodos escolhidos foram codificados em R e testados com inicialmente com o banco de dados 100k. Posteriormente, testamos os algoritmos no banco IMDB, a fim de avaliar a qualidade das recomendações mediante a mudanças na base de dados.
+O primeiro conjunto de dados abertos é proveniente do sistema de recomendações de filmes MovieLens (\url{http://movielens.umn.edu}), e é composto de 100 000 avaliações (valores inteiros de 1 a 5) de 943 usuários para 1682 filmes \cite{movielensdataset}. Além disso, cada usuário (idade, sexo, profissão, logradouro) avaliou pelo menos 20 filmes (categoria, ano de publicação). Nessa base de dados, chamada de 100k, o catálogo de filme faz o papel de catálogo de produtos, e o histórico de compras se refere à avaliação dos filmes feita por cada usuário. 
+
+O segundo banco de dados é extraído do Internet Movie Database (IMDB), e possui 28 819 filmes. Esse banco está presente na biblioteca \texttt{ggplot2} da linguagem de programação R \cite{moviesggplot2dataset}.
+
+Na nossa análise, os bancos de dados 100k e IMDB foram utilizados complementarmente. A união desses dois conjuntos deu origem à base 100k-IMDB, composta por 943 usuários, 1682 itens e 25 atributos. Na biblioteca proposta pela dupla, os dados demográficos de usuários não são utilizados. 
+
+%Os métodos escolhidos foram codificados em R e testados com inicialmente com o banco de dados 100k. Posteriormente, testamos os algoritmos no banco IMDB, a fim de avaliar a qualidade das recomendações mediante a mudanças na base de dados.
 
 Ainda na etapa de implementação, confirmamos a validade de cada um dos métodos aplicando-os nas matrizes-referência (Tabelas \ref{tab:rui_ref} e \ref{tab:aif_ref}). 
 
@@ -76,11 +82,13 @@ A fim de realizar um estudo comparativo (\textit{benchmarking}) com os artigos d
 
 Em particular, implementamos uma validação cruzada considerando $T=75\%$ do banco de dados como base de treinamento ou aprendizado e os $25\%$ restantes como base de testes. Em seguida, mascaramos $H=75\%$ das avaliações dos usuários-teste, de modo a medir a qualidade do sistema de recomendação em prever os itens positivamente avaliados. Cerca de uma dezena de parâmetros de interesse foram avaliados para cada um dos métodos (Tabela \ref{tab:variaveis}). 
 
-Com foco na reprodutibilidade do trabalho, realizamos todas as amostragens em R utilizando o número 2 como semente aleatória (\textit{state seed}). Além disso, não fizemos distinção entre valores não observados (\textit{NA value/NULL value}) e avaliações nulas ($r_{ui}=0$), pois na maioria dos casos essa simplificação é válida. 
+Além disso, não fizemos distinção entre valores não observados (\textit{NA value/NULL value}) e avaliações nulas ($r_{ui}=0$), pois na maioria dos casos essa simplificação é válida. Esse não é o caso, por exemplo, de sistemas em que o usuário pode deliberadamente dar  nota zero para um item.
 
-Sabe-se que a extração de um modelo por meio de uma validação cruzada sobre uma mesma base de dados pode gerar \textit{overfitting} (Referência \citeonline{ng1997preventing}). Para não cair nesse erro, utilizamos dois bancos de dados, sendo um deles para avaliação da qualidade das recomendações mediante a mudanças em parâmetros do problema e o outro para avaliação dos algoritmos em uma base totalmente diferente, sem modelagem \textit{a priori}.
+Sabe-se que a extração de um modelo por meio de uma validação cruzada sobre uma mesma base de dados pode gerar \textit{overfitting} \cite{ng1997preventing}. Para não cair nesse erro e com foco na reprodutibilidade do trabalho, realizamos todas as amostragens em R utilizando o número 2 como semente aleatória (\textit{state seed}). Dessa forma, os parâmetros calculados para os modelos são sempre os mesmos para qualquer teste de qualidade. Evidentemente, caso se deseje avaliar a performance dos métodos para um outro banco de dados, uma validação cruzada rigorosa deverá ser aplicada. 
+
+% utilizamos sempre a mesma base de treinamento para aprendizado do modelo. sendo um deles (100k-IMDB) para avaliação da qualidade das recomendações mediante a mudanças em parâmetros do problema e o outro para avaliação dos algoritmos em uma base totalmente diferente, sem modelagem \textit{a priori}.
 
 
-Como a complexidade dos algoritmos excedia o limite dos computadores pessoais da dupla, foi necessário contratar o serviço de computação nas nuvens Amazon Web Services.
+Como a complexidade dos algoritmos excede o limite dos computadores pessoais da dupla, foi necessário contratar o serviço de computação nas nuvens Amazon Web Services.
 
-Alugamos duas máquinas virtuais do tipo \texttt{r3.large}, otimizadas para memória. As máquinas, de especificação 2 vCPU, 15 GB de memória RAM e sistema operacional Amazon Linux AMI release 2014.09 x86\_64, baseado em RHEL Fedora, custaram USD 0,175 por hora de uso. Todos os testes foram realizados em aproximadamente 12 horas, custando apenas USD 4,20 (menos de R\$ 12,00).
+Alugamos duas máquinas virtuais do tipo \texttt{r3.large}, otimizadas para memória. As máquinas, de especificação 2 vCPU, 15 GB de memória RAM e sistema operacional Amazon Linux AMI release 2014.09 x86\_64, baseado em RHEL Fedora, custaram USD 0,175 por hora de uso. Todos os testes foram realizados em aproximadamente 12 horas, custando apenas USD 4,20 (menos de R\$ 12,00). Uma explicação detalhada da configuração do ambiente de testes se encontra na Seção \ref{sec:ambiente_de_testes}.

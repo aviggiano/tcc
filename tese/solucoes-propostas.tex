@@ -2,7 +2,7 @@
 \chapter[Detalhamento de Soluções]{Detalhamento de Soluções}
 \label{chap:sintese_de_solucoes}
 
-A fim de facilitar a compreensão dos métodos propostos neste trabalho, serão utilizadas as matrizes de avaliações $\mathbf{R}$ e de atributos $\mathbf{A}$ abaixo, adaptadas da Referência \citeonline{debnath2008feature}. Em todos os exemplos, considera-se valor mínimo $M=2$. Os logaritmos são expressos em base 10 e todos os pesos $w_f$ (descritos a seguir) são utilizados.
+A fim de facilitar a compreensão dos métodos propostos neste trabalho, serão utilizadas as matrizes de avaliações $\mathbf{R}$ e de atributos $\mathbf{A}$ abaixo, adaptadas da Referência \citeonline{debnath2008feature}. Em todos os exemplos, considera-se valor mínimo $M=2$. Os logaritmos são expressos em base 10 e todos os pesos $w_f$, descritos a seguir, são utilizados.
 
 \begin{table}[h]
 \begin{center}
@@ -41,7 +41,7 @@ A fim de facilitar a compreensão dos métodos propostos neste trabalho, serão 
 
 % section algoritmo_baseado_na_pondera_o_de_atributos_ (end)
 
-O primeiro algoritmo que utilizaremos no sistema de recomendação, adaptado da Referência \citeonline{symeonidis2007feature} e denominado ponderação de atributos, \textit{feature weighting} ou \textit{FW}, trata-se de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens, e é onde ocorre a filtragem colaborativa dos usuários. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo para determinar os itens com maior similaridade, que são finalmente recomendados.
+O primeiro algoritmo que utilizaremos no sistema de recomendação, adaptado da Referência \citeonline{symeonidis2007feature} e denominado ponderação de atributos, \textit{feature weighting} ou FW, trata-se de um híbrido entre filtragem colaborativa e filtragem baseada em conteúdo. A partir da regressão linear de dados de uma rede social (\textit{Internet Movie Database, IMDB}), extraem-se os pesos que determinam a importância de cada atributo dos itens, e é onde ocorre a filtragem colaborativa dos usuários. Após obtenção dos pesos, realiza-se a filtragem baseada em conteúdo para determinar os itens com maior similaridade, que são finalmente recomendados.
 
 Na filtragem baseada em conteúdo, ``cada item é representado por um vetor de atributos ou \textit{features}''. A similaridade $s_{ij}$ entre dois itens $i$ e $j$ é dada pela média ponderada das distâncias entre as \textit{features} dos itens:
 
@@ -71,7 +71,7 @@ Para atributos pertencentes a uma coleção finita de itens, tais como os atores
 J(A,B) ={{|A \cap B|}\over{|A \cup B|}}
 \end{equation}
 
-Vale considerar a correlação entre atributos no cálculo das distâncias: a similaridade de duas marcas de calçado, por exemplo, é maior que a de duas marcas de produtos de categorias diferentes, mesmo que as marcas sejam distintas nos dois casos. Em uma primeira análise, todavia, utilizaremos para a maior parte das \textit{features} as medidas de distância do delta de Kronecker \ref{eq:dfij_delta} (Tabela \ref{tab:d_ijf}) e do índice Jaccard \ref{eq:dfij_jaccard}. Isso significa que se os atributos de dois itens são idênticos, a distância é nula e portanto a similaridade é máxima. O sumário de algumas medidas de distância que podem ser utilizadas estão na Tabela \ref{tab:medidas-distancia}.
+Vale considerar a correlação entre atributos no cálculo das distâncias: a similaridade de duas marcas de calçado, por exemplo, é maior que a de duas marcas de produtos de categorias diferentes, mesmo que as marcas sejam distintas nos dois casos. Em uma primeira análise, todavia, utilizaremos para a maior parte das \textit{features} as medidas de distância do delta de Kronecker \ref{eq:dfij_delta} (Tabela \ref{tab:d_ijf}) e do índice Jaccard \ref{eq:dfij_jaccard}. Isso significa que se os atributos de dois itens são idênticos, a distância é nula e portanto a similaridade é máxima. O sumário de algumas medidas de distância que podem ser utilizadas para casos específicos estão na Tabela \ref{tab:medidas-distancia}.
 
 \begin{equation}
 \label{eq:dfij_delta}
@@ -262,7 +262,7 @@ Calcula-se a matriz de similaridade $\mathbf{S}$ pela Equação \ref{eq:sij} (Ta
 
 % section algoritmo_baseado_no_perfil_de_usu_rios_ (end)
 
-O segundo algoritmo, adaptado da Referência \citeonline{debnath2008feature}, é um hibrido entre filtragem colaborativa e filtragem baseada em conteúdo. Os atributos dos itens são ponderados no cálculo de similaridade, com pesos extraídos de um modelo de perfil de usuários, denominado \textit{user profile} ou \textit{UP}. Esse perfil leva em consideração o interesse dos usuários por \textit{features}, indiretamente calculado a partir de seu interesse pelos itens. 
+O segundo algoritmo, adaptado da Referência \citeonline{debnath2008feature}, é um hibrido entre filtragem colaborativa e filtragem baseada em conteúdo. Os atributos dos itens são ponderados no cálculo de similaridade, com pesos extraídos de um modelo de perfil de usuários, denominado \textit{user profile} ou UP. Esse perfil leva em consideração o interesse dos usuários por \textit{features}, indiretamente calculado a partir de seu interesse pelos itens. 
 
 Para se determinar a relevância de $f$ para $u$, deve-se levar em conta não somente a frequência com a qual uma característica aparece, mas também o fato de algumas características estarem contidas na maioria dos itens. Determina-se, então, os pesos $w_{uf}$, que mostram a relevância de $f$ para $u$, a partir da medida estatística TF-IDF (\textit{term frequency--inverse document frequency}), presente em formulações de recuperação de informação e mineração de dados (Equação \ref{eq:w-tfidf}). 
 
@@ -423,7 +423,7 @@ Por fim, a partir da Equação \ref{eq:wi} calcula-se o peso $\omega_{ui}$ (Tabe
 \section{Algoritmo baseado na correlação usuário-item (UI)} % (fold)
 \label{sec:algoritmo_baseado_na_correla_o_usu_rio_item_ui_}
 
-Este método se trata de uma variante da solução \textit{UP}, e também está embasado no cálculo da preferência do usuário por \textit{features}, medida através do seu interesse pelos itens. O algoritmo \textit{UI} utiliza as matrizes de correlação ponderada entre usuários e atributos $\mathbf{W}$ e a matriz de atributos dos itens $\mathbf{A}$ no cálculo da correlação usuário-item.
+Este método se trata de uma variante da solução UP, e também está embasado no cálculo da preferência do usuário por \textit{features}, medida através do seu interesse pelos itens. O algoritmo UI utiliza as matrizes de correlação ponderada entre usuários e atributos $\mathbf{W}$ e a matriz de atributos dos itens $\mathbf{A}$ no cálculo da correlação usuário-item.
 
 A lista dos $N$ produtos a serem recomendados decorre portanto do cálculo de $\omega_{ui}$ (Equação \ref{eq:wui}, Tabela \ref{tab:omega_ui_ui}) e da escolha dos itens que maximizem essa variável para cada usuário (Equação \ref{eq:iup}, Tabela \ref{tab:i_u_ui}).
 

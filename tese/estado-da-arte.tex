@@ -9,7 +9,7 @@ A fim de tornar a formulação mais genérica, também não faremos distinção 
 \section{Estado da arte dos problemas} % (fold)
 \label{sec:estado_da_arte_dos_problemas}
 
-O problema de recomendação pode ser formulado como se segue, adaptado da referência \cite{adomavicius2005toward}, com notação inspirada em \cite{symeonidis2007feature}: 
+O problema de recomendação pode ser formulado como se segue, adaptado da Referência \citeonline{adomavicius2005toward}, com notação inspirada no artigo \citeonline{symeonidis2007feature}: 
 
 ``Seja $\mathcal{U}$ o conjunto de todos os usuários e seja $\mathcal{I}$ o conjunto de todos os itens que podem ser recomendados, tais como livros, filmes ou artigos científicos. Seja $\ell$ uma função de utilidade, que mede a relevância do produto $i$ para usuário $u$. Em notação matemática, $\ell: \mathcal{U} \times \mathcal{I} \rightarrow \mathcal{R}$, onde $\mathcal{R}$ é um  conjunto totalmente ordenado -- por exemplo, números inteiros ou números reais dentro de um determinado intervalo, em geral $\left\{-1, 0, +1\right\}$ ou $[1, 5]$. O objetivo do sistema de recomendação é determinar o item $\tilde{\imath}_u$ que maximize a utilidade $\ell_{ui}$ do usuário $u$.''
 
@@ -18,11 +18,11 @@ O problema de recomendação pode ser formulado como se segue, adaptado da refer
 \forall u \in \mathcal{U}, ~ \tilde{\imath}_u = \argmax_{i \in \mathcal{I}}{\ell_{ui}}
 \end{equation}
 
-O problema central da recomendação é que ``em geral a função $\ell$ é desconhecida ou não é definida para todo o espaço $\mathcal{U} \times \mathcal{I}$'', e portanto determinar $\tilde{\imath}$ através da equação \ref{eq:utilidade} é inviável. 
+O problema central da recomendação é que ``em geral a função $\ell$ é desconhecida ou não é definida para todo o espaço $\mathcal{U} \times \mathcal{I}$'', e portanto determinar $\tilde{\imath}$ através da Equação \ref{eq:utilidade} é inviável. 
 
 Em algumas formulações, ``a utilidade é descrita pela avaliação $r_{ui}$ do item $i$ feita pelo usuário $u$''. Neste caso, o sistema de recomendação busca determinar $\hat{r}_{ui}$ que melhor se aproxime de $r_{ui}$, e a qualidade da recomendação é normalmente descrita pela distância entre esses dois valores. Em outros sistemas, todavia, a utilidade é descrita diferentemente, de forma que o item com maior valor de $\hat{r}_{ui}$ não é necessariamente recomendado. 
 
-Para lidar com o problema da recomendação, existem três grandes grupos de estratégias de sugestão de itens, segundo as referências \cite{adomavicius2005toward,balabanovic97fab}:
+Para lidar com o problema da recomendação, existem três grandes grupos de estratégias de sugestão de itens, segundo as Referências \citeonline{adomavicius2005toward,balabanovic97fab}:
 
 \begin{itemize}
 \item Recomendações baseadas em conteúdo: o usuário recebe sugestões de itens similares àqueles pelos quais ele se interessou no passado;
@@ -32,7 +32,7 @@ Para lidar com o problema da recomendação, existem três grandes grupos de est
 
 As estratégias de recomendação baseadas em conteúdo exploram os dados dos itens para calcular a sua relevância conforme o perfil do usuário. Suas técnicas de recomendação podem ser classificadas em dois grupos: aquelas baseadas em heurísticas ou memória -- fazem a previsão com base em toda a coleção de itens anteriormente classificados pelos usuários -- e aquelas baseadas em modelos -- utilizam o conjunto de avaliações com o objetivo de descrever a interação entre usuários e itens, tal como em uma regressão linear ou em uma rede Bayesiana. 
 
-Na abordagem de sistemas baseados em conteúdo, a recomendação pode ser vista como um problema de aprendizado de máquina, em que o sistema adquire conhecimento sobre o usuário. Muitas vezes é recomendado que o aprendizado seja feito com base no perfil do usuário em uso continuo, ao invés de forçá-lo a responder diversas perguntas demográficas \cite{wei2007survey} -- idade, gênero, classe social, etc. O objetivo é categorizar novas informações baseadas em informações previamente adquiridas e rotuladas como interessantes ou não pelo usuário. Com estas informações em mão, é possível gerar modelos preditivos que evoluem conforme aparecem novas informações.
+Na abordagem de sistemas baseados em conteúdo, a recomendação pode ser vista como um problema de aprendizado de máquina, em que o sistema adquire conhecimento sobre o usuário. Muitas vezes é recomendado que o aprendizado seja feito com base no perfil do usuário em uso continuo, ao invés de forçá-lo a responder diversas perguntas demográficas, como idade, gênero, classe social, etc \cite{wei2007survey}. O objetivo é categorizar novas informações baseadas em informações previamente adquiridas e rotuladas como interessantes ou não pelo usuário. Com estas informações em mão, é possível gerar modelos preditivos que evoluem conforme aparecem novas informações.
 
 Em sistemas baseados em conteúdo, os itens a serem recomendados podem possuir diversos atributos e formas de classificação. Em documentos como e-mails, \textit{websites} ou comentários de usuários, os textos não tem estrutura definida e a abordagem mais comum para escolher o melhor item é a mineração de informações. O usuário procura por uma lista de termos desejados e o sistema retorna os textos de maior relevância, tal como é feito em um motor de busca \cite{schafer2001commerce}. Nesses casos, calcula-se a similaridade entre documentos a partir da importância das palavras ou termos similares, como a TF-IDF ou o classificador Bayesiano \cite{lops2011content-chap3}. 
 
@@ -85,7 +85,7 @@ No que se refere à dependência do número de usuários, a filtragem colaborati
 
 A dependência do número de itens é, de certa forma, oposta à de usuários: a filtragem colaborativa baseada em itens é extremamente efetiva para poucos itens, enquanto aquela baseada em usuários supera todos os outros métodos baseados em memória para grandes quantidades de itens.
 
-Com relação à medida de qualidade, avaliada a partir da acurácia dos dados, a filtragem baseada em usuários e a baseada em itens mostram uma dependência semelhante. Na análise de menor erro quadrático médio entre o item sugerido e o item efetivamente comprado, todos os métodos de recomendação variam não-linearmente com o número de usuários, itens e acurácia, e de modo geral há um compromisso (\textit{trade-off}) entre a esparsidade (\textit{sparsity}) dos dados e o tempo de processamento. 
+Com relação à medida de qualidade, avaliada a partir da abrangência dos dados, a filtragem baseada em usuários e a baseada em itens mostram uma dependência semelhante. Na análise de menor erro quadrático médio entre o item sugerido e o item efetivamente comprado, todos os métodos de recomendação variam não-linearmente com o número de usuários, itens e acurácia, e de modo geral há um compromisso (\textit{trade-off}) entre a esparsidade (\textit{sparsity}) dos dados e o tempo de processamento. 
 % section estado_da_arte_dos_problemas_e_das_solu_es (end)
 
 \section{Desafios científicos e tecnológicos} % (fold)
@@ -142,10 +142,10 @@ Este Trabalho de Conclusão de Curso aborda três propostas de solução para o 
 
 Todas as soluções são algoritmos híbridos, por utilizarem na recomendação tanto a matriz de avaliações $\mathbf{R}$ quanto a matriz de atributos $\mathbf{A}$. Optou-se por dar importância aos algoritmos híbridos em razão de os e-commerces estruturarem seus bancos de dados em torno da descrição dos itens à venda. De modo geral, as tabelas de itens possuem dezenas de atributos, dependendo do ramo de negócios da loja, e pouco detalhe é dado à interação entre o grupo de usuários e itens. A tabela de histórico de compras se limita a informações como data e método de pagamento, e detém pouca informação adicional que possa ser utilizada na recomendação de produtos. Dessa forma supusemos que métodos puramente colaborativos, fundamentados na avaliação dos itens por parte dos usuários, teriam pior desempenho que métodos baseados em conteúdo, que exploram as características dos itens na recomendação. 
 
-A solução \textit{FW} determina a similaridade de dois itens a partir de medidas de distância para cada um dos atributos dos itens, ponderadas por pesos determinados na regressão linear de uma equação descrita pelo interesse dos usuários em cada \textit{feature}.
+A solução FW determina a similaridade de dois itens a partir de medidas de distância para cada um dos atributos dos itens, ponderadas por pesos determinados na regressão linear de uma equação descrita pelo interesse dos usuários em cada \textit{feature}.
 
-O método \textit{UP} parte do princípio que os usuários estão interessados nos atributos dos itens, e traça correlações entre esses dois elementos para obter pesos que servirão de base para o cálculo da similaridade inter-usuários, utilizada na recomendação pelo método da vizinhança (\textit{nearest neighbors}). 
+O método UP parte do princípio que os usuários estão interessados nos atributos dos itens, e traça correlações entre esses dois elementos para obter pesos que servirão de base para o cálculo da similaridade inter-usuários, utilizada na recomendação pelo método da vizinhança (\textit{nearest neighbors}). 
 
-A variante \textit{UI}, elaborada pela dupla, recomenda o melhor item a partir das matrizes de correlação usuário-atributo e atributo-item, a fim de obter a matriz de correlação usuário-item. Espera-se que essa solução tenha desempenho similar ao método de base \textit{UP}, pois ambos buscam explorar as características dos itens para determinar a preferência do usuário.
+A variante UI, elaborada pela dupla, recomenda o melhor item a partir das matrizes de correlação usuário-atributo e atributo-item, a fim de obter a matriz de correlação usuário-item. De antemão espera-se que essa solução tenha desempenho similar ao método de base UP, pois ambos buscam explorar as características dos itens para determinar a preferência do usuário.
 
 % section solu_es_propostas (end)

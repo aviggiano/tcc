@@ -8,11 +8,11 @@
 
 % section avalia_o_do_sistema_de_recomenda_o (end)
 
-De modo geral os sistemas de recomendação tem o objetivo de apresentar ao usuário itens pelos quais ele possa se interessar. O desempenho de um sistema de recomendação se mede, portanto, na qualidade com a qual ele executa essa tarefa. 
+De modo geral, sistemas de recomendação tem o objetivo de apresentar ao usuário itens pelos quais ele possa se interessar. O desempenho de um sistema de recomendação se mede, portanto, na qualidade com a qual ele executa essa tarefa. 
 
-Essa qualidade pode ser medida de diferentes maneiras, tal como pela medida de distância entre os produtos recomendados $\hat{\textbf{\i}}$ e aqueles que seriam efetivamente comprados $\textbf{i}$ pelo cliente em uma validação cruzada (\textit{cross validation}). Outras medidas de predição também podem ser utilizadas, a exemplo de trabalhos de recuperação de informação, tais como acurácia (\textit{accuracy}), especificidade (\textit{specificity}), precisão (\textit{precision}), abrangência (\textit{recall}), medida $F_1$ (\textit{$F_1$-score}), e outras. 
+Essa qualidade pode ser medida de diferentes maneiras, tal como pela medida de distância entre os produtos recomendados $\hat{\textbf{\i}}$ e aqueles que seriam efetivamente comprados $\textbf{i}$ pelo cliente em uma validação cruzada (\textit{cross validation}). Outras medidas de predição também podem ser utilizadas, a exemplo de trabalhos de recuperação de informação, tais como acurácia (\textit{accuracy}), especificidade (\textit{specificity}), precisão (\textit{precision}), abrangência (\textit{recall}), medida $F_1$ (\textit{$F_1$-score}), e outras \cite{herlocker2004evaluating}. 
 
-No nosso Trabalho de Conclusão de Curso, serão utilizados precisão, abrangência, e medida $F_1$. Essas medidas foram escolhidas a fim de se poder estabelecer uma base comparativa com os textos de referência, que também as utilizam. Elas estão sumarizadas na Tabela \ref{tab:avaliacao-predicao}. As quantidades $VP$, $FP$, $VN$ e $FN$ significam o número de verdadeiro e falso positivos e o número de verdadeiro e falso negativos.
+No nosso Trabalho de Conclusão de Curso, serão utilizados precisão, abrangência, e medida $F_1$. Essas medidas foram escolhidas a fim de se poder estabelecer uma base comparativa com os textos de referência, que também as utilizam, e com  algoritmos que fornecem recomendações do tipo lista \textit{top-N}  \cite{cremonesi2010performance}. As medidas estão sumarizadas na Tabela \ref{tab:avaliacao-predicao}. As quantidades $VP$, $FP$, $VN$ e $FN$ significam o número de verdadeiro e falso positivos e o número de verdadeiro e falso negativos.
 
 %\begin{table}[H]
 %\begin{center}
@@ -45,7 +45,7 @@ No nosso Trabalho de Conclusão de Curso, serão utilizados precisão, abrangên
 %\end{tabular}
 
 
-\begin{table}[hp]
+\begin{table}[htp]
 \begin{center}
     \caption{Avaliação de sistemas de predição}
     \label{tab:avaliacao-predicao}
