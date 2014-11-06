@@ -21,7 +21,7 @@ Por fim, o curso de doze semanas de duração ``Engenharia de Startup'' (Startup
 \section{Ferramentas utilizadas} % (fold)
 \label{sec:ferramentas_utilizadas}
 
-A programação da biblioteca computacional se deu por meio do ambiente de desenvolvimento integrado RStudio versão 0.98.953 (\url{http://www.rstudio.com/}). Esse IDE inclui console, editor de texto e corretor de sintaxe que suporta a execução de código direta, bem como ferramentas para traçar gráficos, histórico de comandos, depuração de erros e gerenciamento de espaço de trabalho. Além disso, o RStudio está disponível via licença de código aberto AGPLv3 (Affero General Public License version 3) para os principais sistemas operacionais (Windows, Mac e Linux).
+A programação da biblioteca computacional se deu por meio do ambiente de desenvolvimento integrado RStudio versão 0.98.953 (\url{http://www.rstudio.com/}). Esse IDE inclui console, editor de texto e corretor de sintaxe que suporta a execução direta de código, bem como ferramentas para visualização de gráficos, depuração de erros e gerenciamento de espaço de trabalho. Além disso, o RStudio está disponível via licença de código aberto AGPLv3 (Affero General Public License version 3) para os principais sistemas operacionais (Windows, Mac e Linux).
 
 \section{Métodos computacionais} % (fold)
 \label{sec:m_todos_computacionais}
@@ -223,7 +223,12 @@ iu = index.top.N(omega[u,], N, repeated)
 \subsection{Algoritmo baseado na correlação usuário-item (UI)} % (fold)
 \label{sub:algoritmo_baseado_na_correla_o_usu_rio_item_ui_}
 
-Para o algoritmo baseado na correlação usuário-item, a etapa \ref{ssub:determina_o_de_wuf} é idêntica à do método UP. Para o algoritmo UI, o cálculo de $\omega_{ui}$ se dá pela Equação \ref{eq:wui}, de Código \ref{lst:omegaui}.
+Para o algoritmo baseado na correlação usuário-item, a etapa \ref{ssub:determina_o_de_wuf} é idêntica à do método UP. Para o algoritmo UI, o cálculo de $\omega_{ui}$ se dá pela Equação matricial \ref{eq:wui2}, de Código \ref{lst:omegaui}.
+
+\begin{equation}
+\label{eq:wui2}
+\mathbf{\Omega} = \mathbf{W} \mathbf{A}^T
+\end{equation}
 
 \begin{lstlisting}[caption=Determinação de $\omega_{ui}$,label=lst:omegaui]
 omega = w %*% t(a)  

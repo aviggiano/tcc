@@ -3,7 +3,7 @@
 \label{cha:documenta_o_da_biblioteca}
 
 % chapter documenta_o_da_biblioteca (end)
-
+\lstset{language=C}
 \begin{lstlisting}[caption=\texttt{setup}.R]
 read.history 
 	input				filename, separator, header, col.names
@@ -45,7 +45,7 @@ divide.train.test
 	description		divide os usuários em duas bases, uma de treinamento de uma de testes, segundo a proporção TRAIN
 
 performance
-	input				a, r, M=2, k=10, N=20, norm=TRUE, remove=FALSE, method, TRAIN=0.75, HIDDEN=0.75, W=FALSE
+	input				a, r, M=2, k=10, N=20, norm=TRUE, remove=FALSE, method, TRAIN=0.75, HIDDEN=0.75, W=FALSE, repick=FALSE
 	output			lista contendo precisão, abrangência, medida F1 e tempo de execução do método
 	description		norm indica se a matriz de avaliações deve ser normalizada. W, caso diferente de FALSE, indica a quantidade de pesos de atributos a serem utilizados no método FW
 \end{lstlisting}
