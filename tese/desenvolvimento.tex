@@ -140,7 +140,7 @@ if(W[f] > 0) s = s + W[f] * (1-d[,,f-1])
 \subsubsection{Determinação de $\hat{\imath}_u$} % (fold)
 \label{ssub:determina_o_de_i_u_}
 
-Os itens a serem recomendados são aqueles para os quais $s_{ij}$ tem valor máximo e que já não tenham sido comprados pelo usuário. Em alguns casos específicos, é desejado que o cliente possa receber recomendações do mesmo produto, e deve-se indicar através do argumento \texttt{repick} o valor \texttt{TRUE}.
+Os itens a serem recomendados são aqueles para os quais $s_{ij}$ tem valor máximo e que ainda não tenham sido comprados pelo usuário. Em alguns casos específicos, é desejado que o cliente possa receber recomendações do mesmo produto, e deve-se indicar através do argumento \texttt{repick} o valor \texttt{TRUE}.
 
 \begin{lstlisting}[caption=Determinação de $\hat{\imath}_{u}$]
 not.yet.chosen = if(repick) I.length else union(which(is.na(r[u,])), which(r[u,]==0))
@@ -149,6 +149,38 @@ iu = intersect(not.yet.chosen, index.top.N(s[i,], N))
 
 \subsection{Algoritmo baseado no perfil de usuários (UP)} % (fold)
 \label{sub:algoritmo_baseado_no_perfil_de_usu_rios_up_}
+
+O algoritmo baseado no perfil de usuários atributos possui quatro etapas principais: 
+
+
+\subsubsection{Determinação de $w_{uf}$} % (fold)
+\label{ssub:determina_o_de_}
+
+O cálculo de $w_{uf}$ é dado pela TF-IDF de Equação \ref{eq:w-tfidf}. Pode-se obter $\mathrm{TF}_{uf}$ a partir do Código \ref{lst:tf}, e $\mathrm{IDF}_{f}$ a partir do Código \ref{lst:idf}.
+
+
+\begin{lstlisting}[caption=Determinação de $\mathrm{TF}_{uf}$,label=lst:tf]
+TF[u,f] = sum(
+        		b(r[u,] * a[,f], M),
+        		na.rm = TRUE)
+\end{lstlisting}
+
+
+\begin{lstlisting}[caption=Determinação de $\mathrm{IDF}_{f}$,label=lst:idf]
+IDFbar = sapply(1:length(TF[1,]), function(f) sum(b0(TF[,f])))
+IDF = log(length(U)/IDFbar, 10)
+\end{lstlisting}
+
+\subsubsection{Determinação de $s_{uv}$} % (fold)
+\label{ssub:determina_o_de_}
+
+
+\subsubsection{Determinação de $\omega_{ui}$} % (fold)
+\label{ssub:determina_o_de_}
+
+\subsubsection{Determinação de $\hat{\imath}$} % (fold)
+\label{ssub:determina_o_de_}
+
 \subsection{Algoritmo baseado na correlação usuário-item (UI)} % (fold)
 \label{sub:algoritmo_baseado_na_correla_o_usu_rio_item_ui_}
 
