@@ -41,10 +41,10 @@ get_w = function(TF, IDF, debug){
   w
 }
 
-get_iu = function(omega, r, rtrain.rtest, Utest, N, debug){
+get_iu = function(omega, r, rtrain.rtest, Utest, N, debug, repick){
   #omega[repeated] = NA # previne escolher itens repetidos
   iu = lapply(Utest, function(u){
-    repeated = which(rtrain.rtest[u,] > 0)
+    repeated = if(repick) NULL else which(rtrain.rtest[u,] > 0)
     index.top.N(omega[u,], N, repeated) ## correto??
   })
   names(iu) = Utest

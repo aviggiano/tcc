@@ -154,7 +154,7 @@ O algoritmo baseado no perfil de usuários atributos possui quatro etapas princi
 
 
 \subsubsection{Determinação de $w_{uf}$} % (fold)
-\label{ssub:determina_o_de_}
+\label{ssub:determina_o_de_wuf}
 
 O cálculo de $w_{uf}$ é dado pela TF-IDF de Equação \ref{eq:w-tfidf}. Pode-se obter $\mathrm{TF}_{uf}$ a partir do Código \ref{lst:tf}, e $\mathrm{IDF}_{f}$ a partir do Código \ref{lst:idf}. Finalmente, a multiplicação desses dois elementos resulta na correlação usuário-atributo (Código \ref{lst:wuf}).
 
@@ -197,17 +197,37 @@ s[u,v] = 	if(length(Fuv) == 0)
 \subsubsection{Determinação de $\omega_{ui}$} % (fold)
 \label{ssub:determina_o_de_}
 
-\subsubsection{Determinação de $\hat{\imath}$} % (fold)
+O cálculo da correlação usuário-item se dá pelo método dos vizinhos mais próximos. Selecionam-se aqueles usuários $v_u^k$ com maior similaridade $s_{uv}$ com relação a $u$ e aplicam-se as Equações \ref{eq:frf} e \ref{eq:wi}.
+
+\begin{lstlisting}[caption=Determinação de $\omega_{ui}$]
+vuk = index.top.N.not.self(s[u,], u, k, Utest) 
+Ivuk = unique(unlist(lapply(vuk, function(v) which(r[v,]>M))))
+
+fuf[u,f] = sum(
+					b0(a[,f])[Ivuk], 
+					na.rm = TRUE)
+
+omega = fuf %*% t(a)
+\end{lstlisting}
+
+\subsubsection{Determinação de $\hat{\imath}_u$} % (fold)
 \label{ssub:determina_o_de_}
+
+Os itens a serem recomendados são aqueles para os quais $\omega_{ui}$ tem valor máximo e que ainda não tenham sido comprados pelo usuário. Assim como no método FW, caso o cliente possa receber recomendações do mesmo produto, deve-se indicar o argumento \texttt{repick} como \texttt{TRUE}.
+
+\begin{lstlisting}[caption=Determinação de $\hat{\imath}_u$]
+repeated = if(repick) NULL else which(r[u,] > 0)
+iu = index.top.N(omega[u,], N, repeated)
+\end{lstlisting}
 
 \subsection{Algoritmo baseado na correlação usuário-item (UI)} % (fold)
 \label{sub:algoritmo_baseado_na_correla_o_usu_rio_item_ui_}
 
-% subsection algoritmo_baseado_na_correla_o_usu_rio_item_ui_ (end)
+Para o algoritmo baseado na correlação usuário-item, a etapa \ref{ssub:determina_o_de_wuf} é idêntica à do método UP. Para o algoritmo UI, o cálculo de $\omega_{ui}$ se dá pela Equação \ref{eq:wui}, de Código \ref{lst:omegaui}.
 
-% subsection algoritmo_baseado_no_perfil_de_usu_rios_up_ (end)
-
-% subsection algoritmo_baseado_na_pondera_o_de_atributos_fw_ (end)
+\begin{lstlisting}[caption=Determinação de $\omega_{ui}$,label=lst:omegaui]
+omega = w %*% t(a)  
+\end{lstlisting}
 
 \section{Ambiente de testes} % (fold)
 \label{sec:ambiente_de_testes}

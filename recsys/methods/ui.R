@@ -10,7 +10,7 @@ get_omega_ui = function(w, a, debug){
   omega
 }
 
-ui = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
+ui = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, repick){
   # train: get IDF
   Utrain = Utrain.Utest[[1]]
   Utest = Utrain.Utest[[2]]
@@ -27,6 +27,6 @@ ui = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
   TF = get_TF(a, rtrain.rtest, M, debug)
   w = get_w(TF, IDF, debug)
   omega = get_omega_ui(w, a, debug)
-  iu = get_iu(omega, r, rtrain.rtest, Utest, N, debug)
+  iu = get_iu(omega, r, rtrain.rtest, Utest, N, debug, repick)
   iu
 }

@@ -68,7 +68,7 @@ get_omega = function(a, r, s, Utrain.Utest, M, k, debug){
 #  iu  
 #}
 
-up = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
+up = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, repick){
   # train: get IDF
   Utrain = Utrain.Utest[[1]]
   Utest = Utrain.Utest[[2]]
@@ -87,6 +87,6 @@ up = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
   w = get_w(TF, IDF, debug)
   s = get_s(w, TF, U, debug)
   omega = get_omega(a, r, s, Utrain.Utest, M, k, debug)
-  iu = get_iu(omega, r, rtrain.rtest, Utest, N, debug)
+  iu = get_iu(omega, r, rtrain.rtest, Utest, N, debug, repick)
   iu     
 }

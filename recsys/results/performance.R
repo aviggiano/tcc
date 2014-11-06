@@ -38,8 +38,8 @@ performance = function(a, r, M=2, k=10, N=20, debug=FALSE,
     a = normalize(a, columns = TRUE)
     if(remove) a = a[,-remove]
   }
-  if("up" == method) performance.up(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
-  else if("ui" == method) performance.ui(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
+  if("up" == method) performance.up(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, repick)
+  else if("ui" == method) performance.ui(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, repick)
   else if("fw" == method) performance.fw(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, W, repick)
 }
 
