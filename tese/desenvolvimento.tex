@@ -85,7 +85,7 @@ e = b(t(r),M) %*% b(r,M)
 \subsubsection{Determinação de $d_{ij}^f$} % (fold)
 \label{ssub:determina_o_de_d__ij_f_}
 
-Para o cálculo genérico de FW, a medida de distância padrão utilizada é a distância $L_1$ entre as duas \textit{features} (Equação \ref{eq:dijf2}, Código \ref{lst:dijf2}). Para o cálculo específico do banco de dados 100k-IMDB, as medidas de distância (Equação \ref{eq:dijf_especifico}, Código \ref{lst:dijf_especifico}) são determinadas segundo a Tabela TODO. 
+Para o cálculo genérico de FW, a medida de distância padrão utilizada é a distância $L_1$ entre as duas \textit{features} (Equação \ref{eq:dijf2}, Código \ref{lst:dijf2}). Para o cálculo específico do banco de dados 100k-IMDB, as medidas de distância são determinadas segundo a Equação \ref{eq:dijf_especifico} e o Código \ref{lst:dijf_especifico}. Para $f=2,\cdots,20$, os atributos são gêneros de filmes. Para todos os outros, são parâmetros numéricos normalizados no intervalo $[0,1]$.
 
 \begin{equation}
 \label{eq:dijf2}
