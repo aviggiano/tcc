@@ -4,8 +4,6 @@
 
 Os resultados deste trabalho são a análise de desempenho dos algoritmos propostos, em termos de precisão, abrangência e tempo computacional, mediante a mudanças em suas variáveis de importância (Tabela \ref{tab:variaveis}).
 
-Além disso, as metodologias de solução de cada um dos sistemas serão debatidas, de modo a explorar casos de uso particulares e a propor melhorias nos métodos computacionais. Serão respondidas perguntas como ``O que acontece com itens ou usuários sem nenhuma avaliação?'' e ``Qual o desempenho dos métodos para outros bancos de dados?''.
-
 \begin{table}[hp]
 \begin{center}
     \caption{Parâmetros de influência no desempenho dos algoritmos de recomendação}
@@ -270,7 +268,7 @@ A conclusão desse experimento é que aumentar a quantidade de atributos dos ite
     \begin{center}
     \includegraphics[width=1\textwidth]{img/precision_N_F}
     \end{center}
-    \caption{Precisão em função do tamanho da lista de recomendações $N$}
+    \caption{Precisão em função do tamanho da lista de recomendações $N$ excluindo-se alguns atributos $f$}
     \label{fig:precision_N_F}
 \end{figure}
 
@@ -279,7 +277,7 @@ A conclusão desse experimento é que aumentar a quantidade de atributos dos ite
     \begin{center}
     \includegraphics[width=1\textwidth]{img/recall_N_F}
     \end{center}
-    \caption{Abrangência em função do tamanho da lista de recomendações $N$}
+    \caption{Abrangência em função do tamanho da lista de recomendações $N$ excluindo-se alguns atributos $f$}
     \label{fig:recall_N_F}
 \end{figure}
 
@@ -287,13 +285,39 @@ A conclusão desse experimento é que aumentar a quantidade de atributos dos ite
     \begin{center}
     \includegraphics[width=1\textwidth]{img/F1_N_F}
     \end{center}
-    \caption{Medida $F_1$ em função do tamanho da lista de recomendações $N$}
+    \caption{Medida $F_1$ em função do tamanho da lista de recomendações $N$ excluindo-se alguns atributos $f$}
     \label{fig:F1_N_F}
 \end{figure}
 
 \section{Medida de distância entre atributos $d^f$} % (fold)
 \label{sec:medida_de_dist_ncia_entre_atributos_}
 
+Contrariamente ao esperado, o emprego de medidas de distância específicas para o método FW não melhorou a qualidade da recomendação. O uso do índice de Jaccard para os atributos do tipo gênero, em vez da distância absoluta, decresceu a precisão e abrangência do método. Nota-se a importância da determinação de uma medida de distância correta, pois a influência no desempenho do método é drástico.
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/precision_N_d}
+    \end{center}
+    \caption{Precisão em função do tamanho da lista de recomendações $N$ para diferentes medidas $d^f$}
+    \label{fig:precision_N_d}
+\end{figure}
+
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/recall_N_d}
+    \end{center}
+    \caption{Abrangência em função do tamanho da lista de recomendações $N$ para diferentes medidas $d^f$}
+    \label{fig:recall_N_d}
+\end{figure}
+
+\begin{figure}[htp]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{img/F1_N_d}
+    \end{center}
+    \caption{Medida $F_1$ em função do tamanho da lista de recomendações $N$ para diferentes medidas $d^f$}
+    \label{fig:F1_N_d}
+\end{figure}
 
 
 \section{Pesos dos atributos $w_f$} % (fold)

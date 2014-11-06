@@ -3,12 +3,35 @@
 %\chapter{Trabalhos Futuros}
 \label{cha:trabalhos_futuros}
 
-A avaliação de desempenho dos métodos propostos na biblioteca deste Trabalho de Conclusão de Curso verificaram resultados já conhecidos no meio acadêmico.
+\section{Discussão} % (fold)
+\label{sec:discuss_o}
 
-Em particular, a dependência entre qualidade de recomendação e tamanho da lista de sugestões se verificou (impacto de $N$). Além disso, mostramos que um banco de dados com maior quantidade de avaliações (impacto de $H$) tem mais relevância que um banco de dados com mais usuários (impacto de $T$). 
+% section discuss_o (end)
+Este Trabalho de Conclusão de Curso cumpriu seus objetivos e antedeu aos requisitos estabelecidos no início do projeto. Foi elaborada uma biblioteca para sistemas de recomendação de produtos de e-commerces e foi estabelecida uma respectiva análise de desempenho dos algoritmos de recomendação.
+
+A avaliação de desempenho dos métodos propostos na biblioteca deste trabalho verificaram resultados já conhecidos no meio acadêmico. Em particular, a dependência entre qualidade de recomendação e tamanho da lista de sugestões se verificou (impacto de $N$). 
+
+Além disso, mostramos que um banco de dados com maior quantidade de avaliações (impacto de $H$) tem mais relevância que um banco de dados com mais usuários (impacto de $T$). 
 
 Outro resultado do trabalho foi a comprovação do fenômeno de \textit{hidden feedback} (impacto de $M$). Mesmo que construamos métodos embasados na ``avaliação positiva'' dos usuários, esse parâmetro pode não ter tanta influência, visto que a maioria das avaliações dos clientes já são de fato positivas.
 
-Para os trabalhos futuros, iremos realizar a validação cruzada e avaliar se os requisitos funcionais foram estabelecidos. Em seguida, procuraremos melhorar o sistema de recomendação a fim de torná-lo mais genérico. Buscaremos eliminar restrições quanto a entrada e saída de dados, de forma que elas sejam completamente arbitrárias. O objetivo é que o usuário possa informar ao sistema como é formado sua base, e que todo o tratamento preliminar seja feito automaticamente. 
+Também foi verificada a influência da quantidade de vizinhos mais próximos em algoritmos que usam essa metodologia colaborativa (impacto de $k$). Apesar de influenciar na qualidade da recomendação, esse parâmetro desempenha papel secundário.
 
-Caso haja tempo, trabalharemos também na construção de um \textit{driver} que possibilite a conexão entre o sistema de recomendação e um banco de dados SQL, sem que seja necessária a etapa intermediária de arquivos \texttt{csv} para aquisição de dados. Planejamos elaborar um \textit{website} para o sistema de recomendação e exportar toda a lógica para um servidor dedicado. Outra melhoria desejada é a reconstrução dos métodos na linguagem de programação C, a fim de melhorar a performance computacional. Dessa forma, o serviço de ``sistema de recomendação nas nuvens'' estaria completo e poderia ser utilizado por e-commerces reais.
+Uma outra conclusão importante deste trabalho foi da importância de se escolher \textit{a priori} o conjunto de atributos dos itens (impacto de $\mathcal{F}$). A categorização excessiva dos itens pode ser maléfica para a recomendação, caso as \textit{features} não tenham relevância para os usuários.
+
+Avaliamos também diferentes medidas de distância entre os atributos (impacto de $d_{ij}^f$). A medida da diferença em valor absoluto foi comparada com outros índices, como o índice Jaccard, para uma lista de gêneros, e verificou-se que a distância $L_1$ resulta em melhor qualidade de recomendação. Vale ressaltar a importância da escolha das medidas de distância, visto seu impacto no desempenho do sistema.
+
+Por fim, avaliamos também a quantidade de pesos dos atributos no método FW (impacto de $W$). Vimos que a quantidade de $w_f>0$ não tem grande impacto na recomendação, visto que o valor dos pesos, em si, já é suficiente para alterar a qualidade das sugestões.
+
+\section{Trabalhos futuros} % (fold)
+\label{sec:trabalhos_futuros}
+
+A extensão desse Trabalho de Conclusão de Curso pode se dar de diversas maneiras, tanto na área acadêmica quanto na área empresarial. Seguindo o atual encaminhamento do projeto, a principal oportunidade do nosso trabalho é a criação de um serviço de um ``Sistema de Recomendação nas Nuvens''. 
+
+Desejamos eliminar as restrições quanto a entrada e saída de dados, de forma que elas fossem completamente arbitrárias. O objetivo é que o usuário possa informar ao sistema como é formado sua base, e que todo o tratamento preliminar seja feito automaticamente. 
+
+É possível explorar também a construção de um \textit{driver} que possibilite a conexão entre o sistema de recomendação e um banco de dados SQL, sem que seja necessária a etapa intermediária de arquivos \texttt{csv} para aquisição de dados. Em seguida, é importante elaborar um \textit{website} para o sistema de recomendação e exportar toda a lógica para um servidor dedicado. 
+
+Outra melhoria desejada é a reconstrução dos métodos na linguagem de programação C, a fim de melhorar a performance computacional. Dessa forma, o serviço de ``sistema de recomendação nas nuvens'' estaria completo e poderia ser utilizado por e-commerces reais.
+
+No campo acadêmico, há muito espaço para melhorias nos algoritmos de recomendação. As metodologias de solução de cada um dos sistemas deveriam ser debatidas ao máximo, de modo a explorar casos de uso particulares e a propor mudanças e otimizações. Faz-se necessário responder a perguntas como ``O que acontece com itens ou usuários sem nenhuma avaliação?'' e ``Qual o desempenho dos métodos para outros bancos de dados?''. 
