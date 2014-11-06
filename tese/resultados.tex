@@ -171,7 +171,7 @@ Contrariamente ao que esperávamos, tornar o algoritmo mais ``seletivo'' não me
 
 Esse resultado pode ser explicado porque a maioria das avaliações são positivas (Figura \ref{fig:percentual_M}), e portanto $\mathrm{b}_M$ tem quase o mesmo efeito de $\mathrm{b}_0$. Isso não ocorre somente pelo fato de os clientes comprarem itens similares a seus gostos, e portanto de raramente se decepcionarem, mas também pelo fato de os usuários terem menos disposição para dar avaliações negativas. Esse fenômeno se chama \textit{hidden feedback}, e se caracteriza pelo fato de que os itens avaliados não são escolhidos ao acaso, mas sim por despertarem aspectos de interesse das preferências do usuário, indo além dos valores numéricos das avaliações \cite{lops2011content-chap5}.
 
-Ao se analisar a abrangência dos métodos, a seletividade influencia na recomendação. Quanto maior $M$, menor é a quantidade de itens muito bem avaliados. Estes possuem elevada correlação usuário-item e são facilmente escolhidos pelos algoritmos. Por esse motivo, melhor é o desempenho do sistema.
+Ao se analisar a abrangência dos métodos, a seletividade influencia na recomendação. Quanto maior $M$, menor é a quantidade de itens muito bem avaliados. Estes possuem elevada ponderação/correlação e são facilmente escolhidos pelos algoritmos. Por esse motivo, o desempenho do sistema é melhor.
 
 A complexidade computacional dos algoritmos também depende de $M$, já que mais ou menos parâmetros são analisados no cálculo da TF-IDF (métodos UI e UP) e dos pesos dos atributos (método FW).
 
@@ -260,8 +260,11 @@ O único método que recomenda itens com base nos vizinhos mais próximos é o U
  $\mathcal{F}$} % (fold)
 \label{sec:conjunto_de_atributos_dos_itens_}
 
-Para o banco de dados 100k-IMDB, o conjunto de atributos dos itens é $\mathcal{F}=$\{{data de lançamento, gênero, duração, orçamento, avaliação, votos\}. 
+Para o banco de dados 100k-IMDB, o conjunto de atributos dos itens é $\mathcal{F}=$\{{data de lançamento, gênero, ano, duração, orçamento, avaliação, votos\}. A fim de se avaliar a performance dos algoritmos mediante a remoção em determinados atributos, decidimos excluir do conjunto as \textit{features} \{data de lançamento, ano\}, pois julgamos que elas não eram tratadas corretamente pelos métodos UI e UP. 
 
+O resultado desse experimento se observa por exemplo na Figura \ref{fig:precision_N_F}, em que a precisão de todos os métodos melhora substancialmente. Da mesma forma, a abrangência também aumenta para todos os métodos, como se vê na Figura \ref{fig:recall_N_F}.
+
+A conclusão desse experimento é que aumentar a quantidade de atributos dos itens não aumenta necessariamente a qualidade do algoritmo de recomendação. De fato, o algoritmo deve estar preparado para ``aprender'' quais são as \textit{features} relevantes para cada usuário e eventualmente descartar automaticamente os atributos desnecessários.
 
 \begin{figure}[htp]
     \begin{center}
