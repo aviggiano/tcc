@@ -25,7 +25,7 @@ setup_dfij = function(a, r, debug, generic=TRUE){
   }
   else {
     #max_distance_release_date = max(a[,1], na.rm=T) - min(a[,1], na.rm=T)
-    d = array(0,c(length(r[1,]), length(r[1,]), 6))
+    d = array(0,c(length(r[1,]), length(r[1,]), 7))
 
     for(i in 1:length(d[1,,1])){
       for(j in 1:length(d[,1,1])){
@@ -125,7 +125,7 @@ get_sij = function(W, d, debug, generic, only.top=FALSE){
   s 
 }
 
-fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, WW, repick){
+fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, WW, repick, generic){
   print("Utrain.Utest")
   Utrain = Utrain.Utest[[1]]
   Utest = Utrain.Utest[[2]]
@@ -139,7 +139,7 @@ fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, WW, repick){
   print("setup_eij")
   e = setup_eij(rtrain.rtest, M, debug)
   print("setup_dfij")
-  d = setup_dfij(a, rtrain.rtest, debug)
+  d = setup_dfij(a, rtrain.rtest, debug, generic)
   print("get_W")
   W = get_W(d, e, rtrain.rtest, debug)
   print("get_sij")

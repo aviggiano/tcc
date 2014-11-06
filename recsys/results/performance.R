@@ -29,7 +29,7 @@ divide.train.test = function(r, TRAIN){
 
 performance = function(a, r, M=2, k=10, N=20, debug=FALSE, 
                        norm=TRUE, remove=FALSE, method, 
-                       TRAIN=0.75, HIDDEN=0.75, W=FALSE, repick=FALSE){
+                       TRAIN=0.75, HIDDEN=0.75, W=FALSE, repick=FALSE,generic=TRUE){
   Utrain.Utest = divide.train.test(r, TRAIN)
   rtrain.rtest = hide.data(r, Utrain.Utest, HIDDEN, has.na=FALSE)
   
@@ -40,7 +40,7 @@ performance = function(a, r, M=2, k=10, N=20, debug=FALSE,
   }
   if("up" == method) performance.up(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, repick)
   else if("ui" == method) performance.ui(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, repick)
-  else if("fw" == method) performance.fw(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, W, repick)
+  else if("fw" == method) performance.fw(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, W, repick,generic)
 }
 
 get.TP = function(iu, r, rtrain.rtest, Utest, M){
@@ -96,21 +96,21 @@ get.precision.recall.F1 = function(iu, r, rtrain.rtest, Utrain.Utest, M, N, debu
   list(precision, recall, F1, time)
 }
 
-performance.up = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
+performance.up = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug,repick){
   cat("UP\n")
-  iu = up(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
+  iu = up(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug,repick)
   get.precision.recall.F1(iu, r, rtrain.rtest, Utrain.Utest, M, N, debug)
 }
 
-performance.ui =  function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug){
+performance.ui =  function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug,repick){
   cat("UI\n")
-  iu = ui(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug)
+  iu = ui(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug,repick)
   get.precision.recall.F1(iu, r, rtrain.rtest, Utrain.Utest, M, N, debug)
 }
 
-performance.fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, W){
+performance.fw = function(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, W,repick,generic){
   cat("FW\n")
-  iu = fw(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, W)
+  iu = fw(a, r, rtrain.rtest, Utrain.Utest, M, k, N, debug, W,repick,generic)
   get.precision.recall.F1(iu, r, rtrain.rtest, Utrain.Utest, M, N, debug)
 }
 
@@ -165,7 +165,7 @@ get.results = function(Xs, xl, a, r, method){
          function(y){
            timer <<- Sys.time()
            
-           if(xl == "N") performance(a,r,N=y,method=tolower(method))                 
+           if(xl == "N") performance(a,r,N=y,method=tolower(method),generic=FALSE)                 
            else if(xl == "T") performance(a,r,TRAIN=y,remove=FALSE,method=tolower(method))                 
            else if(xl == "H") performance(a,r,HIDDEN=y,remove=FALSE,method=tolower(method))
            else if(xl == "M") performance(a,r,M=y,remove=FALSE,method=tolower(method))
