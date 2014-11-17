@@ -1,0 +1,717 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pus",
+				"push_before_deploy"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "",
+			"file": "/media/Data/Dropbox/KUKA/kuka.txt",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ag/iot/iot.json",
+			"settings":
+			{
+				"buffer_size": 644,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ag/iot/sensor.js",
+			"settings":
+			{
+				"buffer_size": 413,
+				"line_ending": "Unix",
+				"name": "// JavaScript"
+			}
+		},
+		{
+			"file": "/home/ag/iot.pem",
+			"settings":
+			{
+				"buffer_size": 1608,
+				"line_ending": "Unix",
+				"name": "-----BEGIN RSA PRIVATE KEY-----"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 159.0,
+		"selected_items":
+		[
+			[
+				"Latex",
+				"LaTeXTools: Reconfigure and migrate settings"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ag/git/tcc/tese/abstract.tex",
+		"/home/ag/git/tcc/tese/resumo_pt_br.tex",
+		"/home/ag/git/tcc/tese/requisitos.tex",
+		"/home/ag/git/tcc/tese/documentacao.tex",
+		"/home/ag/git/tcc/tese/resultados.tex",
+		"/home/ag/git/tcc/tese/solucoes-propostas.tex",
+		"/home/ag/git/tcc/tese/avaliacao.tex",
+		"/home/ag/git/tcc/tese/metodologia.tex",
+		"/home/ag/git/tcc/tese/estado-da-arte.tex",
+		"/home/ag/git/tcc/tese/objetivos.tex",
+		"/home/ag/git/tcc/tese/motivacao.tex",
+		"/home/ag/git/tcc/tese/introducao.tex",
+		"/home/ag/git/tcc/tese/lista-de-simbolos.tex",
+		"/home/ag/git/tcc/tese/desenvolvimento.tex",
+		"/home/ag/git/tcc/tese/index.tex",
+		"/home/ag/git/tcc/tese/conclusao.tex",
+		"/home/ag/git/tcc/tese/bibliografia.bib",
+		"/home/ag/git/tcc/tese/beamer/sintese-de-solucoes.tex",
+		"/home/ag/git/tcc/tese/desc.txt",
+		"/home/ag/git/tcc/tese/sumario-final.tex",
+		"/home/ag/git/tcc/script.sh",
+		"/home/ag/git/tcc/tese/trabalhos-futuros.tex",
+		"/home/ag/git/tcc/tese/index.toc",
+		"/home/ag/git/tcc/tese/folha_de_aprovacao.tex",
+		"/home/ag/git/tcc/tese/dedicatoria.tex",
+		"/home/ag/git/tcc/tese/fichacatalografica.tex",
+		"/home/ag/git/tcc/tese/agradecimentos.tex",
+		"/home/ag/git/tcc/tese/motivacao.txt",
+		"/home/ag/git/tcc/tese/justificativa.tex",
+		"/home/ag/git/tcc/tese/index.synctex.gz(busy)",
+		"/home/ag/git/tcc/tese/sintese-de-solucoes.tex",
+		"/home/ag/git/tcc/tese/tese.sublime-project",
+		"/home/ag/git/tcc/tese/title.tex",
+		"/home/ag/git/tcc/latex - Tese/resultados.tex",
+		"/home/ag/git/tcc/tese/arte/estado-da-arte.tex",
+		"/home/ag/git/tcc/tese/referencias/title.tex",
+		"/home/ag/git/tcc/tese/referencias/index.tex",
+		"/home/ag/git/tcc/latex/estado-da-arte.tex",
+		"/home/ag/git/tcc/latex/referencias/bibliografia.bib",
+		"/home/ag/git/tcc/latex/cronograma/cronograma.tex",
+		"/home/ag/git/tcc/latex/arte/index.tex",
+		"/home/ag/git/tcc/latex/arte/title.tex",
+		"/home/ag/git/tcc/latex/cronograma/index.tex",
+		"/home/ag/git/tcc/latex/cronograma/title.tex",
+		"/home/ag/git/tcc/latex/referencias/index.tex",
+		"/home/ag/git/tcc/latex/referencias/title.tex",
+		"/home/ag/git/tcc/latex/cronograma.tex",
+		"/home/ag/git/tcc/latex/title.tex",
+		"/home/ag/git/tcc/latex/resultados.tex",
+		"/home/ag/git/tcc/latex/sintese-de-solucoes.tex",
+		"/home/ag/git/tcc/latex/andamento-do-projeto.tex",
+		"/home/ag/git/tcc/latex/metodologia.tex",
+		"/home/ag/git/tcc/latex/sumario-final.tex",
+		"/home/ag/git/tcc/latex/avaliacao.tex",
+		"/home/ag/git/tcc/latex/referencias-bibliograficas-finais.tex",
+		"/home/ag/git/tcc/latex/index.tex",
+		"/home/ag/git/tcc/latex/bibliografia.bib",
+		"/home/ag/git/tcc/latex/latex.sublime-project",
+		"/home/ag/git/tcc/latex/img/Estrutura_Banco_de_Dados.png",
+		"/home/ag/git/tcc/latex/requisitos.tex",
+		"/home/ag/git/tcc/latex/introducao.tex",
+		"/home/ag/git/tcc/latex/objetivos.tex",
+		"/home/ag/git/tcc/latex/lista-de-simbolos.tex",
+		"/home/ag/git/tcc/latex/test/index.tex",
+		"/home/ag/git/tcc/latex/index.bbl",
+		"/home/ag/git/tcc/latex/reuniao.tex",
+		"/home/ag/development/revmob/setup/.bash_profile",
+		"/home/ag/git/tcc/latex/email.txt",
+		"/opt/sublime_text_2/sublime_text",
+		"/home/ag/.bash_custom",
+		"/home/ag/git/tcc/latex/latex.sublime-workspace",
+		"/home/ag/R/tcc/old/rgb.csv",
+		"/home/ag/R/tcc/old/color_name.csv",
+		"/home/ag/R/tcc/ibrand.csv",
+		"/home/ag/R/tcc/color.csv",
+		"/home/ag/g.txt",
+		"/home/ag/R/tcc/old/hexa.csv",
+		"/home/ag/R/tcc/hexa.csv",
+		"/home/ag/R/tcc/old/all.csv",
+		"/media/Data/Dropbox/Poli/1. Disciplinas/5. Quinto Ano/PMR2520 Cad Cam/Consulta/Caderno/latex/representacao.tex",
+		"/media/Data/Dropbox/Poli/1. Disciplinas/5. Quinto Ano/PMR2520 Cad Cam/Consulta/Caderno/latex/interpolacoes.tex",
+		"/media/Data/Dropbox/Poli/1. Disciplinas/5. Quinto Ano/PMR2520 Cad Cam/Consulta/Caderno/latex/title.tex",
+		"/media/Data/Dropbox/Poli/1. Disciplinas/5. Quinto Ano/PMR2520 Cad Cam/Consulta/Caderno/latex/index.tex",
+		"/media/Data/Dropbox/Poli/1. Disciplinas/5. Quinto Ano/PMR2520 Cad Cam/Consulta/Caderno/latex/bibliografia.tex",
+		"/media/Data/Dropbox/Poli/1. Disciplinas/5. Quinto Ano/PMR2520 Cad Cam/Consulta/Caderno/latex/introducao.tex",
+		"/media/Data/Dropbox/Poli/1. Disciplinas/5. Quinto Ano/PMR2520 Cad Cam/Consulta/Caderno/latex/computacao-grafica-bidimensional.tex",
+		"/media/Data/Dropbox/Poli/1. Disciplinas/5. Quinto Ano/PMR2520 Cad Cam/Consulta/Caderno/latex/latex.sublime-workspace",
+		"/media/Data/Dropbox/Poli/latex/computacao-grafica-bidimensional.tex",
+		"/media/Data/Dropbox/Poli/latex/latex.sublime-project",
+		"/media/Data/Dropbox/Poli/latex/title.tex",
+		"/media/Data/Dropbox/Poli/latex/abntex2-modelo-references.bib",
+		"/media/Data/Dropbox/Poli/latex/bibliografia.bib",
+		"/media/Data/Dropbox/TCC/latex/abntex2-modelo-trabalho-academico.tex",
+		"/media/Data/Dropbox/TCC/latex/index.tex",
+		"/usr/local/texlive/2013/texmf-dist/tex/latex/biblatex/biblatex1.sty",
+		"/media/Data/Dropbox/TCC/latex/revisao.tex",
+		"/media/Data/Dropbox/TCC/latex/img/logo_poli.jpg",
+		"/media/Data/Dropbox/TCC/latex/biblio.bib",
+		"/home/ag/git/_tcc/bibliografia.tex",
+		"/home/ag/git/_tcc/cv.sublime-project",
+		"/home/ag/git/_tcc/title.tex",
+		"/home/ag/git/cv/cv.sublime-project",
+		"/home/ag/git/cv/index.tex",
+		"/home/ag/git/_tcc/index.tex"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			" ",
+			".",
+			"Y",
+			"X-Y",
+			"$N$",
+			"_F",
+			"\n",
+			"Time difference of ",
+			"\\\".*",
+			"0.",
+			"[1] ",
+			"FW\n[1] \"Utrain.Utest\"\n[1] \"rtrain.rtest\"\n[1] \"get_U\"\n[1] \"setup_eij\"\n[1] \"setup_dfij\"\n[1] \"get_W\"\n[1] \"get_sij\"\n[1] \"get_iu_fw\"\n[1] \"iu\"",
+			"do tamanho da lista de recomendações",
+			"$N$",
+			"_N",
+			"\\omega",
+			"wui",
+			"determina_o_de_",
+			"determina_o_de",
+			"i}",
+			"jaccard",
+			",",
+			"abs",
+			"mathcal",
+			"lstlisting",
+			"Apendice",
+			"}}",
+			"texttt",
+			"=(.*).R",
+			"=\\(.*\\)\\.R",
+			".R",
+			"\\_",
+			"á",
+			"description	",
+			"output		",
+			"input		",
+			"	input		",
+			"lst",
+			"ó",
+			"appendix",
+			"appendixname",
+			"appendix",
+			"\\_",
+			"_",
+			"run_test",
+			"benchmark",
+			"Github",
+			"github",
+			"Github",
+			"priva",
+			"publica",
+			"pública",
+			"foco",
+			"facilidade",
+			"_N",
+			"precision_N",
+			"_N",
+			"handbook",
+			"\njohndcook",
+			"Cap",
+			"Capitulo",
+			"ref",
+			"--",
+			"f_j",
+			"f_i",
+			"todavia",
+			"& ",
+			"    ",
+			"     ",
+			"    ",
+			"\\hline",
+			"$]",
+			"$ ",
+			"$",
+			"\\\\ \\hline",
+			"tabela-sim",
+			"abnt",
+			"sum_",
+			"fr}",
+			"f_if_j",
+			"v_k(u)",
+			"similaridade",
+			"sij",
+			"I_",
+			"The adaptive web\nThe adaptive web",
+			"{x",
+			"x",
+			"widetilde",
+			"\\breve",
+			"\\dot{q",
+			"\\hat{q",
+			"\\hat{",
+			"table",
+			",00",
+			"r_{",
+			"b",
+			"a_",
+			"1",
+			"R_",
+			"\\ell",
+			"cal{R",
+			"cal{",
+			"conforme ",
+			"conforme",
+			"atribut",
+			"dois atrib",
+			"\\overline{",
+			"overline{\\(.*\\)}",
+			"overline{(.*)}",
+			"\\\\overline{.*}",
+			"\\overline{",
+			"\\bar",
+			"w_",
+			"the",
+			"tabela",
+			"tablea",
+			"tabela",
+			"table",
+			"cada item ",
+			"X",
+			"z_",
+			"q_",
+			"\\hat{q}",
+			"A matriz",
+			"z_",
+			"t_",
+			"p_",
+			"\\tau"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"",
+			"\\imath}",
+			"=\\\\texttt{\\1}.R",
+			"=\\texttt{\\1}.R",
+			"description		",
+			"output			",
+			"input				",
+			"o",
+			"\\_",
+			"GitHub",
+			"privada",
+			"f}",
+			"v_k^u",
+			"\\check",
+			"\\breve{q",
+			"\\dot{q",
+			".00",
+			"rm{R",
+			"rm{",
+			"\\overline",
+			"q_",
+			"\\hat{q}_",
+			"z",
+			"t_",
+			"p_",
+			"z_",
+			"q",
+			"deploy_multiple_environments",
+			"\\1",
+			"",
+			"\"\\1\"",
+			"",
+			"\\1,.*,.*,.*,\\2,\\3,\\4,\\5,\\6,\\7,\\8,\\9",
+			"à",
+			"estão",
+			"çõe",
+			"são",
+			"ção",
+			"lâmina",
+			"[Hp]",
+			"(Figura \\\\ref{fig:\\2})",
+			"(Figura \\ref{fig:\\2})",
+			"(Figura \\ref {fig:\\2})",
+			"",
+			"itens",
+			"item"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/media/Data/Dropbox/KUKA/kuka.txt",
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1862.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/ag/iot/iot.json",
+					"settings":
+					{
+						"buffer_size": 644,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								612,
+								612
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 348.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/ag/iot/sensor.js",
+					"settings":
+					{
+						"buffer_size": 413,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								413,
+								413
+							]
+						],
+						"settings":
+						{
+							"auto_name": "// JavaScript",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/ag/iot.pem",
+					"settings":
+					{
+						"buffer_size": 1608,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1608,
+								1608
+							]
+						],
+						"settings":
+						{
+							"auto_name": "-----BEGIN RSA PRIVATE KEY-----",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 184.0
+	},
+	"replace":
+	{
+		"height": 98.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"conc",
+				"conclusao.tex"
+			],
+			[
+				"",
+				"abstract.tex"
+			],
+			[
+				"abs",
+				"abstract.tex"
+			],
+			[
+				"desenv",
+				"desenvolvimento.tex"
+			],
+			[
+				"concl",
+				"conclusao.tex"
+			],
+			[
+				"resu",
+				"resultados.tex"
+			],
+			[
+				"conclu",
+				"conclusao.tex"
+			],
+			[
+				"resum",
+				"resumo_pt_br.tex"
+			],
+			[
+				"resul",
+				"resultados.tex"
+			],
+			[
+				"estado",
+				"estado-da-arte.tex"
+			],
+			[
+				"bib",
+				"bibliografia.bib"
+			],
+			[
+				"biblo",
+				"bibliografia.bib"
+			],
+			[
+				"metod",
+				"metodologia.tex"
+			],
+			[
+				"requisit",
+				"requisitos.tex"
+			],
+			[
+				"soluc",
+				"solucoes-propostas.tex"
+			],
+			[
+				"sinte",
+				"beamer/sintese-de-solucoes.tex"
+			],
+			[
+				"sol",
+				"solucoes-propostas.tex"
+			],
+			[
+				"doc",
+				"documentacao.tex"
+			],
+			[
+				"docu",
+				"documentacao.tex"
+			],
+			[
+				"desen",
+				"desenvolvimento.tex"
+			],
+			[
+				"des",
+				"desc.txt"
+			],
+			[
+				"suma",
+				"sumario-final.tex"
+			],
+			[
+				"docum",
+				"documentacao.tex"
+			],
+			[
+				"mot",
+				"motivacao.tex"
+			],
+			[
+				"solu",
+				"solucoes-propostas.tex"
+			],
+			[
+				"res",
+				"resultados.tex"
+			],
+			[
+				"inde",
+				"index.tex"
+			],
+			[
+				"avali",
+				"avaliacao.tex"
+			],
+			[
+				"motiva",
+				"motivacao.tex"
+			],
+			[
+				"traba",
+				"trabalhos-futuros.tex"
+			],
+			[
+				"mo",
+				"motivacao.tex"
+			],
+			[
+				"s",
+				"solucoes-propostas.tex"
+			],
+			[
+				"desc",
+				"desc.txt"
+			],
+			[
+				"o",
+				"objetivos.tex"
+			],
+			[
+				"moti",
+				"motivacao.tex"
+			],
+			[
+				"fich",
+				"fichacatalografica.tex"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": false,
+	"side_bar_width": 198.0,
+	"status_bar_visible": true
+}
