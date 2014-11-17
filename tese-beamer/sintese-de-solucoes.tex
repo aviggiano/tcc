@@ -1,0 +1,38 @@
+%!TEX root = index.tex
+\section[Síntese de Soluções]{Síntese de Soluções}
+% subsubsection algoritmo_baseado_na_pondera_o_de_atributos_fw_ (end)
+\begin{frame}{Síntese de Soluções}
+\begin{columns}[t]
+\column{.5\textwidth} % Right column and width
+\textbf{Ponderação de Atributos}
+$$
+    s_{ij} = \sum_{f}{w_{f} \left(1-d_{fij}\right)}
+$$
+
+\column{.5\textwidth} % Right column and width
+\textbf{Perfil de Usuários}
+$$
+    s_{uv} = \frac{\sum\limits_{f \in \mathcal{F}_{uv}}{w_{uf}~w_{vf}}}{\sqrt{\sum\limits_{f \in \mathcal{F}_{uv}
+    }w_{uf}^2} \sqrt{\sum\limits_{f \in \mathcal{F}_{uv}}w_{vf}^2}} 
+$$
+\end{columns}
+
+
+\begin{table}[hp]
+\begin{center}
+    \caption{Medidas de distância entre alguns atributos}
+    \label{tab:medidas-distancia}
+    \begin{tabular}{  | p{3cm} | p{3cm} | p{3cm} | } 
+    \hline
+    \textbf{Atributo} $f$ & \textbf{Domínio} $\mathrm{F}$ & \textbf{Distância} $d_f$ \\ \hline
+    Marca & Literal & $1-\delta^f_{ij}$ \\ \hline    
+    Cor & $\left(\mathbb{N}\backslash \mathbb{N}_{256}\right)^3$  & $ \frac{\lVert a_{if}-a_{jf} \rVert_2}{\max_{i,j}{\lVert a_{if}-a_{jf} \rVert_2}} $ \\ \hline
+    Preço & $\mathbb{R}$ & $ \frac{\left| a_{if}-a_{jf} \right|}{\max_{i,j}{\left| a_{if}-a_{jf} \right|}} $ \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+\end{frame}
+
+
+
+

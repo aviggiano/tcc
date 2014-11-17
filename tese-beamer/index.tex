@@ -1,0 +1,203 @@
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+\usepackage[brazil]{babel}
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%%\usetheme{Berlin}
+%%\usetheme{Boadilla}
+%%%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+%\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+
+
+% pra que serve?
+%\setbeamercovered{transparent}
+
+\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+
+
+% ---
+% Pacotes básicos 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{color}				% Controle das cores
+\usepackage{microtype} 			% para melhorias de justificação
+% ---
+		
+% ---
+% Pacotes de citações
+% ---
+% Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+\usepackage{amsmath}
+\usepackage{multirow}
+% helvetica no titulo dos capitulos
+%\usepackage[scaled]{helvet}
+\usepackage{tgheros}
+%real numbers
+\usepackage{amssymb}
+%\hyphenation{Recomendação}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+
+%% sumario com algarismos romanos
+%\defbeamertemplate{subsection in toc}{bullets}{%
+  %\leavevmode
+  %\parbox[t]{1em}{\textbullet\hfill}%
+  %\parbox[t]{\dimexpr\textwidth-1em\relax}{\inserttocsubsection}\par}
+%\defbeamertemplate{section in toc}{sections numbered roman}{%
+  %\leavevmode%
+  %\MakeUppercase{\romannumeral\inserttocsectionnumber}.\ %
+  %\inserttocsection\par}
+%\setbeamertemplate{section in toc}[sections numbered roman]
+%\setbeamertemplate{subsection in toc}[bullets]
+
+
+%% fonte
+    %\usefonttheme{structurebold}
+
+    \setbeamerfont{title}{series=\bfseries,parent=structure}
+    \setbeamerfont{subtitle}{size=\scriptsize,series=\bfseries,parent=structure}
+    \setbeamerfont{author}{size=\scriptsize,series=\bfseries,parent=structure}
+    \setbeamerfont{institute}{size=\scriptsize,series=\bfseries,parent=structure}
+    \setbeamerfont{date}{size=\scriptsize,series=\bfseries,parent=structure}
+
+%\hyphenation{corretamente}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+%\title[Short title]{Full Title of the Talk} % The short title appears at the bottom of every slide, the full title is only on the title page
+\title[Sistema de Recomendação]{\textsc{Desenvolvimento de um Sistema de Recomendação para e-Commerces}} 
+
+%\author[Antônio Viggiano, Fernando Fochi]{Antônio Viggiano, Fernando Fochi}
+
+\institute[USP] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+\\[-1cm]
+
+\includegraphics[width=0.2\textwidth]{../img/logo_poli} \\
+
+Escola Politécnica da Universidade de São Paulo \\[0.5cm]
+
+\begin{minipage}[t]{0.35\textwidth}
+\begin{center}
+Antônio Viggiano \\
+\texttt{agfviggiano@gmail.com}
+\end{center}
+\end{minipage}
+\begin{minipage}[t]{0.35\textwidth}
+\begin{center}
+Fernando Fochi \\
+\texttt{fernando.fochi@gmail.com}
+\end{center}
+\end{minipage}
+
+\vspace{0.5cm}
+Prof. Dr. Fábio Gagliardi Cozman
+}
+\date{\today} % Date, can be changed to a custom date
+
+
+% remover icones de bibliografia
+\setbeamertemplate{bibliography item}[triangle]
+
+%bibliography sem paginas
+\usepackage{appendixnumberbeamer}
+
+%numero em tabelas etc
+\setbeamertemplate{caption}[numbered]
+
+%espaco entre caption
+%\usepackage{caption}
+%\captionsetup{skip=0pt,belowskip=0pt}
+\newcommand\numbered{\setbeamertemplate{footline}{%
+  \raisebox{5pt}{\makebox[\paperwidth]{%
+    \hfill\makebox[10pt]{%
+      \scriptsize\insertframenumber}}}}}
+
+\newcommand\unnumbered{\setbeamertemplate{footline}{}\addtocounter{framenumber}{-1}}
+
+
+\begin{document}
+\input{title}
+\input{sumario}
+\input{introducao}
+\input{objetivos}
+\input{estado-da-arte}
+\input{requisitos}
+\input{sintese-de-solucoes}
+\input{avaliacao-de-desempenho}
+\input{resultados}
+\input{cronograma}
+
+\appendix
+\input{bibliografia}
+\end{document} 
