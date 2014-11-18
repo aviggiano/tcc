@@ -1,8 +1,46 @@
 %!TEX root = index.tex
 \section[Metodologia]{Metodologia}
 \begin{frame}{Metodologia}{Estruturação do banco de dados}
+
+\begin{description}
+	\item[100k] 100 000 avaliações de 943 usuários \\ para 1682 filmes
+	\item[IMDB] 28 819 filmes
+	\item[\textbf{IMDB-100k}] 943 usuários, 1682 filmes e 25 atributos
+\end{description}
+
 \end{frame}
 
 
 \begin{frame}{Metodologia}{Validação cruzada}
+\begin{columns}[t] 
+\column{.6\textwidth}
+\textbf{Ambiente de testes} 
+\begin{itemize}
+ 	\item Máquina r3.large
+ 	\item 2 vCPU
+ 	\item 15 GB de memória RAM
+ 	\item Amazon Linux AMI release 2014.09 x86\_64
+ 	\item Custo total R\$ 5,70
+ \end{itemize}
+\column{.4\textwidth} 
+\textbf{Avaliação}
+\begin{itemize}
+	\item $T=75\%$ base de treinamento
+	\item $H=75\%$ dados ``escondidos''
+\end{itemize}
+\begin{table}[h]
+\begin{center}
+	\caption{Avaliações $r_{ui}$}
+    \begin{tabular}{ | c | c | c | c | c | c |} 
+    \hline
+     & $i_1$ & $i_2$ & $i_3$ & $i_4$ \\ \hline
+     $u_1$ & - & 4 & 3 & 5 \\ \hline
+     $u_2$ & 2 & 5 & - & 1 \\ \hline
+     $u_3$ & 3 & - & - & 2 \\ \hline
+     $u_4$ & (5) & (2) & (3) & 4 \\ \hline
+    \end{tabular}
+    % TODO color table
+\end{center}
+\end{table}
+\end{columns}
 \end{frame}
