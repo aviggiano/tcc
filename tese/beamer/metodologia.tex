@@ -7,7 +7,44 @@
 	\item[IMDB] 28 819 filmes
 	\item[\textbf{IMDB-100k}] 943 usuários, 1682 filmes e 25 atributos
 \end{description}
+\end{frame}
 
+\begin{frame}[fragile]
+\frametitle{Metodologia}
+\framesubtitle{Desenvolvimento da biblioteca}
+
+
+\textbf{Ferramenta utilizada}
+	\begin{description}
+		\item[RStudio] Editor de texto e console
+	\end{description}
+\textbf{Estrutura da biblioteca}
+\begin{columns}
+\column{0.4\textwidth}
+\begin{verbatim}
+recsys/
+|-- db
+|   `-- ml-100k
+|       |-- u.data
+|       |-- u.item
+|       |-- u.user
+|       |-- ...
+|-- methods
+|   |-- fw.R
+|   |-- ui.R
+|   `-- up.R
+\end{verbatim}
+\column{0.5\textwidth}
+\begin{verbatim}
+|-- results
+|   |-- benchmark.R
+|   |-- performance.R
+|   `-- run_tests.R
+`-- setup
+    |-- functions.R
+    `-- setup.R
+\end{verbatim}
+\end{columns}
 \end{frame}
 
 

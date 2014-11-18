@@ -1,38 +1,48 @@
 %!TEX root = index.tex
 \section[Resultados]{Resultados}
 
-\begin{frame}{Resultados}{Primeiros testes}
-\begin{columns}[c]
-\column{.5\textwidth}
-\textbf{Pesos unitários}
-$$
-    s_{ij} = \sum_{f}{\left(1-d_{fij}\right)}
-$$
-\begin{description}
-	\item[13 s] Tempo de inicialização para $\left|\mathcal{R}\right| = 100$ mil
-	\item[8 min] Cálculo de $s_{ij}$ para $\left|\mathcal{I}\right| = 1000$
-	\item[$100 \%$] CPU \\ 2.80GHz $\times$ 4
-	\item[$420$ MB] Memória 
-	\item[]
-	\item[60 dias] Para $\left|\mathcal{I}\right| = 100$  mil
-\end{description}	
-\column{.53\textwidth}
-\begin{figure}[ht]
-    \begin{center}
-    \includegraphics[width=0.9\textwidth]{img/ixt}
-    \end{center}
-\caption{Tempo de processamento em função do número de itens em $\mathcal{O}\left(n^2\right)$}
-\end{figure}
-\end{columns}
+\begin{frame}{Resultados}
+\begin{table}[hp]
+\begin{center}
+    \caption{Parâmetros de influência no desempenho dos algoritmos de recomendação}\vspace{-.5cm}
+    \label{tab:variaveis}
+    \begin{tabular}{  | p{1.5cm} | p{5.5cm} | p{3.0cm} | } 
+    \hline
+    \textbf{Variável} & \textbf{Descrição} & \textbf{Valor padrão}  \\ \hline
+    $N$ & Lista de recomendação & $20$ \\ \hline   
+    $T$ & Base de treinamento & $75\%$ \\ \hline
+    $H$ & Avaliações ``escondidas'' & $75\%$ \\ \hline
+    $M$ & Avaliações positivas & $2$ \\ \hline
+    $k$ & Vizinhos mais próximos & $10$ \\ \hline
+    $\mathcal{F}$ & Conjunto de atributos dos itens & Todos atributos \\ \hline
+    $d^f$ & Medida de distância & Distância $L_1$~$\left|\left|\cdot\right|\right|^f$ \\ \hline
+    $W$ & Quantidade de pesos & Todo $w_f>0$ \\ \hline
+    \end{tabular}
+\end{center}
+\end{table}
+\end{frame}
+
+\begin{frame}{Resultados}{Tamanho da lista de recomendação $N$}
+\end{frame}
+
+\begin{frame}{Resultados}{Percentual da base de aprendizado $T$}
+\end{frame}
+
+\begin{frame}{Resultados}{Percentual de avaliações ``escondidas'' dos usuários-teste $H$}
+\end{frame}
+
+\begin{frame}{Resultados}{Valor mínimo para avaliações positivas $M$}
+\end{frame}
+
+\begin{frame}{Resultados}{Número de vizinhos mais próximos $k$}
+\end{frame}
+
+\begin{frame}{Resultados}{Conjunto de atributos dos itens  $\mathcal{F}$}
+\end{frame}
+
+\begin{frame}{Resultados}{Medida de distância entre atributos $d^f$}
 \end{frame}
 
 
-\begin{frame}{Resultados}{Aquisição de dados}
-\begin{center}
-\begin{figure}[ht]
-    \includegraphics[width=0.8\textwidth]{../img/estrutura-banco-de-dados}
-    \caption{Banco de dados de um e-commerce de passagens de ônibus}
-    \label{fig:bd-clickbus}
-\end{figure}
-\end{center}
+\begin{frame}{Resultados}{Quantidade de pesos dos atributos $W$}
 \end{frame}
