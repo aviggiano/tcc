@@ -11,6 +11,22 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/home/ag/tmp/crono.tex",
+			"settings":
+			{
+				"buffer_size": 1247,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/ag/tmp/index.tex",
+			"settings":
+			{
+				"buffer_size": 6315,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -44,9 +60,6 @@
 	},
 	"file_history":
 	[
-		"/home/ag/tmp/crono.tex",
-		"/home/ag/tmp/index.tex",
-		"/home/ag/git/tcc/latex/beamer/beamer.tex",
 		"/home/ag/git/tcc/latex/beamer/index.tex",
 		"/home/ag/git/tcc/latex/beamer/cronograma.tex",
 		"/home/ag/git/tcc/latex/beamer/introducao.tex",
@@ -73,6 +86,7 @@
 		"/home/ag/tmp/beamer/index.tex",
 		"/home/ag/git/tcc/latex/estado-da-arte.tex",
 		"/home/ag/git/tcc/latex/beamer/index.vrb",
+		"/home/ag/git/tcc/latex/beamer/beamer.tex",
 		"/home/ag/git/tcc/latex/beamer/sumario.tex",
 		"/home/ag/git/tcc/latex/beamer/beamer.sublime-project",
 		"/home/ag/git/tcc/latex/beamer/exemplo.tex",
@@ -343,8 +357,61 @@
 	"groups":
 	[
 		{
+			"selected": 1,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/home/ag/tmp/crono.tex",
+					"settings":
+					{
+						"buffer_size": 1247,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								834,
+								834
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/ag/tmp/index.tex",
+					"settings":
+					{
+						"buffer_size": 6315,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3421,
+								3421
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2533.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
