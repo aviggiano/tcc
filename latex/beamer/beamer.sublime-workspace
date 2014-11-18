@@ -12,18 +12,10 @@
 	"buffers":
 	[
 		{
-			"file": "/home/ag/tmp/crono.tex",
+			"file": "index.tex",
 			"settings":
 			{
-				"buffer_size": 1247,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ag/tmp/index.tex",
-			"settings":
-			{
-				"buffer_size": 6315,
+				"buffer_size": 5814,
 				"line_ending": "Unix"
 			}
 		}
@@ -60,6 +52,8 @@
 	},
 	"file_history":
 	[
+		"/home/ag/tmp/crono.tex",
+		"/home/ag/tmp/index.tex",
 		"/home/ag/git/tcc/latex/beamer/index.tex",
 		"/home/ag/git/tcc/latex/beamer/cronograma.tex",
 		"/home/ag/git/tcc/latex/beamer/introducao.tex",
@@ -357,57 +351,33 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/home/ag/tmp/crono.tex",
+					"file": "index.tex",
 					"settings":
 					{
-						"buffer_size": 1247,
+						"buffer_size": 5814,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								834,
-								834
+								482,
+								482
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
+							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/ag/tmp/index.tex",
-					"settings":
-					{
-						"buffer_size": 6315,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3421,
-								3421
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2533.0,
+						"translation.y": 4375.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
