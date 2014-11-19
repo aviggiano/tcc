@@ -12,10 +12,10 @@
     $N$ & Lista de recomendação & $20$ \\ \hline   
     $T$ & Base de treinamento & $75\%$ \\ \hline
     $H$ & Avaliações ``escondidas'' & $75\%$ \\ \hline
+    $d^f$ & Medida de distância & Distância $L_1$~$\left|\left|\cdot\right|\right|^f$ \\ \hline
+    $\mathcal{F}$ & Conjunto de atributos dos itens & Todos atributos \\ \hline
     $M$ & Avaliações positivas & $2$ \\ \hline
     $k$ & Vizinhos mais próximos & $10$ \\ \hline
-    $\mathcal{F}$ & Conjunto de atributos dos itens & Todos atributos \\ \hline
-    $d^f$ & Medida de distância & Distância $L_1$~$\left|\left|\cdot\right|\right|^f$ \\ \hline
     $W$ & Quantidade de pesos & Todo $w_f>0$ \\ \hline
     \end{tabular}
 \end{center}
@@ -95,39 +95,17 @@
 \end{center}
 \end{frame}
 
-\begin{frame}{Resultados}{Valor mínimo para avaliações positivas $M$}
-\begin{columns}[b]
-\column{.5\textwidth} %
+
+\begin{frame}{Resultados}{Medida de distância entre atributos $d^f$}
 \begin{figure}[ht]
     \begin{center}
-    \includegraphics[width=1.1\textwidth]{../img/precision_M}
+    \includegraphics[width=.8\textwidth]{../img/F1_N_d}
     \end{center}
-    \caption{Precisão $\times$ $M$}
-    \label{fig:precision_M}
-\end{figure}
-
-\column{.5\textwidth} % 
-
-\begin{figure}[ht]
-    \begin{center}
-    \includegraphics[width=1.1\textwidth]{../img/percentual_M}
-    \end{center}
-    \caption{\{\% $r_{ui} = M$\} $\times$ $M$}
-    \label{fig:percentual_M}
-\end{figure}
-\end{columns}
-\end{frame}
-
-\begin{frame}{Resultados}{Número de vizinhos mais próximos $k$}
-\begin{figure}[ht]
-    \begin{center}
-    \includegraphics[width=.8\textwidth]{../img/precision_k}
-    \end{center}
-    \caption{Precisão $\times$ $k$}
-    \label{fig:F1_H}
+    \caption{$F_1$ $\times$ diferentes $d^f$}
+    \label{fig:F1_N_d}
 \end{figure}
 \begin{center}
-    Precisão e Abrangência máximos para $k=20$
+    Precisão e Abrangência diminuem com $d^f=J(A,B) ={{|A \cap B|}\over{|A \cup B|}}$
 \end{center}
 \end{frame}
 
@@ -144,28 +122,47 @@
 \end{center}
 \end{frame}
 
-\begin{frame}{Resultados}{Medida de distância entre atributos $d^f$}
-\begin{figure}[ht]
-    \begin{center}
-    \includegraphics[width=.8\textwidth]{../img/F1_N_d}
-    \end{center}
-    \caption{$F_1$ $\times$ diferentes $d^f$}
-    \label{fig:F1_N_d}
-\end{figure}
-\begin{center}
-    Precisão e Abrangência diminuem com $d^f=J(A,B) ={{|A \cap B|}\over{|A \cup B|}}$
-\end{center}
-\end{frame}
 
-\begin{frame}{Resultados}{Quantidade de pesos dos atributos $W$}
+
+
+\begin{frame}{Resultados}{$M$, $k$, $W$}
+\begin{columns}[b]
+\column{.333\textwidth} %
 \begin{figure}[ht]
     \begin{center}
-    \includegraphics[width=.8\textwidth]{../img/F1_W}
+    \includegraphics[width=1.1\textwidth]{../img/F1_M}
+    \end{center}
+    \caption{$F_1$ $\times$ $M$}
+    \label{fig:F1_M}
+\end{figure}
+
+%Número de vizinhos mais próximos $k$
+\column{.333\textwidth} % 
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=1.1\textwidth]{../img/F1_k}
+    \end{center}
+    \caption{$F_1$ $\times$ $k$}
+    \label{fig:F1_H}
+\end{figure}
+\column{.333\textwidth} % 
+
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=1.1\textwidth]{../img/F1_W}
     \end{center}
     \caption{$F_1$ $\times$ $W$}
     \label{fig:F1_W}
 \end{figure}
-\begin{center}
-    Precisão e Abrangência praticamente constantes
-\end{center}
+\end{columns}
 \end{frame}
+
+
+
+%\begin{figure}[ht]
+%    \begin{center}
+    %\includegraphics[width=1.1\textwidth]{../img/percentual_M}
+%    \end{center}
+%    \caption{\{\% $r_{ui} = M$\} $\times$ $M$}
+%    \label{fig:percentual_M}
+%\end{figure}
