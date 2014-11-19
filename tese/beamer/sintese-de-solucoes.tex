@@ -2,21 +2,25 @@
 \section[Síntese de Soluções]{Síntese de Soluções}
 % subsubsection algoritmo_baseado_na_pondera_o_de_atributos_fw_ (end)
 \begin{frame}{Síntese de Soluções}
-\textbf{Ponderação de Atributos (FW)}
+\begin{alertblock}{Ponderação de Atributos (FW)}
 $$
     s_{ij} = \sum_{f}{w_{f} \left(1-d_{fij}\right)}
 $$
+\end{alertblock}
 
-\textbf{Perfil de Usuários (UP)}
+\begin{block}{Perfil de Usuários (UP)}
 $$
     s_{uv} = \frac{\sum\limits_{f \in \mathcal{F}_{uv}}{w_{uf}~w_{vf}}}{\sqrt{\sum\limits_{f \in \mathcal{F}_{uv}
     }w_{uf}^2} \sqrt{\sum\limits_{f \in \mathcal{F}_{uv}}w_{vf}^2}} 
 $$
+\end{block}
 
-\textbf{Perfil Usuário-Item (UI)}
+\begin{exampleblock}{Perfil Usuário-Item (UI)}
 $$
     \omega_{ui} = \sum_{f}{w_{uf}~a_{if}}
 $$
+\end{exampleblock}
+
 
 %\begin{table}[hp]
 %\begin{center}
