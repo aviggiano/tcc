@@ -51,7 +51,7 @@
 \column{.5\textwidth} %
 \begin{figure}[ht]
     \begin{center}
-    \includegraphics[width=1\textwidth]{../img/F1_N}
+    \includegraphics[width=1.1\textwidth]{../img/F1_N}
     \end{center}
     \caption{$F_1$ $\times$ $N$}
     \label{fig:F1_N}
@@ -61,7 +61,7 @@
 
 \begin{figure}[ht]
     \begin{center}
-    \includegraphics[width=1\textwidth]{../img/time_N}
+    \includegraphics[width=1.1\textwidth]{../img/time_N}
     \end{center}
     \caption{Tempo $\times$ $N$}
     \label{fig:time_N}
@@ -96,16 +96,76 @@
 \end{frame}
 
 \begin{frame}{Resultados}{Valor mínimo para avaliações positivas $M$}
+\begin{columns}[b]
+\column{.5\textwidth} %
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=1.1\textwidth]{../img/precision_M}
+    \end{center}
+    \caption{Precisão $\times$ $M$}
+    \label{fig:precision_M}
+\end{figure}
+
+\column{.5\textwidth} % 
+
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=1.1\textwidth]{../img/percentual_M}
+    \end{center}
+    \caption{\{\% $r_{ui} = M$\} $\times$ $M$}
+    \label{fig:percentual_M}
+\end{figure}
+\end{columns}
 \end{frame}
 
 \begin{frame}{Resultados}{Número de vizinhos mais próximos $k$}
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=.8\textwidth]{../img/precision_k}
+    \end{center}
+    \caption{Precisão $\times$ $k$}
+    \label{fig:F1_H}
+\end{figure}
+\begin{center}
+    Precisão e Abrangência máximos para $k=20$
+\end{center}
 \end{frame}
 
 \begin{frame}{Resultados}{Conjunto de atributos dos itens  $\mathcal{F}$}
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=.8\textwidth]{../img/F1_N_F}
+    \end{center}
+    \caption{$F_1$ $\times$ $\mathcal{F}$}
+    \label{fig:F1_N_F}
+\end{figure}
+\begin{center}
+    Precisão e Abrangência aumentam com remoção dos atributos \{data de lançamento, ano\}
+\end{center}
 \end{frame}
 
 \begin{frame}{Resultados}{Medida de distância entre atributos $d^f$}
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=.8\textwidth]{../img/F1_N_d}
+    \end{center}
+    \caption{$F_1$ $\times$ diferentes $d^f$}
+    \label{fig:F1_N_d}
+\end{figure}
+\begin{center}
+    Precisão e Abrangência diminuem com $d^f=J(A,B) ={{|A \cap B|}\over{|A \cup B|}}$
+\end{center}
 \end{frame}
 
 \begin{frame}{Resultados}{Quantidade de pesos dos atributos $W$}
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=.8\textwidth]{../img/F1_W}
+    \end{center}
+    \caption{$F_1$ $\times$ $W$}
+    \label{fig:F1_W}
+\end{figure}
+\begin{center}
+    Precisão e Abrangência praticamente constantes
+\end{center}
 \end{frame}
