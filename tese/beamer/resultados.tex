@@ -23,12 +23,76 @@
 \end{frame}
 
 \begin{frame}{Resultados}{Tamanho da lista de recomendação $N$}
+
+\begin{columns}[b]
+\column{.5\textwidth} %
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=1.1\textwidth]{../img/precision_N}
+    \end{center}
+    \caption{Precisão $\times$ $N$}
+    \label{fig:precision_N}
+\end{figure}
+
+\column{.5\textwidth} % 
+
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=1.1\textwidth]{../img/recall_N}
+    \end{center}
+    \caption{Abrangência $\times$ $N$}
+    \label{fig:recall_N}
+\end{figure}
+\end{columns}
+\end{frame}
+
+\begin{frame}{Resultados}{Tamanho da lista de recomendação $N$}
+\begin{columns}[b]
+\column{.5\textwidth} %
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{../img/F1_N}
+    \end{center}
+    \caption{$F_1$ $\times$ $N$}
+    \label{fig:F1_N}
+\end{figure}
+
+\column{.5\textwidth} % 
+
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=1\textwidth]{../img/time_N}
+    \end{center}
+    \caption{Tempo $\times$ $N$}
+    \label{fig:time_N}
+\end{figure}
+\end{columns}
 \end{frame}
 
 \begin{frame}{Resultados}{Percentual da base de aprendizado $T$}
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=.8\textwidth]{../img/precision_T}
+    \end{center}
+    \caption{Precisão $\times$ $T$}
+    \label{fig:precision_T}
+\end{figure}
+\begin{center}
+    Abrangência, $F_1$ e Tempo praticamente constantes
+\end{center}
 \end{frame}
 
 \begin{frame}{Resultados}{Percentual de avaliações ``escondidas'' dos usuários-teste $H$}
+\begin{figure}[ht]
+    \begin{center}
+    \includegraphics[width=.8\textwidth]{../img/F1_H}
+    \end{center}
+    \caption{$F_1$ $\times$ $H$}
+    \label{fig:F1_H}
+\end{figure}
+\begin{center}
+    Precisão cresce e Abrangência decresce
+\end{center}
 \end{frame}
 
 \begin{frame}{Resultados}{Valor mínimo para avaliações positivas $M$}
@@ -42,7 +106,6 @@
 
 \begin{frame}{Resultados}{Medida de distância entre atributos $d^f$}
 \end{frame}
-
 
 \begin{frame}{Resultados}{Quantidade de pesos dos atributos $W$}
 \end{frame}
