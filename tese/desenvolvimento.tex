@@ -248,69 +248,69 @@ As etapas de configuração do ambiente de testes envolvem o cadastro na Amazon 
 Após o cadastro na AWS, deve-se seguir os seguintes passos para a criação de uma máquina virtual:
 
 \begin{enumerate}
-\item Login na plataforma (Figura \ref{fig:aws_servicos});
-\item Acesso ao serviço de máquinas virtuais Elastic Compute Cloud ou EC2. Para criar uma nova máquina, basta clicar em \textit{Launch Instance} (Figura \ref{fig:aws_ec2});
-\item Escolha da configuração do software da máquina. É possível escolher entre diversos sistemas operacionais, versões e distribuições. Para avançar, deve-se clicar em \textit{Select}. No nosso caso, escolhemos a configuração \textit{Amazon Linux AMI 2014.09.1 (HVM)}, em virtude da facilidade de se instalar pacotes adicionais  (Figura \ref{fig:aws_setup_ec2});
-\item Escolha do tipo de máquina. No nosso caso, escolhemos uma máquina otimizada para memória RAM. Em seguida, avançamos em \textit{Next: Configure Instance Details}. Nos \textit{Steps} 3, 4 e 5 do serviço, não modificamos nenhuma opção pré-configurada (Figura \ref{fig:aws_setup_ec2_maquina});
-\item Criação da chave privada a ser utilizada para conexão com a máquina. Depois da criação de uma nova chave, pode-se descarregá-la através de \textit{Download Key Pair} e finalmente iniciar a máquina em \textit{Launch Instances} (Figura \ref{fig:aws_setup_keypair});
-\item Inicialização da máquina e do DNS público. Esse é o endereço de conexão com a máquina, e pode ser obtido na seção \textit{Description} $\rightarrow$ \textit{Public DNS} (Figura \ref{fig:aws_setup_dns}).
+\item Login na plataforma; %(Figura \ref{fig:aws_servicos});
+\item Acesso ao serviço de máquinas virtuais Elastic Compute Cloud ou EC2;% (Figura \ref{fig:aws_ec2});
+\item Escolha da configuração do software da máquina. É possível escolher entre diversos sistemas operacionais, versões e distribuições. No nosso caso, escolhemos a configuração \textit{Amazon Linux AMI 2014.09.1 (HVM)}, em virtude da facilidade de se instalar pacotes adicionais;
+\item Escolha do tipo de máquina. No nosso caso, escolhemos uma máquina otimizada para memória RAM;
+\item Criação da chave privada a ser utilizada para conexão com a máquina;
+\item Inicialização da máquina e do DNS público.
 \end{enumerate}
 
-\begin{figure}[htp]
-    \begin{center}
-    \includegraphics[width=1\textwidth]{img/aws_servicos}
-    \end{center}
-    \caption{Serviços da Amazon Web Services}
-    \label{fig:aws_servicos}
-\end{figure}
-
-\begin{figure}[htp]
-    \begin{center}
-    \includegraphics[width=1\textwidth]{img/aws_ec2}
-    \end{center}
-    \caption{Serviços de Elastic Compute Cloud (EC2)}
-    \label{fig:aws_ec2}
-\end{figure}
-
-\begin{figure}[htp]
-    \begin{center}
-    \includegraphics[width=1\textwidth]{img/aws_setup_ec2}
-    \end{center}
-    \caption{Escolha do tipo de configuração do software da máquina}
-    \label{fig:aws_setup_ec2}
-\end{figure}
-
-\begin{figure}[htp]
-    \begin{center}
-    \includegraphics[width=1\textwidth]{img/aws_setup_ec2_maquina}
-    \end{center}
-    \caption{Escolha do tipo máquina}
-    \label{fig:aws_setup_ec2_maquina}
-\end{figure}
-
-\begin{figure}[htp]
-    \begin{center}
-    \includegraphics[width=1\textwidth]{img/aws_setup_keypair}
-    \end{center}
-    \caption{Criação da chave privada}
-    \label{fig:aws_setup_keypair}
-\end{figure}
-
-\begin{figure}[htp]
-    \begin{center}
-    \includegraphics[width=1\textwidth]{img/aws_setup_dns}
-    \end{center}
-    \caption{Criação da máquina e do DNS público \textit{(Public DNS)}}
-    \label{fig:aws_setup_dns}
-\end{figure}
+%\begin{figure}[htp]
+%    \begin{center}
+%    \includegraphics[width=1\textwidth]{img/aws_servicos}
+%    \end{center}
+%    \caption{Serviços da Amazon Web Services}
+%    \label{fig:aws_servicos}
+%\end{figure}
+%
+%\begin{figure}[htp]
+%    \begin{center}
+%    \includegraphics[width=1\textwidth]{img/aws_ec2}
+%    \end{center}
+%    \caption{Serviços de Elastic Compute Cloud (EC2)}
+%    \label{fig:aws_ec2}
+%\end{figure}
+%
+%\begin{figure}[htp]
+%    \begin{center}
+%    \includegraphics[width=1\textwidth]{img/aws_setup_ec2}
+%    \end{center}
+%    \caption{Escolha do tipo de configuração do software da máquina}
+%    \label{fig:aws_setup_ec2}
+%\end{figure}
+%
+%\begin{figure}[htp]
+%    \begin{center}
+%    \includegraphics[width=1\textwidth]{img/aws_setup_ec2_maquina}
+%    \end{center}
+%    \caption{Escolha do tipo máquina}
+%    \label{fig:aws_setup_ec2_maquina}
+%\end{figure}
+%
+%\begin{figure}[htp]
+%    \begin{center}
+%    \includegraphics[width=1\textwidth]{img/aws_setup_keypair}
+%    \end{center}
+%    \caption{Criação da chave privada}
+%    \label{fig:aws_setup_keypair}
+%\end{figure}
+%
+%\begin{figure}[htp]
+%    \begin{center}
+%    \includegraphics[width=1\textwidth]{img/aws_setup_dns}
+%    \end{center}
+%    \caption{Criação da máquina e do DNS público \textit{(Public DNS)}}
+%    \label{fig:aws_setup_dns}
+%\end{figure}
 
 
 
 Uma vez criada a máquina, deve-se utilizar a chave privada para realizar um \textit{secure shell} e conectar-se remotamente ao EC2. A partir de um computador pessoal dotado de um interpretador de comandos \texttt{bash}, utilizamos a seguinte instrução:
 
-\begin{lstlisting}[caption=Secure shell para conexão com a máquina virtual EC2]
-ssh -i ~/Downloads/key_name.pem ec2-user@ec2-54-88-186-106.compute-1.amazonaws.com
-\end{lstlisting}
+%\begin{lstlisting}[caption=Secure shell para conexão com a máquina virtual EC2]
+%ssh -i ~/Downloads/key_name.pem ec2-user@ec2-54-88-186-106.compute-1.amazonaws.com
+%\end{lstlisting}
 
 Em seguida, para a automatização do ambiente de testes e rápida configuração de novas máquinas, criamos um arquivo \texttt{script.sh} na linguagem de programação \texttt{bash}. Esse \textit{script} instala os pacotes \texttt{R} e \texttt{git} e cria a chave pública necessária para acessar o servidor onde o código da biblioteca está hospedado. Em virtude de sua popularidade, utilizamos o serviço de hospedagem de códigos abertos GitHub (\url{https://github.com/aviggiano/tcc}). 
 
@@ -323,26 +323,7 @@ ssh-keygen -t rsa			# gera a chave para conectar-se ao GitHub
 cat ~/.ssh/id_rsa.pub	# imprime a chave publica, que deve ser adicionada nas configuracoes do GitHub
 \end{lstlisting}
 
-A saída do \textit{script} é uma chave no seguinte formato:
-
-\begin{lstlisting}[caption=Chave pública]
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC/bxcszoyHzwyqtTXp4fl1Q3OT58Lsb7QLx+7nQ6
-y0OIoWhK+r5ynSVi0BpTC+2hMrlg1rZTC1ED7Nb+SI9bRvf+1UYWOiVUXtwAVColMNBdIfE7QCWbJm
-TmmBLcv9PIoCAvCfrxBh+flW3hXG388/LIEjZJckPYogho0jPAnFv3IXAGtVniV6cBcTTfKPUnX+np
-6xiqnf4tYQpmPW/mnxk9s3bbEmcE1eYJkrE2IWdzy6EBnR9D4cBW5D8/VMM54xMJzugWZO//sIjLLT
-0oFTTrroiwr+OX2DxqFdgCy8Agx1WZTeGhBAW1nvIVr5WVcWVBSzBCZfg8mYe+zYnbwl ec2-user@
-ip-10-168-40-38
-\end{lstlisting}
-
-Após a obtenção da chave, deve-se cadastrá-la na página correspondente do GitHub (\url{https://github.com/settings/ssh}), como mostra a Figura \ref{fig:github_key}.
-
-\begin{figure}[htp]
-    \begin{center}
-    \includegraphics[width=1\textwidth]{img/github_key}
-    \end{center}
-    \caption{Cadastro da chave pública no GitHub}
-    \label{fig:github_key}
-\end{figure}
+A saída do \textit{script} é uma chave pública.
 
 Uma vez tendo habilitado a máquina virtual da AWS para manipulação do repositório da biblioteca, pode-se descarregar o código e executar o \textit{script} de testes de qualidade:
 

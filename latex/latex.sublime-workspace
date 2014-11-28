@@ -12,15 +12,6 @@
 	"buffers":
 	[
 		{
-			"contents": "          [,1]       [,2]      [,3]      [,4]       [,5]       [,6]\n[1,]        - &  0.4366197 & 1.0000000 & 0.9295775 &  0.5070423 &  0.1690141\n[2,] 0.4366197 &         - & 0.5070423 & 0.4366197 &  1.0000000 & -0.3239437\n[3,] 1.0000000 &  0.5070423 &        - & 1.0000000 &  0.4366197 &  0.2394366\n[4,] 0.9295775 &  0.4366197 & 1.0000000 &        - &  0.5070423 &  0.1690141\n[5,] 0.5070423 &  1.0000000 & 0.4366197 & 0.5070423 &         - & -0.2535211\n[6,] 0.1690141 & -0.3239437 & 0.2394366 & 0.1690141 & -0.2535211 &         -",
-			"settings":
-			{
-				"buffer_size": 529,
-				"line_ending": "Unix",
-				"name": "[,1]       [,2]      [,3]      [,4]"
-			}
-		},
-		{
 			"file": "avaliacao.tex",
 			"settings":
 			{
@@ -56,7 +47,7 @@
 			"file": "/home/ag/git/tcc/latex - Tese/arte/bibliografia.bib",
 			"settings":
 			{
-				"buffer_size": 10961,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -382,32 +373,6 @@
 			[
 				{
 					"buffer": 0,
-					"settings":
-					{
-						"buffer_size": 529,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								529,
-								529
-							]
-						],
-						"settings":
-						{
-							"auto_name": "[,1]       [,2]      [,3]      [,4]",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
 					"file": "avaliacao.tex",
 					"settings":
 					{
@@ -418,8 +383,8 @@
 						"selection":
 						[
 							[
-								1043,
-								1043
+								141,
+								141
 							]
 						],
 						"settings":
@@ -435,7 +400,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 1,
 					"file": "index.tex",
 					"settings":
 					{
@@ -461,7 +426,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 2,
 					"file": "resultados.tex",
 					"settings":
 					{
@@ -490,7 +455,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 3,
 					"file": "estado-da-arte.tex",
 					"settings":
 					{
@@ -518,11 +483,11 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 4,
 					"file": "/home/ag/git/tcc/latex - Tese/arte/bibliografia.bib",
 					"settings":
 					{
-						"buffer_size": 10961,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
@@ -546,7 +511,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 5,
 					"file": "bibliografia.bib",
 					"settings":
 					{
@@ -574,7 +539,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 6,
 					"file": "introducao.tex",
 					"settings":
 					{

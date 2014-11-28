@@ -11,43 +11,6 @@
 	},
 	"buffers":
 	[
-		{
-			"contents": "",
-			"file": "/media/Data/Dropbox/KUKA/kuka.txt",
-			"file_size": -1,
-			"file_write_time": -1,
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ag/iot/iot.json",
-			"settings":
-			{
-				"buffer_size": 644,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/ag/iot/sensor.js",
-			"settings":
-			{
-				"buffer_size": 413,
-				"line_ending": "Unix",
-				"name": "// JavaScript"
-			}
-		},
-		{
-			"file": "/home/ag/iot.pem",
-			"settings":
-			{
-				"buffer_size": 1608,
-				"line_ending": "Unix",
-				"name": "-----BEGIN RSA PRIVATE KEY-----"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -81,6 +44,10 @@
 	},
 	"file_history":
 	[
+		"/home/ag/iot/sensor.js",
+		"/home/ag/iot/iot.json",
+		"/media/Data/Dropbox/KUKA/kuka.txt",
+		"/home/ag/iot.pem",
 		"/home/ag/git/tcc/tese/abstract.tex",
 		"/home/ag/git/tcc/tese/resumo_pt_br.tex",
 		"/home/ag/git/tcc/tese/requisitos.tex",
@@ -394,117 +361,8 @@
 	"groups":
 	[
 		{
-			"selected": 3,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "/media/Data/Dropbox/KUKA/kuka.txt",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 1862.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/ag/iot/iot.json",
-					"settings":
-					{
-						"buffer_size": 644,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								612,
-								612
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 348.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "/home/ag/iot/sensor.js",
-					"settings":
-					{
-						"buffer_size": 413,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								413,
-								413
-							]
-						],
-						"settings":
-						{
-							"auto_name": "// JavaScript",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/home/ag/iot.pem",
-					"settings":
-					{
-						"buffer_size": 1608,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								294,
-								294
-							]
-						],
-						"settings":
-						{
-							"auto_name": "-----BEGIN RSA PRIVATE KEY-----",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

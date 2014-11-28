@@ -2,7 +2,7 @@
 \chapter[Metodologia]{Metodologia}
 \label{chap:metodologia}
 
-A metodologia de projeto deste Trabalho de Conclusão de Curso foi fundamentada principalmente na Referência \citeonline{pmbok}. Por se tratar de um projeto de Engenharia de Software, foi necessário dar ênfase às etapas iterativas de desenvolvimento dos algoritmos. Esse processo cíclico, com fases de especificação, desenvolvimento e validação, permitiu obter resultados preliminares e os modificar os algoritmos ao longo da disciplina, ajustando detalhes e melhorando o sistema gradativamente \cite{iterative-development}.
+Por se tratar de um projeto de Engenharia de Software, foi necessário dar ênfase às etapas iterativas de desenvolvimento dos algoritmos na metodologia de projeto deste Trabalho de Conclusão de Curso. Esse processo cíclico, com fases de especificação, desenvolvimento e validação, permitiu obter resultados preliminares e os modificar os algoritmos ao longo da disciplina, ajustando detalhes e melhorando o sistema gradativamente \cite{iterative-development}.
 
 A metodologia de execução do projeto, assim como a de avaliação dos resultados, pode ser consolidada da seguinte maneira: 
 
@@ -18,7 +18,7 @@ Com o crescente número de lojas de comércio online, tornou-se necessário a cr
 
 % section defini_o_dos_par_metros_de_sucesso (end)
 
-O sucesso do projeto pode ser medido em duas frentes: a primeira, quantitativa, mede a precisão e a abrangência das recomendações; a segunda, qualitativa, avalia se o sistema responde bem aos problemas recorrentes desse tópico de pesquisa, tais como a escalabilidade, o excesso de especialização e outros. 
+O sucesso do projeto pode ser medido em duas frentes: a primeira, quantitativa, mede a precisão e a abrangência das recomendações. Essas duas medidas devem ser superiores a $20\%$, e seu significado será melhor detalhado no Capítulo \ref{chap:requisitos}.  A segunda, qualitativa, avalia se a biblioteca responde bem aos problemas recorrentes de sistemas de recomendação, tais como a escalabilidade e o excesso de especialização.  
 
 \section{Síntese de Soluções} % (fold)
 \label{sec:s_ntese_de_solu_es}
@@ -91,4 +91,4 @@ Sabe-se que a extração de um modelo por meio de uma validação cruzada sobre 
 
 Como a complexidade dos algoritmos excede o limite dos computadores pessoais da dupla, foi necessário contratar o serviço de computação nas nuvens Amazon Web Services.
 
-Alugamos duas máquinas virtuais do tipo \texttt{r3.large}, otimizadas para memória. As máquinas, de especificação 2 vCPU, 15 GB de memória RAM e sistema operacional Amazon Linux AMI release 2014.09 x86\_64, baseado em RHEL Fedora, custaram USD 0,175 por hora de uso. Todos os testes foram realizados em aproximadamente 12 horas, custando apenas USD 4,20 (menos de R\$ 12,00). Uma explicação detalhada da configuração do ambiente de testes se encontra na Seção \ref{sec:ambiente_de_testes}.
+Alugamos duas máquinas virtuais do tipo \texttt{r3.large}, otimizadas para memória. As máquinas, de especificação 2 vCPU, 15 GB de memória RAM e sistema operacional Amazon Linux AMI release 2014.09 x86\_64, baseado em RHEL Fedora, custaram USD 0,175 por hora de uso. Todos os testes foram realizados em poucas horas, e o custo total do projeto foi de apenas R\$ 5,70. Uma explicação detalhada da configuração do ambiente de testes se encontra na Seção \ref{sec:ambiente_de_testes}.

@@ -11,14 +11,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "resultados.tex",
-			"settings":
-			{
-				"buffer_size": 4720,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -52,16 +44,16 @@
 	},
 	"file_history":
 	[
+		"/home/ag/git/tcc/tese/beamer/objetivos.tex",
+		"/home/ag/git/tcc/tese/beamer/metodologia.tex",
+		"/home/ag/git/tcc/tese/beamer/resultados.tex",
 		"/home/ag/git/tcc/tese/conclusao.tex",
 		"/home/ag/git/tcc/tese/beamer/conclusao.tex",
 		"/home/ag/git/tcc/tese/beamer/sintese-de-solucoes.tex",
 		"/home/ag/git/tcc/tese/resultados.tex",
-		"/home/ag/git/tcc/tese/beamer/resultados.tex",
 		"/home/ag/git/tcc/tese/beamer/estado-da-arte.tex",
-		"/home/ag/git/tcc/tese/beamer/objetivos.tex",
 		"/home/ag/git/tcc/tese/beamer/introducao.tex",
 		"/home/ag/git/tcc/tese/solucoes-propostas.tex",
-		"/home/ag/git/tcc/tese/beamer/metodologia.tex",
 		"/home/ag/git/tcc/tese/beamer/requisitos.tex",
 		"/home/ag/git/tcc/tese/beamer/index.tex",
 		"/home/ag/git/tcc/tese/avaliacao.tex",
@@ -371,37 +363,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "resultados.tex",
-					"settings":
-					{
-						"buffer_size": 4720,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1692,
-								1692
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/LaTeX/LaTeX.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1368.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
